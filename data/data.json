@@ -12412,6 +12412,22 @@
                     "addition": 0.25
                 }
             ]
+        },
+        {
+            "name": "咸公主",
+            "stirfry": 46,
+            "boil": 184,
+            "cut": 0,
+            "fry": 276,
+            "roast": 0,
+            "steam": 92,
+            "show": false,
+            "skill": [
+                {
+                    "type": "水产",
+                    "addition": 0.2
+                }
+            ]
         }
     ],
     "furniture": 0.466,
