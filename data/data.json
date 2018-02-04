@@ -313,7 +313,11 @@
                     "guest": "耶稣"
                 }
             ],
-            "godRune": "焦虫"
+            "godRune": "焦虫",
+            "personal": {
+                "quality": "",
+                "remark": "火凤(优)-大天狗-三阶火凤"
+            }
         },
         {
             "recipeId": 8,
@@ -5941,7 +5945,11 @@
                     "guest": "丐帮帮主"
                 }
             ],
-            "godRune": "防水的柠檬"
+            "godRune": "防水的柠檬",
+            "personal": {
+                "quality": "",
+                "remark": "任意(优)-任意-任意"
+            }
         },
         {
             "recipeId": 126,
