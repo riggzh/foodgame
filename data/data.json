@@ -564,8 +564,8 @@
             ],
             "godRune": "刀嘴鹦鹉",
             "personal": {
-                "quality": "",
-                "remark": "升级后羿(优)-玄离-三阶玄离"
+                "quality": "优",
+                "remark": "玄离-三阶玄离"
             }
         },
         {
@@ -4090,8 +4090,8 @@
             ],
             "godRune": "",
             "personal": {
-                "quality": "",
-                "remark": "羽十六(优)-玄离-升级玄离"
+                "quality": "优",
+                "remark": "玄离-升级玄离"
             }
         },
         {
@@ -4494,8 +4494,8 @@
             ],
             "godRune": "焦虫",
             "personal": {
-                "quality": "",
-                "remark": "灯鬼(优)-升级秦瑞雨-不知火喵"
+                "quality": "优",
+                "remark": "升级秦瑞雨-不知火喵"
             }
         },
         {
@@ -7514,8 +7514,8 @@
             ],
             "godRune": "焦虫",
             "personal": {
-                "quality": "优",
-                "remark": "三阶不知火喵-升级三阶不知火喵"
+                "quality": "特",
+                "remark": "不知火喵"
             }
         },
         {
@@ -9863,8 +9863,8 @@
             ],
             "godRune": "刀嘴鹦鹉",
             "personal": {
-                "quality": "优",
-                "remark": "升级后羿/二阶玄离-升级后羿/二阶玄离"
+                "quality": "特",
+                "remark": "后羿/玄离"
             }
         },
         {
@@ -9969,8 +9969,8 @@
             ],
             "godRune": "",
             "personal": {
-                "quality": "",
-                "remark": "升级蛋皇(优)-上宫晴-升级上宫晴"
+                "quality": "优",
+                "remark": "上宫晴-升级上宫晴"
             }
         },
         {
