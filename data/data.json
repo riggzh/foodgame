@@ -2637,11 +2637,15 @@
                 },
                 {
                     "name": "虾",
+                    "quantity": 4
+                },
+                {
+                    "name": "笋",
                     "quantity": 3
                 }
             ],
-            "price": 158,
-            "time": 269,
+            "price": 270,
+            "time": 576,
             "total": 25,
             "origin": "神级小笼包",
             "guests": [
