@@ -5248,9 +5248,9 @@
             "unlock": "-",
             "stirfry": 0,
             "boil": 0,
-            "cut": 120,
+            "cut": 95,
             "fry": 0,
-            "roast": 150,
+            "roast": 120,
             "steam": 0,
             "ingredient": [
                 {
@@ -5270,8 +5270,8 @@
                     "quantity": 12
                 }
             ],
-            "price": 1311,
-            "time": 693,
+            "price": 1228,
+            "time": 584,
             "total": 15,
             "origin": "神级洋葱小炒肉",
             "guests": [
