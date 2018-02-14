@@ -11415,11 +11415,11 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "丐帮帮主"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "富二代"
                 },
                 {
                     "quality": "神",
@@ -11428,7 +11428,7 @@
             ],
             "godRune": "",
             "personal": {
-                "quality": "",
+                "quality": "特",
                 "remark": ""
             }
         },
