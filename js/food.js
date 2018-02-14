@@ -358,9 +358,9 @@ function init(json) {
         },
         pageSize: 5,
         showPageNumbers: false,
-        showNavigator: false,
-        showPrevious: false,
-        showNext: false
+        showNavigator: true,
+        showPrevious: true,
+        showNext: true
     })
 }
 
