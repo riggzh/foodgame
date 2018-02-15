@@ -11636,11 +11636,11 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "白富美"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "迷思吹法师"
                 },
                 {
                     "quality": "神",
@@ -11649,7 +11649,7 @@
             ],
             "godRune": "",
             "personal": {
-                "quality": "",
+                "quality": "特",
                 "remark": ""
             }
         },
@@ -13017,1292 +13017,1552 @@
     ],
     "chefs": [
         {
+            "chefId": 1,
             "name": "羽十六",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 185,
             "boil": 154,
             "cut": 61,
             "fry": 0,
             "roast": 0,
             "steam": 30,
-            "show": true,
             "skill": [
                 {
                     "type": "贵客",
                     "addition": 0.3
                 }
-            ]
+            ],
+            "origin": "开局"
         },
         {
+            "chefId": 4,
             "name": "熊麓",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 61,
             "boil": 0,
             "cut": 123,
             "fry": 185,
             "roast": 61,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "炸类",
+                    "type": "炸",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "开局"
         },
         {
+            "chefId": 7,
             "name": "麦小咖",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 80,
             "cut": 0,
             "fry": 0,
             "roast": 20,
             "steam": 100,
-            "show": false,
             "skill": [
                 {
-                    "type": "面类",
+                    "type": "面",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "主线17"
         },
         {
+            "chefId": 10,
             "name": "白祁右",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 40,
             "boil": 0,
             "cut": 40,
             "fry": 120,
             "roast": 0,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "炸类",
+                    "type": "炸",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "主线3"
         },
         {
+            "chefId": 13,
             "name": "熊伏伏",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 0,
             "cut": 61,
             "fry": 30,
             "roast": 92,
             "steam": 15,
-            "show": false,
             "skill": [
                 {
-                    "type": "肉类",
+                    "type": "肉",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "主线10"
         },
         {
+            "chefId": 16,
             "name": "紫酱",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 66,
             "boil": 100,
             "cut": 0,
             "fry": 0,
             "roast": 0,
             "steam": 33,
-            "show": false,
             "skill": [
                 {
-                    "type": "煮类",
+                    "type": "煮",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "主线7"
         },
         {
+            "chefId": 19,
             "name": "武葵",
+            "fire": 2,
+            "sex": "男",
             "stirfry": 23,
             "boil": 0,
             "cut": 92,
             "fry": 0,
             "roast": 46,
             "steam": 138,
-            "show": false,
             "skill": [
                 {
-                    "type": "肉类",
+                    "type": "肉",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "开局"
         },
         {
+            "chefId": 22,
             "name": "郭锅",
+            "fire": 2,
+            "sex": "男",
             "stirfry": 138,
             "boil": 0,
             "cut": 23,
             "fry": 0,
             "roast": 92,
             "steam": 46,
-            "show": false,
             "skill": [
                 {
-                    "type": "炒类",
+                    "type": "炒",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "主线22"
         },
         {
+            "chefId": 25,
             "name": "农当午",
+            "fire": 2,
+            "sex": "男",
             "stirfry": 23,
             "boil": 138,
             "cut": 0,
             "fry": 0,
             "roast": 46,
             "steam": 92,
-            "show": false,
             "skill": [
                 {
                     "type": "金币",
                     "addition": 0.04
                 }
-            ]
+            ],
+            "origin": "主线27"
         },
         {
+            "chefId": 28,
             "name": "鱼不斩",
+            "fire": 2,
+            "sex": "男",
             "stirfry": 138,
             "boil": 0,
             "cut": 92,
             "fry": 0,
             "roast": 46,
             "steam": 23,
-            "show": false,
             "skill": [
                 {
                     "type": "水产",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "新手奖池"
         },
         {
+            "chefId": 31,
             "name": "雷椒",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 0,
             "cut": 30,
             "fry": 78,
             "roast": 75,
             "steam": 15,
-            "show": false,
             "skill": [
                 {
                     "type": "贵客",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "新手奖池"
         },
         {
+            "chefId": 34,
             "name": "豆腕儿",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 92,
             "cut": 30,
             "fry": 15,
             "roast": 0,
             "steam": 61,
-            "show": false,
             "skill": [
                 {
-                    "type": "面类",
+                    "type": "面",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "新手奖池"
         },
         {
+            "chefId": 37,
             "name": "申公子",
+            "fire": 3,
+            "sex": "男",
             "stirfry": 0,
             "boil": 0,
             "cut": 33,
             "fry": 166,
             "roast": 66,
             "steam": 166,
-            "show": false,
             "skill": [
                 {
                     "type": "时间",
                     "addition": 0
                 }
-            ]
+            ],
+            "origin": "签到礼包"
         },
         {
+            "chefId": 40,
             "name": "禅优塔",
+            "fire": 2,
+            "sex": "男",
             "stirfry": 0,
             "boil": 21,
             "cut": 150,
             "fry": 42,
             "roast": 0,
             "steam": 85,
-            "show": false,
             "skill": [
                 {
-                    "type": "切类",
+                    "type": "切",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "中级奖池"
         },
         {
+            "chefId": 46,
             "name": "武陵仔",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 33,
             "cut": 0,
             "fry": 100,
             "roast": 66,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
                     "type": "水产",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "新手奖池"
         },
         {
+            "chefId": 49,
             "name": "傣弟",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 61,
             "cut": 15,
             "fry": 30,
             "roast": 0,
             "steam": 92,
-            "show": false,
             "skill": [
                 {
-                    "type": "蒸类",
+                    "type": "蒸",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "中级奖池"
         },
         {
+            "chefId": 52,
             "name": "面小解",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 0,
             "cut": 66,
             "fry": 16,
             "roast": 16,
             "steam": 100,
-            "show": false,
             "skill": [
                 {
-                    "type": "面类",
+                    "type": "面",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "中级奖池"
         },
         {
+            "chefId": 58,
             "name": "锄小禾",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 66,
             "cut": 33,
             "fry": 0,
             "roast": 0,
             "steam": 100,
-            "show": false,
             "skill": [
                 {
                     "type": "金币",
                     "addition": 0.02
                 }
-            ]
+            ],
+            "origin": "新手奖池"
         },
         {
+            "chefId": 61,
             "name": "椒娃",
+            "fire": 1,
+            "sex": "女",
             "stirfry": 0,
             "boil": 26,
             "cut": 0,
             "fry": 80,
             "roast": 53,
             "steam": 40,
-            "show": false,
             "skill": [
                 {
-                    "type": "炸类",
+                    "type": "炸",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "签到礼包"
         },
         {
+            "chefId": 64,
             "name": "熊妮",
+            "fire": 1,
+            "sex": "女",
             "stirfry": 15,
             "boil": 0,
             "cut": 92,
             "fry": 61,
             "roast": 0,
             "steam": 30,
-            "show": false,
             "skill": [
                 {
-                    "type": "切类",
+                    "type": "切",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "中级奖池"
         },
         {
+            "chefId": 67,
             "name": "藕多多",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 33,
             "cut": 66,
             "fry": 0,
             "roast": 100,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
                     "type": "蔬菜",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "新手奖池"
         },
         {
+            "chefId": 70,
             "name": "小当家",
+            "fire": 1,
+            "sex": "女",
             "stirfry": 0,
             "boil": 100,
             "cut": 66,
             "fry": 0,
             "roast": 0,
             "steam": 33,
-            "show": false,
             "skill": [
                 {
-                    "type": "面类",
+                    "type": "面",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "新手奖池"
         },
         {
+            "chefId": 73,
             "name": "兜帽药师",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 66,
             "boil": 100,
             "cut": 0,
             "fry": 0,
             "roast": 0,
             "steam": 33,
-            "show": false,
             "skill": [
                 {
-                    "type": "煮类",
+                    "type": "煮",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "开局"
         },
         {
+            "chefId": 76,
             "name": "蓝孩子",
+            "fire": 2,
+            "sex": "男",
             "stirfry": 85,
             "boil": 0,
             "cut": 0,
             "fry": 128,
             "roast": 21,
             "steam": 64,
-            "show": false,
             "skill": [
                 {
-                    "type": "炸类",
+                    "type": "炸",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "壁池"
         },
         {
+            "chefId": 79,
             "name": "盲女",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 0,
             "boil": 92,
             "cut": 138,
             "fry": 23,
             "roast": 46,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "肉类",
+                    "type": "肉",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "壁池"
         },
         {
+            "chefId": 82,
             "name": "兰染",
+            "fire": 4,
+            "sex": "男",
             "stirfry": 276,
             "boil": 0,
             "cut": 184,
             "fry": 0,
             "roast": 46,
             "steam": 92,
-            "show": false,
             "skill": [
                 {
-                    "type": "炒类",
+                    "type": "炒",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "壁池"
         },
         {
+            "chefId": 85,
             "name": "粉爪酱",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 0,
             "boil": 23,
             "cut": 138,
             "fry": 46,
             "roast": 92,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
                     "type": "水产",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "中级奖池"
         },
         {
+            "chefId": 88,
             "name": "蛋皇",
+            "fire": 4,
+            "sex": "女",
             "stirfry": 0,
             "boil": 184,
             "cut": 0,
             "fry": 46,
             "roast": 92,
             "steam": 276,
-            "show": false,
             "skill": [
                 {
-                    "type": "蒸类",
+                    "type": "蒸",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "壁池"
         },
         {
+            "chefId": 91,
             "name": "苏吴安",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 0,
             "cut": 66,
             "fry": 33,
             "roast": 0,
             "steam": 100,
-            "show": false,
             "skill": [
                 {
                     "type": "蔬菜",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "中级奖池"
         },
         {
+            "chefId": 94,
             "name": "堂雪",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 33,
             "boil": 199,
             "cut": 0,
             "fry": 0,
             "roast": 66,
             "steam": 133,
-            "show": false,
             "skill": [
                 {
                     "type": "贵客",
                     "addition": 0.3
                 }
-            ]
+            ],
+            "origin": "壁池"
         },
         {
+            "chefId": 97,
             "name": "方叔",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 0,
             "boil": 0,
             "cut": 0,
             "fry": 33,
             "roast": 100,
             "steam": 66,
-            "show": false,
             "skill": [
                 {
-                    "type": "面类",
+                    "type": "面",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "中级奖池"
         },
         {
+            "chefId": 100,
             "name": "辣子姬",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 138,
             "boil": 46,
             "cut": 0,
             "fry": 92,
             "roast": 0,
             "steam": 23,
-            "show": false,
             "skill": [
                 {
-                    "type": "炒类",
+                    "type": "炒",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "壁池"
         },
         {
+            "chefId": 103,
             "name": "夏风",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 46,
             "boil": 0,
             "cut": 92,
             "fry": 138,
             "roast": 0,
             "steam": 23,
-            "show": false,
             "skill": [
                 {
                     "type": "贵客",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "中级奖池"
         },
         {
+            "chefId": 106,
             "name": "春日",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 46,
             "boil": 92,
             "cut": 0,
             "fry": 138,
             "roast": 23,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
                     "type": "金币",
                     "addition": 0.02
                 }
-            ]
+            ],
+            "origin": "壁池"
         },
         {
+            "chefId": 109,
             "name": "蟹小星",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 23,
             "boil": 0,
             "cut": 138,
             "fry": 46,
             "roast": 0,
             "steam": 92,
-            "show": false,
             "skill": [
                 {
-                    "type": "蒸类",
+                    "type": "蒸",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "壁池"
         },
         {
+            "chefId": 112,
             "name": "小龙侠",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 92,
             "boil": 0,
             "cut": 138,
             "fry": 46,
             "roast": 23,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "切类",
+                    "type": "切",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "壁池"
         },
         {
+            "chefId": 115,
             "name": "叶姬",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 0,
             "boil": 138,
             "cut": 46,
             "fry": 0,
             "roast": 92,
             "steam": 23,
-            "show": false,
             "skill": [
                 {
-                    "type": "煮类",
+                    "type": "煮",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "厨师礼包<br>晚秋壁池"
         },
         {
+            "chefId": 118,
             "name": "不知火喵",
+            "fire": 4,
+            "sex": "女",
             "stirfry": 0,
             "boil": 46,
             "cut": 184,
             "fry": 0,
             "roast": 276,
             "steam": 92,
-            "show": false,
             "skill": [
                 {
-                    "type": "烤类",
+                    "type": "烤",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "厨师礼包<br>圣诞壁池"
         },
         {
+            "chefId": 121,
             "name": "栗莉",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 92,
             "boil": 46,
             "cut": 0,
             "fry": 23,
             "roast": 138,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "烤类",
+                    "type": "烤",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "壁池"
         },
         {
+            "chefId": 124,
             "name": "粉雪",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 0,
             "boil": 92,
             "cut": 0,
             "fry": 23,
             "roast": 46,
             "steam": 138,
-            "show": false,
             "skill": [
                 {
                     "type": "贵客",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "新手奖池"
         },
         {
+            "chefId": 127,
             "name": "汤媛",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 23,
             "boil": 138,
             "cut": 46,
             "fry": 0,
             "roast": 0,
             "steam": 92,
-            "show": false,
             "skill": [
                 {
-                    "type": "面类",
+                    "type": "面",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "晚秋壁池"
         },
         {
+            "chefId": 130,
             "name": "贝丽",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 0,
             "boil": 46,
             "cut": 138,
             "fry": 0,
             "roast": 23,
             "steam": 92,
-            "show": false,
             "skill": [
                 {
-                    "type": "切类",
+                    "type": "切",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "双11壁池"
         },
         {
+            "chefId": 133,
             "name": "上宫晴",
+            "fire": 5,
+            "sex": "女",
             "stirfry": 124,
             "boil": 249,
             "cut": 62,
             "fry": 0,
             "roast": 0,
             "steam": 374,
-            "show": false,
             "skill": [
                 {
-                    "type": "蒸类",
+                    "type": "蒸",
                     "addition": 0.25
                 }
-            ]
+            ],
+            "origin": "厨师礼包<br>情人节壁池"
         },
         {
+            "chefId": 136,
             "name": "毛利红",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 0,
             "boil": 23,
             "cut": 138,
             "fry": 46,
             "roast": 92,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "肉类",
+                    "type": "肉",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "晚秋壁池"
         },
         {
+            "chefId": 139,
             "name": "火凤",
+            "fire": 4,
+            "sex": "女",
             "stirfry": 276,
             "boil": 0,
             "cut": 46,
             "fry": 92,
             "roast": 184,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "炒类",
+                    "type": "炒",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "厨师礼包<br>春节壁池"
         },
         {
+            "chefId": 142,
             "name": "夏娃",
+            "fire": 4,
+            "sex": "女",
             "stirfry": 92,
             "boil": 46,
             "cut": 276,
             "fry": 0,
             "roast": 0,
             "steam": 184,
-            "show": false,
             "skill": [
                 {
-                    "type": "切类",
+                    "type": "切",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "双11壁池"
         },
         {
+            "chefId": 145,
             "name": "秋韵",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 46,
             "boil": 23,
             "cut": 138,
             "fry": 0,
             "roast": 0,
             "steam": 92,
-            "show": false,
             "skill": [
                 {
                     "type": "贵客",
                     "addition": 0.3
                 }
-            ]
+            ],
+            "origin": "双11壁池"
         },
         {
+            "chefId": 148,
             "name": "祖冲之",
+            "fire": 4,
+            "sex": "男",
             "stirfry": 190,
             "boil": 0,
             "cut": 85,
             "fry": 285,
             "roast": 0,
             "steam": 38,
-            "show": false,
             "skill": [
                 {
-                    "type": "炸类",
+                    "type": "炸",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "圣诞壁池"
         },
         {
+            "chefId": 151,
             "name": "兔爷",
+            "fire": 3,
+            "sex": "男",
             "stirfry": 66,
             "boil": 33,
             "cut": 133,
             "fry": 0,
             "roast": 0,
             "steam": 199,
-            "show": false,
             "skill": [
                 {
                     "type": "蔬菜",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "晚秋壁池"
         },
         {
+            "chefId": 154,
             "name": "李一清",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 33,
             "boil": 133,
             "cut": 199,
             "fry": 0,
             "roast": 66,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "面类",
+                    "type": "面",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "晚秋壁池"
         },
         {
+            "chefId": 157,
             "name": "嫦娥",
+            "fire": 4,
+            "sex": "女",
             "stirfry": 46,
             "boil": 276,
             "cut": 0,
             "fry": 184,
             "roast": 0,
             "steam": 92,
-            "show": false,
             "skill": [
                 {
-                    "type": "炸类",
+                    "type": "炸",
                     "addition": 0.1
                 },
                 {
-                    "type": "煮类",
+                    "type": "煮",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "晚秋壁池"
         },
         {
+            "chefId": 160,
             "name": "后羿",
+            "fire": 5,
+            "sex": "男",
             "stirfry": 0,
             "boil": 249,
             "cut": 374,
             "fry": 62,
             "roast": 124,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "切类",
+                    "type": "切",
                     "addition": 0.25
                 }
-            ]
+            ],
+            "origin": "晚秋壁池"
         },
         {
+            "chefId": 163,
             "name": "杨小倩",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 0,
             "boil": 133,
             "cut": 0,
             "fry": 199,
             "roast": 66,
             "steam": 33,
-            "show": false,
             "skill": [
                 {
-                    "type": "面类",
+                    "type": "面",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "双11壁池"
         },
         {
+            "chefId": 166,
             "name": "琪琪",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 199,
             "boil": 0,
             "cut": 133,
             "fry": 0,
             "roast": 33,
             "steam": 66,
-            "show": false,
             "skill": [
                 {
-                    "type": "炒类",
+                    "type": "炒",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "双11壁池"
         },
         {
+            "chefId": 169,
             "name": "秦端雨",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 123,
             "boil": 0,
             "cut": 61,
             "fry": 61,
             "roast": 185,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
                     "type": "金币",
                     "addition": 0.06
                 }
-            ]
+            ],
+            "origin": "厨师礼包"
         },
         {
+            "chefId": 175,
             "name": "大天狗",
+            "fire": 5,
+            "sex": "男",
             "stirfry": 232,
             "boil": 0,
             "cut": 58,
             "fry": 348,
             "roast": 174,
             "steam": 0,
-            "show": true,
             "skill": [
                 {
                     "type": "水产",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "双11壁池"
         },
         {
+            "chefId": 178,
             "name": "孙香香",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 61,
             "boil": 0,
             "cut": 216,
             "fry": 30,
             "roast": 123,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "切类",
+                    "type": "切",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "双11壁池"
         },
         {
+            "chefId": 181,
             "name": "灯鬼",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 108,
             "boil": 0,
             "cut": 0,
             "fry": 72,
             "roast": 216,
             "steam": 36,
-            "show": false,
             "skill": [
                 {
-                    "type": "烤类",
+                    "type": "烤",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "圣诞壁池"
         },
         {
+            "chefId": 184,
             "name": "湘思",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 0,
             "boil": 33,
             "cut": 133,
             "fry": 0,
             "roast": 66,
             "steam": 199,
-            "show": false,
             "skill": [
                 {
                     "type": "贵客",
                     "addition": 0.3
                 }
-            ]
+            ],
+            "origin": "情人节壁池"
         },
         {
+            "chefId": 187,
             "name": "白稻荷",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 0,
             "boil": 92,
             "cut": 30,
             "fry": 0,
             "roast": 123,
             "steam": 185,
-            "show": false,
             "skill": [
                 {
-                    "type": "素材",
+                    "type": "采集",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "厨师礼包"
         },
         {
+            "chefId": 193,
             "name": "齐雪",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 0,
             "boil": 199,
             "cut": 133,
             "fry": 0,
             "roast": 33,
             "steam": 66,
-            "show": false,
             "skill": [
                 {
-                    "type": "煮类",
+                    "type": "煮",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "情人节壁池"
         },
         {
+            "chefId": 196,
             "name": "姜小诗",
+            "fire": 1,
+            "sex": "女",
             "stirfry": 20,
             "boil": 100,
             "cut": 80,
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "肉类",
+                    "type": "肉",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "圣诞壁池"
         },
         {
+            "chefId": 199,
             "name": "撒豆丁",
+            "fire": 3,
+            "sex": "男",
             "stirfry": 0,
             "boil": 66,
             "cut": 199,
             "fry": 0,
             "roast": 33,
             "steam": 133,
-            "show": false,
             "skill": [
                 {
-                    "type": "切类",
+                    "type": "切",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "春节壁池"
         },
         {
+            "chefId": 202,
             "name": "李小染",
+            "fire": 1,
+            "sex": "男",
             "stirfry": 20,
             "boil": 100,
             "cut": 0,
             "fry": 80,
             "roast": 0,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "煮类",
+                    "type": "煮",
                     "addition": 0.05
                 }
-            ]
+            ],
+            "origin": "签到礼包"
         },
         {
+            "chefId": 205,
             "name": "王仔",
+            "fire": 3,
+            "sex": "男",
             "stirfry": 0,
             "boil": 0,
             "cut": 133,
             "fry": 199,
             "roast": 33,
             "steam": 66,
-            "show": false,
             "skill": [
                 {
-                    "type": "面类",
+                    "type": "面",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "春节壁池"
         },
         {
+            "chefId": 208,
             "name": "努扎尔",
+            "fire": 3,
+            "sex": "男",
             "stirfry": 133,
             "boil": 0,
             "cut": 199,
             "fry": 66,
             "roast": 33,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "切类",
+                    "type": "切",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "圣诞壁池"
         },
         {
+            "chefId": 211,
             "name": "雨莲",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 92,
             "boil": 0,
             "cut": 138,
             "fry": 46,
             "roast": 23,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
                     "type": "金币",
                     "addition": 0.04
                 }
-            ]
+            ],
+            "origin": "情人节壁池"
         },
         {
+            "chefId": 214,
             "name": "紫燕",
+            "fire": 2,
+            "sex": "男",
             "stirfry": 138,
             "boil": 46,
             "cut": 0,
             "fry": 0,
             "roast": 92,
             "steam": 23,
-            "show": false,
             "skill": [
                 {
-                    "type": "素材",
+                    "type": "采集",
                     "addition": 0.12
                 }
-            ]
+            ],
+            "origin": "圣诞壁池"
         },
         {
+            "chefId": 217,
             "name": "雨轩",
+            "fire": 2,
+            "sex": "女",
             "stirfry": 0,
             "boil": 92,
             "cut": 0,
             "fry": 46,
             "roast": 138,
             "steam": 23,
-            "show": false,
             "skill": [
                 {
-                    "type": "烤类",
+                    "type": "烤",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "春节壁池"
         },
         {
+            "chefId": 220,
+            "name": "雷慕",
+            "fire": 4,
+            "sex": "女",
+            "stirfry": 46,
+            "boil": 0,
+            "cut": 0,
+            "fry": 92,
+            "roast": 276,
+            "steam": 184,
+            "skill": [
+                {
+                    "type": "面",
+                    "addition": 0.2
+                }
+            ],
+            "origin": "厨师礼包"
+        },
+        {
+            "chefId": 223,
             "name": "姜灵儿",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 0,
             "boil": 133,
             "cut": 0,
             "fry": 66,
             "roast": 199,
             "steam": 33,
-            "show": false,
             "skill": [
                 {
-                    "type": "烤类",
+                    "type": "烤",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "圣诞壁池"
         },
         {
+            "chefId": 226,
             "name": "玄离",
+            "fire": 5,
+            "sex": "男",
             "stirfry": 124,
             "boil": 374,
             "cut": 249,
             "fry": 0,
             "roast": 0,
             "steam": 62,
-            "show": false,
             "skill": [
                 {
-                    "type": "煮类",
+                    "type": "煮",
                     "addition": 0.25
                 }
-            ]
+            ],
+            "origin": "圣诞壁池"
         },
         {
+            "chefId": 238,
             "name": "夜月",
+            "fire": 2,
+            "sex": "男",
             "stirfry": 0,
             "boil": 37,
             "cut": 75,
             "fry": 112,
             "roast": 0,
             "steam": 75,
-            "show": false,
             "skill": [
                 {
-                    "type": "炸类",
+                    "type": "炸",
                     "addition": 0.1
                 }
-            ]
+            ],
+            "origin": "情人节壁池"
         },
         {
+            "chefId": 244,
             "name": "唐美美",
+            "fire": 3,
+            "sex": "女",
             "stirfry": 133,
             "boil": 199,
             "cut": 66,
             "fry": 0,
             "roast": 0,
             "steam": 33,
-            "show": false,
             "skill": [
                 {
-                    "type": "煮类",
+                    "type": "煮",
                     "addition": 0.15
                 }
-            ]
+            ],
+            "origin": "春节壁池"
         },
         {
+            "chefId": 247,
             "name": "盐如玉",
+            "fire": 4,
+            "sex": "女",
             "stirfry": 276,
             "boil": 0,
             "cut": 46,
             "fry": 92,
             "roast": 184,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
                     "type": "贵客",
                     "addition": 0.4
                 }
-            ]
+            ],
+            "origin": "情人节壁池"
         },
         {
+            "chefId": 253,
             "name": "雷公子",
+            "fire": 4,
+            "sex": "男",
             "stirfry": 92,
             "boil": 46,
             "cut": 0,
             "fry": 184,
             "roast": 276,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "烤类",
+                    "type": "烤",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "情人节壁池"
         },
         {
+            "chefId": 256,
             "name": "咸公主",
+            "fire": 4,
+            "sex": "女",
             "stirfry": 46,
             "boil": 184,
             "cut": 0,
             "fry": 276,
             "roast": 0,
             "steam": 92,
-            "show": false,
             "skill": [
                 {
                     "type": "水产",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "厨师礼包"
         },
         {
+            "chefId": 265,
             "name": "玄一",
+            "fire": 5,
+            "sex": "女",
             "stirfry": 374,
             "boil": 0,
             "cut": 62,
             "fry": 249,
             "roast": 124,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "炒类",
+                    "type": "炒",
                     "addition": 0.25
                 }
-            ]
+            ],
+            "origin": "情人节壁池"
         },
         {
+            "chefId": 268,
             "name": "猪小福",
+            "fire": 4,
+            "sex": "男",
             "stirfry": 184,
             "boil": 0,
             "cut": 46,
             "fry": 276,
             "roast": 92,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "肉类",
+                    "type": "肉",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "春节壁池"
         },
         {
+            "chefId": 271,
             "name": "小福妮",
+            "fire": 4,
+            "sex": "女",
             "stirfry": 0,
             "boil": 92,
             "cut": 276,
             "fry": 46,
             "roast": 184,
             "steam": 0,
-            "show": false,
             "skill": [
                 {
-                    "type": "切类",
+                    "type": "切",
                     "addition": 0.2
                 }
-            ]
+            ],
+            "origin": "春节壁池"
         },
         {
+            "chefId": 274,
             "name": "火姬",
+            "fire": 5,
+            "sex": "女",
             "stirfry": 0,
             "boil": 124,
             "cut": 0,
             "fry": 62,
             "roast": 374,
             "steam": 249,
-            "show": false,
             "skill": [
                 {
-                    "type": "烤类",
+                    "type": "烤",
                     "addition": 0.25
                 }
-            ]
+            ],
+            "origin": "春节壁池"
         }
     ],
     "furniture": 0.466,
     "history": [
+        "2018/2/15 加入厨师图鉴功能，点击右上角切换图鉴",
         "2018/2/14 加入情人节、春节菜谱、厨师",
         "2018/1/26 加入菜谱 豆豉蒸鱼",
         "2018/1/23 加入限时任务菜谱 三鲜砂锅 猪肚鸡",

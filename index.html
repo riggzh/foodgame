@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=1" />
     <script type="text/javascript" src="js/script.min.js?v=2"></script>
-    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=3" />
-    <script type="text/javascript" src="js/food.min.js?v=15"></script>
+    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=4" />
+    <script type="text/javascript" src="js/food.min.js?v=16"></script>
 </head>
 
 <body>
@@ -15,200 +15,203 @@
         <h1>加载中...</h1>
     </div>
 
-    <div class="main hidden">
-        <div class="row1">
+    <div id="info" class="hidden">
+        <input type="checkbox" id="chk-function-switch" data-toggle="toggle" data-on="厨师" data-off="菜谱" data-onstyle="default" data-width="67px"
+            data-height="34px">
+        <a data-toggle="modal" data-target="#info-modal">
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="main-recipe" class="hidden">
+        <div>
             <div class="box box1">
-                <a id="chk-show-all" class="btn btn-default">
+                <a id="chk-recipe-show-all" class="btn btn-default">
                     全选
                 </a>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-id" class="chk-show">
+                    <input type="checkbox" id="chk-recipe-show-id" class="chk-recipe-show">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     编号
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-fire" class="chk-show" checked>
+                    <input type="checkbox" id="chk-recipe-show-fire" class="chk-recipe-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     星
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-skill" class="chk-show">
+                    <input type="checkbox" id="chk-recipe-show-skill" class="chk-recipe-show">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                    技能
+                    技法
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-ingredient" class="chk-show" checked>
+                    <input type="checkbox" id="chk-recipe-show-ingredient" class="chk-recipe-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     材料
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-price" class="chk-show">
+                    <input type="checkbox" id="chk-recipe-show-price" class="chk-recipe-show">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     单价
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-time" class="chk-show" checked>
+                    <input type="checkbox" id="chk-recipe-show-time" class="chk-recipe-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     单时间
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-total" class="chk-show" checked>
+                    <input type="checkbox" id="chk-recipe-show-total" class="chk-recipe-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     一组
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-total-price" class="chk-show" checked>
+                    <input type="checkbox" id="chk-recipe-show-total-price" class="chk-recipe-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     总价
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-total-time" class="chk-show" checked>
+                    <input type="checkbox" id="chk-recipe-show-total-time" class="chk-recipe-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     总时间
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-efficiency" class="chk-show" checked>
+                    <input type="checkbox" id="chk-recipe-show-efficiency" class="chk-recipe-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     金币效率
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-ingredient-efficiency" class="chk-show">
+                    <input type="checkbox" id="chk-recipe-show-ingredient-efficiency" class="chk-recipe-show">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     耗材效率
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-origin" class="chk-show" checked>
+                    <input type="checkbox" id="chk-recipe-show-origin" class="chk-recipe-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     来源
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-unlock" class="chk-show" checked>
+                    <input type="checkbox" id="chk-recipe-show-unlock" class="chk-recipe-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     解锁
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-guest" class="chk-show" checked>
+                    <input type="checkbox" id="chk-recipe-show-guest" class="chk-recipe-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     贵客
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-level-guest" class="chk-show">
+                    <input type="checkbox" id="chk-recipe-show-level-guest" class="chk-recipe-show">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     升阶贵客
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-show-god-rune" class="chk-show">
+                    <input type="checkbox" id="chk-recipe-show-god-rune" class="chk-recipe-show">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     神级符文
                 </label>
                 <label class="btn btn-default hidden">
-                    <input type="checkbox" id="chk-show-get" class="chk-show">
+                    <input type="checkbox" id="chk-recipe-show-get" class="chk-recipe-show">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     已有
                 </label>
                 <label class="btn btn-default hidden">
-                    <input type="checkbox" id="chk-show-quality" class="chk-show">
+                    <input type="checkbox" id="chk-recipe-show-quality" class="chk-recipe-show">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     品质
                 </label>
                 <label class="btn btn-default hidden">
-                    <input type="checkbox" id="chk-show-remark" class="chk-show">
+                    <input type="checkbox" id="chk-recipe-show-remark" class="chk-recipe-show">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     备注
                 </label>
-                <div class="chk-show-chef-wrapper">
-                    <select id="chk-show-chef" multiple="multiple"></select>
+                <div class="chk-recipe-show-chef-wrapper">
+                    <select id="chk-recipe-show-chef" multiple="multiple"></select>
                 </div>
                 <label class="btn btn-default hidden">
-                    <input type="checkbox" id="chk-fixed-header" class="chk-show">
+                    <input type="checkbox" id="chk-recipe-fixed-header" class="chk-recipe-show">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     固定列名
                 </label>
             </div>
-            <div class="info">
-                <a data-toggle="modal" data-target="#info-modal">
-                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                </a>
-            </div>
         </div>
         <div>
-            <div class="box chk-fire">
+            <div class="box chk-recipe-fire">
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-fire-0" checked>
+                    <input type="checkbox" id="chk-recipe-fire-0" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     未知
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-fire-1" checked>
+                    <input type="checkbox" id="chk-recipe-fire-1" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     1星
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-fire-2" checked>
+                    <input type="checkbox" id="chk-recipe-fire-2" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     2星
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-fire-3" checked>
+                    <input type="checkbox" id="chk-recipe-fire-3" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     3星
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-fire-4" checked>
+                    <input type="checkbox" id="chk-recipe-fire-4" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     4星
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-fire-5" checked>
+                    <input type="checkbox" id="chk-recipe-fire-5" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     5星
                 </label>
             </div>
             <div class="box">
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-skill-unknown" class="chk-skill" checked>
+                    <input type="checkbox" id="chk-recipe-skill-unknown" class="chk-recipe-skill" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     未知
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-skill-stirfry" class="chk-skill" checked>
+                    <input type="checkbox" id="chk-recipe-skill-stirfry" class="chk-recipe-skill" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     炒
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-skill-boil" class="chk-skill" checked>
+                    <input type="checkbox" id="chk-recipe-skill-boil" class="chk-recipe-skill" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     煮
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-skill-cut" class="chk-skill" checked>
+                    <input type="checkbox" id="chk-recipe-skill-cut" class="chk-recipe-skill" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     切
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-skill-fry" class="chk-skill" checked>
+                    <input type="checkbox" id="chk-recipe-skill-fry" class="chk-recipe-skill" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     炸
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-skill-roast" class="chk-skill" checked>
+                    <input type="checkbox" id="chk-recipe-skill-roast" class="chk-recipe-skill" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     烤
                 </label>
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-skill-steam" class="chk-skill" checked>
+                    <input type="checkbox" id="chk-recipe-skill-steam" class="chk-recipe-skill" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     蒸
                 </label>
-                <input type="checkbox" id="chk-single-skill" data-toggle="toggle" data-on="单选" data-off="多选" data-onstyle="default" data-width="67px"
-                    data-height="34px">
-                <a id="chk-skill-all" class="btn btn-default">
+                <input type="checkbox" id="chk-recipe-single-skill" data-toggle="toggle" data-on="单选" data-off="多选" data-onstyle="default"
+                    data-width="67px" data-height="34px">
+                <a id="chk-recipe-skill-all" class="btn btn-default">
                     全选
                 </a>
             </div>
             <div class="box">
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-guest">
+                    <input type="checkbox" id="chk-recipe-guest">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     贵客
                 </label>
@@ -216,25 +219,25 @@
             <div class="box form-inline">
                 <div class="input-group">
                     <div class="input-group-addon">单价大于</div>
-                    <input type="text" class="form-control" id="input-price">
+                    <input type="text" class="form-control" id="input-recipe-price">
                 </div>
             </div>
             <div class="box form-inline">
                 <div class="input-group">
                     <div class="input-group-addon">查找</div>
-                    <input type="text" class="form-control" id="input-guest-rune" placeholder="升阶贵客 神级符文">
+                    <input type="text" class="form-control" id="input-recipe-guest-rune" placeholder="升阶贵客 神级符文">
                 </div>
             </div>
             <div class="box hidden">
                 <label class="btn btn-default">
-                    <input type="checkbox" id="chk-get">
+                    <input type="checkbox" id="chk-recipe-get">
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     已有
                 </label>
             </div>
         </div>
         <div>
-            <table id="food-table" class="table table-hover table-bordered" width="100%">
+            <table id="recipe-table" class="table table-hover table-bordered" width="100%">
                 <thead>
                     <tr>
                         <th>编号</th>
@@ -268,6 +271,144 @@
         </div>
     </div>
 
+    <div id="main-chef" class="hidden">
+        <div>
+            <div class="box box1">
+                <a id="chk-chef-show-all" class="btn btn-default">
+                    全选
+                </a>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-show-id" class="chk-chef-show">
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    编号
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-show-fire" class="chk-chef-show" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    星
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-show-skill" class="chk-chef-show" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    技法
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-show-special-skill" class="chk-chef-show" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    技能
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-show-sex" class="chk-chef-show" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    性别
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-show-origin" class="chk-chef-show" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    来源
+                </label>
+            </div>
+        </div>
+        <div>
+            <div class="box chk-chef-fire">
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-fire-1" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    1星
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-fire-2" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    2星
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-fire-3" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    3星
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-fire-4" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    4星
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-fire-5" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    5星
+                </label>
+            </div>
+            <div class="box">
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-skill-stirfry" class="chk-chef-skill" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    炒
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-skill-boil" class="chk-chef-skill" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    煮
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-skill-cut" class="chk-chef-skill" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    切
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-skill-fry" class="chk-chef-skill" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    炸
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-skill-roast" class="chk-chef-skill" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    烤
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-skill-steam" class="chk-chef-skill" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    蒸
+                </label>
+                <input type="checkbox" id="chk-chef-single-skill" data-toggle="toggle" data-on="单选" data-off="多选" data-onstyle="default"
+                    data-width="67px" data-height="34px">
+                <a id="chk-chef-skill-all" class="btn btn-default">
+                    全选
+                </a>
+            </div>
+            <div class="box chk-chef-sex">
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-sex-male" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    男
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-sex-female" checked>
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    女
+                </label>
+            </div>
+        </div>
+        <div>
+            <table id="chef-table" class="table table-hover table-bordered" width="100%">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名字</th>
+                        <th>星</th>
+                        <th>炒</th>
+                        <th>煮</th>
+                        <th>切</th>
+                        <th>炸</th>
+                        <th>烤</th>
+                        <th>蒸</th>
+                        <th>技能</th>
+                        <th>性别</th>
+                        <th>来源</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
     <div class="modal" id="info-modal" tabindex="-1">
         <div class="modal-center-wrap">
             <div class="modal-dialog modal-lg modal-center">
@@ -277,11 +418,12 @@
                     </div>
                     <div class="modal-body">
                         <h4>说明</h4>
+                        <p>点击右上角切换菜谱、厨师图鉴</p>
                         <p>第一组按钮选择显示项，默认没有全部显示，后面的负责筛选，点击列名可以排序。</p>
                         <p>升阶贵客 - 第一次菜品升阶(升优-升特-升神)必来的贵客，该列默认不显示。</p>
                         <p>神级符文 - 第一次做神级菜品时贵客送的符文（升优，升特时贵客一般只给食材，升神会送符文或菜谱），该列默认不显示。</p>
                         <p>升阶贵客、神级符文搜索框 - 仅搜索升阶贵客和神级符文这两列，该搜索主要用于做贵客的碰瓷任务。</p>
-                        <p>右侧搜索框 - 可搜索菜名，材料，贵客，符文。贵客和符文搜索的是贵客列，不同于升阶贵客和神级符文。</p>
+                        <p>菜谱右侧搜索框 - 可搜索菜名，材料，贵客，符文。贵客和符文搜索的是贵客列，不同于升阶贵客和神级符文。</p>
                         <p>难免有数据缺失或数据错误，敬请谅解，如有问题可以联系我，官方1群或2群 L</p>
                         <hr>
                         <h4>更新</h4>

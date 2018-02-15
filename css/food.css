@@ -36,24 +36,24 @@ label.btn input[type="checkbox"]:checked+.fa {
 }
 
 .box>.btn,
-.box>.chk-show-chef-wrapper,
+.box>.chk-recipe-show-chef-wrapper,
 .box>.input-group {
     margin: 3px 0;
 }
 
 .box1 {
-    margin-right: 20px;
+    margin-right: 100px;
 }
 
-.chk-show-chef-wrapper {
+.chk-recipe-show-chef-wrapper {
     display: inline-block;
 }
 
-#input-price {
+#input-recipe-price {
     width: 60px;
 }
 
-#input-guest-rune {
+#input-recipe-guest-rune {
     width: 150px;
 }
 
@@ -73,23 +73,19 @@ label.btn input[type="checkbox"]:checked+.fa {
     width: auto;
 }
 
-.row1 {
-    position: relative;
-}
-
-.info {
+#info {
     position: absolute;
-    right: 0;
-    top: 5px;
+    right: 20px;
+    top: 10px;
     font-size: 15px;
 }
 
-.info a {
+#info a {
     color: #999;
     cursor: pointer;
 }
 
-.info a:hover {
+#info a:hover {
     color: #777;
 }
 
