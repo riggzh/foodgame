@@ -13033,6 +13033,10 @@
                     "addition": 0.3
                 }
             ],
+            "meat": 0,
+            "wheat": 4,
+            "veg": 0,
+            "fish": 5,
             "origin": "开局"
         },
         {
@@ -13052,6 +13056,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 0,
+            "wheat": 5,
+            "veg": 0,
+            "fish": 4,
             "origin": "开局"
         },
         {
@@ -13071,6 +13079,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
             "origin": "主线17"
         },
         {
@@ -13090,6 +13102,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
             "origin": "主线3"
         },
         {
@@ -13109,6 +13125,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
             "origin": "主线10"
         },
         {
@@ -13128,6 +13148,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 3,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 0,
             "origin": "主线7"
         },
         {
@@ -13147,6 +13171,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 4,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
             "origin": "开局"
         },
         {
@@ -13166,6 +13194,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 4,
             "origin": "主线22"
         },
         {
@@ -13185,6 +13217,10 @@
                     "addition": 0.04
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 4,
+            "fish": 0,
             "origin": "主线27"
         },
         {
@@ -13204,6 +13240,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 4,
             "origin": "新手奖池"
         },
         {
@@ -13223,6 +13263,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 3,
             "origin": "新手奖池"
         },
         {
@@ -13242,6 +13286,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 3,
+            "fish": 0,
             "origin": "新手奖池"
         },
         {
@@ -13261,6 +13309,10 @@
                     "addition": 0
                 }
             ],
+            "meat": 5,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 4,
             "origin": "签到礼包"
         },
         {
@@ -13280,6 +13332,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 4,
             "origin": "中级奖池"
         },
         {
@@ -13299,6 +13355,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 3,
             "origin": "新手奖池"
         },
         {
@@ -13318,6 +13378,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
             "origin": "中级奖池"
         },
         {
@@ -13337,6 +13401,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 3,
             "origin": "中级奖池"
         },
         {
@@ -13356,6 +13424,10 @@
                     "addition": 0.02
                 }
             ],
+            "meat": 2,
+            "wheat": 0,
+            "veg": 4,
+            "fish": 0,
             "origin": "新手奖池"
         },
         {
@@ -13375,6 +13447,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 0,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 3,
             "origin": "签到礼包"
         },
         {
@@ -13394,6 +13470,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 3,
             "origin": "中级奖池"
         },
         {
@@ -13413,6 +13493,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
             "origin": "新手奖池"
         },
         {
@@ -13432,6 +13516,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 3,
             "origin": "新手奖池"
         },
         {
@@ -13451,6 +13539,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
             "origin": "开局"
         },
         {
@@ -13470,6 +13562,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 4,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 3,
             "origin": "壁池"
         },
         {
@@ -13489,6 +13585,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 4,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
             "origin": "壁池"
         },
         {
@@ -13508,6 +13608,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 5,
+            "wheat": 6,
+            "veg": 0,
+            "fish": 0,
             "origin": "壁池"
         },
         {
@@ -13527,6 +13631,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 4,
             "origin": "中级奖池"
         },
         {
@@ -13546,6 +13654,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 6,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 5,
             "origin": "壁池"
         },
         {
@@ -13565,6 +13677,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 0,
+            "wheat": 2,
+            "veg": 4,
+            "fish": 0,
             "origin": "中级奖池"
         },
         {
@@ -13584,6 +13700,10 @@
                     "addition": 0.3
                 }
             ],
+            "meat": 0,
+            "wheat": 5,
+            "veg": 4,
+            "fish": 0,
             "origin": "壁池"
         },
         {
@@ -13603,6 +13723,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 0,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 3,
             "origin": "中级奖池"
         },
         {
@@ -13622,6 +13746,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 4,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
             "origin": "壁池"
         },
         {
@@ -13641,6 +13769,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 0,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 4,
             "origin": "中级奖池"
         },
         {
@@ -13660,6 +13792,10 @@
                     "addition": 0.02
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 4,
             "origin": "壁池"
         },
         {
@@ -13679,6 +13815,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 4,
             "origin": "壁池"
         },
         {
@@ -13698,6 +13838,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 4,
             "origin": "壁池"
         },
         {
@@ -13717,6 +13861,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 4,
+            "fish": 0,
             "origin": "厨师礼包<br>晚秋壁池"
         },
         {
@@ -13736,6 +13884,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 5,
+            "wheat": 6,
+            "veg": 0,
+            "fish": 0,
             "origin": "厨师礼包<br>圣诞壁池"
         },
         {
@@ -13755,6 +13907,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 0,
+            "wheat": 0,
+            "veg": 4,
+            "fish": 3,
             "origin": "壁池"
         },
         {
@@ -13774,6 +13930,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 4,
             "origin": "新手奖池"
         },
         {
@@ -13793,6 +13953,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 0,
+            "wheat": 4,
+            "veg": 0,
+            "fish": 3,
             "origin": "晚秋壁池"
         },
         {
@@ -13812,6 +13976,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 0,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 4,
             "origin": "双11壁池"
         },
         {
@@ -13831,6 +13999,10 @@
                     "addition": 0.25
                 }
             ],
+            "meat": 0,
+            "wheat": 7,
+            "veg": 7,
+            "fish": 0,
             "origin": "厨师礼包<br>情人节壁池"
         },
         {
@@ -13850,6 +14022,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 3,
+            "wheat": 4,
+            "veg": 0,
+            "fish": 0,
             "origin": "晚秋壁池"
         },
         {
@@ -13869,6 +14045,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 5,
+            "wheat": 0,
+            "veg": 6,
+            "fish": 0,
             "origin": "厨师礼包<br>春节壁池"
         },
         {
@@ -13888,6 +14068,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 0,
+            "wheat": 6,
+            "veg": 5,
+            "fish": 0,
             "origin": "双11壁池"
         },
         {
@@ -13907,6 +14091,10 @@
                     "addition": 0.3
                 }
             ],
+            "meat": 4,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 0,
             "origin": "双11壁池"
         },
         {
@@ -13926,6 +14114,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 5,
+            "wheat": 6,
+            "veg": 0,
+            "fish": 0,
             "origin": "圣诞壁池"
         },
         {
@@ -13945,6 +14137,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 4,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 5,
             "origin": "晚秋壁池"
         },
         {
@@ -13964,6 +14160,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 0,
+            "wheat": 5,
+            "veg": 4,
+            "fish": 0,
             "origin": "晚秋壁池"
         },
         {
@@ -13987,6 +14187,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 5,
+            "wheat": 6,
+            "veg": 0,
+            "fish": 0,
             "origin": "晚秋壁池"
         },
         {
@@ -14006,6 +14210,10 @@
                     "addition": 0.25
                 }
             ],
+            "meat": 0,
+            "wheat": 7,
+            "veg": 0,
+            "fish": 7,
             "origin": "晚秋壁池"
         },
         {
@@ -14025,6 +14233,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 4,
+            "wheat": 0,
+            "veg": 5,
+            "fish": 0,
             "origin": "双11壁池"
         },
         {
@@ -14044,6 +14256,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 0,
+            "wheat": 5,
+            "veg": 0,
+            "fish": 4,
             "origin": "双11壁池"
         },
         {
@@ -14063,6 +14279,10 @@
                     "addition": 0.06
                 }
             ],
+            "meat": 5,
+            "wheat": 0,
+            "veg": 6,
+            "fish": 0,
             "origin": "厨师礼包"
         },
         {
@@ -14082,6 +14302,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 7,
+            "wheat": 0,
+            "veg": 6,
+            "fish": 0,
             "origin": "双11壁池"
         },
         {
@@ -14101,6 +14325,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 0,
+            "wheat": 4,
+            "veg": 0,
+            "fish": 5,
             "origin": "双11壁池"
         },
         {
@@ -14120,6 +14348,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 4,
+            "wheat": 5,
+            "veg": 0,
+            "fish": 0,
             "origin": "圣诞壁池"
         },
         {
@@ -14139,6 +14371,10 @@
                     "addition": 0.3
                 }
             ],
+            "meat": 0,
+            "wheat": 4,
+            "veg": 5,
+            "fish": 0,
             "origin": "情人节壁池"
         },
         {
@@ -14158,6 +14394,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 0,
+            "wheat": 5,
+            "veg": 4,
+            "fish": 0,
             "origin": "厨师礼包"
         },
         {
@@ -14177,6 +14417,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 0,
+            "wheat": 5,
+            "veg": 0,
+            "fish": 4,
             "origin": "情人节壁池"
         },
         {
@@ -14196,6 +14440,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 3,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 0,
             "origin": "圣诞壁池"
         },
         {
@@ -14215,6 +14463,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 0,
+            "wheat": 5,
+            "veg": 4,
+            "fish": 0,
             "origin": "春节壁池"
         },
         {
@@ -14234,6 +14486,10 @@
                     "addition": 0.05
                 }
             ],
+            "meat": 0,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 3,
             "origin": "签到礼包"
         },
         {
@@ -14253,6 +14509,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 4,
+            "wheat": 5,
+            "veg": 0,
+            "fish": 0,
             "origin": "春节壁池"
         },
         {
@@ -14272,6 +14532,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 4,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 5,
             "origin": "圣诞壁池"
         },
         {
@@ -14291,6 +14555,10 @@
                     "addition": 0.04
                 }
             ],
+            "meat": 0,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 4,
             "origin": "情人节壁池"
         },
         {
@@ -14310,6 +14578,10 @@
                     "addition": 0.12
                 }
             ],
+            "meat": 4,
+            "wheat": 3,
+            "veg": 0,
+            "fish": 0,
             "origin": "圣诞壁池"
         },
         {
@@ -14329,6 +14601,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 4,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
             "origin": "春节壁池"
         },
         {
@@ -14348,6 +14624,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 5,
+            "wheat": 6,
+            "veg": 0,
+            "fish": 0,
             "origin": "厨师礼包"
         },
         {
@@ -14367,6 +14647,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 0,
+            "wheat": 4,
+            "veg": 0,
+            "fish": 5,
             "origin": "圣诞壁池"
         },
         {
@@ -14386,6 +14670,10 @@
                     "addition": 0.25
                 }
             ],
+            "meat": 0,
+            "wheat": 0,
+            "veg": 7,
+            "fish": 7,
             "origin": "圣诞壁池"
         },
         {
@@ -14405,6 +14693,10 @@
                     "addition": 0.1
                 }
             ],
+            "meat": 3,
+            "wheat": 4,
+            "veg": 0,
+            "fish": 0,
             "origin": "情人节壁池"
         },
         {
@@ -14424,6 +14716,10 @@
                     "addition": 0.15
                 }
             ],
+            "meat": 0,
+            "wheat": 0,
+            "veg": 4,
+            "fish": 5,
             "origin": "春节壁池"
         },
         {
@@ -14443,6 +14739,10 @@
                     "addition": 0.4
                 }
             ],
+            "meat": 5,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 6,
             "origin": "情人节壁池"
         },
         {
@@ -14462,6 +14762,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 5,
+            "wheat": 0,
+            "veg": 6,
+            "fish": 0,
             "origin": "情人节壁池"
         },
         {
@@ -14481,6 +14785,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 0,
+            "wheat": 0,
+            "veg": 5,
+            "fish": 6,
             "origin": "厨师礼包"
         },
         {
@@ -14500,6 +14808,10 @@
                     "addition": 0.25
                 }
             ],
+            "meat": 7,
+            "wheat": 7,
+            "veg": 0,
+            "fish": 0,
             "origin": "情人节壁池"
         },
         {
@@ -14519,6 +14831,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 6,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 5,
             "origin": "春节壁池"
         },
         {
@@ -14538,6 +14854,10 @@
                     "addition": 0.2
                 }
             ],
+            "meat": 0,
+            "wheat": 0,
+            "veg": 5,
+            "fish": 6,
             "origin": "春节壁池"
         },
         {
@@ -14557,6 +14877,10 @@
                     "addition": 0.25
                 }
             ],
+            "meat": 7,
+            "wheat": 0,
+            "veg": 7,
+            "fish": 0,
             "origin": "春节壁池"
         }
     ],

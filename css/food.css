@@ -164,3 +164,12 @@ label.btn input[type="checkbox"]:checked+.fa {
 .paginationjs-pages li.disabled a {
     color: #ccc;
 }
+
+#input-chef-stirfry,
+#input-chef-boil,
+#input-chef-cut,
+#input-chef-fry,
+#input-chef-roast,
+#input-chef-steam {
+    width: 50px;
+}

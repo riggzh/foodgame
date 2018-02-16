@@ -342,6 +342,18 @@ function init(json) {
             }
         },
         {
+            "data": "meat"
+        },
+        {
+            "data": "wheat"
+        },
+        {
+            "data": "veg"
+        },
+        {
+            "data": "fish"
+        },
+        {
             "data": "sex"
         },
         {
@@ -371,7 +383,7 @@ function init(json) {
 
     chefTable.fixedHeader.disable();
 
-    $("#main-chef div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="名字 技能"></label>');
+    $("#main-chef div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="名字 技能 来源"></label>');
 
     $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
         if (settings.nTable != document.getElementById('chef-table')) {
@@ -402,12 +414,25 @@ function init(json) {
             return true;
         }
 
-        if ($('#chk-chef-skill-stirfry').prop("checked") && (parseInt(data[3]) || 0) > 0
-            || $('#chk-chef-skill-boil').prop("checked") && (parseInt(data[4]) || 0) > 0
-            || $('#chk-chef-skill-cut').prop("checked") && (parseInt(data[5]) || 0) > 0
-            || $('#chk-chef-skill-fry').prop("checked") && (parseInt(data[6]) || 0) > 0
-            || $('#chk-chef-skill-roast').prop("checked") && (parseInt(data[7]) || 0) > 0
-            || $('#chk-chef-skill-steam').prop("checked") && (parseInt(data[8]) || 0) > 0) {
+        var stirfryMin = parseInt($('#input-chef-stirfry').val());
+        var stirfry = parseInt(data[3]) || 0;
+        var boilMin = parseInt($('#input-chef-boil').val());
+        var boil = parseInt(data[4]) || 0;
+        var cutMin = parseInt($('#input-chef-cut').val());
+        var cut = parseInt(data[5]) || 0;
+        var fryMin = parseInt($('#input-chef-fry').val());
+        var fry = parseInt(data[6]) || 0;
+        var roastMin = parseInt($('#input-chef-roast').val());
+        var roast = parseInt(data[7]) || 0;
+        var steamMin = parseInt($('#input-chef-steam').val());
+        var steam = parseInt(data[8]) || 0;
+
+        if ((isNaN(stirfryMin) || stirfryMin <= stirfry)
+            && (isNaN(boilMin) || boilMin <= boil)
+            && (isNaN(cutMin) || cutMin <= cut)
+            && (isNaN(fryMin) || fryMin <= fry)
+            && (isNaN(roastMin) || roastMin <= roast)
+            && (isNaN(steamMin) || steamMin <= steam)) {
             return true;
         } else {
             return false;
@@ -421,7 +446,7 @@ function init(json) {
 
         var chkMale = $('#chk-chef-sex-male').prop("checked");
         var chkFemale = $('#chk-chef-sex-female').prop("checked");
-        var sex = data[10];
+        var sex = data[14];
 
         if (chkMale && sex == "男"
             || chkFemale && sex == "女") {
@@ -438,7 +463,7 @@ function init(json) {
         }
 
         var value = $("#main-chef .search-box input").val().toLowerCase();
-        var searchCols = [1, 9];
+        var searchCols = [1, 9, 15];
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
             if (data[searchCols[i]].toLowerCase().indexOf(value) !== -1) {
@@ -554,30 +579,12 @@ function init(json) {
         chefTable.draw();
     });
 
-    $('.chk-chef-skill').click(function () {
-        if ($(this).prop("checked")) {
-            if ($('#chk-chef-single-skill').prop("checked")) {
-                $(".chk-chef-skill").not(this).prop("checked", false);
-            }
-        }
-
+    $('.input-chef-skill').keyup(function () {
         chefTable.draw();
     });
 
-    $('#chk-chef-single-skill').change(function () {
-        if ($(this).prop("checked")) {
-            if ($('.chk-chef-skill:checked').length > 1) {
-                $('.chk-chef-skill').prop("checked", false);
-                chefTable.draw();
-            }
-        }
-    });
-
-    $('#chk-chef-skill-all').click(function () {
-        if ($('#chk-chef-single-skill').prop("checked")) {
-            $('#chk-chef-single-skill').bootstrapToggle('off')
-        }
-        $(".chk-chef-skill").prop("checked", true);
+    $('#btn-chef-skill-clear').click(function () {
+        $('.input-chef-skill').val("");
         chefTable.draw();
     });
 
@@ -636,6 +643,10 @@ function generateData(json, private) {
         chefsData[chefsCount]["skill"] = json.chefs[i].skill;
         chefsData[chefsCount]["origin"] = json.chefs[i].origin;
         chefsData[chefsCount]["sex"] = json.chefs[i].sex;
+        chefsData[chefsCount]["meat"] = json.chefs[i].meat || "";
+        chefsData[chefsCount]["wheat"] = json.chefs[i].wheat || "";
+        chefsData[chefsCount]["veg"] = json.chefs[i].veg || "";
+        chefsData[chefsCount]["fish"] = json.chefs[i].fish || "";
 
         chefsData[chefsCount]["chefId"] = {
             "display": json.chefs[i].chefId + " - " + (json.chefs[i].chefId + 2),
@@ -1034,8 +1045,13 @@ function initChefShow(chefTable, data, private) {
     chefTable.column(7).visible(chkSkill, false);
     chefTable.column(8).visible(chkSkill, false);
     chefTable.column(9).visible($('#chk-chef-show-special-skill').prop("checked"), false);
-    chefTable.column(10).visible($('#chk-chef-show-sex').prop("checked"), false);
-    chefTable.column(11).visible($('#chk-chef-show-origin').prop("checked"), false);
+    var chkHarvest = $('#chk-chef-show-harvest').prop("checked");
+    chefTable.column(10).visible(chkHarvest, false);
+    chefTable.column(11).visible(chkHarvest, false);
+    chefTable.column(12).visible(chkHarvest, false);
+    chefTable.column(13).visible(chkHarvest, false);
+    chefTable.column(14).visible($('#chk-chef-show-sex').prop("checked"), false);
+    chefTable.column(15).visible($('#chk-chef-show-origin').prop("checked"), false);
 
     chefTable.columns.adjust().draw(false);
 }

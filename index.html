@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=1" />
     <script type="text/javascript" src="js/script.min.js?v=2"></script>
-    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=4" />
-    <script type="text/javascript" src="js/food.min.js?v=16"></script>
+    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=5" />
+    <script type="text/javascript" src="js/food.min.js?v=17"></script>
 </head>
 
 <body>
@@ -298,6 +298,11 @@
                     技能
                 </label>
                 <label class="btn btn-default">
+                    <input type="checkbox" id="chk-chef-show-harvest" class="chk-chef-show">
+                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                    采集
+                </label>
+                <label class="btn btn-default">
                     <input type="checkbox" id="chk-chef-show-sex" class="chk-chef-show" checked>
                     <i class="fa fa-check glyphicon glyphicon-ok"></i>
                     性别
@@ -337,41 +342,33 @@
                     5星
                 </label>
             </div>
-            <div class="box">
-                <label class="btn btn-default">
-                    <input type="checkbox" id="chk-chef-skill-stirfry" class="chk-chef-skill" checked>
-                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                    炒
-                </label>
-                <label class="btn btn-default">
-                    <input type="checkbox" id="chk-chef-skill-boil" class="chk-chef-skill" checked>
-                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                    煮
-                </label>
-                <label class="btn btn-default">
-                    <input type="checkbox" id="chk-chef-skill-cut" class="chk-chef-skill" checked>
-                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                    切
-                </label>
-                <label class="btn btn-default">
-                    <input type="checkbox" id="chk-chef-skill-fry" class="chk-chef-skill" checked>
-                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                    炸
-                </label>
-                <label class="btn btn-default">
-                    <input type="checkbox" id="chk-chef-skill-roast" class="chk-chef-skill" checked>
-                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                    烤
-                </label>
-                <label class="btn btn-default">
-                    <input type="checkbox" id="chk-chef-skill-steam" class="chk-chef-skill" checked>
-                    <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                    蒸
-                </label>
-                <input type="checkbox" id="chk-chef-single-skill" data-toggle="toggle" data-on="单选" data-off="多选" data-onstyle="default"
-                    data-width="67px" data-height="34px">
-                <a id="chk-chef-skill-all" class="btn btn-default">
-                    全选
+            <div class="box form-inline">
+                <div class="input-group">
+                    <div class="input-group-addon">炒</div>
+                    <input type="text" class="form-control input-chef-skill" id="input-chef-stirfry">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">煮</div>
+                    <input type="text" class="form-control input-chef-skill" id="input-chef-boil">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">切</div>
+                    <input type="text" class="form-control input-chef-skill" id="input-chef-cut">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">炸</div>
+                    <input type="text" class="form-control input-chef-skill" id="input-chef-fry">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">烤</div>
+                    <input type="text" class="form-control input-chef-skill" id="input-chef-roast">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">蒸</div>
+                    <input type="text" class="form-control input-chef-skill" id="input-chef-steam">
+                </div>
+                <a id="btn-chef-skill-clear" class="btn btn-default">
+                    清空
                 </a>
             </div>
             <div class="box chk-chef-sex">
@@ -401,6 +398,10 @@
                         <th>烤</th>
                         <th>蒸</th>
                         <th>技能</th>
+                        <th>肉</th>
+                        <th>面</th>
+                        <th>菜</th>
+                        <th>鱼</th>
                         <th>性别</th>
                         <th>来源</th>
                     </tr>
