@@ -9376,7 +9376,7 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "皇后"
                 },
                 {
                     "quality": "特",
@@ -9389,8 +9389,8 @@
             ],
             "godRune": "",
             "personal": {
-                "quality": "",
-                "remark": "大天狗-暂无-暂无-暂无"
+                "quality": "优",
+                "remark": "暂无-暂无"
             }
         },
         {
