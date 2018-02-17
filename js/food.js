@@ -106,6 +106,8 @@ function init(json) {
         }
     ];
 
+    var j;
+
     for (j in data.chefs) {
         $('#chk-recipe-show-chef').append("<option value='" + j + "'>" + data.chefs[j].name + "</option>");
         $('#recipe-table thead tr').append("<th>" + data.chefs[j].name + "</th>").append("<th>效率</th>");
@@ -123,6 +125,16 @@ function init(json) {
         });
     }
 
+    $('#recipe-table thead tr').append("<th>最佳厨师</th>").append("<th>最大效率</th>");
+    recipeColumns.push({
+        "data": "chefs."  + (parseInt(j) + 1) + ".chefQlty",
+        "searchable": false
+    });
+    recipeColumns.push({
+        "data": "chefs."  + (parseInt(j) + 1) + ".chefEff",
+        "searchable": false
+    });
+
     var recipeTable = $('#recipe-table').DataTable({
         data: data.recipes,
         "columns": recipeColumns,
@@ -138,8 +150,8 @@ function init(json) {
         "lengthMenu": [[20, 50, 100, -1], [20, 50, 100, "所有"]],
         "pageLength": 20,
         "dom": "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         fixedHeader: true
     });
 
@@ -261,10 +273,10 @@ function init(json) {
     $('#chk-recipe-show-chef').multiselect({
         templates: {
             filter: '<li class="multiselect-item filter">'
-                + '<div class="input-group">'
-                + '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-                + '<input class="form-control multiselect-search" type="text"></div>'
-                + '<a class="deselect-all">清空</a></li>'
+            + '<div class="input-group">'
+            + '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+            + '<input class="form-control multiselect-search" type="text"></div>'
+            + '<a class="deselect-all">清空</a></li>'
         },
         enableFiltering: true,
         filterPlaceholder: '查找',
@@ -403,8 +415,8 @@ function init(json) {
         "lengthMenu": [[20, 50, 100, -1], [20, 50, 100, "所有"]],
         "pageLength": 20,
         "dom": "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         fixedHeader: true
     });
 
@@ -504,10 +516,10 @@ function init(json) {
     $('#chk-chef-show-recipe').multiselect({
         templates: {
             filter: '<li class="multiselect-item filter">'
-                + '<div class="input-group">'
-                + '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-                + '<input class="form-control multiselect-search" type="text"></div>'
-                + '<a class="deselect-all">清空</a></li>'
+            + '<div class="input-group">'
+            + '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+            + '<input class="form-control multiselect-search" type="text"></div>'
+            + '<a class="deselect-all">清空</a></li>'
         },
         enableFiltering: true,
         filterPlaceholder: '查找',
@@ -850,6 +862,10 @@ function generateData(json, private) {
         recipesData[dataCount]["guests"] = guests;
 
         recipesData[dataCount]["chefs"] = new Array();
+
+        var maxEff = 0;
+        var maxQlty = "";
+
         for (j in retData["chefs"]) {
 
             var times = Number.MAX_VALUE;
@@ -1034,6 +1050,13 @@ function generateData(json, private) {
                 }
             }
 
+            if (maxEff < chefEff) {
+                maxEff = chefEff;
+                maxQlty = retData["chefs"][j].name + "[" + chefQltyDisp + "]";
+            }else if(maxEff === chefEff) {
+                maxQlty += "," + retData["chefs"][j].name + "[" + chefQltyDisp + "]";
+            }
+
             recipesData[dataCount]["chefs"].push({
                 "chefQlty": {
                     "display": chefQltyDisp,
@@ -1049,6 +1072,11 @@ function generateData(json, private) {
                 }
             });
         }
+
+        recipesData[dataCount]["chefs"].push({
+            "chefQlty": maxEff ? maxQlty : "-",
+            "chefEff": maxEff ? parseInt(maxEff) : ""
+        });
 
         dataCount++;
     }
