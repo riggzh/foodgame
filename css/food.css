@@ -37,6 +37,7 @@ label.btn input[type="checkbox"]:checked+.fa {
 
 .box>.btn,
 .box>.chk-recipe-show-chef-wrapper,
+.box>.chk-chef-show-recipe-wrapper,
 .box>.input-group {
     margin: 3px 0;
 }
@@ -45,7 +46,8 @@ label.btn input[type="checkbox"]:checked+.fa {
     margin-right: 100px;
 }
 
-.chk-recipe-show-chef-wrapper {
+.chk-recipe-show-chef-wrapper,
+.chk-chef-show-recipe-wrapper {
     display: inline-block;
 }
 
@@ -172,4 +174,13 @@ label.btn input[type="checkbox"]:checked+.fa {
 #input-chef-roast,
 #input-chef-steam {
     width: 50px;
+}
+
+.dropdown-menu>li>a.deselect-all {
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 2px;
 }

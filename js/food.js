@@ -111,7 +111,10 @@ function init(json) {
         $('#recipe-table thead tr').append("<th>" + data.chefs[j].name + "</th>").append("<th>效率</th>");
 
         recipeColumns.push({
-            "data": "chefs." + j + ".chefQlty",
+            "data": {
+                "_": "chefs." + j + ".chefQlty.value",
+                "display": "chefs." + j + ".chefQlty.display"
+            },
             "searchable": false
         });
         recipeColumns.push({
@@ -256,11 +259,16 @@ function init(json) {
     });
 
     $('#chk-recipe-show-chef').multiselect({
+        templates: {
+            filter: '<li class="multiselect-item filter">'
+                + '<div class="input-group">'
+                + '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+                + '<input class="form-control multiselect-search" type="text"></div>'
+                + '<a class="deselect-all">清空</a></li>'
+        },
         enableFiltering: true,
         filterPlaceholder: '查找',
-        includeSelectAllOption: true,
         numberDisplayed: 1,
-        selectAllText: '选择所有',
         allSelectedText: '厨师',
         nonSelectedText: '厨师',
         nSelectedText: '厨师',
@@ -268,6 +276,12 @@ function init(json) {
         onChange: function (option, checked, select) {
             initRecipeShow(recipeTable, data, private);
         }
+    });
+
+    $('.chk-recipe-show-chef-wrapper .deselect-all').click(function () {
+        $('#chk-recipe-show-chef').multiselect('deselectAll', false);
+        $('#chk-recipe-show-chef').multiselect('updateButtonText');
+        initRecipeShow(recipeTable, data, private);
     });
 
     if (private) {
@@ -360,6 +374,19 @@ function init(json) {
             "data": "origin"
         }
     ];
+
+    for (j in data.recipes) {
+        $('#chk-chef-show-recipe').append("<option value='" + j + "'>" + data.recipes[j].name + "</option>");
+        $('#chef-table thead tr').append("<th>" + data.recipes[j].name + "</th>");
+
+        chefColumns.push({
+            "data": {
+                "_": "recipes." + j + ".recipeQlty.value",
+                "display": "recipes." + j + ".recipeQlty.display"
+            },
+            "searchable": false
+        });
+    }
 
     var chefTable = $('#chef-table').DataTable({
         data: data.chefs,
@@ -472,6 +499,32 @@ function init(json) {
         }
 
         return false;
+    });
+
+    $('#chk-chef-show-recipe').multiselect({
+        templates: {
+            filter: '<li class="multiselect-item filter">'
+                + '<div class="input-group">'
+                + '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+                + '<input class="form-control multiselect-search" type="text"></div>'
+                + '<a class="deselect-all">清空</a></li>'
+        },
+        enableFiltering: true,
+        filterPlaceholder: '查找',
+        numberDisplayed: 1,
+        allSelectedText: '菜谱',
+        nonSelectedText: '菜谱',
+        nSelectedText: '菜谱',
+        maxHeight: 200,
+        onChange: function (option, checked, select) {
+            initChefShow(chefTable, data, private);
+        }
+    });
+
+    $('.chk-chef-show-recipe-wrapper .deselect-all').click(function () {
+        $('#chk-chef-show-recipe').multiselect('deselectAll', false);
+        $('#chk-chef-show-recipe').multiselect('updateButtonText');
+        initChefShow(chefTable, data, private);
     });
 
     initChefShow(chefTable, data, private);
@@ -647,6 +700,7 @@ function generateData(json, private) {
         chefsData[chefsCount]["wheat"] = json.chefs[i].wheat || "";
         chefsData[chefsCount]["veg"] = json.chefs[i].veg || "";
         chefsData[chefsCount]["fish"] = json.chefs[i].fish || "";
+        chefsData[chefsCount]["recipes"] = new Array();
 
         chefsData[chefsCount]["chefId"] = {
             "display": json.chefs[i].chefId + " - " + (json.chefs[i].chefId + 2),
@@ -853,7 +907,8 @@ function generateData(json, private) {
                 }
             }
 
-            var chefQlty = "-";
+            var chefQltyDisp = "-";
+            var chefQltyVal = 0;
             var chefEff = 0;
 
             if (times != Number.MAX_VALUE && times >= 1) {
@@ -862,16 +917,20 @@ function generateData(json, private) {
 
                 if (times >= 4) {
                     qualityAddition = 0.5;
-                    chefQlty = "神";
+                    chefQltyDisp = "神";
+                    chefQltyVal = 4;
                 } else if (times >= 3) {
                     qualityAddition = 0.3;
-                    chefQlty = "特";
+                    chefQltyDisp = "特";
+                    chefQltyVal = 3;
                 } else if (times >= 2) {
                     qualityAddition = 0.1;
-                    chefQlty = "优";
+                    chefQltyDisp = "优";
+                    chefQltyVal = 2;
                 } else if (times >= 1) {
                     qualityAddition = 0;
-                    chefQlty = "可";
+                    chefQltyDisp = "可";
+                    chefQltyVal = 1;
                 }
 
                 var skillAddition = 0;
@@ -976,8 +1035,18 @@ function generateData(json, private) {
             }
 
             recipesData[dataCount]["chefs"].push({
-                "chefQlty": chefQlty,
+                "chefQlty": {
+                    "display": chefQltyDisp,
+                    "value": chefQltyVal
+                },
                 "chefEff": chefEff ? parseInt(chefEff) : ""
+            });
+
+            retData["chefs"][j]["recipes"].push({
+                "recipeQlty": {
+                    "display": chefQltyDisp,
+                    "value": chefQltyVal
+                }
             });
         }
 
@@ -1024,10 +1093,10 @@ function initRecipeShow(recipeTable, data, private) {
         recipeTable.column(24).visible(false, false);
     }
 
-    for (j in data.chefs) {
-        var chkChefs = $('#chk-recipe-show-chef').val();
-        recipeTable.column(25 + 2 * j).visible(chkChefs.indexOf(j) > -1, false);
-        recipeTable.column(26 + 2 * j).visible(chkChefs.indexOf(j) > -1, false);
+    var chkChefs = $('#chk-recipe-show-chef').val();
+    for (j = 0; j < data.chefs.length; j++) {
+        recipeTable.column(25 + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
+        recipeTable.column(26 + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
     }
 
     recipeTable.columns.adjust().draw(false);
@@ -1052,6 +1121,11 @@ function initChefShow(chefTable, data, private) {
     chefTable.column(13).visible(chkHarvest, false);
     chefTable.column(14).visible($('#chk-chef-show-sex').prop("checked"), false);
     chefTable.column(15).visible($('#chk-chef-show-origin').prop("checked"), false);
+
+    var chkRecipes = $('#chk-chef-show-recipe').val();
+    for (j = 0; j < data.recipes.length; j++) {
+        chefTable.column(16 + j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
+    }
 
     chefTable.columns.adjust().draw(false);
 }
