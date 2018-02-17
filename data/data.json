@@ -8784,7 +8784,7 @@
             "price": 86,
             "time": 125,
             "total": 25,
-            "origin": "内测",
+            "origin": "内测<br>新年兑换",
             "guests": [
                 {
                     "quality": "优",
@@ -8799,7 +8799,11 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "personal": {
+                "quality": "",
+                "remark": ""
+            }
         },
         {
             "recipeId": 186,
