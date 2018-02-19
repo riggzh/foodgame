@@ -51,6 +51,10 @@ label.btn input[type="checkbox"]:checked+.fa {
     display: inline-block;
 }
 
+.chk-chef-show-recipe-wrapper .dropdown-menu{
+    min-width: 215px;
+}
+
 #input-recipe-price {
     width: 60px;
 }
