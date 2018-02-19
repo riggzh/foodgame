@@ -12,7 +12,18 @@ function init(json) {
     var private = window.location.search.indexOf("666") > 0;
     var data = generateData(json, private);
 
-    // for recipe table
+    initRecipeTable(data, private);
+
+    initChefTable(data, private);
+
+    initInfo(data, private);
+
+    $('.loading').hide();
+    $('#info').removeClass("hidden");
+    $('#main-recipe').removeClass("hidden");
+}
+
+function initRecipeTable(data, private) {
     var recipeColumns = [
         {
             "data": "recipeId"
@@ -284,6 +295,76 @@ function init(json) {
         initRecipeShow(recipeTable, data, private);
     });
 
+    $('.chk-recipe-show').click(function () {
+        initRecipeShow(recipeTable, data, private);
+    });
+
+    $('#chk-recipe-show-all').click(function () {
+        if ($('.btn:not(.hidden) .chk-recipe-show:checked').length == $('.btn:not(.hidden) .chk-recipe-show').length) {
+            $('.btn:not(.hidden) .chk-recipe-show').prop("checked", false);
+        }
+        else {
+            $('.btn:not(.hidden) .chk-recipe-show').prop("checked", true);
+        }
+        initRecipeShow(recipeTable, data, private);
+    });
+
+    $('#chk-recipe-fixed-header').change(function () {
+        if ($(this).prop("checked")) {
+            recipeTable.fixedHeader.enable();
+        } else {
+            recipeTable.fixedHeader.disable();
+        }
+    });
+
+    $('.chk-recipe-fire input[type="checkbox"]').click(function () {
+        recipeTable.draw();
+    });
+
+    $('.chk-recipe-skill').click(function () {
+        if ($(this).prop("checked")) {
+            if ($('#chk-recipe-single-skill').prop("checked")) {
+                $(".chk-recipe-skill").not(this).prop("checked", false);
+            }
+        }
+
+        recipeTable.draw();
+    });
+
+    $('#chk-recipe-single-skill').change(function () {
+        if ($(this).prop("checked")) {
+            if ($('.chk-recipe-skill:checked').length > 1) {
+                $('.chk-recipe-skill').prop("checked", false);
+                recipeTable.draw();
+            }
+        }
+    });
+
+    $('#chk-recipe-skill-all').click(function () {
+        if ($('#chk-recipe-single-skill').prop("checked")) {
+            $('#chk-recipe-single-skill').bootstrapToggle('off')
+        }
+        $(".chk-recipe-skill").prop("checked", true);
+        recipeTable.draw();
+    });
+
+    $('#input-recipe-price').keyup(function () {
+        recipeTable.draw();
+    });
+
+    $('#input-recipe-guest-rune').keyup(function () {
+        recipeTable.draw();
+    });
+
+    $('#chk-recipe-guest').click(function () {
+        recipeTable.draw();
+    });
+
+    $('#main-recipe .search-box input').keyup(function () {
+        recipeTable.draw();
+    });
+
+
     if (private) {
         $('#chk-recipe-show-origin').prop("checked", false)
         $('#chk-recipe-show-get').parent(".btn").removeClass('hidden');
@@ -313,8 +394,9 @@ function init(json) {
     }
 
     initRecipeShow(recipeTable, data, private);
+}
 
-    // for chef table
+function initChefTable(data, private) {
     var chefColumns = [
         {
             "data": {
@@ -527,85 +609,6 @@ function init(json) {
         initChefShow(chefTable, data, private);
     });
 
-    initChefShow(chefTable, data, private);
-
-    // show
-    $('.loading').hide();
-    $('#info').removeClass("hidden");
-    $('#main-recipe').removeClass("hidden");
-    recipeTable.draw();
-
-    // for recipe table
-    $('.chk-recipe-show').click(function () {
-        initRecipeShow(recipeTable, data, private);
-    });
-
-    $('#chk-recipe-show-all').click(function () {
-        if ($('.btn:not(.hidden) .chk-recipe-show:checked').length == $('.btn:not(.hidden) .chk-recipe-show').length) {
-            $('.btn:not(.hidden) .chk-recipe-show').prop("checked", false);
-        }
-        else {
-            $('.btn:not(.hidden) .chk-recipe-show').prop("checked", true);
-        }
-        initRecipeShow(recipeTable, data, private);
-    });
-
-    $('#chk-recipe-fixed-header').change(function () {
-        if ($(this).prop("checked")) {
-            recipeTable.fixedHeader.enable();
-        } else {
-            recipeTable.fixedHeader.disable();
-        }
-    });
-
-    $('.chk-recipe-fire input[type="checkbox"]').click(function () {
-        recipeTable.draw();
-    });
-
-    $('.chk-recipe-skill').click(function () {
-        if ($(this).prop("checked")) {
-            if ($('#chk-recipe-single-skill').prop("checked")) {
-                $(".chk-recipe-skill").not(this).prop("checked", false);
-            }
-        }
-
-        recipeTable.draw();
-    });
-
-    $('#chk-recipe-single-skill').change(function () {
-        if ($(this).prop("checked")) {
-            if ($('.chk-recipe-skill:checked').length > 1) {
-                $('.chk-recipe-skill').prop("checked", false);
-                recipeTable.draw();
-            }
-        }
-    });
-
-    $('#chk-recipe-skill-all').click(function () {
-        if ($('#chk-recipe-single-skill').prop("checked")) {
-            $('#chk-recipe-single-skill').bootstrapToggle('off')
-        }
-        $(".chk-recipe-skill").prop("checked", true);
-        recipeTable.draw();
-    });
-
-    $('#input-recipe-price').keyup(function () {
-        recipeTable.draw();
-    });
-
-    $('#input-recipe-guest-rune').keyup(function () {
-        recipeTable.draw();
-    });
-
-    $('#chk-recipe-guest').click(function () {
-        recipeTable.draw();
-    });
-
-    $('#main-recipe .search-box input').keyup(function () {
-        recipeTable.draw();
-    });
-
-    // for chef table
     $('.chk-chef-show').click(function () {
         initChefShow(chefTable, data, private);
     });
@@ -649,29 +652,7 @@ function init(json) {
         chefTable.draw();
     });
 
-    // for info
-    $('#pagination-history').pagination({
-        dataSource: data.history,
-        callback: function (data, pagination) {
-            var html = historyTemplate(data);
-            $('#data-history').html(html);
-        },
-        pageSize: 5,
-        showPageNumbers: false,
-        showNavigator: true,
-        showPrevious: true,
-        showNext: true
-    })
-
-    $('#chk-function-switch').change(function () {
-        if ($(this).prop("checked")) {
-            $('#main-recipe').addClass("hidden");
-            $('#main-chef').removeClass("hidden");
-        } else {
-            $('#main-chef').addClass("hidden");
-            $('#main-recipe').removeClass("hidden");
-        }
-    });
+    initChefShow(chefTable, data, private);
 }
 
 function generateData(json, private) {
@@ -852,200 +833,31 @@ function generateData(json, private) {
         recipesData[dataCount]["chefs"] = new Array();
         for (j in retData["chefs"]) {
 
-            var times = Number.MAX_VALUE;
+            var qualityData = getQualityData(json.recipes[i], retData["chefs"][j]);
 
-            if (json.recipes[i].stirfry > 0) {
-                if (retData["chefs"][j].stirfry > 0) {
-                    times = Math.min(times, retData["chefs"][j].stirfry / json.recipes[i].stirfry);
-                } else {
-                    times = 0;
-                }
-            }
-            if (times >= 1) {
-                if (json.recipes[i].boil > 0) {
-                    if (retData["chefs"][j].boil > 0) {
-                        times = Math.min(times, retData["chefs"][j].boil / json.recipes[i].boil);
-                    } else {
-                        times = 0;
-                    }
-                }
-            }
-            if (times >= 1) {
-                if (json.recipes[i].cut > 0) {
-                    if (retData["chefs"][j].cut > 0) {
-                        times = Math.min(times, retData["chefs"][j].cut / json.recipes[i].cut);
-                    } else {
-                        times = 0;
-                    }
-                }
-            }
-            if (times >= 1) {
-                if (json.recipes[i].fry > 0) {
-                    if (retData["chefs"][j].fry > 0) {
-                        times = Math.min(times, retData["chefs"][j].fry / json.recipes[i].fry);
-                    } else {
-                        times = 0;
-                    }
-                }
-            }
-            if (times >= 1) {
-                if (json.recipes[i].roast > 0) {
-                    if (retData["chefs"][j].roast > 0) {
-                        times = Math.min(times, retData["chefs"][j].roast / json.recipes[i].roast);
-                    } else {
-                        times = 0;
-                    }
-                }
-            }
-            if (times >= 1) {
-                if (json.recipes[i].steam > 0) {
-                    if (retData["chefs"][j].steam > 0) {
-                        times = Math.min(times, retData["chefs"][j].steam / json.recipes[i].steam);
-                    } else {
-                        times = 0;
-                    }
-                }
-            }
-
-            var chefQltyDisp = "-";
-            var chefQltyVal = 0;
             var chefEff = 0;
 
-            if (times != Number.MAX_VALUE && times >= 1) {
+            if (qualityData.qualityVal > 0) {
 
-                var qualityAddition = 0;
-
-                if (times >= 4) {
-                    qualityAddition = 0.5;
-                    chefQltyDisp = "神";
-                    chefQltyVal = 4;
-                } else if (times >= 3) {
-                    qualityAddition = 0.3;
-                    chefQltyDisp = "特";
-                    chefQltyVal = 3;
-                } else if (times >= 2) {
-                    qualityAddition = 0.1;
-                    chefQltyDisp = "优";
-                    chefQltyVal = 2;
-                } else if (times >= 1) {
-                    qualityAddition = 0;
-                    chefQltyDisp = "可";
-                    chefQltyVal = 1;
-                }
-
-                var skillAddition = 0;
-                if (retData["chefs"][j].hasOwnProperty('skill')) {
-                    for (k in retData["chefs"][j].skill) {
-                        var hasSkill = false;
-                        if (retData["chefs"][j].skill[k].type.indexOf("水产") >= 0) {
-                            for (m in json.recipes[i].ingredient) {
-                                for (n in json.ingredients) {
-                                    if (json.recipes[i].ingredient[m].name == json.ingredients[n].name) {
-                                        if (json.ingredients[n].originId == 8) {
-                                            hasSkill = true;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        if (retData["chefs"][j].skill[k].type.indexOf("面") >= 0) {
-                            for (m in json.recipes[i].ingredient) {
-                                for (n in json.ingredients) {
-                                    if (json.recipes[i].ingredient[m].name == json.ingredients[n].name) {
-                                        if (json.ingredients[n].originId == 1) {
-                                            hasSkill = true;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        if (retData["chefs"][j].skill[k].type.indexOf("肉") >= 0) {
-                            for (m in json.recipes[i].ingredient) {
-                                for (n in json.ingredients) {
-                                    if (json.recipes[i].ingredient[m].name == json.ingredients[n].name) {
-                                        if (json.ingredients[n].originId == 2
-                                            || json.ingredients[n].originId == 3
-                                            || json.ingredients[n].originId == 4) {
-                                            hasSkill = true;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        if (retData["chefs"][j].skill[k].type.indexOf("蔬菜") >= 0) {
-                            for (m in json.recipes[i].ingredient) {
-                                for (n in json.ingredients) {
-                                    if (json.recipes[i].ingredient[m].name == json.ingredients[n].name) {
-                                        if (json.ingredients[n].originId == 5
-                                            || json.ingredients[n].originId == 6
-                                            || json.ingredients[n].originId == 7) {
-                                            hasSkill = true;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        if (retData["chefs"][j].skill[k].type.indexOf("炒") >= 0) {
-                            if (json.recipes[i].stirfry > 0) {
-                                hasSkill = true;
-                            }
-                        }
-                        if (retData["chefs"][j].skill[k].type.indexOf("煮") >= 0) {
-                            if (json.recipes[i].boil > 0) {
-                                hasSkill = true;
-                            }
-                        }
-                        if (retData["chefs"][j].skill[k].type.indexOf("炸") >= 0) {
-                            if (json.recipes[i].fry > 0) {
-                                hasSkill = true;
-                            }
-                        }
-                        if (retData["chefs"][j].skill[k].type.indexOf("切") >= 0) {
-                            if (json.recipes[i].cut > 0) {
-                                hasSkill = true;
-                            }
-                        }
-                        if (retData["chefs"][j].skill[k].type.indexOf("烤") >= 0) {
-                            if (json.recipes[i].roast > 0) {
-                                hasSkill = true;
-                            }
-                        }
-                        if (retData["chefs"][j].skill[k].type.indexOf("蒸") >= 0) {
-                            if (json.recipes[i].steam > 0) {
-                                hasSkill = true;
-                            }
-                        }
-                        if (retData["chefs"][j].skill[k].type.indexOf("金币") >= 0) {
-                            hasSkill = true;
-                        }
-
-                        if (hasSkill) {
-                            skillAddition += retData["chefs"][j].skill[k].addition;
-                        }
-                    }
-                }
+                var skillAddition = getChefSkillAddition(json.recipes[i], retData["chefs"][j], json.ingredients);
 
                 if (efficiency > 0) {
-                    chefEff = (1 + qualityAddition + skillAddition + (private ? json.furniture : 0)) * efficiency;
+                    chefEff = (1 + qualityData.qualityAddition + skillAddition + (private ? json.furniture : 0)) * efficiency;
                 }
             }
 
             recipesData[dataCount]["chefs"].push({
                 "chefQlty": {
-                    "display": chefQltyDisp,
-                    "value": chefQltyVal
+                    "display": qualityData.qualityDisp,
+                    "value": qualityData.qualityVal
                 },
                 "chefEff": chefEff ? parseInt(chefEff) : ""
             });
 
             retData["chefs"][j]["recipes"].push({
                 "recipeQlty": {
-                    "display": chefQltyDisp,
-                    "value": chefQltyVal
+                    "display": qualityData.qualityDisp,
+                    "value": qualityData.qualityVal
                 }
             });
         }
@@ -1056,6 +868,195 @@ function generateData(json, private) {
     retData["recipes"] = recipesData;
 
     return retData;
+}
+
+function getQualityData(recipe, chef) {
+    var times = Number.MAX_VALUE;
+
+    if (recipe.stirfry > 0) {
+        if (chef.stirfry > 0) {
+            times = Math.min(times, chef.stirfry / recipe.stirfry);
+        } else {
+            times = 0;
+        }
+    }
+    if (times >= 1) {
+        if (recipe.boil > 0) {
+            if (chef.boil > 0) {
+                times = Math.min(times, chef.boil / recipe.boil);
+            } else {
+                times = 0;
+            }
+        }
+    }
+    if (times >= 1) {
+        if (recipe.cut > 0) {
+            if (chef.cut > 0) {
+                times = Math.min(times, chef.cut / recipe.cut);
+            } else {
+                times = 0;
+            }
+        }
+    }
+    if (times >= 1) {
+        if (recipe.fry > 0) {
+            if (chef.fry > 0) {
+                times = Math.min(times, chef.fry / recipe.fry);
+            } else {
+                times = 0;
+            }
+        }
+    }
+    if (times >= 1) {
+        if (recipe.roast > 0) {
+            if (chef.roast > 0) {
+                times = Math.min(times, chef.roast / recipe.roast);
+            } else {
+                times = 0;
+            }
+        }
+    }
+    if (times >= 1) {
+        if (recipe.steam > 0) {
+            if (chef.steam > 0) {
+                times = Math.min(times, chef.steam / recipe.steam);
+            } else {
+                times = 0;
+            }
+        }
+    }
+
+    var qualityData = new Object();
+
+    var qualityAddition = 0;
+    var qualityDisp = "-";
+    var qualityVal = 0;
+
+    if (times != Number.MAX_VALUE && times >= 1) {
+        if (times >= 4) {
+            qualityAddition = 0.5;
+            qualityDisp = "神";
+            qualityVal = 4;
+        } else if (times >= 3) {
+            qualityAddition = 0.3;
+            qualityDisp = "特";
+            qualityVal = 3;
+        } else if (times >= 2) {
+            qualityAddition = 0.1;
+            qualityDisp = "优";
+            qualityVal = 2;
+        } else if (times >= 1) {
+            qualityAddition = 0;
+            qualityDisp = "可";
+            qualityVal = 1;
+        }
+    }
+
+    qualityData["qualityAddition"] = qualityAddition;
+    qualityData["qualityDisp"] = qualityDisp;
+    qualityData["qualityVal"] = qualityVal;
+    return qualityData;
+}
+
+function getChefSkillAddition(recipe, chef, ingredients) {
+    var skillAddition = 0;
+
+    if (chef.hasOwnProperty('skill')) {
+        for (k in chef.skill) {
+            var hasSkill = false;
+            if (chef.skill[k].type.indexOf("水产") >= 0) {
+                for (m in recipe.ingredient) {
+                    for (n in ingredients) {
+                        if (recipe.ingredient[m].name == ingredients[n].name) {
+                            if (ingredients[n].originId == 8) {
+                                hasSkill = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if (chef.skill[k].type.indexOf("面") >= 0) {
+                for (m in recipe.ingredient) {
+                    for (n in ingredients) {
+                        if (recipe.ingredient[m].name == ingredients[n].name) {
+                            if (ingredients[n].originId == 1) {
+                                hasSkill = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if (chef.skill[k].type.indexOf("肉") >= 0) {
+                for (m in recipe.ingredient) {
+                    for (n in ingredients) {
+                        if (recipe.ingredient[m].name == ingredients[n].name) {
+                            if (ingredients[n].originId == 2
+                                || ingredients[n].originId == 3
+                                || ingredients[n].originId == 4) {
+                                hasSkill = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if (chef.skill[k].type.indexOf("蔬菜") >= 0) {
+                for (m in recipe.ingredient) {
+                    for (n in ingredients) {
+                        if (recipe.ingredient[m].name == ingredients[n].name) {
+                            if (ingredients[n].originId == 5
+                                || ingredients[n].originId == 6
+                                || ingredients[n].originId == 7) {
+                                hasSkill = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if (chef.skill[k].type.indexOf("炒") >= 0) {
+                if (recipe.stirfry > 0) {
+                    hasSkill = true;
+                }
+            }
+            if (chef.skill[k].type.indexOf("煮") >= 0) {
+                if (recipe.boil > 0) {
+                    hasSkill = true;
+                }
+            }
+            if (chef.skill[k].type.indexOf("炸") >= 0) {
+                if (recipe.fry > 0) {
+                    hasSkill = true;
+                }
+            }
+            if (chef.skill[k].type.indexOf("切") >= 0) {
+                if (recipe.cut > 0) {
+                    hasSkill = true;
+                }
+            }
+            if (chef.skill[k].type.indexOf("烤") >= 0) {
+                if (recipe.roast > 0) {
+                    hasSkill = true;
+                }
+            }
+            if (chef.skill[k].type.indexOf("蒸") >= 0) {
+                if (recipe.steam > 0) {
+                    hasSkill = true;
+                }
+            }
+            if (chef.skill[k].type.indexOf("金币") >= 0) {
+                hasSkill = true;
+            }
+
+            if (hasSkill) {
+                skillAddition += chef.skill[k].addition;
+            }
+        }
+    }
+
+    return skillAddition;
 }
 
 function initRecipeShow(recipeTable, data, private) {
@@ -1128,6 +1129,31 @@ function initChefShow(chefTable, data, private) {
     }
 
     chefTable.columns.adjust().draw(false);
+}
+
+function initInfo(data, private) {
+    $('#pagination-history').pagination({
+        dataSource: data.history,
+        callback: function (data, pagination) {
+            var html = historyTemplate(data);
+            $('#data-history').html(html);
+        },
+        pageSize: 5,
+        showPageNumbers: false,
+        showNavigator: true,
+        showPrevious: true,
+        showNext: true
+    });
+
+    $('#chk-function-switch').change(function () {
+        if ($(this).prop("checked")) {
+            $('.main-function').addClass("hidden");
+            $('#main-chef').removeClass("hidden");
+        } else {
+            $('.main-function').addClass("hidden");
+            $('#main-recipe').removeClass("hidden");
+        }
+    });
 }
 
 function historyTemplate(data) {
