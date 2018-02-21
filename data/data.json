@@ -9754,33 +9754,33 @@
         },
         {
             "recipeId": 205,
-            "name": "",
-            "fire": 0,
+            "name": "熊猫饭团",
+            "fire": 3,
             "unlock": "-",
             "stirfry": 0,
             "boil": 0,
             "cut": 0,
             "fry": 0,
             "roast": 0,
-            "steam": 0,
+            "steam": 95,
             "ingredient": [
                 {
-                    "name": "",
-                    "quantity": 0
+                    "name": "大米",
+                    "quantity": 8
                 },
                 {
-                    "name": "",
-                    "quantity": 0
+                    "name": "笋",
+                    "quantity": 2
                 },
                 {
-                    "name": "",
-                    "quantity": 0
+                    "name": "土豆",
+                    "quantity": 6
                 }
             ],
-            "price": 0,
-            "time": 0,
-            "total": 0,
-            "origin": "",
+            "price": 198,
+            "time": 498,
+            "total": 25,
+            "origin": "主线301",
             "guests": [
                 {
                     "quality": "优",
