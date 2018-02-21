@@ -4253,8 +4253,8 @@
             ],
             "godRune": "",
             "personal": {
-                "quality": "",
-                "remark": "三阶后羿(优)-暂无-暂无"
+                "quality": "优",
+                "remark": "暂无-暂无"
             }
         },
         {
@@ -4983,7 +4983,7 @@
         {
             "recipeId": 105,
             "name": "干锅香辣虾",
-            "fire": 0,
+            "fire": 4,
             "unlock": "-",
             "stirfry": 65,
             "boil": 0,
@@ -4991,10 +4991,23 @@
             "fry": 0,
             "roast": 80,
             "steam": 0,
-            "ingredient": [],
-            "price": 0,
+            "ingredient": [
+                {
+                    "name": "虾",
+                    "quantity": 6
+                },
+                {
+                    "name": "葱",
+                    "quantity": 6
+                },
+                {
+                    "name": "辣椒",
+                    "quantity": 8
+                }
+            ],
+            "price": 874,
             "time": 342,
-            "total": 0,
+            "total": 20,
             "origin": "神级干锅鱼头",
             "guests": [
                 {
