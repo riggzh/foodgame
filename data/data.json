@@ -14418,6 +14418,29 @@
             "origin": "厨师礼包"
         },
         {
+            "chefId": 190,
+            "name": "胡小桃",
+            "fire": 3,
+            "sex": "女",
+            "stirfry": 0,
+            "boil": 0,
+            "cut": 185,
+            "fry": 30,
+            "roast": 123,
+            "steam": 92,
+            "skill": [
+                {
+                    "type": "切",
+                    "addition": 0.15
+                }
+            ],
+            "meat": 4,
+            "wheat": 5,
+            "veg": 0,
+            "fish": 0,
+            "origin": "主线433"
+        },
+        {
             "chefId": 193,
             "name": "齐雪",
             "fire": 3,
