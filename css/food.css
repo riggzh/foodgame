@@ -29,10 +29,7 @@ label.btn input[type="checkbox"]:checked+.fa {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
     display: inline-block;
     border-radius: 3px;
-}
-
-.box:not(:first-child) {
-    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .box>.btn,
@@ -43,7 +40,7 @@ label.btn input[type="checkbox"]:checked+.fa {
 }
 
 .box1 {
-    margin-right: 100px;
+    margin-bottom: 10px;
 }
 
 .chk-recipe-show-chef-wrapper,
@@ -51,7 +48,7 @@ label.btn input[type="checkbox"]:checked+.fa {
     display: inline-block;
 }
 
-.chk-chef-show-recipe-wrapper .dropdown-menu{
+.chk-chef-show-recipe-wrapper .dropdown-menu {
     min-width: 215px;
 }
 
@@ -79,48 +76,13 @@ label.btn input[type="checkbox"]:checked+.fa {
     width: auto;
 }
 
-#info {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    font-size: 15px;
-}
-
-#info a {
-    color: #999;
-    cursor: pointer;
-}
-
-#info a:hover {
-    color: #777;
-}
-
-.modal-center-wrap {
-    display: table;
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
-}
-
-.modal-center {
-    display: table-cell;
-    vertical-align: middle;
-    pointer-events: none;
-}
-
-.modal-content {
-    width: inherit;
-    height: inherit;
-    margin: 0 auto;
-    pointer-events: all;
-}
-
 .loading {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    z-index: 50;
 }
 
 .loading h1 {
@@ -187,4 +149,127 @@ label.btn input[type="checkbox"]:checked+.fa {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     padding: 2px;
+}
+
+#btn-cal-results-cal .glyphicon {
+    top: 2px;
+}
+
+#pane-cal-results {
+    position: relative;
+    min-height: 85vh;
+}
+
+.cal-results-progress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    z-index: 100;
+}
+
+.cal-results-progress .progress {
+    position: relative;
+}
+
+.cal-results-progress .progress span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    color: black;
+}
+
+.tab-content {
+    padding-top: 10px;
+}
+
+#pane-cal .tab-content {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#pane-info {
+    padding-left: 15px;
+}
+
+.table-hover tbody tr.selected:hover td {
+    background-color: #eee;
+}
+
+table.dataTable tbody td.selected,
+table.dataTable tbody th.selected,
+table.dataTable tbody tr.selected {
+    color: #333;
+}
+
+table.dataTable tbody>tr.selected,
+table.dataTable tbody>tr>.selected {
+    background-color: #e3ebef;
+}
+
+.selected-sum {
+    text-align: center;
+    color: #337ab7;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.box .input-group {
+    display: inline-table;
+    vertical-align: middle;
+}
+
+.box .input-group .form-control,
+.box .input-group .input-group-addon,
+.box .input-group .input-group-btn {
+    width: auto;
+}
+
+#input-cal-results-show-top {
+    width: 40px;
+}
+
+.tabs-left {
+    display: table;
+    width: 100%;
+}
+
+.tabs-left>.nav-tabs {
+    display: table-cell;
+    width: 90px;
+    border-bottom: 0;
+    border-right: 1px solid #ddd;
+}
+
+.tabs-left>.nav-tabs>li {
+    float: none;
+    text-align: center;
+}
+
+.tabs-left>.nav-tabs>li>a {
+    margin-bottom: 3px;
+    margin-right: -1px;
+    border-radius: 4px 0 0 4px;
+}
+
+.tabs-left>.nav-tabs>li>a:hover,
+.tabs-left>.nav-tabs>li>a:focus {
+    border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+}
+
+.tabs-left>.nav-tabs .active>a,
+.tabs-left>.nav-tabs .active>a:hover,
+.tabs-left>.nav-tabs .active>a:focus {
+    border-color: #ddd transparent #ddd #ddd;
+    border-right-color: #ffffff;
+}
+
+.tabs-left>.tab-content {
+    display: table-cell;
+}
+
+.form-control.input-addition {
+    width: 60px;
+    text-align: center;
 }

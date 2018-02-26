@@ -11,7 +11,7 @@
             "fry": 12,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡蛋",
                     "quantity": 2
@@ -36,10 +36,8 @@
                 }
             ],
             "godRune": "油火虫",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 2,
@@ -52,7 +50,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡胸肉",
                     "quantity": 2
@@ -77,10 +75,10 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 3,
@@ -93,7 +91,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "青菜",
                     "quantity": 3
@@ -118,10 +116,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 4,
@@ -134,7 +130,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "青菜",
                     "quantity": 4
@@ -167,10 +163,8 @@
                 }
             ],
             "godRune": "五香果",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 5,
@@ -183,7 +177,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "茄子",
                     "quantity": 2
@@ -216,10 +210,8 @@
                 }
             ],
             "godRune": "五香果",
-            "personal": {
-                "quality": "特",
-                "remark": "任意"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 6,
@@ -232,7 +224,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 2
@@ -265,10 +257,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 7,
@@ -281,7 +271,7 @@
             "fry": 0,
             "roast": 35,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鲜鱼",
                     "quantity": 2
@@ -314,10 +304,8 @@
                 }
             ],
             "godRune": "焦虫",
-            "personal": {
-                "quality": "",
-                "remark": "火凤(优)-大天狗-三阶火凤"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 8,
@@ -330,7 +318,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 45,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 2
@@ -363,10 +351,8 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 9,
@@ -379,7 +365,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛五花",
                     "quantity": 2
@@ -412,10 +398,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 10,
@@ -428,7 +412,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "大米",
                     "quantity": 5
@@ -461,10 +445,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 11,
@@ -477,7 +459,7 @@
             "fry": 0,
             "roast": 45,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鲜鱼",
                     "quantity": 2
@@ -510,10 +492,8 @@
                 }
             ],
             "godRune": "焦虫",
-            "personal": {
-                "quality": "特",
-                "remark": "升级秦瑞雨"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 12,
@@ -521,12 +501,12 @@
             "fire": 3,
             "unlock": "-",
             "stirfry": 0,
-            "boil": 65,
-            "cut": 45,
+            "boil": 60,
+            "cut": 25,
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "咖喱",
                     "quantity": 3
@@ -544,8 +524,8 @@
                     "quantity": 4
                 }
             ],
-            "price": 514,
-            "time": 843,
+            "price": 478,
+            "time": 695,
             "total": 25,
             "origin": "神级咖喱土豆鸡",
             "guests": [
@@ -563,10 +543,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "优",
-                "remark": "玄离-三阶玄离"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 13,
@@ -579,7 +557,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡蛋",
                     "quantity": 2
@@ -612,10 +590,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 14,
@@ -628,7 +604,7 @@
             "fry": 35,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 2
@@ -661,10 +637,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 15,
@@ -677,7 +651,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 30,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "青菜",
                     "quantity": 6
@@ -706,10 +680,8 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "personal": {
-                "quality": "",
-                "remark": "任意(优)-任意-上宫晴"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 16,
@@ -722,7 +694,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 30,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "螃蟹",
                     "quantity": 3
@@ -759,10 +731,10 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "personal": {
-                "quality": "特",
-                "remark": "暂无"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "特"
         },
         {
             "recipeId": 17,
@@ -775,7 +747,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "番茄",
                     "quantity": 3
@@ -804,10 +776,8 @@
                 }
             ],
             "godRune": "五香果",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 18,
@@ -820,7 +790,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "豆腐",
                     "quantity": 2
@@ -853,10 +823,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 19,
@@ -869,7 +837,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 2
@@ -902,10 +870,8 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 20,
@@ -918,7 +884,7 @@
             "fry": 75,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鲜鱼",
                     "quantity": 2
@@ -951,10 +917,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "杨小倩-三阶嫦娥-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 21,
@@ -967,7 +931,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 2
@@ -1000,10 +964,8 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 22,
@@ -1016,7 +978,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪腿肉",
                     "quantity": 2
@@ -1049,10 +1011,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "特",
-                "remark": "三阶兰染"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 23,
@@ -1065,7 +1025,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡胸肉",
                     "quantity": 3
@@ -1098,10 +1058,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "特",
-                "remark": "琪琪/兰染"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 24,
@@ -1114,7 +1072,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "冻鱼",
                     "quantity": 2
@@ -1146,7 +1104,9 @@
                     "guest": "富人"
                 }
             ],
-            "godRune": "刀嘴鹦鹉"
+            "godRune": "刀嘴鹦鹉",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 25,
@@ -1159,7 +1119,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪腿肉",
                     "quantity": 2
@@ -1192,10 +1152,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "特",
-                "remark": "任意"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 26,
@@ -1208,7 +1166,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 15,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 3
@@ -1241,10 +1199,10 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 27,
@@ -1257,7 +1215,7 @@
             "fry": 0,
             "roast": 35,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸭子",
                     "quantity": 4
@@ -1290,10 +1248,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "可",
-                "remark": "孙香香(优)-升级孙香香-暂无"
-            }
+            "categories": [],
+            "quality": "可"
         },
         {
             "recipeId": 28,
@@ -1306,7 +1262,7 @@
             "fry": 0,
             "roast": 15,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡蛋",
                     "quantity": 2
@@ -1335,10 +1291,10 @@
                 }
             ],
             "godRune": "烤焦的菊花",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 29,
@@ -1351,7 +1307,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛乳",
                     "quantity": 6
@@ -1384,10 +1340,10 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "优",
-                "remark": "任意-升级后羿"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "优"
         },
         {
             "recipeId": 30,
@@ -1400,7 +1356,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "咖喱",
                     "quantity": 3
@@ -1437,10 +1393,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 31,
@@ -1453,7 +1407,7 @@
             "fry": 40,
             "roast": 10,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "冻鱼",
                     "quantity": 3
@@ -1486,10 +1440,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 32,
@@ -1502,7 +1454,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 35,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "糯米",
                     "quantity": 4
@@ -1531,10 +1483,10 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "personal": {
-                "quality": "",
-                "remark": "任意(优)-升级申公子-上宫晴"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 33,
@@ -1547,7 +1499,7 @@
             "fry": 15,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "葱",
                     "quantity": 3
@@ -1576,10 +1528,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 34,
@@ -1592,7 +1544,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "白菜",
                     "quantity": 7
@@ -1629,10 +1581,10 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "可",
-                "remark": "李一清(优)-升级后羿/二阶玄离-升级后羿/二阶玄离"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "可"
         },
         {
             "recipeId": 35,
@@ -1645,7 +1597,7 @@
             "fry": 55,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪腿肉",
                     "quantity": 2
@@ -1678,10 +1630,10 @@
                 }
             ],
             "godRune": "油火虫",
-            "personal": {
-                "quality": "特",
-                "remark": "大天狗"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "特"
         },
         {
             "recipeId": 36,
@@ -1694,7 +1646,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 50,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 3
@@ -1723,10 +1675,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 37,
@@ -1739,7 +1691,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 65,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "螃蟹",
                     "quantity": 2
@@ -1772,10 +1724,8 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "personal": {
-                "quality": "优",
-                "remark": "兔爷-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 38,
@@ -1788,7 +1738,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "青椒",
                     "quantity": 4
@@ -1817,10 +1767,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 39,
@@ -1833,7 +1781,7 @@
             "fry": 0,
             "roast": 35,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪腿肉",
                     "quantity": 2
@@ -1866,10 +1814,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 40,
@@ -1882,7 +1828,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "青菜",
                     "quantity": 4
@@ -1911,10 +1857,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 41,
@@ -1927,7 +1873,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "香菇",
                     "quantity": 6
@@ -1956,10 +1902,8 @@
                 }
             ],
             "godRune": "五香果",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 42,
@@ -1972,7 +1916,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "黄瓜",
                     "quantity": 8
@@ -2001,10 +1945,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 43,
@@ -2017,7 +1959,7 @@
             "fry": 0,
             "roast": 55,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "菠萝",
                     "quantity": 2
@@ -2046,10 +1988,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 44,
@@ -2062,7 +2004,7 @@
             "fry": 0,
             "roast": 15,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 2
@@ -2087,10 +2029,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 45,
@@ -2103,7 +2043,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛五花",
                     "quantity": 6
@@ -2140,10 +2080,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "",
-                "remark": "羽十六(优)-升级后羿/升级上宫晴-玄离"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 46,
@@ -2156,7 +2094,7 @@
             "fry": 50,
             "roast": 20,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 3
@@ -2185,10 +2123,8 @@
                 }
             ],
             "godRune": "一昧真火",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 47,
@@ -2201,7 +2137,7 @@
             "fry": 70,
             "roast": 90,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡腿",
                     "quantity": 6
@@ -2238,10 +2174,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "暂无-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 48,
@@ -2254,7 +2188,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 55,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "糯米",
                     "quantity": 5
@@ -2283,10 +2217,10 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "personal": {
-                "quality": "特",
-                "remark": "上宫晴"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "特"
         },
         {
             "recipeId": 49,
@@ -2299,7 +2233,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 25,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 4
@@ -2328,10 +2262,10 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "personal": {
-                "quality": "",
-                "remark": "琪琪(优)-白稻荷-上宫晴"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 50,
@@ -2344,7 +2278,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 65,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 3
@@ -2377,10 +2311,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "升级兔爷/上宫晴-升级上宫晴"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "优"
         },
         {
             "recipeId": 51,
@@ -2393,7 +2327,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "黄瓜",
                     "quantity": 3
@@ -2422,10 +2356,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 52,
@@ -2438,7 +2370,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "葱",
                     "quantity": 10
@@ -2475,10 +2407,10 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "优",
-                "remark": "玄离-三阶玄离"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "优"
         },
         {
             "recipeId": 53,
@@ -2491,7 +2423,7 @@
             "fry": 50,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "咖喱",
                     "quantity": 4
@@ -2520,10 +2452,10 @@
                 }
             ],
             "godRune": "一昧真火",
-            "personal": {
-                "quality": "特",
-                "remark": "暂无"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "特"
         },
         {
             "recipeId": 54,
@@ -2536,7 +2468,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 25,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "糯米",
                     "quantity": 6
@@ -2565,10 +2497,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 55,
@@ -2581,7 +2513,7 @@
             "fry": 25,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 3
@@ -2614,10 +2546,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 56,
@@ -2630,7 +2562,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 80,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 6
@@ -2663,10 +2595,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "升级兔爷(优)-暂无-暂无"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 57,
@@ -2679,7 +2611,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 10
@@ -2716,10 +2648,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "羽十六(优)-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 58,
@@ -2732,7 +2662,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "葱",
                     "quantity": 6
@@ -2761,10 +2691,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 59,
@@ -2777,7 +2705,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "豆腐",
                     "quantity": 4
@@ -2814,10 +2742,10 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 60,
@@ -2830,7 +2758,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "辣椒",
                     "quantity": 12
@@ -2863,10 +2791,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 61,
@@ -2879,7 +2805,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛腩",
                     "quantity": 2
@@ -2908,10 +2834,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 62,
@@ -2924,7 +2848,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛腩",
                     "quantity": 2
@@ -2953,10 +2877,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 63,
@@ -2969,7 +2891,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛排",
                     "quantity": 5
@@ -2998,10 +2920,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "特",
-                "remark": "三阶后羿"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 64,
@@ -3014,7 +2934,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 20,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "辣椒",
                     "quantity": 4
@@ -3043,10 +2963,8 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 65,
@@ -3059,7 +2977,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 15,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡胸肉",
                     "quantity": 2
@@ -3088,10 +3006,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 66,
@@ -3104,7 +3020,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡腿",
                     "quantity": 4
@@ -3137,10 +3053,8 @@
                 }
             ],
             "godRune": "耐煮的水草",
-            "personal": {
-                "quality": "",
-                "remark": "上宫晴(优)-羽十六-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 67,
@@ -3153,7 +3067,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "童子鸡",
                     "quantity": 3
@@ -3186,10 +3100,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "羽十六(优)-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 68,
@@ -3202,7 +3114,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 30,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "辣椒",
                     "quantity": 6
@@ -3239,10 +3151,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 69,
@@ -3255,7 +3165,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡蛋",
                     "quantity": 2
@@ -3288,10 +3198,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 70,
@@ -3304,7 +3214,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡蛋",
                     "quantity": 3
@@ -3337,10 +3247,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 71,
@@ -3353,7 +3263,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "冻鱼",
                     "quantity": 2
@@ -3382,10 +3292,10 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "",
-                "remark": "任意(优)-羽十六-玄离/后羿"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 72,
@@ -3398,7 +3308,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "冻鱼",
                     "quantity": 2
@@ -3431,10 +3341,10 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "personal": {
-                "quality": "优",
-                "remark": "升级上宫晴-升级上宫晴"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "优"
         },
         {
             "recipeId": 73,
@@ -3447,7 +3357,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "笋",
                     "quantity": 3
@@ -3480,10 +3390,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "羽十六(优)-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 74,
@@ -3496,7 +3404,7 @@
             "fry": 40,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "豆腐",
                     "quantity": 5
@@ -3525,10 +3433,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 75,
@@ -3541,7 +3447,7 @@
             "fry": 40,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "豆腐",
                     "quantity": 2
@@ -3574,10 +3480,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 76,
@@ -3590,7 +3494,7 @@
             "fry": 75,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "辣椒",
                     "quantity": 12
@@ -3623,10 +3527,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "暂无-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 77,
@@ -3639,7 +3541,7 @@
             "fry": 50,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 8
@@ -3668,10 +3570,8 @@
                 }
             ],
             "godRune": "一昧真火",
-            "personal": {
-                "quality": "特",
-                "remark": "暂无"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 78,
@@ -3684,7 +3584,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "酒",
                     "quantity": 8
@@ -3713,10 +3613,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "",
-                "remark": "升级孙香香/二阶夏娃(优)-三阶夏娃-三阶后羿"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 79,
@@ -3729,7 +3627,7 @@
             "fry": 60,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸭子",
                     "quantity": 3
@@ -3758,10 +3656,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 80,
@@ -3774,7 +3670,7 @@
             "fry": 30,
             "roast": 0,
             "steam": 20,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸭子",
                     "quantity": 2
@@ -3803,10 +3699,8 @@
                 }
             ],
             "godRune": "油火虫",
-            "personal": {
-                "quality": "特",
-                "remark": "申公子"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 81,
@@ -3819,7 +3713,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "青菜",
                     "quantity": 6
@@ -3848,10 +3742,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 82,
@@ -3864,7 +3758,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪杂",
                     "quantity": 4
@@ -3893,10 +3787,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 83,
@@ -3909,7 +3801,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 12,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪杂",
                     "quantity": 2
@@ -3942,10 +3834,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 84,
@@ -3958,7 +3848,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 65,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "黄豆",
                     "quantity": 3
@@ -3995,10 +3885,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "兔爷(优)-夏娃-上宫晴"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 85,
@@ -4011,7 +3899,7 @@
             "fry": 0,
             "roast": 60,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 3
@@ -4040,10 +3928,8 @@
                 }
             ],
             "godRune": "焦虫",
-            "personal": {
-                "quality": "特",
-                "remark": "不知火喵"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 86,
@@ -4056,7 +3942,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "童子鸡",
                     "quantity": 3
@@ -4093,10 +3979,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "玄离-升级玄离"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 87,
@@ -4109,7 +3993,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 80,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "梅花肉",
                     "quantity": 4
@@ -4146,10 +4030,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "三阶夏娃(优)-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 88,
@@ -4162,7 +4044,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 60,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "笋",
                     "quantity": 8
@@ -4199,10 +4081,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "升级夏娃(优)-三阶夏娃(特)-暂无"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 89,
@@ -4215,7 +4097,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鱼翅",
                     "quantity": 3
@@ -4252,10 +4134,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "暂无-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 90,
@@ -4268,7 +4148,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 6
@@ -4305,10 +4185,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "任意-暂无-暂无-暂无"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 91,
@@ -4321,7 +4201,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡蛋",
                     "quantity": 2
@@ -4350,10 +4230,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 92,
@@ -4366,7 +4244,7 @@
             "fry": 0,
             "roast": 50,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 8
@@ -4403,10 +4281,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "不知火喵-暂无"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "优"
         },
         {
             "recipeId": 93,
@@ -4419,7 +4297,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "辣椒",
                     "quantity": 3
@@ -4448,10 +4326,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 94,
@@ -4464,7 +4340,7 @@
             "fry": 0,
             "roast": 50,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "葱",
                     "quantity": 10
@@ -4497,10 +4373,8 @@
                 }
             ],
             "godRune": "焦虫",
-            "personal": {
-                "quality": "优",
-                "remark": "升级秦瑞雨-不知火喵"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 95,
@@ -4513,7 +4387,7 @@
             "fry": 0,
             "roast": 48,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "菠萝",
                     "quantity": 4
@@ -4550,10 +4424,10 @@
                 }
             ],
             "godRune": "焦虫",
-            "personal": {
-                "quality": "",
-                "remark": "姜灵儿(优)-升级姜灵儿/升级秦瑞雨-不知火喵/大天狗"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 96,
@@ -4566,7 +4440,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪杂",
                     "quantity": 4
@@ -4595,10 +4469,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 97,
@@ -4611,7 +4483,7 @@
             "fry": 15,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "葱",
                     "quantity": 5
@@ -4640,10 +4512,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 98,
@@ -4656,7 +4526,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "洋葱",
                     "quantity": 5
@@ -4685,10 +4555,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 99,
@@ -4701,7 +4569,7 @@
             "fry": 35,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "洋葱",
                     "quantity": 4
@@ -4730,10 +4598,10 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 100,
@@ -4746,7 +4614,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -4778,7 +4646,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 101,
@@ -4791,7 +4661,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "洋葱",
                     "quantity": 4
@@ -4820,10 +4690,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "",
-                "remark": "鱼不斩/大天狗(优)-羽十六-三阶兰染"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 102,
@@ -4836,7 +4704,7 @@
             "fry": 0,
             "roast": 70,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鲜鱼",
                     "quantity": 2
@@ -4869,10 +4737,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "优",
-                "remark": "姜灵儿-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 103,
@@ -4885,7 +4751,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡胸肉",
                     "quantity": 2
@@ -4922,10 +4788,8 @@
                 }
             ],
             "godRune": "焦虫",
-            "personal": {
-                "quality": "特",
-                "remark": "任意"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 104,
@@ -4938,7 +4802,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪杂",
                     "quantity": 6
@@ -4975,10 +4839,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 105,
@@ -4991,7 +4853,7 @@
             "fry": 0,
             "roast": 80,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 6
@@ -5023,7 +4885,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 106,
@@ -5036,7 +4900,7 @@
             "fry": 25,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛腩",
                     "quantity": 2
@@ -5065,10 +4929,10 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 107,
@@ -5081,7 +4945,7 @@
             "fry": 0,
             "roast": 45,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛乳",
                     "quantity": 7
@@ -5110,10 +4974,10 @@
                 }
             ],
             "godRune": "焦虫",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 108,
@@ -5126,7 +4990,7 @@
             "fry": 35,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 4
@@ -5155,10 +5019,10 @@
                 }
             ],
             "godRune": "油火虫",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 109,
@@ -5171,7 +5035,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛腩",
                     "quantity": 1
@@ -5200,10 +5064,8 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 110,
@@ -5216,7 +5078,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 3
@@ -5253,10 +5115,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "羽十六(优)-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 111,
@@ -5269,7 +5129,7 @@
             "fry": 0,
             "roast": 120,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛排",
                     "quantity": 10
@@ -5306,10 +5166,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "不知火喵-暂无-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 112,
@@ -5322,7 +5180,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 65,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 3
@@ -5359,10 +5217,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "特",
-                "remark": "上宫晴"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "特"
         },
         {
             "recipeId": 113,
@@ -5375,7 +5233,7 @@
             "fry": 0,
             "roast": 85,
             "steam": 0,
-            "ingredient": [],
+            "ingredients": [],
             "price": 0,
             "time": 301,
             "total": 0,
@@ -5394,7 +5252,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 114,
@@ -5407,7 +5267,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -5439,7 +5299,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 115,
@@ -5452,7 +5314,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "白萝卜",
                     "quantity": 5
@@ -5481,10 +5343,10 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "优",
-                "remark": "二阶玄离/三阶后羿-二阶玄离/三阶后羿"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "优"
         },
         {
             "recipeId": 116,
@@ -5497,7 +5359,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 35,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "冻鱼",
                     "quantity": 2
@@ -5534,10 +5396,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "粉雪(优)-升级蛋皇-上宫晴"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 117,
@@ -5550,7 +5412,7 @@
             "fry": 80,
             "roast": 100,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鲜鱼",
                     "quantity": 5
@@ -5587,10 +5449,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 118,
@@ -5603,7 +5463,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "白萝卜",
                     "quantity": 3
@@ -5632,10 +5492,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 119,
@@ -5648,7 +5506,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 30,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "黄瓜",
                     "quantity": 3
@@ -5677,10 +5535,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "可",
-                "remark": "夏娃/秋韵-武葵-升级武葵/二阶夏娃"
-            }
+            "categories": [],
+            "quality": "可"
         },
         {
             "recipeId": 120,
@@ -5693,7 +5549,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 80,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "笋",
                     "quantity": 6
@@ -5730,10 +5586,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "暂无-暂无"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "优"
         },
         {
             "recipeId": 121,
@@ -5746,7 +5602,7 @@
             "fry": 80,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 6
@@ -5779,10 +5635,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "任意-暂无-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 122,
@@ -5795,7 +5649,7 @@
             "fry": 0,
             "roast": 30,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 4
@@ -5828,10 +5682,8 @@
                 }
             ],
             "godRune": "焦虫",
-            "personal": {
-                "quality": "特",
-                "remark": "暂无"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 123,
@@ -5844,7 +5696,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 4
@@ -5877,10 +5729,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "琪琪(优)-三阶兰染-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 124,
@@ -5893,7 +5743,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 55,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡蛋",
                     "quantity": 4
@@ -5926,10 +5776,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 125,
@@ -5942,7 +5790,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "酒",
                     "quantity": 2
@@ -5975,10 +5823,11 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "personal": {
-                "quality": "",
-                "remark": "任意(优)-任意-任意"
-            }
+            "categories": [
+                "汤",
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 126,
@@ -5991,7 +5840,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡蛋",
                     "quantity": 5
@@ -6024,10 +5873,8 @@
                 }
             ],
             "godRune": "耐煮的水草",
-            "personal": {
-                "quality": "优",
-                "remark": "升级上宫晴-三阶玄离"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 127,
@@ -6040,7 +5887,7 @@
             "fry": 55,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "糯米",
                     "quantity": 3
@@ -6073,10 +5920,10 @@
                 }
             ],
             "godRune": "油火虫",
-            "personal": {
-                "quality": "",
-                "remark": "杨小倩(优)-熊麓-大天狗"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 128,
@@ -6089,7 +5936,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 35,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "糯米",
                     "quantity": 3
@@ -6114,10 +5961,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 129,
@@ -6130,7 +5977,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -6162,7 +6009,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 130,
@@ -6175,7 +6024,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛排",
                     "quantity": 5
@@ -6212,10 +6061,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "",
-                "remark": "秋韵(优)-三阶夏娃-升级后羿"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 131,
@@ -6228,7 +6075,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -6260,7 +6107,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 132,
@@ -6273,7 +6122,7 @@
             "fry": 50,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鲜鱼",
                     "quantity": 4
@@ -6310,10 +6159,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "三阶嫦娥-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 133,
@@ -6326,7 +6173,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "梅花肉",
                     "quantity": 6
@@ -6359,10 +6206,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "任意-暂无-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 134,
@@ -6375,7 +6220,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸭子",
                     "quantity": 8
@@ -6412,10 +6257,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "羽十六(优)-上宫晴-三阶玄离"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 135,
@@ -6428,7 +6271,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛排",
                     "quantity": 3
@@ -6461,10 +6304,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 136,
@@ -6477,7 +6318,7 @@
             "fry": 0,
             "roast": 20,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "笋",
                     "quantity": 5
@@ -6506,10 +6347,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 137,
@@ -6522,7 +6361,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "梅花肉",
                     "quantity": 5
@@ -6555,10 +6394,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "玄离(优)-三阶玄离-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 138,
@@ -6571,7 +6408,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "童子鸡",
                     "quantity": 5
@@ -6608,10 +6445,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "升级后羿-三阶后羿/三阶玄离-暂无-暂无"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 139,
@@ -6624,7 +6461,7 @@
             "fry": 40,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "糯米",
                     "quantity": 6
@@ -6661,10 +6498,8 @@
                 }
             ],
             "godRune": "一昧真火",
-            "personal": {
-                "quality": "特",
-                "remark": "大天狗"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 140,
@@ -6677,7 +6512,7 @@
             "fry": 20,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "黄豆",
                     "quantity": 3
@@ -6714,10 +6549,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "",
-                "remark": "升级任意(优)-升级任意(特)-熊麓"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 141,
@@ -6730,7 +6563,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 80,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 10
@@ -6767,10 +6600,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "三阶上宫晴-暂无-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 142,
@@ -6783,7 +6614,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 6
@@ -6812,10 +6643,8 @@
                 }
             ],
             "godRune": "千年煮鳖",
-            "personal": {
-                "quality": "",
-                "remark": "羽十六-二阶玄离-三阶玄离-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 143,
@@ -6828,7 +6657,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [],
+            "ingredients": [],
             "price": 0,
             "time": 0,
             "total": 0,
@@ -6847,7 +6676,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 144,
@@ -6860,7 +6691,7 @@
             "fry": 0,
             "roast": 75,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "菠萝",
                     "quantity": 6
@@ -6893,10 +6724,10 @@
                 }
             ],
             "godRune": "恐怖利刃",
-            "personal": {
-                "quality": "",
-                "remark": "大天狗(优)-三阶不知火喵-暂无"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 145,
@@ -6909,7 +6740,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛五花",
                     "quantity": 3
@@ -6946,10 +6777,8 @@
                 }
             ],
             "godRune": "暖石",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 146,
@@ -6962,7 +6791,7 @@
             "fry": 75,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "梅花肉",
                     "quantity": 6
@@ -6995,10 +6824,8 @@
                 }
             ],
             "godRune": "一昧真火",
-            "personal": {
-                "quality": "",
-                "remark": "熊麓(优)-三阶祖冲之-大天狗"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 147,
@@ -7011,7 +6838,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 40,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛杂",
                     "quantity": 5
@@ -7026,7 +6853,7 @@
                 }
             ],
             "price": 315,
-            "time": 401,
+            "time": 402,
             "total": 25,
             "origin": "璧池",
             "guests": [
@@ -7043,7 +6870,9 @@
                     "guest": "木优"
                 }
             ],
-            "godRune": "刀嘴鹦鹉"
+            "godRune": "刀嘴鹦鹉",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 148,
@@ -7056,7 +6885,7 @@
             "fry": 100,
             "roast": 0,
             "steam": 0,
-            "ingredient": [],
+            "ingredients": [],
             "price": 0,
             "time": 0,
             "total": 0,
@@ -7075,7 +6904,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 149,
@@ -7088,7 +6919,7 @@
             "fry": 0,
             "roast": 85,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 6
@@ -7125,10 +6956,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "可",
-                "remark": "大天狗-三阶不知火喵-暂无"
-            }
+            "categories": [],
+            "quality": "可"
         },
         {
             "recipeId": 150,
@@ -7141,7 +6970,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -7173,7 +7002,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 151,
@@ -7186,7 +7017,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 28,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "黄豆",
                     "quantity": 3
@@ -7219,10 +7050,8 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "personal": {
-                "quality": "",
-                "remark": "任意(优)-任意-任意"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 152,
@@ -7235,7 +7064,7 @@
             "fry": 42,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "茄子",
                     "quantity": 4
@@ -7264,10 +7093,8 @@
                 }
             ],
             "godRune": "一昧真火",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 153,
@@ -7280,7 +7107,7 @@
             "fry": 0,
             "roast": 85,
             "steam": 100,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡腿",
                     "quantity": 12
@@ -7313,10 +7140,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "白稻荷-暂无-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 154,
@@ -7329,7 +7154,7 @@
             "fry": 200,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 6
@@ -7362,10 +7187,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "大天狗-暂无-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 155,
@@ -7378,7 +7201,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 45,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "菠萝",
                     "quantity": 4
@@ -7411,10 +7234,8 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "personal": {
-                "quality": "优",
-                "remark": "暂无-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 156,
@@ -7427,7 +7248,7 @@
             "fry": 40,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "菠萝",
                     "quantity": 4
@@ -7460,10 +7281,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "祖冲之(优)-大天狗(特)-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 157,
@@ -7476,7 +7295,7 @@
             "fry": 0,
             "roast": 30,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛五花",
                     "quantity": 4
@@ -7501,10 +7320,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 158,
@@ -7517,7 +7334,7 @@
             "fry": 0,
             "roast": 65,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛杂",
                     "quantity": 4
@@ -7542,10 +7359,8 @@
                 }
             ],
             "godRune": "焦虫",
-            "personal": {
-                "quality": "特",
-                "remark": "不知火喵"
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 159,
@@ -7558,7 +7373,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "白萝卜",
                     "quantity": 3
@@ -7587,10 +7402,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 160,
@@ -7603,7 +7416,7 @@
             "fry": 10,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "贝壳",
                     "quantity": 3
@@ -7636,10 +7449,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 161,
@@ -7652,7 +7463,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 25,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "贝壳",
                     "quantity": 2
@@ -7677,10 +7488,8 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 162,
@@ -7693,7 +7502,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "贝壳",
                     "quantity": 3
@@ -7726,10 +7535,10 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "优",
-                "remark": "三阶上宫晴-二阶玄离/三阶后羿"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "优"
         },
         {
             "recipeId": 163,
@@ -7742,7 +7551,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "冻鱼",
                     "quantity": 3
@@ -7775,10 +7584,10 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "可",
-                "remark": "升级后羿/二阶玄离(优)-三阶后羿/二阶玄离-三阶玄离"
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": "可"
         },
         {
             "recipeId": 164,
@@ -7791,7 +7600,7 @@
             "fry": 40,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡胸肉",
                     "quantity": 2
@@ -7820,10 +7629,8 @@
                 }
             ],
             "godRune": "油火虫",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 165,
@@ -7836,7 +7643,7 @@
             "fry": 25,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪腿肉",
                     "quantity": 2
@@ -7865,10 +7672,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 166,
@@ -7881,7 +7686,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "番茄",
                     "quantity": 3
@@ -7906,10 +7711,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 167,
@@ -7922,7 +7725,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "茄子",
                     "quantity": 3
@@ -7955,10 +7758,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 168,
@@ -7971,7 +7772,7 @@
             "fry": 0,
             "roast": 45,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "茄子",
                     "quantity": 3
@@ -8000,10 +7801,8 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "神"
         },
         {
             "recipeId": 169,
@@ -8016,7 +7815,7 @@
             "fry": 0,
             "roast": 60,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 3
@@ -8045,10 +7844,8 @@
                 }
             ],
             "godRune": "烤焦的菊花",
-            "personal": {
-                "quality": "优",
-                "remark": "升级不知火喵-三阶不知火喵"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 170,
@@ -8061,7 +7858,7 @@
             "fry": 0,
             "roast": 150,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 12
@@ -8098,10 +7895,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "二阶不知火喵-暂无-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 171,
@@ -8114,7 +7909,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "冻鱼",
                     "quantity": 3
@@ -8151,10 +7946,8 @@
                 }
             ],
             "godRune": "暖石",
-            "personal": {
-                "quality": "",
-                "remark": "鱼不斩(优)-羽十六-大天狗"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 172,
@@ -8167,7 +7960,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 5
@@ -8200,10 +7993,10 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "优",
-                "remark": "升级孙香香-三阶夏娃"
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "优"
         },
         {
             "recipeId": 173,
@@ -8216,7 +8009,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "香菇",
                     "quantity": 8
@@ -8245,10 +8038,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "优",
-                "remark": "三阶后羿-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 174,
@@ -8261,7 +8052,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 60,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛腩",
                     "quantity": 2
@@ -8290,10 +8081,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "",
-                "remark": "兔爷(优)-三阶夏娃-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 175,
@@ -8306,7 +8095,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 4
@@ -8339,10 +8128,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "",
-                "remark": "熊麓(优)-升级后羿-升级后羿"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 176,
@@ -8355,7 +8142,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 45,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸭子",
                     "quantity": 5
@@ -8383,7 +8170,9 @@
                     "guest": "迷弟杜甫"
                 }
             ],
-            "godRune": "刀嘴鹦鹉"
+            "godRune": "刀嘴鹦鹉",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 177,
@@ -8396,7 +8185,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -8428,7 +8217,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 178,
@@ -8441,7 +8232,7 @@
             "fry": 65,
             "roast": 95,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鲜鱼",
                     "quantity": 5
@@ -8470,10 +8261,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "暂无-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 179,
@@ -8486,7 +8275,7 @@
             "fry": 100,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鲜鱼",
                     "quantity": 8
@@ -8519,10 +8308,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 180,
@@ -8535,7 +8322,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 80,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "贝壳",
                     "quantity": 3
@@ -8572,10 +8359,8 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 181,
@@ -8588,7 +8373,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -8620,7 +8405,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 182,
@@ -8633,7 +8420,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -8665,7 +8452,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 183,
@@ -8678,7 +8467,7 @@
             "fry": 35,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "豆腐",
                     "quantity": 3
@@ -8711,10 +8500,10 @@
                 }
             ],
             "godRune": "-",
-            "personal": {
-                "quality": "神",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": "神"
         },
         {
             "recipeId": 184,
@@ -8727,7 +8516,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 55,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪腿肉",
                     "quantity": 6
@@ -8764,10 +8553,8 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "personal": {
-                "quality": "特",
-                "remark": "上宫晴"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 185,
@@ -8780,7 +8567,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡腿",
                     "quantity": 2
@@ -8813,10 +8600,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 186,
@@ -8829,7 +8614,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "糯米",
                     "quantity": 4
@@ -8862,10 +8647,8 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "personal": {
-                "quality": "",
-                "remark": "任意(优)-任意-任意"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 187,
@@ -8878,7 +8661,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 25,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "土豆",
                     "quantity": 5
@@ -8907,10 +8690,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "",
-                "remark": "任意(优)-任意-任意"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 188,
@@ -8923,7 +8704,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 48,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "咖喱",
                     "quantity": 3
@@ -8959,7 +8740,9 @@
                     "guest": "木优"
                 }
             ],
-            "godRune": "蒸汽宝石"
+            "godRune": "蒸汽宝石",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 189,
@@ -8972,7 +8755,7 @@
             "fry": 25,
             "roast": 0,
             "steam": 70,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "咖喱",
                     "quantity": 4
@@ -9005,10 +8788,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "三阶申公子(优)-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 190,
@@ -9021,7 +8802,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 95,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "咖喱",
                     "quantity": 4
@@ -9058,10 +8839,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "上宫晴-暂无-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 191,
@@ -9074,7 +8853,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "番茄",
                     "quantity": 4
@@ -9106,7 +8885,9 @@
                     "guest": "貂蝉"
                 }
             ],
-            "godRune": "刀嘴鹦鹉"
+            "godRune": "刀嘴鹦鹉",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 192,
@@ -9119,7 +8900,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 40,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "胡萝卜",
                     "quantity": 5
@@ -9152,10 +8933,8 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "personal": {
-                "quality": "优",
-                "remark": "升级夏娃等-兔爷/上宫晴"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 193,
@@ -9168,7 +8947,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛排",
                     "quantity": 5
@@ -9201,10 +8980,8 @@
                 }
             ],
             "godRune": "耐煮的水草",
-            "personal": {
-                "quality": "",
-                "remark": "三阶上宫晴(优)-三阶玄离-三阶玄离"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 194,
@@ -9217,7 +8994,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 6
@@ -9254,10 +9031,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "暂无-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 195,
@@ -9270,7 +9045,7 @@
             "fry": 35,
             "roast": 35,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 4
@@ -9306,7 +9081,9 @@
                     "guest": "吕布"
                 }
             ],
-            "godRune": "刀嘴鹦鹉"
+            "godRune": "刀嘴鹦鹉",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 196,
@@ -9319,7 +9096,7 @@
             "fry": 0,
             "roast": 100,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛排",
                     "quantity": 5
@@ -9356,10 +9133,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "三阶灯鬼/三阶火喵(优)-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 197,
@@ -9372,7 +9147,7 @@
             "fry": 60,
             "roast": 120,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "童子鸡",
                     "quantity": 6
@@ -9405,10 +9180,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "暂无-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 198,
@@ -9421,7 +9194,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "土豆",
                     "quantity": 5
@@ -9458,10 +9231,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "优",
-                "remark": "升级玄离-三阶玄离"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 199,
@@ -9474,7 +9245,7 @@
             "fry": 0,
             "roast": 90,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛乳",
                     "quantity": 5
@@ -9511,10 +9282,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "升级不知火喵(优)-三阶不知火喵-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 200,
@@ -9527,7 +9296,7 @@
             "fry": 0,
             "roast": 150,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鲜鱼",
                     "quantity": 6
@@ -9564,10 +9333,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "大天狗-暂无-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 201,
@@ -9580,7 +9347,7 @@
             "fry": 30,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛杂",
                     "quantity": 6
@@ -9617,10 +9384,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "暂无-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 202,
@@ -9633,7 +9398,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -9665,7 +9430,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 203,
@@ -9678,7 +9445,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 4
@@ -9707,10 +9474,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": "升级兰染(优)-暂无-暂无"
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 204,
@@ -9723,7 +9488,7 @@
             "fry": 0,
             "roast": 55,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "糯米",
                     "quantity": 6
@@ -9760,10 +9525,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "暂无-暂无"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 205,
@@ -9776,7 +9539,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 95,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "大米",
                     "quantity": 8
@@ -9808,7 +9571,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 206,
@@ -9821,7 +9586,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -9853,7 +9618,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 207,
@@ -9866,7 +9633,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "面粉",
                     "quantity": 3
@@ -9903,10 +9670,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "特",
-                "remark": "后羿/玄离"
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 208,
@@ -9919,7 +9684,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "笋",
                     "quantity": 3
@@ -9956,10 +9721,8 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "personal": {
-                "quality": "优",
-                "remark": "三阶后羿-升级三阶后羿"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 209,
@@ -9972,7 +9735,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 50,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "白菜",
                     "quantity": 10
@@ -10009,10 +9772,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "优",
-                "remark": "上宫晴-升级上宫晴"
-            }
+            "categories": [],
+            "quality": "优"
         },
         {
             "recipeId": 210,
@@ -10025,7 +9786,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10057,7 +9818,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 211,
@@ -10070,7 +9833,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10102,7 +9865,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 212,
@@ -10115,7 +9880,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10147,7 +9912,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 213,
@@ -10160,7 +9927,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10192,7 +9959,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 214,
@@ -10205,7 +9974,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10237,7 +10006,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 215,
@@ -10250,7 +10021,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10282,7 +10053,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 216,
@@ -10295,7 +10068,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10327,7 +10100,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 217,
@@ -10340,7 +10115,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10372,7 +10147,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 218,
@@ -10385,7 +10162,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10417,7 +10194,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 219,
@@ -10430,7 +10209,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10462,7 +10241,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 220,
@@ -10475,7 +10256,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10507,7 +10288,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 221,
@@ -10520,7 +10303,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "白菜",
                     "quantity": 6
@@ -10553,10 +10336,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 222,
@@ -10569,7 +10350,7 @@
             "fry": 52,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "贝壳",
                     "quantity": 3
@@ -10606,10 +10387,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 223,
@@ -10622,7 +10401,7 @@
             "fry": 40,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 3
@@ -10655,10 +10434,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 224,
@@ -10671,7 +10450,7 @@
             "fry": 20,
             "roast": 48,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 3
@@ -10704,10 +10483,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 225,
@@ -10720,7 +10497,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 50,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "菠萝",
                     "quantity": 4
@@ -10757,10 +10534,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 226,
@@ -10773,7 +10550,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10805,7 +10582,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 227,
@@ -10818,7 +10597,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10850,7 +10629,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 228,
@@ -10863,7 +10644,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10895,7 +10676,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 229,
@@ -10908,7 +10691,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10940,7 +10723,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 230,
@@ -10953,7 +10738,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -10985,7 +10770,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 231,
@@ -10998,7 +10785,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -11030,7 +10817,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 232,
@@ -11043,7 +10832,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -11075,7 +10864,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 233,
@@ -11088,7 +10879,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -11120,7 +10911,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 234,
@@ -11133,7 +10926,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -11165,7 +10958,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 235,
@@ -11178,7 +10973,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -11210,7 +11005,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 236,
@@ -11223,7 +11020,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "葱",
                     "quantity": 3
@@ -11256,10 +11053,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 237,
@@ -11272,7 +11067,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪腿肉",
                     "quantity": 2
@@ -11305,10 +11100,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 238,
@@ -11321,7 +11116,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡蛋",
                     "quantity": 2
@@ -11350,10 +11145,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [
+                "汤"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 239,
@@ -11366,7 +11161,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -11398,7 +11193,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 240,
@@ -11411,7 +11208,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "虾",
                     "quantity": 1
@@ -11444,10 +11241,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "特",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 241,
@@ -11460,7 +11255,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -11492,7 +11287,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 242,
@@ -11505,7 +11302,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -11537,7 +11334,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 243,
@@ -11550,7 +11349,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "",
                     "quantity": 0
@@ -11582,7 +11381,9 @@
                     "guest": ""
                 }
             ],
-            "godRune": ""
+            "godRune": "",
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 244,
@@ -11595,7 +11396,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 20,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 2
@@ -11620,10 +11421,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 245,
@@ -11636,7 +11435,7 @@
             "fry": 0,
             "roast": 28,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "黄豆",
                     "quantity": 1
@@ -11665,10 +11464,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "特",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": "特"
         },
         {
             "recipeId": 246,
@@ -11681,7 +11478,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 24,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "茄子",
                     "quantity": 2
@@ -11710,10 +11507,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 247,
@@ -11726,7 +11521,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛乳",
                     "quantity": 3
@@ -11755,10 +11550,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 248,
@@ -11771,7 +11566,7 @@
             "fry": 25,
             "roast": 15,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "猪腿肉",
                     "quantity": 2
@@ -11800,10 +11595,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 249,
@@ -11816,7 +11611,7 @@
             "fry": 0,
             "roast": 80,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鸡腿",
                     "quantity": 5
@@ -11853,10 +11648,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 250,
@@ -11869,7 +11662,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 45,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "里脊肉",
                     "quantity": 2
@@ -11902,10 +11695,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 251,
@@ -11918,7 +11709,7 @@
             "fry": 0,
             "roast": 70,
             "steam": 0,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "牛排",
                     "quantity": 3
@@ -11955,10 +11746,10 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [
+                "点心"
+            ],
+            "quality": ""
         },
         {
             "recipeId": 252,
@@ -11971,7 +11762,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 55,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "菠萝",
                     "quantity": 2
@@ -12008,10 +11799,8 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
+            "categories": [],
+            "quality": ""
         },
         {
             "recipeId": 253,
@@ -12024,7 +11813,7 @@
             "fry": 0,
             "roast": 0,
             "steam": 70,
-            "ingredient": [
+            "ingredients": [
                 {
                     "name": "鲜鱼",
                     "quantity": 4
@@ -12061,275 +11850,274 @@
                 }
             ],
             "godRune": "",
-            "personal": {
-                "quality": "",
-                "remark": ""
-            }
-        }
-    ],
-    "origins": [
-        {
-            "originId": 0,
-            "name": ""
-        },
-        {
-            "originId": 1,
-            "name": "作坊"
-        },
-        {
-            "originId": 2,
-            "name": "牧场"
-        },
-        {
-            "originId": 3,
-            "name": "鸡舍"
-        },
-        {
-            "originId": 4,
-            "name": "猪圈"
-        },
-        {
-            "originId": 5,
-            "name": "菜棚"
-        },
-        {
-            "originId": 6,
-            "name": "菜地"
-        },
-        {
-            "originId": 7,
-            "name": "森林"
-        },
-        {
-            "originId": 8,
-            "name": "鱼塘"
+            "categories": [],
+            "quality": ""
         }
     ],
     "ingredients": [
         {
-            "ingredientId": 0,
-            "name": "",
-            "originId": 0
-        },
-        {
             "ingredientId": 1,
-            "name": "鸭子",
-            "originId": 3
+            "name": "青菜",
+            "fire": 1,
+            "origin": "菜棚"
         },
         {
             "ingredientId": 2,
-            "name": "冻鱼",
-            "originId": 8
+            "name": "番茄",
+            "fire": 1,
+            "origin": "菜棚"
         },
         {
             "ingredientId": 3,
-            "name": "猪腿肉",
-            "originId": 4
+            "name": "青椒",
+            "fire": 2,
+            "origin": "菜棚"
         },
         {
             "ingredientId": 4,
-            "name": "里脊肉",
-            "originId": 4
+            "name": "黄瓜",
+            "fire": 3,
+            "origin": "菜棚"
         },
         {
             "ingredientId": 5,
-            "name": "梅花肉",
-            "originId": 4
+            "name": "黄豆",
+            "fire": 3,
+            "origin": "菜棚"
         },
         {
             "ingredientId": 6,
-            "name": "青菜",
-            "originId": 5
+            "name": "白萝卜",
+            "fire": 3,
+            "origin": "菜棚"
         },
         {
             "ingredientId": 7,
-            "name": "鸡胸肉",
-            "originId": 3
+            "name": "葱",
+            "fire": 1,
+            "origin": "菜地"
         },
         {
             "ingredientId": 8,
-            "name": "鸡腿",
-            "originId": 3
+            "name": "辣椒",
+            "fire": 2,
+            "origin": "菜地"
         },
         {
             "ingredientId": 9,
-            "name": "童子鸡",
-            "originId": 3
+            "name": "土豆",
+            "fire": 2,
+            "origin": "菜地"
         },
         {
             "ingredientId": 10,
-            "name": "番茄",
-            "originId": 5
+            "name": "茄子",
+            "fire": 3,
+            "origin": "菜地"
         },
         {
             "ingredientId": 11,
-            "name": "面粉",
-            "originId": 1
+            "name": "菠萝",
+            "fire": 4,
+            "origin": "菜地"
         },
         {
             "ingredientId": 12,
-            "name": "鸡蛋",
-            "originId": 3
+            "name": "白菜",
+            "fire": 1,
+            "origin": "森林"
         },
         {
             "ingredientId": 13,
-            "name": "胡萝卜",
-            "originId": 7
+            "name": "香菇",
+            "fire": 2,
+            "origin": "森林"
         },
         {
             "ingredientId": 14,
-            "name": "笋",
-            "originId": 7
+            "name": "胡萝卜",
+            "fire": 3,
+            "origin": "森林"
         },
         {
             "ingredientId": 15,
-            "name": "白菜",
-            "originId": 7
+            "name": "洋葱",
+            "fire": 3,
+            "origin": "森林"
         },
         {
             "ingredientId": 16,
-            "name": "辣椒",
-            "originId": 6
+            "name": "笋",
+            "fire": 5,
+            "origin": "森林"
         },
         {
             "ingredientId": 17,
-            "name": "香菇",
-            "originId": 7
+            "name": "鸡蛋",
+            "fire": 1,
+            "origin": "鸡舍"
         },
         {
             "ingredientId": 18,
-            "name": "葱",
-            "originId": 6
+            "name": "鸡胸肉",
+            "fire": 2,
+            "origin": "鸡舍"
         },
         {
             "ingredientId": 19,
-            "name": "茄子",
-            "originId": 6
+            "name": "鸭子",
+            "fire": 2,
+            "origin": "鸡舍"
         },
         {
             "ingredientId": 20,
-            "name": "豆腐",
-            "originId": 1
+            "name": "鸡杂",
+            "fire": 2,
+            "origin": "鸡舍"
         },
         {
             "ingredientId": 21,
-            "name": "大米",
-            "originId": 1
+            "name": "鸡腿",
+            "fire": 3,
+            "origin": "鸡舍"
         },
         {
             "ingredientId": 22,
-            "name": "土豆",
-            "originId": 6
+            "name": "童子鸡",
+            "fire": 4,
+            "origin": "鸡舍"
         },
         {
             "ingredientId": 23,
-            "name": "青椒",
-            "originId": 5
+            "name": "猪腿肉",
+            "fire": 2,
+            "origin": "猪圈"
         },
         {
             "ingredientId": 24,
-            "name": "螃蟹",
-            "originId": 8
+            "name": "猪油",
+            "fire": 2,
+            "origin": "猪圈"
         },
         {
             "ingredientId": 25,
-            "name": "洋葱",
-            "originId": 7
+            "name": "猪杂",
+            "fire": 2,
+            "origin": "猪圈"
         },
         {
             "ingredientId": 26,
-            "name": "牛腩",
-            "originId": 1
+            "name": "里脊肉",
+            "fire": 3,
+            "origin": "猪圈"
         },
         {
             "ingredientId": 27,
-            "name": "牛五花",
-            "originId": 1
+            "name": "梅花肉",
+            "fire": 4,
+            "origin": "猪圈"
         },
         {
             "ingredientId": 28,
-            "name": "牛排",
-            "originId": 1
+            "name": "牛腩",
+            "fire": 2,
+            "origin": "牧场"
         },
         {
             "ingredientId": 29,
-            "name": "咖喱",
-            "originId": 1
+            "name": "牛乳",
+            "fire": 2,
+            "origin": "牧场"
         },
         {
             "ingredientId": 30,
-            "name": "白萝卜",
-            "originId": 5
+            "name": "牛杂",
+            "fire": 2,
+            "origin": "牧场"
         },
         {
             "ingredientId": 31,
-            "name": "黄瓜",
-            "originId": 5
+            "name": "牛五花",
+            "fire": 3,
+            "origin": "牧场"
         },
         {
             "ingredientId": 32,
-            "name": "虾",
-            "originId": 8
+            "name": "牛排",
+            "fire": 4,
+            "origin": "牧场"
         },
         {
             "ingredientId": 33,
-            "name": "黄豆",
-            "originId": 5
+            "name": "面粉",
+            "fire": 1,
+            "origin": "作坊"
         },
         {
             "ingredientId": 34,
-            "name": "酒",
-            "originId": 1
+            "name": "大米",
+            "fire": 2,
+            "origin": "作坊"
         },
         {
             "ingredientId": 35,
-            "name": "糯米",
-            "originId": 1
+            "name": "豆腐",
+            "fire": 2,
+            "origin": "作坊"
         },
         {
             "ingredientId": 36,
-            "name": "菠萝",
-            "originId": 6
+            "name": "糯米",
+            "fire": 3,
+            "origin": "作坊"
         },
         {
             "ingredientId": 37,
-            "name": "鱼翅",
-            "originId": 8
+            "name": "酒",
+            "fire": 3,
+            "origin": "作坊"
         },
         {
             "ingredientId": 38,
-            "name": "鸡杂",
-            "originId": 3
+            "name": "咖喱",
+            "fire": 4,
+            "origin": "作坊"
         },
         {
             "ingredientId": 39,
-            "name": "猪杂",
-            "originId": 4
+            "name": "贝壳",
+            "fire": 3,
+            "origin": "鱼塘"
         },
         {
             "ingredientId": 40,
-            "name": "牛杂",
-            "originId": 1
+            "name": "虾",
+            "fire": 2,
+            "origin": "鱼塘"
         },
         {
             "ingredientId": 41,
-            "name": "鲜鱼",
-            "originId": 8
+            "name": "冻鱼",
+            "fire": 3,
+            "origin": "鱼塘"
         },
         {
             "ingredientId": 42,
-            "name": "贝壳",
-            "originId": 8
+            "name": "鲜鱼",
+            "fire": 4,
+            "origin": "鱼塘"
         },
         {
             "ingredientId": 43,
-            "name": "猪油",
-            "originId": 4
+            "name": "螃蟹",
+            "fire": 5,
+            "origin": "鱼塘"
         },
         {
             "ingredientId": 44,
-            "name": "牛乳",
-            "originId": 1
+            "name": "鱼翅",
+            "fire": 5,
+            "origin": "鱼塘"
         }
     ],
     "runes": [
@@ -12908,8 +12696,8 @@
             "name": "TapTap",
             "gifts": [
                 {
-                    "recipe": "鸡肉汤青拉面",
-                    "rune": "神秘魔方,防水的柠檬"
+                    "recipe": "鸡清汤青拉面",
+                    "rune": "神秘魔方"
                 }
             ]
         },
@@ -12969,7 +12757,7 @@
         },
         {
             "guestId": 35,
-            "name": "李白杜甫",
+            "name": "潇洒李白迷弟杜甫",
             "gifts": [
                 {
                     "recipe": "撒尿牛丸",
@@ -14924,10 +14712,10 @@
             "origin": "春节壁池"
         }
     ],
-    "furniture": 0.466,
+    "furniture": 0.51,
     "history": [
         "2018/2/17 移除了菜谱图鉴里选择全部厨师的按钮，如要查某个菜哪些厨师能做，可在厨师图鉴里选择该菜",
-        "2018/2/15 加入厨师图鉴功能，点击右上角切换图鉴",
+        "2018/2/15 加入厨师图鉴功能，点击左上角切换图鉴",
         "2018/2/14 加入情人节、春节菜谱、厨师",
         "2018/1/26 加入菜谱 豆豉蒸鱼",
         "2018/1/23 加入限时任务菜谱 三鲜砂锅 猪肚鸡",
