@@ -92,7 +92,6 @@ function calculateMenu(data) {
             menuData["max3sum"] = getMax3Sum(recipesData);
         }
 
-
         menusData.push(menuData);
     }
 
@@ -115,7 +114,8 @@ function calculateMenu(data) {
         var maxRecipes = new Array();
         var maxScore = 0;
 
-        var chefsCombs = combinations(menusData, 3);
+        var numOfChefs = menusData.length > 3 ? 3 : menusData.length;
+        var chefsCombs = combinations(menusData, numOfChefs);
         totalCount = chefsCombs.length;
         for (var i in chefsCombs) {
             var progress = Math.floor((Math.floor(i) + 1) * 100 / totalCount);
@@ -124,7 +124,8 @@ function calculateMenu(data) {
             var combs = new Array();
             var maxSum = 0;
             for (var j in chefsCombs[i]) {
-                var recipesCombs = combinations(chefsCombs[i][j].recipes, 3);
+                var numOfRecipes = chefsCombs[i][j].recipes.length > 3 ? 3 : chefsCombs[i][j].recipes.length;
+                var recipesCombs = combinations(chefsCombs[i][j].recipes, numOfRecipes);
                 maxSum += chefsCombs[i][j].max3sum;
                 combs.push(recipesCombs);
             }
