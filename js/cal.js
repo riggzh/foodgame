@@ -102,12 +102,16 @@ function calculateMenu(data) {
                 return b.min3sum - a.min3sum
             });
 
-            var max3limit = getMin3Limit(menusData.slice(0, 3));
+            var max3limit = getMax3Limit(menusData);
             for (var m in menusData) {
                 if (menusData[m].max3sum <= max3limit) {
                     menusData.splice(m, 1);
                 }
             }
+
+            menusData.sort(function (a, b) {
+                return b.max3sum - a.max3sum
+            });
         }
 
         var maxChefs = new Array();
@@ -204,42 +208,19 @@ function getMax3Sum(recipesData) {
     return sum;
 }
 
-function getMin3Limit(menusData) {
-
-    var maxScore = 0;
-
-    var combs = new Array();
+function getMax3Limit(menusData) {
+    var max3limit = 0;
+    var count = 0;
     for (var i in menusData) {
-        var recipesCombs = combinations(menusData[i].recipes, 3);
-        combs.push(recipesCombs);
-    }
-    var product = cartesianProduct(combs);
-    for (var j in product) {
-        var recipeIdArray = new Array();
-        var valid = true;
-        var sumScore = 0;
-        var oneResult = product[j];
-        for (var m in oneResult) {
-            var recipesData = oneResult[m];
-            for (var n in recipesData) {
-                if (recipeIdArray.indexOf(recipesData[n].data.recipeId) < 0) {
-                    recipeIdArray.push(recipesData[n].data.recipeId);
-                    sumScore += recipesData[n].totalScore;
-                } else {
-                    valid = false;
-                    break;
-                }
-            }
-            if (!valid) {
+        if (menusData[i].recipes.length > 8) {
+            count++;
+            if (count == 3) {
+                max3limit = menusData[i].min3sum;
                 break;
             }
         }
-        if (valid && sumScore > maxScore) {
-            maxScore = sumScore;
-        }
     }
-
-    return maxScore;
+    return max3limit;
 }
 
 function getIngredientsAddition(recipe, ingredients, cumulative) {
