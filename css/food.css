@@ -180,6 +180,12 @@ label.btn input[type="checkbox"]:checked+.fa {
     color: black;
 }
 
+.cal-results-progress .progress-bar {
+    -webkit-transition: inherit;
+    -o-transition: inherit;
+    transition: inherit;
+}
+
 .tab-content {
     padding-top: 10px;
 }
@@ -224,10 +230,6 @@ table.dataTable tbody>tr>.selected {
 .box .input-group .input-group-addon,
 .box .input-group .input-group-btn {
     width: auto;
-}
-
-#input-cal-results-show-top {
-    width: 40px;
 }
 
 .tabs-left {

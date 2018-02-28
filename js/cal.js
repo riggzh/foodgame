@@ -1,4 +1,4 @@
-importScripts('food.min.js');
+importScripts('food.min.js?v=21');
 
 onmessage = function (e) {
     calculateMenu(e.data);
@@ -9,7 +9,18 @@ function calculateMenu(data) {
     var ingredients = data.ingredients;
     var recipes = filterRecipes(data.recipes, data.ingredients);
     var chefs = data.chefs;
-    var mode = data.mode;
+    var mode = data.mode
+
+    if (mode == "optimal") {
+        if (chefs.length < data.optimalChefsNum) {
+            postMessage({ "menu": new Array(), "message": "无解，请检查配置" });
+            return;
+        }
+        if (recipes.length < data.optimalChefsNum * data.optimalRecipesNum) {
+            postMessage({ "menu": new Array(), "message": "无解，请检查配置" });
+            return;
+        }
+    }
 
     var totalCount = chefs.length;
     var currentProgress = 0;
@@ -20,10 +31,7 @@ function calculateMenu(data) {
 
         if (mode == "all") {
             var progress = Math.floor((Math.floor(i) + 1) * 100 / totalCount);
-            if (progress > currentProgress) {
-                currentProgress = progress;
-                postMessage({ "progress": { "value": progress, "display": Math.floor(i) + 1 + " / " + totalCount } });
-            }
+            postMessage({ "progress": { "value": progress, "display": Math.floor(i) + 1 + " / " + totalCount } });
         }
 
         var recipesData = new Array();
@@ -75,9 +83,11 @@ function calculateMenu(data) {
             return b.totalScore - a.totalScore
         });
 
-        var limit = 9;
+        var limit = 0;
         if (mode == "all") {
-            limit = data.limit;
+            limit = data.allLimit;
+        } else {
+            limit = data.optimalChefsNum * data.optimalRecipesNum;
         }
 
         var maxSize = Math.min(limit, recipesData.length);
@@ -88,8 +98,8 @@ function calculateMenu(data) {
         menuData["recipes"] = recipesData;
 
         if (mode == "optimal") {
-            menuData["min3sum"] = getMin3Sum(recipesData);
-            menuData["max3sum"] = getMax3Sum(recipesData);
+            menuData["minNSum"] = getMinNSum(recipesData, data.optimalRecipesNum);
+            menuData["maxNSum"] = getMaxNSum(recipesData, data.optimalRecipesNum);
         }
 
         menusData.push(menuData);
@@ -97,20 +107,20 @@ function calculateMenu(data) {
 
     if (mode == "optimal") {
 
-        if (menusData.length > 3) {
+        if (menusData.length > data.optimalChefsNum) {
             menusData.sort(function (a, b) {
-                return b.min3sum - a.min3sum
+                return b.minNSum - a.minNSum
             });
 
-            var max3limit = getMax3Limit(menusData);
+            var maxNLimit = getMaxNLimit(menusData, data.optimalChefsNum, data.optimalRecipesNum);
             for (var m in menusData) {
-                if (menusData[m].max3sum <= max3limit) {
+                if (menusData[m].maxNSum <= maxNLimit) {
                     menusData.splice(m, 1);
                 }
             }
 
             menusData.sort(function (a, b) {
-                return b.max3sum - a.max3sum
+                return b.maxNSum - a.maxNSum
             });
         }
 
@@ -118,23 +128,29 @@ function calculateMenu(data) {
         var maxRecipes = new Array();
         var maxScore = 0;
 
-        var numOfChefs = menusData.length > 3 ? 3 : menusData.length;
-        var chefsCombs = combinations(menusData, numOfChefs);
+        var pickChefs = Math.min(menusData.length, data.optimalChefsNum);
+        var chefsCombs = combinations(menusData, pickChefs);
         totalCount = chefsCombs.length;
         for (var i in chefsCombs) {
             var progress = Math.floor((Math.floor(i) + 1) * 100 / totalCount);
-            postMessage({ "progress": { "value": progress, "display": Math.floor(i) + 1 + " / " + totalCount } });
 
             var combs = new Array();
             var maxSum = 0;
             for (var j in chefsCombs[i]) {
-                var numOfRecipes = chefsCombs[i][j].recipes.length > 3 ? 3 : chefsCombs[i][j].recipes.length;
-                var recipesCombs = combinations(chefsCombs[i][j].recipes, numOfRecipes);
-                maxSum += chefsCombs[i][j].max3sum;
+                var pickRecipes = Math.min(chefsCombs[i][j].recipes.length, data.optimalRecipesNum);
+                var recipesCombs = combinations(chefsCombs[i][j].recipes, pickRecipes);
+                maxSum += chefsCombs[i][j].maxNSum;
                 combs.push(recipesCombs);
             }
             if (maxSum <= maxScore) {
+                if (progress > currentProgress) {
+                    postMessage({ "progress": { "value": progress, "display": Math.floor(i) + 1 + " / " + totalCount } });
+                    currentProgress = progress;
+                }
                 continue;
+            }
+            else {
+                postMessage({ "progress": { "value": progress, "display": Math.floor(i) + 1 + " / " + totalCount } });
             }
             var product = cartesianProduct(combs);
             for (var j in product) {
@@ -177,6 +193,7 @@ function calculateMenu(data) {
     }
 
     var finalData = new Array();
+
     for (var i in menusData) {
         for (var j in menusData[i].recipes) {
             var oneMenu = new Object();
@@ -186,45 +203,50 @@ function calculateMenu(data) {
         }
     }
 
-    postMessage({ "menu": finalData });;
-
+    if (finalData.length < data.optimalChefsNum * data.optimalRecipesNum) {
+        postMessage({ "menu": new Array(), "message": "无解，请检查配置" });
+    } else {
+        postMessage({ "menu": finalData });
+    }
 }
 
-function getMin3Sum(recipesData) {
+function getMinNSum(recipesData, num) {
     var sum = 0;
-    var fromIndex = recipesData.length - 3 > 0 ? recipesData.length - 3 : 0;
+    var fromIndex = Math.max(recipesData.length - num, 0);
     for (var m = fromIndex; m < recipesData.length; m++) {
         sum += recipesData[m].totalScore;
     }
     return sum;
 }
 
-function getMax3Sum(recipesData) {
+function getMaxNSum(recipesData, num) {
     var sum = 0;
-    var toIndex = recipesData.length > 3 ? 3 : recipesData.length;
+    var toIndex = Math.min(recipesData.length, num);
     for (var m = 0; m < toIndex; m++) {
         sum += recipesData[m].totalScore;
     }
     return sum;
 }
 
-function getMax3Limit(menusData) {
-    var max3limit = 0;
+function getMaxNLimit(menusData, chefsNum, recipesNum) {
+    var maxNLimit = 0;
     var count = 0;
     for (var i in menusData) {
-        if (menusData[i].recipes.length > 8) {
+        if (menusData[i].recipes.length >= chefsNum * recipesNum) {
             count++;
-            if (count == 3) {
-                max3limit = menusData[i].min3sum;
+            if (count == chefsNum) {
+                maxNLimit = menusData[i].minNSum;
                 break;
             }
         }
     }
-    return max3limit;
+    return maxNLimit;
 }
 
 function getIngredientsAddition(recipe, ingredients, cumulative) {
     var addition = 0;
+    var positiveAddition = 0;
+    var negativeAddition = 0;
 
     for (var m in recipe.ingredients) {
         for (var n in ingredients) {
@@ -233,13 +255,21 @@ function getIngredientsAddition(recipe, ingredients, cumulative) {
                     addition += Math.floor(ingredients[n].addition);
                     break;
                 } else {
-                    return Math.floor(ingredients[n].addition);
+                    if (Math.floor(ingredients[n].addition) > positiveAddition) {
+                        positiveAddition = Math.floor(ingredients[n].addition);
+                    } else if (Math.floor(ingredients[n].addition) < 0) {
+                        negativeAddition += Math.floor(ingredients[n].addition);
+                    }
                 }
             }
         }
     }
 
-    return addition;
+    if (cumulative) {
+        return addition;
+    } else {
+        return positiveAddition + negativeAddition;
+    }
 }
 
 function filterRecipes(recipes, ingredients) {
@@ -314,4 +344,3 @@ function cartesianProduct(a) {
     }
     return o;
 }
-

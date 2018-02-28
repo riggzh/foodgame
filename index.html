@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=2" />
     <script type="text/javascript" src="js/script.min.js?v=4"></script>
-    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=8" />
-    <script type="text/javascript" src="js/food.min.js?v=21"></script>
+    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=9" />
+    <script type="text/javascript" src="js/food.min.js?v=22"></script>
     <script>
         $(function () {
             $.ajax({
@@ -521,7 +521,7 @@
                                                 </select>
                                                 <input type="text" id="input-cal-recipes-addition" class="form-control input-addition" placeholder="倍数">
                                                 <a id="btn-cal-recipes-addition-add" class="btn btn-default">
-                                                    加入
+                                                    填入
                                                 </a>
                                                 <a id="btn-cal-recipes-addition-clear" class="btn btn-default">
                                                     清空加成
@@ -643,7 +643,16 @@
                                     <div class="box">
                                         <input type="checkbox" id="chk-cal-chefs-addition" data-toggle="toggle" data-on="有加成" data-off="无加成" data-onstyle="default"
                                             data-width="80px" data-height="34px">
-                                        <span id="chk-cal-chefs-addition-wrapper" class="hidden">
+                                        <span id="chk-cal-chefs-addition-wrapper" class="form-inline hidden">
+                                            <select id="select-cal-chefs-sex" class="form-control">
+                                                <option></option>
+                                                <option>男</option>
+                                                <option>女</option>
+                                            </select>
+                                            <input type="text" id="input-cal-chefs-addition" class="form-control input-addition" placeholder="倍数">
+                                            <a id="btn-cal-chefs-addition-add" class="btn btn-default">
+                                                填入
+                                            </a>
                                             <a id="btn-cal-chefs-addition-clear" class="btn btn-default">
                                                 清空加成
                                             </a>
@@ -749,9 +758,24 @@
                                     <div class="box">
                                         <input type="checkbox" id="chk-cal-ingredients-addition" data-toggle="toggle" data-on="有加成" data-off="无加成" data-onstyle="default"
                                             data-width="80px" data-height="34px">
-                                        <span id="chk-cal-ingredients-addition-wrapper" class="hidden">
+                                        <span id="chk-cal-ingredients-addition-wrapper" class="form-inline hidden">
                                             <input type="checkbox" id="chk-cal-ingredients-addition-cumulative" data-toggle="toggle" data-on="加成累积" data-off="一次加成" data-onstyle="default"
                                                 data-width="95px" data-height="34px" checked>
+                                            <select id="select-cal-ingredients-origin" class="form-control">
+                                                <option></option>
+                                                <option>菜棚</option>
+                                                <option>菜地</option>
+                                                <option>森林</option>
+                                                <option>鸡舍</option>
+                                                <option>猪圈</option>
+                                                <option>牧场</option>
+                                                <option>作坊</option>
+                                                <option>鱼塘</option>
+                                            </select>
+                                            <input type="text" id="input-cal-ingredients-addition" class="form-control input-addition" placeholder="倍数">
+                                            <a id="btn-cal-ingredients-addition-add" class="btn btn-default">
+                                                填入
+                                            </a>
                                             <a id="btn-cal-ingredients-addition-clear" class="btn btn-default">
                                                 清空加成
                                             </a>
@@ -779,7 +803,17 @@
                                 <div class="box">
                                     <div class="input-group">
                                         <div class="input-group-addon">每个厨师显示前</div>
-                                        <input type="text" class="form-control" id="input-cal-results-show-top" value="9">
+                                        <select id="select-cal-results-show-top" class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option selected>9</option>
+                                        </select>
                                         <div class="input-group-addon">条</div>
                                     </div>
                                     <button id="btn-cal-results-cal-all" class="btn btn-default btn-cal-results-cal" type="button">
@@ -787,6 +821,23 @@
                                     </button>
                                 </div>
                                 <div class="box">
+                                    <div class="input-group">
+                                        <select id="select-cal-results-chefs-number" class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option selected>3</option>
+                                        </select>
+                                        <div class="input-group-addon">个厨师</div>
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">每个厨师</div>
+                                        <select id="select-cal-results-recipes-number" class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option selected>3</option>
+                                        </select>
+                                        <div class="input-group-addon">个菜</div>
+                                    </div>
                                     <button id="btn-cal-results-cal-optimal" class="btn btn-default btn-cal-results-cal" type="button">
                                         <span class="glyphicon glyphicon-pencil"></span>&nbsp;计算最优解
                                     </button>

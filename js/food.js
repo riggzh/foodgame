@@ -797,14 +797,13 @@ function initCalRecipesTable(data) {
 
     $("#btn-cal-recipes-addition-add").click(function () {
         var category = $("#select-cal-recipes-category").val();
-        var addition = Math.floor($("#input-cal-recipes-addition").val());
-        if (category && addition) {
-            calRecipesTable.rows({ selected: true }).every(function (rowIdx, tableLoop, rowLoop) {
+        var addition = Math.floor($("#input-cal-recipes-addition").val()) || "";
+        if (category) {
+            calRecipesTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
                 var recipeCategories = this.data().categories;
                 for (var i in recipeCategories) {
                     if (recipeCategories[i] == category) {
-                        var oldValue = Math.floor($(this.node()).find('.input-addition').val());
-                        $(this.node()).find('.input-addition').val(oldValue + addition);
+                        $(this.node()).find('.input-addition').val(addition);
                     }
                 }
             });
@@ -816,10 +815,12 @@ function initCalRecipesTable(data) {
     });
 
     $('#btn-cal-recipes-select-all').click(function () {
+        $('.chk-cal-recipes-fire input[type="checkbox"]').prop("checked", true);
         calRecipesTable.rows().select();
     });
 
     $('#btn-cal-recipes-deselect-all').click(function () {
+        $('.chk-cal-recipes-fire input[type="checkbox"]').prop("checked", false);
         calRecipesTable.rows().deselect();
     });
 
@@ -1036,15 +1037,31 @@ function initCalChefsTable(data) {
         calChefsTable.rows().nodes().to$().find(".input-addition").val("");
     });
 
+    $("#btn-cal-chefs-addition-add").click(function () {
+        var sex = $("#select-cal-chefs-sex").val();
+        var addition = Math.floor($("#input-cal-chefs-addition").val()) || "";
+        if (sex) {
+            calChefsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                if (this.data().sex == sex) {
+                    $(this.node()).find('.input-addition').val(addition);
+                }
+            });
+        }
+    });
+
     $('#pane-cal-chefs .search-box input').keyup(function () {
         calChefsTable.draw();
     });
 
     $('#btn-cal-chefs-select-all').click(function () {
+        $('.chk-cal-chefs-fire input[type="checkbox"]').prop("checked", true);
+        $('.chk-cal-chefs-sex input[type="checkbox"]').prop("checked", true);
         calChefsTable.rows().select();
     });
 
     $('#btn-cal-chefs-deselect-all').click(function () {
+        $('.chk-cal-chefs-fire input[type="checkbox"]').prop("checked", false);
+        $('.chk-cal-chefs-sex input[type="checkbox"]').prop("checked", false);
         calChefsTable.rows().deselect();
     });
 
@@ -1209,15 +1226,29 @@ function initCalIngredientsTable(data) {
         calIngredientsTable.rows().nodes().to$().find(".input-addition").val("");
     });
 
+    $("#btn-cal-ingredients-addition-add").click(function () {
+        var origin = $("#select-cal-ingredients-origin").val();
+        var addition = Math.floor($("#input-cal-ingredients-addition").val()) || "";
+        if (origin) {
+            calIngredientsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                if (this.data().origin == origin) {
+                    $(this.node()).find('.input-addition').val(addition);
+                }
+            });
+        }
+    });
+
     $('#pane-cal-ingredients .search-box input').keyup(function () {
         calIngredientsTable.draw();
     });
 
     $('#btn-cal-ingredients-select-all').click(function () {
+        $('.chk-cal-ingredients-origin input[type="checkbox"]').prop("checked", true);
         calIngredientsTable.rows().select();
     });
 
     $('#btn-cal-ingredients-deselect-all').click(function () {
+        $('.chk-cal-ingredients-origin input[type="checkbox"]').prop("checked", false);
         calIngredientsTable.rows().deselect();
     });
 
@@ -1403,7 +1434,7 @@ function initCalResultsTable() {
         }
 
         if (mode != "stop") {
-            calWorker = new Worker("js/cal.min.js");
+            calWorker = new Worker("js/cal.js?v=1");
 
             calWorker.onmessage = function (event) {
                 if (event.data.progress) {
@@ -1457,7 +1488,12 @@ function initCalResultsTable() {
                         });
 
                         $("#pane-cal-results div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="厨师 菜名 材料"></label>');
-                        $("#pane-cal-results .selected-sum").html("点击列可选择");
+
+                        if (event.data.message) {
+                            $("#pane-cal-results .selected-sum").html(event.data.message);
+                        } else {
+                            $("#pane-cal-results .selected-sum").html("点击列可选择");
+                        }
 
                         $.fn.dataTableExt.afnFiltering.push(calResultsFilterFunction1);
                         $.fn.dataTableExt.afnFiltering.push(calResultsFilterFunction2);
@@ -1479,18 +1515,20 @@ function initCalResultsTable() {
                             calResultsTable.draw();
                         });
 
+                        $('#chk-cal-results-show-selected').prop("checked", false);
                         var allResultsSearchInput = "";
                         var selectedResultsSearchInput = "";
                         $('#chk-cal-results-show-selected').change(function () {
                             if ($('#chk-cal-results-show-selected').prop("checked")) {
-                                selectedResultsSearchInput = $('#pane-cal-results .search-box input').val();
-                                $('#pane-cal-results .search-box input').val(allResultsSearchInput);
-                            } else {
                                 allResultsSearchInput = $('#pane-cal-results .search-box input').val();
                                 $('#pane-cal-results .search-box input').val(selectedResultsSearchInput);
+                            } else {
+                                selectedResultsSearchInput = $('#pane-cal-results .search-box input').val();
+                                $('#pane-cal-results .search-box input').val(allResultsSearchInput);
                             }
                             calResultsTable.draw();
                         });
+
 
                         $('.chk-cal-results-show').off('click').click(function () {
                             initCalResultsShow(calResultsTable);
@@ -1561,16 +1599,19 @@ function initCalResultsTable() {
 
             var ingredientsAdditionCumulative = $("#chk-cal-ingredients-addition-cumulative").prop("checked");
 
-            var limit = $("#input-cal-results-show-top").val();
+            var allLimit = $("#select-cal-results-show-top").val();
             var recipesMulitple = $("#chk-cal-recipes-mulitple").prop("checked");
-
+            var optimalChefsNum = $("#select-cal-results-chefs-number").val();
+            var optimalRecipesNum = $("#select-cal-results-recipes-number").val();
 
             calWorker.postMessage({
                 "recipes": calRecipesData,
                 "chefs": calChefsData,
                 "ingredients": calIngredientsData,
                 'mode': mode,
-                "limit": limit,
+                "allLimit": allLimit,
+                "optimalChefsNum": optimalChefsNum,
+                "optimalRecipesNum": optimalRecipesNum,
                 "recipesMulitple": recipesMulitple,
                 "hasRecipesAddition": hasRecipesAddition,
                 "hasChefsAddition": hasChefsAddition,
