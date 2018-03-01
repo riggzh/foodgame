@@ -2307,10 +2307,10 @@
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "吕布"
                 }
             ],
-            "godRune": "",
+            "godRune": "蒸汽宝石",
             "categories": [
                 "汤"
             ],
@@ -3519,14 +3519,14 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "皇帝"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "皇后"
                 }
             ],
-            "godRune": "",
+            "godRune": "鼓风机",
             "categories": [],
             "quality": "优"
         },
@@ -3571,7 +3571,7 @@
             ],
             "godRune": "一昧真火",
             "categories": [],
-            "quality": "特"
+            "quality": "神"
         },
         {
             "recipeId": 78,
@@ -3873,11 +3873,11 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "吕布"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "富太太"
                 },
                 {
                     "quality": "神",
@@ -3971,14 +3971,14 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "王子"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "苏轼"
                 }
             ],
-            "godRune": "",
+            "godRune": "刀嘴鹦鹉",
             "categories": [],
             "quality": "优"
         },
@@ -4273,7 +4273,7 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "唐伯虎"
                 },
                 {
                     "quality": "神",
@@ -5213,10 +5213,10 @@
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "黄月英"
                 }
             ],
-            "godRune": "",
+            "godRune": "蒸汽宝石",
             "categories": [
                 "点心"
             ],
@@ -5388,7 +5388,7 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "吕布"
                 },
                 {
                     "quality": "神",
@@ -5437,7 +5437,7 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "皇后"
                 },
                 {
                     "quality": "特",
@@ -5725,10 +5725,10 @@
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "迷弟杜甫"
                 }
             ],
-            "godRune": "",
+            "godRune": "刀嘴鹦鹉",
             "categories": [],
             "quality": ""
         },
@@ -6292,7 +6292,7 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "木优"
                 },
                 {
                     "quality": "特",
@@ -6382,7 +6382,7 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "如来"
                 },
                 {
                     "quality": "特",
@@ -6820,7 +6820,7 @@
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "耶稣"
                 }
             ],
             "godRune": "一昧真火",
@@ -7128,11 +7128,11 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "皇帝"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "皇后"
                 },
                 {
                     "quality": "神",
@@ -7273,14 +7273,14 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "木优"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "吕布"
                 }
             ],
-            "godRune": "",
+            "godRune": "一昧真火",
             "categories": [],
             "quality": ""
         },
@@ -7325,7 +7325,7 @@
         },
         {
             "recipeId": 158,
-            "name": "碳烤牛舍",
+            "name": "碳烤牛舌",
             "fire": 3,
             "unlock": "-",
             "stirfry": 0,
@@ -8163,7 +8163,7 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "貂蝉"
                 },
                 {
                     "quality": "神",
@@ -8588,18 +8588,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "TapTap"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "TapTap"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "TapTap"
                 }
             ],
-            "godRune": "",
+            "godRune": "神秘魔方",
             "categories": [],
             "quality": ""
         },
@@ -8776,7 +8776,7 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "诸葛亮"
                 },
                 {
                     "quality": "特",
@@ -9564,14 +9564,14 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "潇洒李白"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "吕布"
                 }
             ],
-            "godRune": "",
+            "godRune": "蒸汽宝石",
             "categories": [],
             "quality": ""
         },
@@ -10324,18 +10324,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "关羽"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "大内侍卫"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "富二代"
                 }
             ],
-            "godRune": "",
+            "godRune": "五香果",
             "categories": [],
             "quality": ""
         },
@@ -10375,18 +10375,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "富二代"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "富二代"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "关羽"
                 }
             ],
-            "godRune": "",
+            "godRune": "油火虫",
             "categories": [],
             "quality": ""
         },
@@ -10422,18 +10422,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "富二代"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "官爷"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "刘备"
                 }
             ],
-            "godRune": "",
+            "godRune": "剪刀蟹",
             "categories": [
                 "点心"
             ],
@@ -10471,18 +10471,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "迷弟杜甫"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "木优"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "大明湖畔的美女"
                 }
             ],
-            "godRune": "",
+            "godRune": "一昧真火",
             "categories": [],
             "quality": ""
         },
@@ -10526,7 +10526,7 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "潇洒李白"
                 },
                 {
                     "quality": "神",
@@ -11041,18 +11041,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "白富美"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "大胃王"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "迷思吹法师"
                 }
             ],
-            "godRune": "",
+            "godRune": "剪刀蟹",
             "categories": [],
             "quality": ""
         },
@@ -11088,7 +11088,7 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "关羽"
                 },
                 {
                     "quality": "特",
@@ -11133,18 +11133,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "白富美"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "迷思吹法师"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "屠夫老王"
                 }
             ],
-            "godRune": "",
+            "godRune": "防水的柠檬",
             "categories": [
                 "汤"
             ],
@@ -11237,10 +11237,10 @@
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "关羽"
                 }
             ],
-            "godRune": "",
+            "godRune": "剪刀蟹",
             "categories": [],
             "quality": "特"
         },
@@ -11409,18 +11409,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "迷思吹法师"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "屠夫老王"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "大胃王"
                 }
             ],
-            "godRune": "",
+            "godRune": "剪刀蟹",
             "categories": [],
             "quality": ""
         },
@@ -11460,10 +11460,10 @@
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "屠夫老王"
                 }
             ],
-            "godRune": "",
+            "godRune": "烤焦的菊花",
             "categories": [],
             "quality": "特"
         },
@@ -11495,18 +11495,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "大胃王"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "白富美"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "屠夫老王"
                 }
             ],
-            "godRune": "",
+            "godRune": "蒸汽耳环",
             "categories": [],
             "quality": ""
         },
@@ -11538,18 +11538,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "屠夫老王"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "大胃王"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "白富美"
                 }
             ],
-            "godRune": "",
+            "godRune": "防水的柠檬",
             "categories": [
                 "点心"
             ],
@@ -11587,14 +11587,14 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "官爷"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "官爷"
                 }
             ],
-            "godRune": "",
+            "godRune": "油火虫",
             "categories": [
                 "点心"
             ],
@@ -11683,18 +11683,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "木优"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "潇洒李白"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "木良"
                 }
             ],
-            "godRune": "",
+            "godRune": "蒸汽宝石",
             "categories": [],
             "quality": ""
         },
@@ -11734,18 +11734,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "黄月英"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "诸葛亮"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "耶稣"
                 }
             ],
-            "godRune": "",
+            "godRune": "耐煮的水草",
             "categories": [
                 "点心"
             ],
@@ -11787,7 +11787,7 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "迷弟杜甫"
                 },
                 {
                     "quality": "特",
@@ -11838,7 +11838,7 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "皇后"
                 },
                 {
                     "quality": "特",

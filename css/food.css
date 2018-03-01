@@ -180,6 +180,12 @@ label.btn input[type="checkbox"]:checked+.fa {
     color: black;
 }
 
+.cal-results-progress .progress-bar {
+    -webkit-transition: inherit;
+    -o-transition: inherit;
+    transition: inherit;
+}
+
 .tab-content {
     padding-top: 10px;
 }
@@ -226,10 +232,6 @@ table.dataTable tbody>tr>.selected {
     width: auto;
 }
 
-#input-cal-results-show-top {
-    width: 40px;
-}
-
 .tabs-left {
     display: table;
     width: 100%;
@@ -272,4 +274,8 @@ table.dataTable tbody>tr>.selected {
 .form-control.input-addition {
     width: 60px;
     text-align: center;
+}
+
+#input-cal-results-show-top {
+    width: 40px;
 }
