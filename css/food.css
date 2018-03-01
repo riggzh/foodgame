@@ -275,3 +275,7 @@ table.dataTable tbody>tr>.selected {
     width: 60px;
     text-align: center;
 }
+
+#input-cal-results-show-top {
+    width: 40px;
+}

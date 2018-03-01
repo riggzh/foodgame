@@ -1599,7 +1599,7 @@ function initCalResultsTable() {
 
             var ingredientsAdditionCumulative = $("#chk-cal-ingredients-addition-cumulative").prop("checked");
 
-            var allLimit = $("#select-cal-results-show-top").val();
+            var allLimit = Math.floor($("#input-cal-results-show-top").val());
             var recipesMulitple = $("#chk-cal-recipes-mulitple").prop("checked");
             var optimalChefsNum = $("#select-cal-results-chefs-number").val();
             var optimalRecipesNum = $("#select-cal-results-recipes-number").val();
