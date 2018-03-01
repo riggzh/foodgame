@@ -3444,6 +3444,53 @@
             "quality": "优"
         },
         {
+            "recipeId": 121,
+            "name": "金缕虾",
+            "fire": 4,
+            "unlock": "-",
+            "stirfry": 0,
+            "boil": 0,
+            "cut": 65,
+            "fry": 80,
+            "roast": 0,
+            "steam": 0,
+            "ingredients": [
+                {
+                    "name": "虾",
+                    "quantity": 6
+                },
+                {
+                    "name": "面粉",
+                    "quantity": 8
+                },
+                {
+                    "name": "鸡蛋",
+                    "quantity": 6
+                }
+            ],
+            "price": 899,
+            "time": 357,
+            "total": 20,
+            "origin": "璧池",
+            "guests": [
+                {
+                    "quality": "优",
+                    "guest": "如来"
+                },
+                {
+                    "quality": "特",
+                    "guest": ""
+                },
+                {
+                    "quality": "神",
+                    "guest": ""
+                }
+            ],
+            "godRune": "",
+            "categories": [],
+            "quality": ""
+        },
+        {
             "recipeId": 122,
             "name": "虾仁跑蛋",
             "fire": 3,
