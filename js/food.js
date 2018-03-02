@@ -17,6 +17,8 @@ function init(json) {
 
     initChefTable(data);
 
+    initKitchenwareTable(data);
+
     if (private || cal) {
         initCalTables(json, data);
         $(".nav-tabs li").removeClass("hidden");
@@ -529,7 +531,7 @@ function initChefTable(data) {
         }
 
         var value = $("#pane-chefs .search-box input").val();
-        var searchCols = [1, 9, 15];
+        var searchCols = [1, 9, 15];    //  name, skill, origin
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
             if (data[searchCols[i]].indexOf(value) !== -1) {
@@ -604,6 +606,157 @@ function initChefTable(data) {
     initChefShow(chefTable, data);
 }
 
+function initKitchenwareTable(data) {
+    var kitchenwareColumns = [
+        {
+            "data": "kitchenwareId"
+        },
+        {
+            "data": "name"
+        },
+        {
+            "data": {
+                "_": "fire",
+                "display": "fireDisp"
+            }
+        },
+        {
+            "data": {
+                "_": "skillVal",
+                "display": "skillDisp"
+            }
+        },
+        {
+            "data": "origin"
+        }
+    ];
+
+    var kitchenwareTable = $('#kitchenware-table').DataTable({
+        data: data.kitchenware,
+        columns: kitchenwareColumns,
+        language: {
+            search: "查找:",
+            lengthMenu: "一页显示 _MENU_ 个",
+            zeroRecords: "没有找到",
+            info: "第 _PAGE_ 页 共 _PAGES_ 页 _TOTAL_ 个厨具",
+            infoEmpty: "没有数据",
+            infoFiltered: "(从 _MAX_ 个厨具中过滤)"
+        },
+        pagingType: "numbers",
+        lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
+        pageLength: 20,
+        dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>"
+    });
+
+    $("#pane-kitchenware div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="名字 技能 来源"></label>');
+
+    $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+        if (settings.nTable != document.getElementById('kitchenware-table')) {
+            return true;
+        }
+
+        var skill = data[3];    // skill
+
+        if ($('#chk-kitchenware-skill-stirfry-price').prop("checked") && skill.indexOf("炒类料理") >= 0
+            || $('#chk-kitchenware-skill-boil-price').prop("checked") && skill.indexOf("煮类料理") >= 0
+            || $('#chk-kitchenware-skill-cut-price').prop("checked") && skill.indexOf("切类料理") >= 0
+            || $('#chk-kitchenware-skill-fry-price').prop("checked") && skill.indexOf("炸类料理") >= 0
+            || $('#chk-kitchenware-skill-roast-price').prop("checked") && skill.indexOf("烤类料理") >= 0
+            || $('#chk-kitchenware-skill-steam-price').prop("checked") && skill.indexOf("蒸类料理") >= 0
+            || $('#chk-kitchenware-skill-meet-price').prop("checked") && skill.indexOf("肉类料理") >= 0
+            || $('#chk-kitchenware-skill-wheat-price').prop("checked") && skill.indexOf("面类料理") >= 0
+            || $('#chk-kitchenware-skill-veg-price').prop("checked") && skill.indexOf("蔬菜料理") >= 0
+            || $('#chk-kitchenware-skill-fish-price').prop("checked") && skill.indexOf("水产料理") >= 0
+            || $('#chk-kitchenware-skill-sell-price').prop("checked") && skill.indexOf("金币获得") >= 0
+            || $('#chk-kitchenware-skill-stirfry-skill').prop("checked") && skill.indexOf("炒技法") >= 0
+            || $('#chk-kitchenware-skill-boil-skill').prop("checked") && skill.indexOf("煮技法") >= 0
+            || $('#chk-kitchenware-skill-cut-skill').prop("checked") && skill.indexOf("切技法") >= 0
+            || $('#chk-kitchenware-skill-fry-skill').prop("checked") && skill.indexOf("炸技法") >= 0
+            || $('#chk-kitchenware-skill-roast-skill').prop("checked") && skill.indexOf("烤技法") >= 0
+            || $('#chk-kitchenware-skill-steam-skill').prop("checked") && skill.indexOf("蒸技法") >= 0
+            || $('#chk-kitchenware-skill-all-skill').prop("checked") && skill.indexOf("全技法") >= 0
+            || $('#chk-kitchenware-skill-guest').prop("checked") && skill.indexOf("稀有客人") >= 0
+            || $('#chk-kitchenware-skill-time').prop("checked") && skill.indexOf("开业时间") >= 0
+            || $('#chk-kitchenware-skill-ingredient-get').prop("checked") && skill.indexOf("素材获得") >= 0
+            || $('#chk-kitchenware-skill-meet-skill').prop("checked") && skill.indexOf("肉类采集") >= 0
+            || $('#chk-kitchenware-skill-wheat-skill').prop("checked") && skill.indexOf("面类采集") >= 0
+            || $('#chk-kitchenware-skill-veg-skill').prop("checked") && skill.indexOf("蔬菜采集") >= 0
+            || $('#chk-kitchenware-skill-fish-skill').prop("checked") && skill.indexOf("水产采集") >= 0
+            || $('#chk-kitchenware-skill-ingredient-skill').prop("checked") && skill.indexOf("全采集") >= 0
+        ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
+
+    $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+        if (settings.nTable != document.getElementById('kitchenware-table')) {
+            return true;
+        }
+
+        var value = $("#pane-kitchenware .search-box input").val();
+        var searchCols = [1, 3, 4];    // name, skill, origin
+
+        for (var i = 0, len = searchCols.length; i < len; i++) {
+            if (data[searchCols[i]].indexOf(value) !== -1) {
+                return true;
+            }
+        }
+
+        return false;
+    });
+
+    $('.chk-kitchenware-show').click(function () {
+        initKitchenwareShow(kitchenwareTable);
+    });
+
+    $('#chk-kitchenware-show-all').click(function () {
+        if ($('.chk-kitchenware-show:checked').length == $('.chk-kitchenware-show').length) {
+            $('.chk-kitchenware-show').prop("checked", false);
+        }
+        else {
+            $('.chk-kitchenware-show').prop("checked", true);
+        }
+        initKitchenwareShow(kitchenwareTable);
+    });
+
+    $('.chk-kitchenware-skill').click(function () {
+        if ($(this).prop("checked")) {
+            if ($('#chk-kitchenware-single-skill').prop("checked")) {
+                $(".chk-kitchenware-skill").not(this).prop("checked", false);
+            }
+        }
+        kitchenwareTable.draw();
+    });
+
+    $('#chk-kitchenware-single-skill').change(function () {
+        if ($(this).prop("checked")) {
+            if ($('.chk-kitchenware-skill:checked').length > 1) {
+                $('.chk-kitchenware-skill').prop("checked", false);
+                kitchenwareTable.draw();
+            }
+        }
+    });
+
+    $('#chk-kitchenware-skill-all').click(function () {
+        if ($('#chk-kitchenware-single-skill').prop("checked")) {
+            $('#chk-kitchenware-single-skill').bootstrapToggle('off')
+        }
+        $(".chk-kitchenware-skill").prop("checked", true);
+        kitchenwareTable.draw();
+    });
+
+    $('#pane-kitchenware .search-box input').keyup(function () {
+        kitchenwareTable.draw();
+    });
+
+    initKitchenwareShow(kitchenwareTable);
+}
+
 function initCalTables(json, data) {
     initCalRecipesTable(data);
     initCalChefsTable(data);
@@ -613,12 +766,6 @@ function initCalTables(json, data) {
     $.fn.dataTable.ext.order['dom-selected'] = function (settings, col) {
         return this.api().column(col, { order: 'index' }).nodes().map(function (td, i) {
             return $(td).parent("tr").hasClass("selected") ? '1' : '0';
-        });
-    }
-
-    $.fn.dataTable.ext.order['dom-text-numeric'] = function (settings, col) {
-        return this.api().column(col, { order: 'index' }).nodes().map(function (td, i) {
-            return $('input', td).val() * 1;
         });
     }
 }
@@ -682,14 +829,9 @@ function initCalRecipesTable(data) {
             "data": "origin"
         },
         {
-            "data": undefined,
-            "defaultContent": "",
-            "className": "cal-td-input",
-            "orderDataType": "dom-text-numeric",
-            "width": "38px",
-            "createdCell": function (td, cellData, rowData, row, col) {
-                $(td).html("<input type='text' class='form-control input-addition'>");
-            }
+            "data": "addition",
+            "className": "cal-td-input-addition",
+            "width": "38px"
         }
     ];
 
@@ -719,7 +861,7 @@ function initCalRecipesTable(data) {
             "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
-            selector: 'td:not(.cal-td-input)'
+            selector: 'td.select-checkbox'
         },
         autoWidth: false,
         createdRow: function (row, data, index) {
@@ -744,6 +886,10 @@ function initCalRecipesTable(data) {
         }
 
         return false;
+    });
+
+    calRecipesTable.MakeCellsEditable({
+        "columns": [15]  // addition
     });
 
     $('.chk-cal-recipes-show').click(function () {
@@ -792,7 +938,9 @@ function initCalRecipesTable(data) {
     });
 
     $("#btn-cal-recipes-addition-clear").click(function () {
-        calRecipesTable.rows().nodes().to$().find(".input-addition").val("");
+        calRecipesTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+            this.cell(rowIdx, '.cal-td-input-addition').data("");
+        });
     });
 
     $("#btn-cal-recipes-addition-add").click(function () {
@@ -803,7 +951,7 @@ function initCalRecipesTable(data) {
                 var recipeCategories = this.data().categories;
                 for (var i in recipeCategories) {
                     if (recipeCategories[i] == category) {
-                        $(this.node()).find('.input-addition').val(addition);
+                        this.cell(rowIdx, '.cal-td-input-addition').data(addition);
                     }
                 }
             });
@@ -884,14 +1032,9 @@ function initCalChefsTable(data) {
             "data": "origin"
         },
         {
-            "data": undefined,
-            "defaultContent": "",
-            "className": "cal-td-input",
-            "orderDataType": "dom-text-numeric",
-            "width": "38px",
-            "createdCell": function (td, cellData, rowData, row, col) {
-                $(td).html("<input type='text' class='form-control input-addition'>");
-            }
+            "data": "addition",
+            "className": "cal-td-input-addition",
+            "width": "38px"
         }
     ];
 
@@ -921,7 +1064,7 @@ function initCalChefsTable(data) {
             "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
-            selector: 'td:not(.cal-td-input)'
+            selector: 'td.select-checkbox'
         },
         autoWidth: false,
         createdRow: function (row, data, index) {
@@ -947,6 +1090,10 @@ function initCalChefsTable(data) {
         }
 
         return false;
+    });
+
+    calChefsTable.MakeCellsEditable({
+        "columns": [13]  // addition
     });
 
     $('.chk-cal-chefs-show').click(function () {
@@ -1034,7 +1181,9 @@ function initCalChefsTable(data) {
     });
 
     $("#btn-cal-chefs-addition-clear").click(function () {
-        calChefsTable.rows().nodes().to$().find(".input-addition").val("");
+        calChefsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+            this.cell(rowIdx, '.cal-td-input-addition').data("");
+        });
     });
 
     $("#btn-cal-chefs-addition-add").click(function () {
@@ -1043,7 +1192,7 @@ function initCalChefsTable(data) {
         if (sex) {
             calChefsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
                 if (this.data().sex == sex) {
-                    $(this.node()).find('.input-addition').val(addition);
+                    this.cell(rowIdx, '.cal-td-input-addition').data(addition);
                 }
             });
         }
@@ -1095,14 +1244,9 @@ function initCalIngredientsTable(data) {
             "data": "origin"
         },
         {
-            "data": undefined,
-            "defaultContent": "",
-            "className": "cal-td-input",
-            "orderDataType": "dom-text-numeric",
-            "width": "38px",
-            "createdCell": function (td, cellData, rowData, row, col) {
-                $(td).html("<input type='text' class='form-control input-addition'>");
-            }
+            "data": "addition",
+            "className": "cal-td-input-addition",
+            "width": "38px"
         }
     ];
 
@@ -1132,7 +1276,7 @@ function initCalIngredientsTable(data) {
             "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
-            selector: 'td:not(.cal-td-input)'
+            selector: 'td.select-checkbox'
         },
         autoWidth: false,
         createdRow: function (row, data, index) {
@@ -1157,6 +1301,10 @@ function initCalIngredientsTable(data) {
         }
 
         return false;
+    });
+
+    calIngredientsTable.MakeCellsEditable({
+        "columns": [5]  // addition
     });
 
     $('.chk-cal-ingredients-show').click(function () {
@@ -1223,7 +1371,9 @@ function initCalIngredientsTable(data) {
     });
 
     $("#btn-cal-ingredients-addition-clear").click(function () {
-        calIngredientsTable.rows().nodes().to$().find(".input-addition").val("");
+        calIngredientsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+            this.cell(rowIdx, '.cal-td-input-addition').data("");
+        });
     });
 
     $("#btn-cal-ingredients-addition-add").click(function () {
@@ -1232,7 +1382,7 @@ function initCalIngredientsTable(data) {
         if (origin) {
             calIngredientsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
                 if (this.data().origin == origin) {
-                    $(this.node()).find('.input-addition').val(addition);
+                    this.cell(rowIdx, '.cal-td-input-addition').data(addition);
                 }
             });
         }
@@ -1481,7 +1631,8 @@ function initCalResultsTable() {
                                 "<'row'<'col-sm-12'tr>>" +
                                 "<'row'<'col-sm-12'p>>",
                             select: {
-                                style: 'multi'
+                                style: 'multi',
+                                selector: 'td.select-checkbox'
                             },
                             autoWidth: false,
                             order: [[28, "desc"]]  //score
@@ -1561,42 +1712,14 @@ function initCalResultsTable() {
                 }
             };
 
-            var calRecipesData = new Array();
+            var calRecipesData = calRecipesTable.rows({ selected: true }).data().toArray();
             var hasRecipesAddition = $("#chk-cal-recipes-addition").prop("checked");
-            calRecipesTable.rows({ selected: true }).every(function (rowIdx, tableLoop, rowLoop) {
-                var rowData = this.data();
-                if (hasRecipesAddition) {
-                    rowData["addition"] = $(this.node()).find('.input-addition').val();
-                } else {
-                    rowData["addition"] = "";
-                }
-                calRecipesData.push(rowData);
-            });
 
-            var calChefsData = new Array();
+            var calChefsData = calChefsTable.rows({ selected: true }).data().toArray();
             var hasChefsAddition = $("#chk-cal-chefs-addition").prop("checked");
-            calChefsTable.rows({ selected: true }).every(function (rowIdx, tableLoop, rowLoop) {
-                var rowData = this.data();
-                if (hasChefsAddition) {
-                    rowData["addition"] = $(this.node()).find('.input-addition').val();
-                } else {
-                    rowData["addition"] = "";
-                }
-                calChefsData.push(rowData);
-            });
 
-            var calIngredientsData = new Array();
+            var calIngredientsData = calIngredientsTable.rows({ selected: true }).data().toArray();
             var hasIngredientsAddition = $("#chk-cal-ingredients-addition").prop("checked");
-            calIngredientsTable.rows({ selected: true }).every(function (rowIdx, tableLoop, rowLoop) {
-                var rowData = this.data();
-                if (hasIngredientsAddition) {
-                    rowData["addition"] = $(this.node()).find('.input-addition').val();
-                } else {
-                    rowData["addition"] = "";
-                }
-                calIngredientsData.push(rowData);
-            });
-
             var ingredientsAdditionCumulative = $("#chk-cal-ingredients-addition-cumulative").prop("checked");
 
             var allLimit = Math.floor($("#input-cal-results-show-top").val());
@@ -1638,9 +1761,28 @@ function generateData(json, private) {
         ingredientData = json.ingredients[i];
         ingredientData["fireDisp"] = getFireDisp(json.ingredients[i].fire);
         ingredientData["originVal"] = getOriginVal(json.ingredients[i].origin);
+        ingredientData["addition"] = "";
         ingredientsData.push(ingredientData);
     }
     retData["ingredients"] = ingredientsData;
+
+    var kitchenwareData = new Array();
+    for (i in json.kitchenware) {
+
+        if (!json.kitchenware[i].name) {
+            continue;
+        }
+
+        var kitchenware = new Object();
+        kitchenware = json.kitchenware[i];
+        kitchenware["fireDisp"] = getFireDisp(json.kitchenware[i].fire);
+        var skillInfo = getSkillInfo(json.kitchenware[i].skill);
+        kitchenware["skillVal"] = skillInfo.skillVal;
+        kitchenware["skillDisp"] = skillInfo.skillDisp;
+
+        kitchenwareData.push(kitchenware);
+    }
+    retData["kitchenware"] = kitchenwareData;
 
     var chefsData = new Array();
     for (i in json.chefs) {
@@ -1663,22 +1805,14 @@ function generateData(json, private) {
         chefData["wheat"] = json.chefs[i].wheat || "";
         chefData["veg"] = json.chefs[i].veg || "";
         chefData["fish"] = json.chefs[i].fish || "";
+        chefData["addition"] = "";
 
-        chefData["chefIdDisp"] = json.chefs[i].chefId + " - " + (json.chefs[i].chefId + 2),
-            chefData["fireDisp"] = getFireDisp(json.chefs[i].fire);
+        chefData["chefIdDisp"] = json.chefs[i].chefId + " - " + (json.chefs[i].chefId + 2);
+        chefData["fireDisp"] = getFireDisp(json.chefs[i].fire);
 
-        var specialSkillDisp = "";
-        var specialSkillVal = "";
-        for (j in json.chefs[i].skill) {
-            specialSkillDisp += json.chefs[i].skill[j].type + " ";
-            if (json.chefs[i].skill[j].addition) {
-                specialSkillDisp += json.chefs[i].skill[j].addition * 100 + "% ";
-            }
-            specialSkillVal = json.chefs[i].skill[j].type;
-        }
-
-        chefData["specialSkillVal"] = specialSkillVal;
-        chefData["specialSkillDisp"] = specialSkillDisp;
+        var skillInfo = getSkillInfo(json.chefs[i].skill);
+        chefData["specialSkillVal"] = skillInfo.skillVal;
+        chefData["specialSkillDisp"] = skillInfo.skillDisp;
 
         chefsData.push(chefData);
     }
@@ -1702,6 +1836,7 @@ function generateData(json, private) {
         recipeData["steam"] = json.recipes[i].steam || "";
         recipeData["price"] = json.recipes[i].price || "";
         recipeData["total"] = json.recipes[i].total || "";
+        recipeData["addition"] = "";
 
         recipeData["timeDisp"] = secondsToTime(json.recipes[i].time);
         recipeData["fireDisp"] = getFireDisp(json.recipes[i].fire);
@@ -1920,13 +2055,38 @@ function getIngredientsInfo(recipe) {
     return ingredientsInfo;
 }
 
+function getSkillInfo(skill) {
+    var skillInfo = new Object();
+    var skillDisp = "";
+    var skillVal = "";
+    for (j in skill) {
+        skillDisp += skill[j].type + " ";
+        if (skill[j].type.indexOf("稀有客人") >= 0
+            || skill[j].type.indexOf("料理") >= 0
+            || skill[j].type.indexOf("金币获得") >= 0
+            || skill[j].type.indexOf("素材获得") >= 0) {
+            skillDisp += "+" + skill[j].addition * 100 + "%<br>";
+        } else if (skill[j].type.indexOf("技法") >= 0
+            || skill[j].type.indexOf("采集") >= 0) {
+            skillDisp += "+" + skill[j].addition + "<br>";
+        } else {
+            skillDisp += skill[j].addition + "<br>";
+        }
+
+        skillVal += skill[j].type;
+    }
+    skillInfo["skillDisp"] = skillDisp;
+    skillInfo["skillVal"] = skillVal;
+    return skillInfo;
+}
+
 function getChefSkillAddition(recipe, chef, ingredients) {
     var skillAddition = 0;
 
     if (chef.hasOwnProperty('skill')) {
         for (var k in chef.skill) {
             var hasSkill = false;
-            if (chef.skill[k].type.indexOf("水产") >= 0) {
+            if (chef.skill[k].type.indexOf("水产料理") >= 0) {
                 for (var m in recipe.ingredients) {
                     for (var n in ingredients) {
                         if (recipe.ingredients[m].name == ingredients[n].name) {
@@ -1937,8 +2097,7 @@ function getChefSkillAddition(recipe, chef, ingredients) {
                         }
                     }
                 }
-            }
-            if (chef.skill[k].type.indexOf("面") >= 0) {
+            } else if (chef.skill[k].type.indexOf("面类料理") >= 0) {
                 for (var m in recipe.ingredients) {
                     for (var n in ingredients) {
                         if (recipe.ingredients[m].name == ingredients[n].name) {
@@ -1949,8 +2108,7 @@ function getChefSkillAddition(recipe, chef, ingredients) {
                         }
                     }
                 }
-            }
-            if (chef.skill[k].type.indexOf("肉") >= 0) {
+            } else if (chef.skill[k].type.indexOf("肉类料理") >= 0) {
                 for (var m in recipe.ingredients) {
                     for (var n in ingredients) {
                         if (recipe.ingredients[m].name == ingredients[n].name) {
@@ -1963,8 +2121,7 @@ function getChefSkillAddition(recipe, chef, ingredients) {
                         }
                     }
                 }
-            }
-            if (chef.skill[k].type.indexOf("蔬菜") >= 0) {
+            } else if (chef.skill[k].type.indexOf("蔬菜料理") >= 0) {
                 for (var m in recipe.ingredients) {
                     for (var n in ingredients) {
                         if (recipe.ingredients[m].name == ingredients[n].name) {
@@ -1977,38 +2134,31 @@ function getChefSkillAddition(recipe, chef, ingredients) {
                         }
                     }
                 }
-            }
-            if (chef.skill[k].type.indexOf("炒") >= 0) {
+            } else if (chef.skill[k].type.indexOf("炒类料理") >= 0) {
                 if (recipe.stirfry > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("煮") >= 0) {
+            } else if (chef.skill[k].type.indexOf("煮类料理") >= 0) {
                 if (recipe.boil > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("炸") >= 0) {
+            } else if (chef.skill[k].type.indexOf("炸类料理") >= 0) {
                 if (recipe.fry > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("切") >= 0) {
+            } else if (chef.skill[k].type.indexOf("切类料理") >= 0) {
                 if (recipe.cut > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("烤") >= 0) {
+            } else if (chef.skill[k].type.indexOf("烤类料理") >= 0) {
                 if (recipe.roast > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("蒸") >= 0) {
+            } else if (chef.skill[k].type.indexOf("蒸类料理") >= 0) {
                 if (recipe.steam > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("金币") >= 0) {
+            } else if (chef.skill[k].type.indexOf("金币获得") >= 0) {
                 hasSkill = true;
             }
 
@@ -2117,6 +2267,15 @@ function initChefShow(chefTable, data) {
     }
 
     chefTable.columns.adjust().draw(false);
+}
+
+function initKitchenwareShow(kitchenwareTable) {
+    kitchenwareTable.column(0).visible($('#chk-kitchenware-show-id').prop("checked"), false);
+    kitchenwareTable.column(2).visible($('#chk-kitchenware-show-fire').prop("checked"), false);
+    kitchenwareTable.column(3).visible($('#chk-kitchenware-show-special-skill').prop("checked"), false);
+    kitchenwareTable.column(4).visible($('#chk-kitchenware-show-origin').prop("checked"), false);
+
+    kitchenwareTable.columns.adjust().draw(false);
 }
 
 function initCalRecipesShow(calRecipesTable) {
@@ -2248,4 +2407,150 @@ function secondsToTime(sec) {
     }
 
     return ret;
+}
+
+$.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
+    var table = this.table();
+
+    jQuery.fn.extend({
+        // UPDATE
+        updateEditableCell: function (callingElement) {
+            var table = $(callingElement).closest("table").DataTable().table();
+            var row = table.row($(callingElement).parents('tr'));
+            var cell = table.cell($(callingElement).parent());
+            var columnIndex = cell.index().column;
+            var inputField = $(callingElement);
+
+            // Update
+            var newValue = inputField.val();
+            if (!newValue && ((settings.allowNulls) && settings.allowNulls != true)) {
+                // If columns specified
+                if (settings.allowNulls.columns) {
+                    // If current column allows nulls
+                    if (settings.allowNulls.columns.indexOf(columnIndex) > -1) {
+                        _update(newValue);
+                    } else {
+                        _addValidationCss();
+                    }
+                    // No columns allow null
+                } else if (!newValue) {
+                    _addValidationCss();
+                }
+                //All columns allow null
+            } else {
+                _update(newValue);
+            }
+            function _addValidationCss() {
+                // Show validation error
+                if (settings.allowNulls.errorClass) {
+                    $(inputField).addClass(settings.allowNulls.errorClass)
+                } else {
+                    $(inputField).css({ "border": "red solid 1px" });
+                }
+            }
+            function _update(newValue) {
+                var oldValue = cell.data();
+                cell.data(newValue);
+            }
+        },
+        // CANCEL
+        cancelEditableCell: function (callingElement) {
+            var table = $(callingElement.closest("table")).DataTable().table();
+            var cell = table.cell($(callingElement).parent());
+            // Set cell to it's original value
+            cell.data(cell.data());
+
+            // Redraw table
+            table.draw();
+        }
+    });
+
+    // Destroy
+    if (settings === "destroy") {
+        $(table.body()).off("click", "td");
+        table = null;
+    }
+
+    if (table != null) {
+        // On cell click
+        $(table.body()).on('click', 'td', function () {
+
+            var currentColumnIndex = table.cell(this).index().column;
+
+            // DETERMINE WHAT COLUMNS CAN BE EDITED
+            if ((settings.columns && settings.columns.indexOf(currentColumnIndex) > -1) || (!settings.columns)) {
+                var row = table.row($(this).parents('tr'));
+                editableCellsRow = row;
+
+                var cell = table.cell(this).node();
+                var oldValue = table.cell(this).data();
+                // Sanitize value
+                oldValue = sanitizeCellValue(oldValue);
+
+                // Show input
+                if (!$(cell).find('input').length && !$(cell).find('select').length && !$(cell).find('textarea').length) {
+                    // Input CSS
+                    var input = getInputHtml(currentColumnIndex, settings, oldValue);
+                    $(cell).html(input.html);
+                    if (input.focus) {
+                        $('#ejbeatycelledit').select().focus();
+                    }
+                }
+            }
+        });
+    }
+
+});
+
+function getInputHtml(currentColumnIndex, settings, oldValue) {
+    var inputSetting, inputType, input, inputCss, confirmCss, cancelCss;
+
+    input = { "focus": true, "html": null }
+
+    if (settings.inputTypes) {
+        $.each(settings.inputTypes, function (index, setting) {
+            if (setting.column == currentColumnIndex) {
+                inputSetting = setting;
+                inputType = inputSetting.type.toLowerCase();
+            }
+        });
+    }
+
+    if (settings.inputCss) { inputCss = settings.inputCss; }
+    if (settings.confirmationButton) {
+        confirmCss = settings.confirmationButton.confirmCss;
+        cancelCss = settings.confirmationButton.cancelCss;
+        inputType = inputType + "-confirm";
+    }
+    switch (inputType) {
+        case "list":
+            input.html = "<select class='" + inputCss + "' onchange='$(this).updateEditableCell(this);'>";
+            $.each(inputSetting.options, function (index, option) {
+                if (oldValue == option.value) {
+                    input.html = input.html + "<option value='" + option.value + "' selected>" + option.display + "</option>"
+                } else {
+                    input.html = input.html + "<option value='" + option.value + "' >" + option.display + "</option>"
+                }
+            });
+            input.html = input.html + "</select>";
+            input.focus = false;
+            break;
+        default: // text input
+            input.html = "<input id='ejbeatycelledit' class='form-control " + inputCss + "' onfocusout='$(this).updateEditableCell(this)' value='" + oldValue + "'></input>";
+            break;
+    }
+    return input;
+}
+
+function sanitizeCellValue(cellValue) {
+    if (typeof (cellValue) === 'undefined' || cellValue === null || cellValue.length < 1) {
+        return "";
+    }
+
+    // If not a number
+    if (isNaN(cellValue)) {
+        // escape single quote
+        cellValue = cellValue.replace(/'/g, "&#39;");
+    }
+    return cellValue;
 }
