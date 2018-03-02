@@ -17,6 +17,8 @@ function init(json) {
 
     initChefTable(data);
 
+    initKitchenwareTable(data);
+
     if (private || cal) {
         initCalTables(json, data);
         $(".nav-tabs li").removeClass("hidden");
@@ -529,7 +531,7 @@ function initChefTable(data) {
         }
 
         var value = $("#pane-chefs .search-box input").val();
-        var searchCols = [1, 9, 15];
+        var searchCols = [1, 9, 15];    //  name, skill, origin
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
             if (data[searchCols[i]].indexOf(value) !== -1) {
@@ -602,6 +604,157 @@ function initChefTable(data) {
     });
 
     initChefShow(chefTable, data);
+}
+
+function initKitchenwareTable(data) {
+    var kitchenwareColumns = [
+        {
+            "data": "kitchenwareId"
+        },
+        {
+            "data": "name"
+        },
+        {
+            "data": {
+                "_": "fire",
+                "display": "fireDisp"
+            }
+        },
+        {
+            "data": {
+                "_": "skillVal",
+                "display": "skillDisp"
+            }
+        },
+        {
+            "data": "origin"
+        }
+    ];
+
+    var kitchenwareTable = $('#kitchenware-table').DataTable({
+        data: data.kitchenware,
+        columns: kitchenwareColumns,
+        language: {
+            search: "查找:",
+            lengthMenu: "一页显示 _MENU_ 个",
+            zeroRecords: "没有找到",
+            info: "第 _PAGE_ 页 共 _PAGES_ 页 _TOTAL_ 个厨具",
+            infoEmpty: "没有数据",
+            infoFiltered: "(从 _MAX_ 个厨具中过滤)"
+        },
+        pagingType: "numbers",
+        lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
+        pageLength: 20,
+        dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>"
+    });
+
+    $("#pane-kitchenware div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="名字 技能 来源"></label>');
+
+    $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+        if (settings.nTable != document.getElementById('kitchenware-table')) {
+            return true;
+        }
+
+        var skill = data[3];    // skill
+
+        if ($('#chk-kitchenware-skill-stirfry-price').prop("checked") && skill.indexOf("炒类料理") >= 0
+            || $('#chk-kitchenware-skill-boil-price').prop("checked") && skill.indexOf("煮类料理") >= 0
+            || $('#chk-kitchenware-skill-cut-price').prop("checked") && skill.indexOf("切类料理") >= 0
+            || $('#chk-kitchenware-skill-fry-price').prop("checked") && skill.indexOf("炸类料理") >= 0
+            || $('#chk-kitchenware-skill-roast-price').prop("checked") && skill.indexOf("烤类料理") >= 0
+            || $('#chk-kitchenware-skill-steam-price').prop("checked") && skill.indexOf("蒸类料理") >= 0
+            || $('#chk-kitchenware-skill-meet-price').prop("checked") && skill.indexOf("肉类料理") >= 0
+            || $('#chk-kitchenware-skill-wheat-price').prop("checked") && skill.indexOf("面类料理") >= 0
+            || $('#chk-kitchenware-skill-veg-price').prop("checked") && skill.indexOf("蔬菜料理") >= 0
+            || $('#chk-kitchenware-skill-fish-price').prop("checked") && skill.indexOf("水产料理") >= 0
+            || $('#chk-kitchenware-skill-sell-price').prop("checked") && skill.indexOf("金币获得") >= 0
+            || $('#chk-kitchenware-skill-stirfry-skill').prop("checked") && skill.indexOf("炒技法") >= 0
+            || $('#chk-kitchenware-skill-boil-skill').prop("checked") && skill.indexOf("煮技法") >= 0
+            || $('#chk-kitchenware-skill-cut-skill').prop("checked") && skill.indexOf("切技法") >= 0
+            || $('#chk-kitchenware-skill-fry-skill').prop("checked") && skill.indexOf("炸技法") >= 0
+            || $('#chk-kitchenware-skill-roast-skill').prop("checked") && skill.indexOf("烤技法") >= 0
+            || $('#chk-kitchenware-skill-steam-skill').prop("checked") && skill.indexOf("蒸技法") >= 0
+            || $('#chk-kitchenware-skill-all-skill').prop("checked") && skill.indexOf("全技法") >= 0
+            || $('#chk-kitchenware-skill-guest').prop("checked") && skill.indexOf("稀有客人") >= 0
+            || $('#chk-kitchenware-skill-time').prop("checked") && skill.indexOf("开业时间") >= 0
+            || $('#chk-kitchenware-skill-ingredient-get').prop("checked") && skill.indexOf("素材获得") >= 0
+            || $('#chk-kitchenware-skill-meet-skill').prop("checked") && skill.indexOf("肉类采集") >= 0
+            || $('#chk-kitchenware-skill-wheat-skill').prop("checked") && skill.indexOf("面类采集") >= 0
+            || $('#chk-kitchenware-skill-veg-skill').prop("checked") && skill.indexOf("蔬菜采集") >= 0
+            || $('#chk-kitchenware-skill-fish-skill').prop("checked") && skill.indexOf("水产采集") >= 0
+            || $('#chk-kitchenware-skill-ingredient-skill').prop("checked") && skill.indexOf("全采集") >= 0
+        ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
+
+    $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+        if (settings.nTable != document.getElementById('kitchenware-table')) {
+            return true;
+        }
+
+        var value = $("#pane-kitchenware .search-box input").val();
+        var searchCols = [1, 3, 4];    // name, skill, origin
+
+        for (var i = 0, len = searchCols.length; i < len; i++) {
+            if (data[searchCols[i]].indexOf(value) !== -1) {
+                return true;
+            }
+        }
+
+        return false;
+    });
+
+    $('.chk-kitchenware-show').click(function () {
+        initKitchenwareShow(kitchenwareTable);
+    });
+
+    $('#chk-kitchenware-show-all').click(function () {
+        if ($('.chk-kitchenware-show:checked').length == $('.chk-kitchenware-show').length) {
+            $('.chk-kitchenware-show').prop("checked", false);
+        }
+        else {
+            $('.chk-kitchenware-show').prop("checked", true);
+        }
+        initKitchenwareShow(kitchenwareTable);
+    });
+
+    $('.chk-kitchenware-skill').click(function () {
+        if ($(this).prop("checked")) {
+            if ($('#chk-kitchenware-single-skill').prop("checked")) {
+                $(".chk-kitchenware-skill").not(this).prop("checked", false);
+            }
+        }
+        kitchenwareTable.draw();
+    });
+
+    $('#chk-kitchenware-single-skill').change(function () {
+        if ($(this).prop("checked")) {
+            if ($('.chk-kitchenware-skill:checked').length > 1) {
+                $('.chk-kitchenware-skill').prop("checked", false);
+                kitchenwareTable.draw();
+            }
+        }
+    });
+
+    $('#chk-kitchenware-skill-all').click(function () {
+        if ($('#chk-kitchenware-single-skill').prop("checked")) {
+            $('#chk-kitchenware-single-skill').bootstrapToggle('off')
+        }
+        $(".chk-kitchenware-skill").prop("checked", true);
+        kitchenwareTable.draw();
+    });
+
+    $('#pane-kitchenware .search-box input').keyup(function () {
+        kitchenwareTable.draw();
+    });
+
+    initKitchenwareShow(kitchenwareTable);
 }
 
 function initCalTables(json, data) {
@@ -1642,6 +1795,24 @@ function generateData(json, private) {
     }
     retData["ingredients"] = ingredientsData;
 
+    var kitchenwareData = new Array();
+    for (i in json.kitchenware) {
+
+        if (!json.kitchenware[i].name) {
+            continue;
+        }
+
+        var kitchenware = new Object();
+        kitchenware = json.kitchenware[i];
+        kitchenware["fireDisp"] = getFireDisp(json.kitchenware[i].fire);
+        var skillInfo = getSkillInfo(json.kitchenware[i].skill);
+        kitchenware["skillVal"] = skillInfo.skillVal;
+        kitchenware["skillDisp"] = skillInfo.skillDisp;
+
+        kitchenwareData.push(kitchenware);
+    }
+    retData["kitchenware"] = kitchenwareData;
+
     var chefsData = new Array();
     for (i in json.chefs) {
 
@@ -1664,21 +1835,12 @@ function generateData(json, private) {
         chefData["veg"] = json.chefs[i].veg || "";
         chefData["fish"] = json.chefs[i].fish || "";
 
-        chefData["chefIdDisp"] = json.chefs[i].chefId + " - " + (json.chefs[i].chefId + 2),
-            chefData["fireDisp"] = getFireDisp(json.chefs[i].fire);
+        chefData["chefIdDisp"] = json.chefs[i].chefId + " - " + (json.chefs[i].chefId + 2);
+        chefData["fireDisp"] = getFireDisp(json.chefs[i].fire);
 
-        var specialSkillDisp = "";
-        var specialSkillVal = "";
-        for (j in json.chefs[i].skill) {
-            specialSkillDisp += json.chefs[i].skill[j].type + " ";
-            if (json.chefs[i].skill[j].addition) {
-                specialSkillDisp += json.chefs[i].skill[j].addition * 100 + "% ";
-            }
-            specialSkillVal = json.chefs[i].skill[j].type;
-        }
-
-        chefData["specialSkillVal"] = specialSkillVal;
-        chefData["specialSkillDisp"] = specialSkillDisp;
+        var skillInfo = getSkillInfo(json.chefs[i].skill);
+        chefData["specialSkillVal"] = skillInfo.skillVal;
+        chefData["specialSkillDisp"] = skillInfo.skillDisp;
 
         chefsData.push(chefData);
     }
@@ -1920,13 +2082,38 @@ function getIngredientsInfo(recipe) {
     return ingredientsInfo;
 }
 
+function getSkillInfo(skill) {
+    var skillInfo = new Object();
+    var skillDisp = "";
+    var skillVal = "";
+    for (j in skill) {
+        skillDisp += skill[j].type + " ";
+        if (skill[j].type.indexOf("稀有客人") >= 0
+            || skill[j].type.indexOf("料理") >= 0
+            || skill[j].type.indexOf("金币获得") >= 0
+            || skill[j].type.indexOf("素材获得") >= 0) {
+            skillDisp += "+" + skill[j].addition * 100 + "%<br>";
+        } else if (skill[j].type.indexOf("技法") >= 0
+            || skill[j].type.indexOf("采集") >= 0) {
+            skillDisp += "+" + skill[j].addition + "<br>";
+        } else {
+            skillDisp += skill[j].addition + "<br>";
+        }
+
+        skillVal += skill[j].type;
+    }
+    skillInfo["skillDisp"] = skillDisp;
+    skillInfo["skillVal"] = skillVal;
+    return skillInfo;
+}
+
 function getChefSkillAddition(recipe, chef, ingredients) {
     var skillAddition = 0;
 
     if (chef.hasOwnProperty('skill')) {
         for (var k in chef.skill) {
             var hasSkill = false;
-            if (chef.skill[k].type.indexOf("水产") >= 0) {
+            if (chef.skill[k].type.indexOf("水产料理") >= 0) {
                 for (var m in recipe.ingredients) {
                     for (var n in ingredients) {
                         if (recipe.ingredients[m].name == ingredients[n].name) {
@@ -1937,8 +2124,7 @@ function getChefSkillAddition(recipe, chef, ingredients) {
                         }
                     }
                 }
-            }
-            if (chef.skill[k].type.indexOf("面") >= 0) {
+            } else if (chef.skill[k].type.indexOf("面类料理") >= 0) {
                 for (var m in recipe.ingredients) {
                     for (var n in ingredients) {
                         if (recipe.ingredients[m].name == ingredients[n].name) {
@@ -1949,8 +2135,7 @@ function getChefSkillAddition(recipe, chef, ingredients) {
                         }
                     }
                 }
-            }
-            if (chef.skill[k].type.indexOf("肉") >= 0) {
+            } else if (chef.skill[k].type.indexOf("肉类料理") >= 0) {
                 for (var m in recipe.ingredients) {
                     for (var n in ingredients) {
                         if (recipe.ingredients[m].name == ingredients[n].name) {
@@ -1963,8 +2148,7 @@ function getChefSkillAddition(recipe, chef, ingredients) {
                         }
                     }
                 }
-            }
-            if (chef.skill[k].type.indexOf("蔬菜") >= 0) {
+            } else if (chef.skill[k].type.indexOf("蔬菜料理") >= 0) {
                 for (var m in recipe.ingredients) {
                     for (var n in ingredients) {
                         if (recipe.ingredients[m].name == ingredients[n].name) {
@@ -1977,38 +2161,31 @@ function getChefSkillAddition(recipe, chef, ingredients) {
                         }
                     }
                 }
-            }
-            if (chef.skill[k].type.indexOf("炒") >= 0) {
+            } else if (chef.skill[k].type.indexOf("炒类料理") >= 0) {
                 if (recipe.stirfry > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("煮") >= 0) {
+            } else if (chef.skill[k].type.indexOf("煮类料理") >= 0) {
                 if (recipe.boil > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("炸") >= 0) {
+            } else if (chef.skill[k].type.indexOf("炸类料理") >= 0) {
                 if (recipe.fry > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("切") >= 0) {
+            } else if (chef.skill[k].type.indexOf("切类料理") >= 0) {
                 if (recipe.cut > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("烤") >= 0) {
+            } else if (chef.skill[k].type.indexOf("烤类料理") >= 0) {
                 if (recipe.roast > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("蒸") >= 0) {
+            } else if (chef.skill[k].type.indexOf("蒸类料理") >= 0) {
                 if (recipe.steam > 0) {
                     hasSkill = true;
                 }
-            }
-            if (chef.skill[k].type.indexOf("金币") >= 0) {
+            } else if (chef.skill[k].type.indexOf("金币获得") >= 0) {
                 hasSkill = true;
             }
 
@@ -2117,6 +2294,15 @@ function initChefShow(chefTable, data) {
     }
 
     chefTable.columns.adjust().draw(false);
+}
+
+function initKitchenwareShow(kitchenwareTable) {
+    kitchenwareTable.column(0).visible($('#chk-kitchenware-show-id').prop("checked"), false);
+    kitchenwareTable.column(2).visible($('#chk-kitchenware-show-fire').prop("checked"), false);
+    kitchenwareTable.column(3).visible($('#chk-kitchenware-show-special-skill').prop("checked"), false);
+    kitchenwareTable.column(4).visible($('#chk-kitchenware-show-origin').prop("checked"), false);
+
+    kitchenwareTable.columns.adjust().draw(false);
 }
 
 function initCalRecipesShow(calRecipesTable) {

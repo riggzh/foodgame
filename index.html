@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=2" />
     <script type="text/javascript" src="js/script.min.js?v=4"></script>
     <link rel="stylesheet" type="text/css" href="css/food.min.css?v=10" />
-    <script type="text/javascript" src="js/food.min.js?v=23"></script>
+    <script type="text/javascript" src="js/food.min.js?v=24"></script>
     <script>
         $(function () {
             $.ajax({
@@ -33,6 +33,9 @@
             </li>
             <li>
                 <a href="#pane-chefs" data-toggle="tab">厨师</a>
+            </li>
+            <li>
+                <a href="#pane-kitchenware" data-toggle="tab">厨具</a>
             </li>
             <li class="hidden">
                 <a href="#pane-cal" data-toggle="tab">算分</a>
@@ -406,6 +409,187 @@
                     </table>
                 </div>
             </div>
+            <div id="pane-kitchenware" class="tab-pane">
+                <div>
+                    <div class="box">
+                        <a id="chk-kitchenware-show-all" class="btn btn-default">
+                            全选
+                        </a>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-show-id" class="chk-kitchenware-show">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            编号
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-show-fire" class="chk-kitchenware-show">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            星
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-show-special-skill" class="chk-kitchenware-show" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            技能
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-show-origin" class="chk-kitchenware-show" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            来源
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <div class="box">
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-stirfry-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            炒类售价
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-boil-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            煮类售价
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-cut-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            切类售价
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-fry-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            炸类售价
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-roast-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            烤类售价
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-steam-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            蒸类售价
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-meet-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            肉类售价
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-wheat-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            面类售价
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-veg-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            蔬菜售价
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-fish-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            水产售价
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-sell-price" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            金币获得
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-stirfry-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            炒技法
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-boil-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            煮技法
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-cut-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            切技法
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-fry-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            炸技法
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-roast-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            烤技法
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-steam-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            蒸技法
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-all-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            全技法
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-guest" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            稀有客人
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-time" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            开业时间
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-ingredient-get" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            素材获得
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-meet-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            肉类采集
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-wheat-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            面类采集
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-veg-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            蔬菜采集
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-fish-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            水产采集
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-kitchenware-skill-ingredient-skill" class="chk-kitchenware-skill" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            全采集
+                        </label>
+                        <input type="checkbox" id="chk-kitchenware-single-skill" data-toggle="toggle" data-on="单选" data-off="多选" data-onstyle="default"
+                            data-width="67px" data-height="34px">
+                        <a id="chk-kitchenware-skill-all" class="btn btn-default">
+                            全选
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <table id="kitchenware-table" class="table table-hover table-bordered" width="100%">
+                        <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>名字</th>
+                                <th>星</th>
+                                <th>技能</th>
+                                <th>来源</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
             <div id="pane-cal" class="tab-pane">
                 <div class="tabs-left">
                     <ul class="nav nav-tabs">
@@ -518,6 +702,7 @@
                                                     <option></option>
                                                     <option>汤</option>
                                                     <option>点心</option>
+                                                    <option>冷菜</option>
                                                 </select>
                                                 <input type="text" id="input-cal-recipes-addition" class="form-control input-addition" placeholder="倍数">
                                                 <a id="btn-cal-recipes-addition-add" class="btn btn-default">
@@ -803,7 +988,7 @@
                                 <div class="box">
                                     <div class="input-group">
                                         <div class="input-group-addon">每个厨师显示前</div>
-                                        <input type="text" class="form-control" id="input-cal-results-show-top">
+                                        <input type="text" class="form-control" id="input-cal-results-show-top" value="9">
                                         <div class="input-group-addon">条</div>
                                     </div>
                                     <button id="btn-cal-results-cal-all" class="btn btn-default btn-cal-results-cal" type="button">
@@ -966,6 +1151,10 @@
                     <span class="label label-info">厨师图鉴</span>
                 </h4>
                 <p>选择菜谱并点击菜谱列进行排序，可以看厨师可做的品质。</p>
+                <h4>
+                    <span class="label label-info">厨具图鉴</span>
+                </h4>
+                <p>可以选择类别进行筛选</p>
                 <br>
                 <p>难免有数据缺失或错误，敬请谅解。如想纠错或补充数据可以联系我，官方1群或2群 L</p>
                 <hr>
