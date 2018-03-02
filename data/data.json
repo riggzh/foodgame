@@ -1457,7 +1457,9 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "神"
         },
         {
@@ -1639,7 +1641,9 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "神"
         },
         {
@@ -2050,7 +2054,9 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "神"
         },
         {
@@ -2093,7 +2099,9 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "神"
         },
         {
@@ -2144,7 +2152,9 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "神"
         },
         {
@@ -2424,7 +2434,9 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": ""
         },
         {
@@ -2510,7 +2522,9 @@
                 }
             ],
             "godRune": "油火虫",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "特"
         },
         {
@@ -2598,7 +2612,9 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "神"
         },
         {
@@ -2944,7 +2960,8 @@
             ],
             "godRune": "",
             "categories": [
-                "点心"
+                "点心",
+                "冷菜"
             ],
             "quality": "优"
         },
@@ -2988,7 +3005,9 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "神"
         },
         {
@@ -3387,7 +3406,9 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "可"
         },
         {
@@ -3673,7 +3694,8 @@
             ],
             "godRune": "-",
             "categories": [
-                "点心"
+                "点心",
+                "冷菜"
             ],
             "quality": "神"
         },
@@ -3725,7 +3747,9 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": ""
         },
         {
@@ -3823,7 +3847,9 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": ""
         },
         {
@@ -3917,7 +3943,9 @@
                 }
             ],
             "godRune": "千年煮鳖",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": ""
         },
         {
@@ -3964,7 +3992,9 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": ""
         },
         {
@@ -4443,7 +4473,9 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "神"
         },
         {
@@ -4725,7 +4757,9 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
+            "categories": [
+                "冷菜"
+            ],
             "quality": "优"
         },
         {
@@ -5180,6 +5214,57 @@
                 {
                     "quality": "优",
                     "guest": "皇后"
+                },
+                {
+                    "quality": "特",
+                    "guest": ""
+                },
+                {
+                    "quality": "神",
+                    "guest": ""
+                }
+            ],
+            "godRune": "",
+            "categories": [],
+            "quality": ""
+        },
+        {
+            "recipeId": 254,
+            "name": "汤圆",
+            "fire": 3,
+            "unlock": "-",
+            "stirfry": 0,
+            "boil": 70,
+            "cut": 45,
+            "fry": 0,
+            "roast": 0,
+            "steam": 0,
+            "ingredients": [
+                {
+                    "name": "糯米",
+                    "quantity": 4
+                },
+                {
+                    "name": "猪油",
+                    "quantity": 3
+                },
+                {
+                    "name": "里脊肉",
+                    "quantity": 4
+                },
+                {
+                    "name": "笋",
+                    "quantity": 2
+                }
+            ],
+            "price": 434,
+            "time": 684,
+            "total": 25,
+            "origin": "元宵节邮件",
+            "guests": [
+                {
+                    "quality": "优",
+                    "guest": ""
                 },
                 {
                     "quality": "特",
@@ -6175,7 +6260,7 @@
             "steam": 30,
             "skill": [
                 {
-                    "type": "贵客",
+                    "type": "稀有客人",
                     "addition": 0.3
                 }
             ],
@@ -6198,7 +6283,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "炸",
+                    "type": "炸类料理",
                     "addition": 0.1
                 }
             ],
@@ -6221,7 +6306,7 @@
             "steam": 100,
             "skill": [
                 {
-                    "type": "面",
+                    "type": "面类料理",
                     "addition": 0.1
                 }
             ],
@@ -6244,7 +6329,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "炸",
+                    "type": "炸类料理",
                     "addition": 0.05
                 }
             ],
@@ -6267,7 +6352,7 @@
             "steam": 15,
             "skill": [
                 {
-                    "type": "肉",
+                    "type": "肉类料理",
                     "addition": 0.1
                 }
             ],
@@ -6290,7 +6375,7 @@
             "steam": 33,
             "skill": [
                 {
-                    "type": "煮",
+                    "type": "煮类料理",
                     "addition": 0.05
                 }
             ],
@@ -6313,7 +6398,7 @@
             "steam": 138,
             "skill": [
                 {
-                    "type": "肉",
+                    "type": "肉类料理",
                     "addition": 0.1
                 }
             ],
@@ -6336,7 +6421,7 @@
             "steam": 46,
             "skill": [
                 {
-                    "type": "炒",
+                    "type": "炒类料理",
                     "addition": 0.05
                 }
             ],
@@ -6359,7 +6444,7 @@
             "steam": 92,
             "skill": [
                 {
-                    "type": "金币",
+                    "type": "金币获得",
                     "addition": 0.04
                 }
             ],
@@ -6382,7 +6467,7 @@
             "steam": 23,
             "skill": [
                 {
-                    "type": "水产",
+                    "type": "水产料理",
                     "addition": 0.1
                 }
             ],
@@ -6405,7 +6490,7 @@
             "steam": 15,
             "skill": [
                 {
-                    "type": "贵客",
+                    "type": "稀有客人",
                     "addition": 0.2
                 }
             ],
@@ -6428,7 +6513,7 @@
             "steam": 61,
             "skill": [
                 {
-                    "type": "面",
+                    "type": "面类料理",
                     "addition": 0.1
                 }
             ],
@@ -6451,8 +6536,8 @@
             "steam": 166,
             "skill": [
                 {
-                    "type": "时间",
-                    "addition": 0
+                    "type": "开业时间",
+                    "addition": "微微减少"
                 }
             ],
             "meat": 5,
@@ -6474,7 +6559,7 @@
             "steam": 58,
             "skill": [
                 {
-                    "type": "切",
+                    "type": "切类料理",
                     "addition": 0.05
                 }
             ],
@@ -6497,7 +6582,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "水产",
+                    "type": "水产料理",
                     "addition": 0.05
                 }
             ],
@@ -6520,7 +6605,7 @@
             "steam": 92,
             "skill": [
                 {
-                    "type": "蒸",
+                    "type": "蒸类料理",
                     "addition": 0.1
                 }
             ],
@@ -6543,7 +6628,7 @@
             "steam": 100,
             "skill": [
                 {
-                    "type": "面",
+                    "type": "面类料理",
                     "addition": 0.1
                 }
             ],
@@ -6566,7 +6651,7 @@
             "steam": 100,
             "skill": [
                 {
-                    "type": "金币",
+                    "type": "金币获得",
                     "addition": 0.02
                 }
             ],
@@ -6589,7 +6674,7 @@
             "steam": 40,
             "skill": [
                 {
-                    "type": "炸",
+                    "type": "炸类料理",
                     "addition": 0.1
                 }
             ],
@@ -6612,7 +6697,7 @@
             "steam": 30,
             "skill": [
                 {
-                    "type": "切",
+                    "type": "切类料理",
                     "addition": 0.1
                 }
             ],
@@ -6635,7 +6720,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "蔬菜",
+                    "type": "蔬菜料理",
                     "addition": 0.05
                 }
             ],
@@ -6658,7 +6743,7 @@
             "steam": 33,
             "skill": [
                 {
-                    "type": "面",
+                    "type": "面类料理",
                     "addition": 0.1
                 }
             ],
@@ -6681,7 +6766,7 @@
             "steam": 33,
             "skill": [
                 {
-                    "type": "煮",
+                    "type": "煮类料理",
                     "addition": 0.05
                 }
             ],
@@ -6704,7 +6789,7 @@
             "steam": 64,
             "skill": [
                 {
-                    "type": "炸",
+                    "type": "炸类料理",
                     "addition": 0.1
                 }
             ],
@@ -6727,7 +6812,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "肉",
+                    "type": "肉类料理",
                     "addition": 0.15
                 }
             ],
@@ -6750,7 +6835,7 @@
             "steam": 62,
             "skill": [
                 {
-                    "type": "炒",
+                    "type": "炒类料理",
                     "addition": 0.2
                 }
             ],
@@ -6773,7 +6858,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "水产",
+                    "type": "水产料理",
                     "addition": 0.05
                 }
             ],
@@ -6796,7 +6881,7 @@
             "steam": 188,
             "skill": [
                 {
-                    "type": "蒸",
+                    "type": "蒸类料理",
                     "addition": 0.15
                 }
             ],
@@ -6819,7 +6904,7 @@
             "steam": 100,
             "skill": [
                 {
-                    "type": "蔬菜",
+                    "type": "蔬菜料理",
                     "addition": 0.05
                 }
             ],
@@ -6842,7 +6927,7 @@
             "steam": 91,
             "skill": [
                 {
-                    "type": "贵客",
+                    "type": "稀有客人",
                     "addition": 0.3
                 }
             ],
@@ -6865,7 +6950,7 @@
             "steam": 66,
             "skill": [
                 {
-                    "type": "面",
+                    "type": "面类料理",
                     "addition": 0.05
                 }
             ],
@@ -6888,7 +6973,7 @@
             "steam": 23,
             "skill": [
                 {
-                    "type": "炒",
+                    "type": "炒类料理",
                     "addition": 0.1
                 }
             ],
@@ -6911,7 +6996,7 @@
             "steam": 15,
             "skill": [
                 {
-                    "type": "贵客",
+                    "type": "稀有客人",
                     "addition": 0.2
                 }
             ],
@@ -6934,7 +7019,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "金币",
+                    "type": "金币获得",
                     "addition": 0.02
                 }
             ],
@@ -6957,7 +7042,7 @@
             "steam": 92,
             "skill": [
                 {
-                    "type": "蒸",
+                    "type": "蒸类料理",
                     "addition": 0.1
                 }
             ],
@@ -6980,7 +7065,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "切",
+                    "type": "切类料理",
                     "addition": 0.1
                 }
             ],
@@ -7003,7 +7088,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "烤",
+                    "type": "烤类料理",
                     "addition": 0.1
                 }
             ],
@@ -7026,7 +7111,7 @@
             "steam": 94,
             "skill": [
                 {
-                    "type": "贵客",
+                    "type": "稀有客人",
                     "addition": 0.2
                 }
             ],
@@ -7049,7 +7134,7 @@
             "steam": 92,
             "skill": [
                 {
-                    "type": "面",
+                    "type": "面类料理",
                     "addition": 0.1
                 }
             ],
@@ -7072,7 +7157,7 @@
             "steam": 92,
             "skill": [
                 {
-                    "type": "切",
+                    "type": "切类料理",
                     "addition": 0.1
                 }
             ],
@@ -7095,7 +7180,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "肉",
+                    "type": "肉类料理",
                     "addition": 0.1
                 }
             ],
@@ -7118,7 +7203,7 @@
             "steam": 125,
             "skill": [
                 {
-                    "type": "切",
+                    "type": "切类料理",
                     "addition": 0.2
                 }
             ],
@@ -7141,7 +7226,7 @@
             "steam": 92,
             "skill": [
                 {
-                    "type": "贵客",
+                    "type": "稀有客人",
                     "addition": 0.3
                 }
             ],
@@ -7181,7 +7266,7 @@
             "steam": 24,
             "skill": [
                 {
-                    "type": "烤",
+                    "type": "烤类料理",
                     "addition": 0.15
                 }
             ],
@@ -7238,7 +7323,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "肉",
+                    "type": "肉类料理",
                     "addition": 0.05
                 }
             ],
@@ -7261,7 +7346,7 @@
             "steam": 133,
             "skill": [
                 {
-                    "type": "切",
+                    "type": "切类料理",
                     "addition": 0.15
                 }
             ],
@@ -7284,7 +7369,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "煮",
+                    "type": "煮类料理",
                     "addition": 0.05
                 }
             ],
@@ -7324,7 +7409,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "金币",
+                    "type": "金币获得",
                     "addition": 0.04
                 }
             ],
@@ -7347,7 +7432,7 @@
             "steam": 23,
             "skill": [
                 {
-                    "type": "采集",
+                    "type": "素材获得",
                     "addition": 0.12
                 }
             ],
@@ -7356,6 +7441,52 @@
             "veg": 0,
             "fish": 0,
             "origin": "圣诞壁池"
+        },
+        {
+            "chefId": 217,
+            "name": "雨轩",
+            "fire": 2,
+            "sex": "女",
+            "stirfry": 0,
+            "boil": 92,
+            "cut": 0,
+            "fry": 46,
+            "roast": 138,
+            "steam": 23,
+            "skill": [
+                {
+                    "type": "烤",
+                    "addition": 0.1
+                }
+            ],
+            "meat": 4,
+            "wheat": 0,
+            "veg": 3,
+            "fish": 0,
+            "origin": "春节壁池"
+        },
+        {
+            "chefId": 220,
+            "name": "雷慕",
+            "fire": 4,
+            "sex": "女",
+            "stirfry": 46,
+            "boil": 0,
+            "cut": 0,
+            "fry": 92,
+            "roast": 276,
+            "steam": 184,
+            "skill": [
+                {
+                    "type": "面",
+                    "addition": 0.2
+                }
+            ],
+            "meat": 5,
+            "wheat": 6,
+            "veg": 0,
+            "fish": 0,
+            "origin": "厨师礼包"
         },
         {
             "chefId": 223,
@@ -7370,7 +7501,7 @@
             "steam": 33,
             "skill": [
                 {
-                    "type": "烤",
+                    "type": "烤类料理",
                     "addition": 0.15
                 }
             ],
@@ -7410,7 +7541,7 @@
             "steam": 0,
             "skill": [
                 {
-                    "type": "贵客",
+                    "type": "稀有客人",
                     "addition": 0.4
                 }
             ],
@@ -7440,13 +7571,14 @@
     ],
     "furniture": 0.396,
     "history": [
-        "2018/2/17 移除了菜谱图鉴里选择全部厨师的按钮，如要查某个菜哪些厨师能做，可在厨师图鉴里选择该菜",
-        "2018/2/15 加入厨师图鉴功能，点击左上角切换图鉴",
-        "2018/2/14 加入情人节、春节菜谱、厨师",
-        "2018/1/26 加入菜谱 豆豉蒸鱼",
-        "2018/1/23 加入限时任务菜谱 三鲜砂锅 猪肚鸡",
-        "2018/1/16 加入菜谱 笋干烧豆 鸡肉蔬菜沙拉",
-        "2018/1/14 加入3个新的解锁菜谱 咖喱土豆牛肉 菠萝班戟 煎牛排",
-        "2018/1/11 加入升阶贵客符文显示查找功能"
+        "2018/03/02 加入厨具图鉴，加入菜谱-汤圆",
+        "2018/02/17 移除了菜谱图鉴里选择全部厨师的按钮，如要查某个菜哪些厨师能做，可在厨师图鉴里选择该菜",
+        "2018/02/15 加入厨师图鉴功能，点击左上角切换图鉴",
+        "2018/02/14 加入情人节、春节菜谱、厨师",
+        "2018/01/26 加入菜谱-豆豉蒸鱼",
+        "2018/01/23 加入限时任务菜谱-三鲜砂锅 猪肚鸡",
+        "2018/01/16 加入菜谱-笋干烧豆 鸡肉蔬菜沙拉",
+        "2018/01/14 加入3个新的解锁菜谱-咖喱土豆牛肉 菠萝班戟 煎牛排",
+        "2018/01/11 加入升阶贵客符文显示查找功能"
     ]
 }
