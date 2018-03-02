@@ -16044,27 +16044,35 @@
         },
         {
             "kitchenwareId": 92,
-            "name": "",
-            "fire": 0,
+            "name": "银蛇香炉",
+            "fire": 2,
             "skill": [
                 {
-                    "type": "",
-                    "addition": 0
+                    "type": "水产料理",
+                    "addition": 0.1
+                },
+                {
+                    "type": "面类料理",
+                    "addition": 0.1
                 }
             ],
-            "origin": ""
+            "origin": "厨神"
         },
         {
             "kitchenwareId": 93,
-            "name": "",
-            "fire": 0,
+            "name": "铜香炉",
+            "fire": 1,
             "skill": [
                 {
-                    "type": "",
-                    "addition": 0
+                    "type": "水产料理",
+                    "addition": 0.05
+                },
+                {
+                    "type": "面类料理",
+                    "addition": 0.05
                 }
             ],
-            "origin": ""
+            "origin": "厨神"
         },
         {
             "kitchenwareId": 94,
