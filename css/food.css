@@ -279,3 +279,7 @@ table.dataTable tbody>tr>.selected {
 #input-cal-results-show-top {
     width: 40px;
 }
+
+.cal-td-input-addition .form-control {
+    width: 60px;
+}

@@ -768,12 +768,6 @@ function initCalTables(json, data) {
             return $(td).parent("tr").hasClass("selected") ? '1' : '0';
         });
     }
-
-    $.fn.dataTable.ext.order['dom-text-numeric'] = function (settings, col) {
-        return this.api().column(col, { order: 'index' }).nodes().map(function (td, i) {
-            return $('input', td).val() * 1;
-        });
-    }
 }
 
 function initCalRecipesTable(data) {
@@ -835,14 +829,9 @@ function initCalRecipesTable(data) {
             "data": "origin"
         },
         {
-            "data": undefined,
-            "defaultContent": "",
-            "className": "cal-td-input",
-            "orderDataType": "dom-text-numeric",
-            "width": "38px",
-            "createdCell": function (td, cellData, rowData, row, col) {
-                $(td).html("<input type='text' class='form-control input-addition'>");
-            }
+            "data": "addition",
+            "className": "cal-td-input-addition",
+            "width": "38px"
         }
     ];
 
@@ -872,7 +861,7 @@ function initCalRecipesTable(data) {
             "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
-            selector: 'td:not(.cal-td-input)'
+            selector: 'td.select-checkbox'
         },
         autoWidth: false,
         createdRow: function (row, data, index) {
@@ -897,6 +886,10 @@ function initCalRecipesTable(data) {
         }
 
         return false;
+    });
+
+    calRecipesTable.MakeCellsEditable({
+        "columns": [15]  // addition
     });
 
     $('.chk-cal-recipes-show').click(function () {
@@ -945,7 +938,9 @@ function initCalRecipesTable(data) {
     });
 
     $("#btn-cal-recipes-addition-clear").click(function () {
-        calRecipesTable.rows().nodes().to$().find(".input-addition").val("");
+        calRecipesTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+            this.cell(rowIdx, '.cal-td-input-addition').data("");
+        });
     });
 
     $("#btn-cal-recipes-addition-add").click(function () {
@@ -956,7 +951,7 @@ function initCalRecipesTable(data) {
                 var recipeCategories = this.data().categories;
                 for (var i in recipeCategories) {
                     if (recipeCategories[i] == category) {
-                        $(this.node()).find('.input-addition').val(addition);
+                        this.cell(rowIdx, '.cal-td-input-addition').data(addition);
                     }
                 }
             });
@@ -1037,14 +1032,9 @@ function initCalChefsTable(data) {
             "data": "origin"
         },
         {
-            "data": undefined,
-            "defaultContent": "",
-            "className": "cal-td-input",
-            "orderDataType": "dom-text-numeric",
-            "width": "38px",
-            "createdCell": function (td, cellData, rowData, row, col) {
-                $(td).html("<input type='text' class='form-control input-addition'>");
-            }
+            "data": "addition",
+            "className": "cal-td-input-addition",
+            "width": "38px"
         }
     ];
 
@@ -1074,7 +1064,7 @@ function initCalChefsTable(data) {
             "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
-            selector: 'td:not(.cal-td-input)'
+            selector: 'td.select-checkbox'
         },
         autoWidth: false,
         createdRow: function (row, data, index) {
@@ -1100,6 +1090,10 @@ function initCalChefsTable(data) {
         }
 
         return false;
+    });
+
+    calChefsTable.MakeCellsEditable({
+        "columns": [13]  // addition
     });
 
     $('.chk-cal-chefs-show').click(function () {
@@ -1187,7 +1181,9 @@ function initCalChefsTable(data) {
     });
 
     $("#btn-cal-chefs-addition-clear").click(function () {
-        calChefsTable.rows().nodes().to$().find(".input-addition").val("");
+        calChefsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+            this.cell(rowIdx, '.cal-td-input-addition').data("");
+        });
     });
 
     $("#btn-cal-chefs-addition-add").click(function () {
@@ -1196,7 +1192,7 @@ function initCalChefsTable(data) {
         if (sex) {
             calChefsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
                 if (this.data().sex == sex) {
-                    $(this.node()).find('.input-addition').val(addition);
+                    this.cell(rowIdx, '.cal-td-input-addition').data(addition);
                 }
             });
         }
@@ -1248,14 +1244,9 @@ function initCalIngredientsTable(data) {
             "data": "origin"
         },
         {
-            "data": undefined,
-            "defaultContent": "",
-            "className": "cal-td-input",
-            "orderDataType": "dom-text-numeric",
-            "width": "38px",
-            "createdCell": function (td, cellData, rowData, row, col) {
-                $(td).html("<input type='text' class='form-control input-addition'>");
-            }
+            "data": "addition",
+            "className": "cal-td-input-addition",
+            "width": "38px"
         }
     ];
 
@@ -1285,7 +1276,7 @@ function initCalIngredientsTable(data) {
             "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
-            selector: 'td:not(.cal-td-input)'
+            selector: 'td.select-checkbox'
         },
         autoWidth: false,
         createdRow: function (row, data, index) {
@@ -1310,6 +1301,10 @@ function initCalIngredientsTable(data) {
         }
 
         return false;
+    });
+
+    calIngredientsTable.MakeCellsEditable({
+        "columns": [5]  // addition
     });
 
     $('.chk-cal-ingredients-show').click(function () {
@@ -1376,7 +1371,9 @@ function initCalIngredientsTable(data) {
     });
 
     $("#btn-cal-ingredients-addition-clear").click(function () {
-        calIngredientsTable.rows().nodes().to$().find(".input-addition").val("");
+        calIngredientsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+            this.cell(rowIdx, '.cal-td-input-addition').data("");
+        });
     });
 
     $("#btn-cal-ingredients-addition-add").click(function () {
@@ -1385,7 +1382,7 @@ function initCalIngredientsTable(data) {
         if (origin) {
             calIngredientsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
                 if (this.data().origin == origin) {
-                    $(this.node()).find('.input-addition').val(addition);
+                    this.cell(rowIdx, '.cal-td-input-addition').data(addition);
                 }
             });
         }
@@ -1634,7 +1631,8 @@ function initCalResultsTable() {
                                 "<'row'<'col-sm-12'tr>>" +
                                 "<'row'<'col-sm-12'p>>",
                             select: {
-                                style: 'multi'
+                                style: 'multi',
+                                selector: 'td.select-checkbox'
                             },
                             autoWidth: false,
                             order: [[28, "desc"]]  //score
@@ -1714,42 +1712,14 @@ function initCalResultsTable() {
                 }
             };
 
-            var calRecipesData = new Array();
+            var calRecipesData = calRecipesTable.rows({ selected: true }).data().toArray();
             var hasRecipesAddition = $("#chk-cal-recipes-addition").prop("checked");
-            calRecipesTable.rows({ selected: true }).every(function (rowIdx, tableLoop, rowLoop) {
-                var rowData = this.data();
-                if (hasRecipesAddition) {
-                    rowData["addition"] = $(this.node()).find('.input-addition').val();
-                } else {
-                    rowData["addition"] = "";
-                }
-                calRecipesData.push(rowData);
-            });
 
-            var calChefsData = new Array();
+            var calChefsData = calChefsTable.rows({ selected: true }).data().toArray();
             var hasChefsAddition = $("#chk-cal-chefs-addition").prop("checked");
-            calChefsTable.rows({ selected: true }).every(function (rowIdx, tableLoop, rowLoop) {
-                var rowData = this.data();
-                if (hasChefsAddition) {
-                    rowData["addition"] = $(this.node()).find('.input-addition').val();
-                } else {
-                    rowData["addition"] = "";
-                }
-                calChefsData.push(rowData);
-            });
 
-            var calIngredientsData = new Array();
+            var calIngredientsData = calIngredientsTable.rows({ selected: true }).data().toArray();
             var hasIngredientsAddition = $("#chk-cal-ingredients-addition").prop("checked");
-            calIngredientsTable.rows({ selected: true }).every(function (rowIdx, tableLoop, rowLoop) {
-                var rowData = this.data();
-                if (hasIngredientsAddition) {
-                    rowData["addition"] = $(this.node()).find('.input-addition').val();
-                } else {
-                    rowData["addition"] = "";
-                }
-                calIngredientsData.push(rowData);
-            });
-
             var ingredientsAdditionCumulative = $("#chk-cal-ingredients-addition-cumulative").prop("checked");
 
             var allLimit = Math.floor($("#input-cal-results-show-top").val());
@@ -1791,6 +1761,7 @@ function generateData(json, private) {
         ingredientData = json.ingredients[i];
         ingredientData["fireDisp"] = getFireDisp(json.ingredients[i].fire);
         ingredientData["originVal"] = getOriginVal(json.ingredients[i].origin);
+        ingredientData["addition"] = "";
         ingredientsData.push(ingredientData);
     }
     retData["ingredients"] = ingredientsData;
@@ -1834,6 +1805,7 @@ function generateData(json, private) {
         chefData["wheat"] = json.chefs[i].wheat || "";
         chefData["veg"] = json.chefs[i].veg || "";
         chefData["fish"] = json.chefs[i].fish || "";
+        chefData["addition"] = "";
 
         chefData["chefIdDisp"] = json.chefs[i].chefId + " - " + (json.chefs[i].chefId + 2);
         chefData["fireDisp"] = getFireDisp(json.chefs[i].fire);
@@ -1864,6 +1836,7 @@ function generateData(json, private) {
         recipeData["steam"] = json.recipes[i].steam || "";
         recipeData["price"] = json.recipes[i].price || "";
         recipeData["total"] = json.recipes[i].total || "";
+        recipeData["addition"] = "";
 
         recipeData["timeDisp"] = secondsToTime(json.recipes[i].time);
         recipeData["fireDisp"] = getFireDisp(json.recipes[i].fire);
@@ -2434,4 +2407,150 @@ function secondsToTime(sec) {
     }
 
     return ret;
+}
+
+$.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
+    var table = this.table();
+
+    jQuery.fn.extend({
+        // UPDATE
+        updateEditableCell: function (callingElement) {
+            var table = $(callingElement).closest("table").DataTable().table();
+            var row = table.row($(callingElement).parents('tr'));
+            var cell = table.cell($(callingElement).parent());
+            var columnIndex = cell.index().column;
+            var inputField = $(callingElement);
+
+            // Update
+            var newValue = inputField.val();
+            if (!newValue && ((settings.allowNulls) && settings.allowNulls != true)) {
+                // If columns specified
+                if (settings.allowNulls.columns) {
+                    // If current column allows nulls
+                    if (settings.allowNulls.columns.indexOf(columnIndex) > -1) {
+                        _update(newValue);
+                    } else {
+                        _addValidationCss();
+                    }
+                    // No columns allow null
+                } else if (!newValue) {
+                    _addValidationCss();
+                }
+                //All columns allow null
+            } else {
+                _update(newValue);
+            }
+            function _addValidationCss() {
+                // Show validation error
+                if (settings.allowNulls.errorClass) {
+                    $(inputField).addClass(settings.allowNulls.errorClass)
+                } else {
+                    $(inputField).css({ "border": "red solid 1px" });
+                }
+            }
+            function _update(newValue) {
+                var oldValue = cell.data();
+                cell.data(newValue);
+            }
+        },
+        // CANCEL
+        cancelEditableCell: function (callingElement) {
+            var table = $(callingElement.closest("table")).DataTable().table();
+            var cell = table.cell($(callingElement).parent());
+            // Set cell to it's original value
+            cell.data(cell.data());
+
+            // Redraw table
+            table.draw();
+        }
+    });
+
+    // Destroy
+    if (settings === "destroy") {
+        $(table.body()).off("click", "td");
+        table = null;
+    }
+
+    if (table != null) {
+        // On cell click
+        $(table.body()).on('click', 'td', function () {
+
+            var currentColumnIndex = table.cell(this).index().column;
+
+            // DETERMINE WHAT COLUMNS CAN BE EDITED
+            if ((settings.columns && settings.columns.indexOf(currentColumnIndex) > -1) || (!settings.columns)) {
+                var row = table.row($(this).parents('tr'));
+                editableCellsRow = row;
+
+                var cell = table.cell(this).node();
+                var oldValue = table.cell(this).data();
+                // Sanitize value
+                oldValue = sanitizeCellValue(oldValue);
+
+                // Show input
+                if (!$(cell).find('input').length && !$(cell).find('select').length && !$(cell).find('textarea').length) {
+                    // Input CSS
+                    var input = getInputHtml(currentColumnIndex, settings, oldValue);
+                    $(cell).html(input.html);
+                    if (input.focus) {
+                        $('#ejbeatycelledit').select().focus();
+                    }
+                }
+            }
+        });
+    }
+
+});
+
+function getInputHtml(currentColumnIndex, settings, oldValue) {
+    var inputSetting, inputType, input, inputCss, confirmCss, cancelCss;
+
+    input = { "focus": true, "html": null }
+
+    if (settings.inputTypes) {
+        $.each(settings.inputTypes, function (index, setting) {
+            if (setting.column == currentColumnIndex) {
+                inputSetting = setting;
+                inputType = inputSetting.type.toLowerCase();
+            }
+        });
+    }
+
+    if (settings.inputCss) { inputCss = settings.inputCss; }
+    if (settings.confirmationButton) {
+        confirmCss = settings.confirmationButton.confirmCss;
+        cancelCss = settings.confirmationButton.cancelCss;
+        inputType = inputType + "-confirm";
+    }
+    switch (inputType) {
+        case "list":
+            input.html = "<select class='" + inputCss + "' onchange='$(this).updateEditableCell(this);'>";
+            $.each(inputSetting.options, function (index, option) {
+                if (oldValue == option.value) {
+                    input.html = input.html + "<option value='" + option.value + "' selected>" + option.display + "</option>"
+                } else {
+                    input.html = input.html + "<option value='" + option.value + "' >" + option.display + "</option>"
+                }
+            });
+            input.html = input.html + "</select>";
+            input.focus = false;
+            break;
+        default: // text input
+            input.html = "<input id='ejbeatycelledit' class='form-control " + inputCss + "' onfocusout='$(this).updateEditableCell(this)' value='" + oldValue + "'></input>";
+            break;
+    }
+    return input;
+}
+
+function sanitizeCellValue(cellValue) {
+    if (typeof (cellValue) === 'undefined' || cellValue === null || cellValue.length < 1) {
+        return "";
+    }
+
+    // If not a number
+    if (isNaN(cellValue)) {
+        // escape single quote
+        cellValue = cellValue.replace(/'/g, "&#39;");
+    }
+    return cellValue;
 }
