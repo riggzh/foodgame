@@ -2395,6 +2395,49 @@
             "quality": "神"
         },
         {
+            "recipeId": 77,
+            "name": "毛蟹年糕",
+            "fire": 4,
+            "unlock": "-",
+            "stirfry": 60,
+            "boil": 0,
+            "cut": 0,
+            "fry": 50,
+            "roast": 0,
+            "steam": 0,
+            "ingredients": [
+                {
+                    "name": "面粉",
+                    "quantity": 8
+                },
+                {
+                    "name": "螃蟹",
+                    "quantity": 2
+                }
+            ],
+            "price": 457,
+            "time": 144,
+            "total": 20,
+            "origin": "壁池",
+            "guests": [
+                {
+                    "quality": "优",
+                    "guest": "木良木优"
+                },
+                {
+                    "quality": "特",
+                    "guest": "黄月英"
+                },
+                {
+                    "quality": "神",
+                    "guest": "王子"
+                }
+            ],
+            "godRune": "一昧真火",
+            "categories": [],
+            "quality": "神"
+        },
+        {
             "recipeId": 78,
             "name": "醉蟹",
             "fire": 4,
