@@ -7429,12 +7429,18 @@
             "sex": "男",
             "stirfry": 0,
             "boil": 0,
-            "cut": 49,
-            "fry": 74,
-            "roast": 12,
-            "steam": 24,
-            "meat": 2,
-            "wheat": 3,
+            "cut": 91,
+            "fry": 137,
+            "roast": 22,
+            "steam": 45,
+            "skill": [
+                {
+                    "type": "面类料理",
+                    "addition": 0.15
+                }
+            ],
+            "meat": 3,
+            "wheat": 4,
             "veg": 0,
             "fish": 0,
             "origin": "春节壁池"
