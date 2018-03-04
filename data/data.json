@@ -4758,12 +4758,12 @@
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "苏轼"
                 }
             ],
             "godRune": "-",
             "categories": [],
-            "quality": "优"
+            "quality": "神"
         },
         {
             "recipeId": 103,
@@ -8834,7 +8834,7 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "诸葛亮"
                 },
                 {
                     "quality": "神",
@@ -10586,7 +10586,7 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "吕布"
                 },
                 {
                     "quality": "特",
@@ -10594,10 +10594,10 @@
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "貂蝉"
                 }
             ],
-            "godRune": "",
+            "godRune": "刀嘴鹦鹉",
             "categories": [
                 "点心"
             ],
@@ -11156,14 +11156,14 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "大内侍卫"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "刘备"
                 }
             ],
-            "godRune": "",
+            "godRune": "剪刀蟹",
             "categories": [
                 "汤"
             ],
@@ -11704,7 +11704,7 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "黄月英"
                 },
                 {
                     "quality": "神",
