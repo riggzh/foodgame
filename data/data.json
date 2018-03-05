@@ -16132,15 +16132,19 @@
         },
         {
             "kitchenwareId": 98,
-            "name": "",
-            "fire": 0,
+            "name": "银瓷杯",
+            "fire": 2,
             "skill": [
                 {
-                    "type": "",
-                    "addition": 0
+                    "type": "肉类料理",
+                    "addition": 0.1
+                },
+                {
+                    "type": "蔬菜料理",
+                    "addition": 0.1
                 }
             ],
-            "origin": ""
+            "origin": "厨神"
         },
         {
             "kitchenwareId": 99,
