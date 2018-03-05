@@ -1,4 +1,12 @@
-var calWorker, calRecipesTable, calChefsTable, calIngredientsTable, calResultsTable;
+$(function () {
+    $.ajax({
+        cache: false,
+        success: function (data) {
+            init(data);
+        },
+        url: 'data/data.json'
+    });
+});
 
 function init(json) {
     var private = false;
@@ -276,29 +284,7 @@ function initRecipeTable(data, private) {
         return false;
     });
 
-    $('#chk-recipe-show-chef').multiselect({
-        templates: {
-            filter: '<li class="multiselect-item filter">'
-            + '<div class="input-group">'
-            + '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-            + '<input class="form-control multiselect-search" type="text"></div>'
-            + '<a class="deselect-all">清空</a></li>'
-        },
-        enableFiltering: true,
-        filterPlaceholder: '查找',
-        numberDisplayed: 1,
-        allSelectedText: '厨师',
-        nonSelectedText: '厨师',
-        nSelectedText: '厨师',
-        maxHeight: 200,
-        onChange: function (option, checked, select) {
-            initRecipeShow(recipeTable, data, private);
-        }
-    });
-
-    $('.chk-recipe-show-chef-wrapper .deselect-all').click(function () {
-        $('#chk-recipe-show-chef').multiselect('deselectAll', false);
-        $('#chk-recipe-show-chef').multiselect('updateButtonText');
+    $('#chk-recipe-show-chef').selectpicker().on('changed.bs.select', function () {
         initRecipeShow(recipeTable, data, private);
     });
 
@@ -553,29 +539,7 @@ function initChefTable(data) {
         return false;
     });
 
-    $('#chk-chef-show-recipe').multiselect({
-        templates: {
-            filter: '<li class="multiselect-item filter">'
-            + '<div class="input-group">'
-            + '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-            + '<input class="form-control multiselect-search" type="text"></div>'
-            + '<a class="deselect-all">清空</a></li>'
-        },
-        enableFiltering: true,
-        filterPlaceholder: '查找',
-        numberDisplayed: 1,
-        allSelectedText: '菜谱',
-        nonSelectedText: '菜谱',
-        nSelectedText: '菜谱',
-        maxHeight: 200,
-        onChange: function (option, checked, select) {
-            initChefShow(chefTable, data);
-        }
-    });
-
-    $('.chk-chef-show-recipe-wrapper .deselect-all').click(function () {
-        $('#chk-chef-show-recipe').multiselect('deselectAll', false);
-        $('#chk-chef-show-recipe').multiselect('updateButtonText');
+    $('#chk-chef-show-recipe').selectpicker().on('changed.bs.select', function () {
         initChefShow(chefTable, data);
     });
 
@@ -657,8 +621,8 @@ function initKitchenwareTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>"
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>"
     });
 
     $("#pane-kitchenware div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="名字 技能 来源"></label>');
@@ -769,20 +733,26 @@ function initKitchenwareTable(data) {
 }
 
 function initCalTables(json, data) {
+
     initCalRecipesTable(data);
     initCalChefsTable(data);
-    initCalIngredientsTable(data)
-    initCalResultsTable();
+    initCalIngredientsTable(data);
+
+    initCalResultsTable(data);
+
+    initCalSelfSelect(data);
 
     $.fn.dataTable.ext.order['dom-selected'] = function (settings, col) {
         return this.api().column(col, { order: 'index' }).nodes().map(function (td, i) {
             return $(td).parent("tr").hasClass("selected") ? '1' : '0';
         });
     }
+
+    $("#pane-cal-results-common").remove();
 }
 
 function initCalRecipesTable(data) {
-    var recipesData = generateCalRecipeData(data);
+    var recipesData = generateCalRecipeData(data.recipes);
     var calRecipesColumns = [
         {
             "data": undefined,
@@ -846,7 +816,7 @@ function initCalRecipesTable(data) {
         }
     ];
 
-    calRecipesTable = $('#cal-recipes-table').DataTable({
+    var calRecipesTable = $('#cal-recipes-table').DataTable({
         data: recipesData,
         columns: calRecipesColumns,
         language: {
@@ -1046,10 +1016,15 @@ function initCalChefsTable(data) {
             "data": "addition",
             "className": "cal-td-input-addition",
             "width": "38px"
+        },
+        {
+            "data": "kitchenwareName",
+            "className": "cal-td-select-kitchenware",
+            "width": "222px"
         }
     ];
 
-    calChefsTable = $('#cal-chefs-table').DataTable({
+    var calChefsTable = $('#cal-chefs-table').DataTable({
         data: data.chefs,
         columns: calChefsColumns,
         language: {
@@ -1103,8 +1078,16 @@ function initCalChefsTable(data) {
         return false;
     });
 
+    var options = getKitchenwareOptions(data.kitchenware);
     calChefsTable.MakeCellsEditable({
-        "columns": [13]  // addition
+        "columns": [13, 14],  // addition
+        "inputTypes": [
+            {
+                "column": 14,
+                "type": "list",
+                "options": options
+            }
+        ]
     });
 
     $('.chk-cal-chefs-show').click(function () {
@@ -1209,6 +1192,21 @@ function initCalChefsTable(data) {
         }
     });
 
+    $('#chk-cal-chefs-kitchenware').change(function () {
+        initCalChefsShow(calChefsTable);
+        if ($(this).prop("checked")) {
+            $("#btn-cal-chefs-kitchenware-clear").removeClass("hidden");
+        } else {
+            $("#btn-cal-chefs-kitchenware-clear").addClass("hidden");
+        }
+    });
+
+    $("#btn-cal-chefs-kitchenware-clear").click(function () {
+        calChefsTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+            this.cell(rowIdx, '.cal-td-select-kitchenware').data("");
+        });
+    });
+
     $('#pane-cal-chefs .search-box input').keyup(function () {
         calChefsTable.draw();
     });
@@ -1261,7 +1259,7 @@ function initCalIngredientsTable(data) {
         }
     ];
 
-    calIngredientsTable = $('#cal-ingredients-table').DataTable({
+    var calIngredientsTable = $('#cal-ingredients-table').DataTable({
         data: data.ingredients,
         columns: calIngredientsColumns,
         language: {
@@ -1418,7 +1416,146 @@ function initCalIngredientsTable(data) {
     initCalIngredientsShow(calIngredientsTable);
 }
 
-function initCalResultsTable() {
+function initCalResultsTable(data) {
+
+    $("#cal-recipes-results-place").html($("#pane-cal-results-common").html());
+    $("#cal-recipes-results-place .cal-results-table").prop("id", "cal-recipes-results-table");
+    $('#cal-recipes-results-place .chk-cal-results-show-selected').bootstrapToggle();
+
+    $("#cal-all-results-place").html($("#pane-cal-results-common").html());
+    $("#cal-all-results-place .cal-results-table").prop("id", "cal-all-results-table");
+    $('#cal-all-results-place .chk-cal-results-show-selected').bootstrapToggle();
+
+    $("#cal-optimal-results-place").html($("#pane-cal-results-common").html());
+    $("#cal-optimal-results-place .cal-results-table").prop("id", "cal-optimal-results-table");
+    $("#cal-optimal-results-place .chk-cal-results-show-selected").remove();
+
+    initCalResultTableCommon("all", new Array(), $("#pane-cal-all-results"));
+    initCalResultTableCommon("optimal", new Array(), $("#pane-cal-optimal-results"));
+    initCalResultTableCommon("recipes", new Array(), $("#pane-cal-recipes-results"));
+
+    var calRecipesWorker, calAllWorker, calOptimalWorker;
+
+    $('.btn-cal-results-cal').click(function () {
+
+        var panel = $(this).closest(".pane-cal-results");
+        var worker;
+        var mode;
+
+        if (panel.prop("id") == "pane-cal-all-results") {
+            mode = "all";
+            worker = calAllWorker;
+        } else if (panel.prop("id") == "pane-cal-optimal-results") {
+            mode = "optimal";
+            worker = calOptimalWorker;
+        } else if (panel.prop("id") == "pane-cal-recipes-results") {
+            mode = "recipes";
+            worker = calRecipesWorker;
+        } else {
+            return;
+        }
+
+        if (typeof (worker) != "undefined") {
+            worker.terminate();
+            worker = undefined;
+        }
+
+        if ($(this).hasClass("stop")) {
+            panel.find(".cal-results-progress").addClass("hidden");
+            panel.find(".btn-cal-results-cal.start").prop("disabled", false);
+            panel.find(".btn-cal-results-cal.stop").prop("disabled", true);
+            return;
+        }
+
+        panel.find(".btn-cal-results-cal.start").prop("disabled", true);
+        panel.find(".btn-cal-results-cal.stop").prop("disabled", false);
+        panel.find(".cal-results-wrapper").addClass("hidden");
+        panel.find(".cal-results-progress .progress-bar").css("width", "0%");
+        panel.find(".cal-results-progress .progress-bar span").text("预处理中");
+        panel.find(".cal-results-progress").removeClass("hidden");
+
+        worker = new Worker("js/cal.js?v=2");
+        if (mode == "all") {
+            calAllWorker = worker;
+        } else if (mode == "optimal") {
+            calOptimalWorker = worker;
+        } else if (mode == "recipes") {
+            calRecipesWorker = worker;
+        }
+
+        worker.onmessage = function (event) {
+            if (event.data.progress) {
+                panel.find(".cal-results-progress .progress-bar").css("width", event.data.progress.value + "%");
+                panel.find(".cal-results-progress .progress-bar span").text(event.data.progress.display);
+            } else if (event.data.menu) {
+
+                panel.find(".btn-cal-results-cal.stop").prop("disabled", true);
+
+                setTimeout(function () {
+                    panel.find(".cal-results-progress .progress-bar span").text("加载中");
+                }, 500);
+
+                setTimeout(function () {
+
+                    if (event.data.message) {
+                        panel.find(".selected-sum").html(event.data.message);
+                    } else {
+                        panel.find(".selected-sum").html("点击可选择");
+                    }
+
+                    if (mode == "all") {
+                        panel.find('.chk-cal-results-show-selected').prop("checked", false);
+                        $("#cal-all-results-table").DataTable().clear().rows.add(event.data.menu).draw(false);
+                    } else if (mode == "optimal") {
+                        $("#cal-optimal-results-table").DataTable().clear().rows.add(event.data.menu).draw(false);
+                        $("#cal-optimal-results-table").DataTable().rows().select();
+                    } else if (mode == "recipes") {
+                        panel.find('.chk-cal-results-show-selected').prop("checked", false);
+                        $("#cal-recipes-results-table").DataTable().clear().rows.add(event.data.menu).draw(false);
+                    }
+
+                    panel.find(".cal-results-wrapper").removeClass("hidden");
+                    panel.find(".cal-results-progress").addClass("hidden");
+                    panel.find(".btn-cal-results-cal.start").prop("disabled", false);
+                    panel.find(".btn-cal-results-cal.stop").prop("disabled", true);
+                }, 1000);
+            }
+        };
+
+        var calRecipesData = $('#cal-recipes-table').DataTable().rows({ selected: true }).data().toArray();
+        var calChefsData = $('#cal-chefs-table').DataTable().rows({ selected: true }).data().toArray();
+        var calIngredientsData = $('#cal-ingredients-table').DataTable().rows({ selected: true }).data().toArray();
+        var allLimit = Math.floor($("#input-cal-all-results-show-top").val());
+        var optimalChefsNum = $("#select-cal-optimal-results-chefs-number").val();
+        var optimalRecipesNum = $("#select-cal-optimal-results-recipes-number").val();
+        var recipesMulitple = $("#chk-cal-recipes-mulitple").prop("checked");
+        var hasRecipesAddition = $("#chk-cal-recipes-addition").prop("checked");
+        var hasChefsAddition = $("#chk-cal-chefs-addition").prop("checked");
+        var hasKitchenware = $("#chk-cal-chefs-kitchenware").prop("checked");
+        var hasIngredientsAddition = $("#chk-cal-ingredients-addition").prop("checked");
+        var ingredientsAdditionCumulative = $("#chk-cal-ingredients-addition-cumulative").prop("checked");
+
+        worker.postMessage({
+            'mode': mode,
+            "recipes": calRecipesData,
+            "chefs": calChefsData,
+            "ingredients": calIngredientsData,
+            "kitchenware": data.kitchenware,
+            "allLimit": allLimit,
+            "optimalChefsNum": optimalChefsNum,
+            "optimalRecipesNum": optimalRecipesNum,
+            "recipesMulitple": recipesMulitple,
+            "hasRecipesAddition": hasRecipesAddition,
+            "hasChefsAddition": hasChefsAddition,
+            "hasKitchenware": hasKitchenware,
+            "hasIngredientsAddition": hasIngredientsAddition,
+            "ingredientsAdditionCumulative": ingredientsAdditionCumulative
+        });
+    });
+}
+
+function initCalResultTableCommon(mode, data, panel) {
+
     var calResultsColumns = [
         {
             "data": undefined,
@@ -1428,334 +1565,434 @@ function initCalResultsTable() {
             "width": "30px"
         },
         {
-            "data": "chef.name"
+            "data": "chef.name",
+            "className": "cal-td-chef-name",
+            "defaultContent": ""
         },
         {
             "data": {
                 "_": "chef.fire",
                 "display": "chef.fireDisp"
-            }
+            },
+            "defaultContent": ""
         },
         {
-            "data": "chef.sex"
+            "data": "chef.sex",
+            "defaultContent": ""
         },
         {
-            "data": "chef.stirfry"
+            "data": "chef.stirfry",
+            "defaultContent": ""
         },
         {
-            "data": "chef.boil"
+            "data": "chef.boil",
+            "defaultContent": ""
         },
         {
-            "data": "chef.cut"
+            "data": "chef.cut",
+            "defaultContent": ""
         },
         {
-            "data": "chef.fry"
+            "data": "chef.fry",
+            "defaultContent": ""
         },
         {
-            "data": "chef.roast"
+            "data": "chef.roast",
+            "defaultContent": ""
         },
         {
-            "data": "chef.steam"
+            "data": "chef.steam",
+            "defaultContent": ""
         },
         {
-            "data": "recipe.data.name"
+            "data": "recipe.data.name",
+            "className": "cal-td-recipe-name",
+            "defaultContent": ""
         },
         {
             "data": {
                 "_": "recipe.data.fire",
                 "display": "recipe.data.fireDisp"
-            }
+            },
+            "defaultContent": ""
         },
         {
-            "data": "recipe.data.stirfry"
+            "data": "recipe.data.stirfry",
+            "defaultContent": ""
         },
         {
-            "data": "recipe.data.boil"
+            "data": "recipe.data.boil",
+            "defaultContent": ""
         },
         {
-            "data": "recipe.data.cut"
+            "data": "recipe.data.cut",
+            "defaultContent": ""
         },
         {
-            "data": "recipe.data.fry"
+            "data": "recipe.data.fry",
+            "defaultContent": ""
         },
         {
-            "data": "recipe.data.roast"
+            "data": "recipe.data.roast",
+            "defaultContent": ""
         },
         {
-            "data": "recipe.data.steam"
+            "data": "recipe.data.steam",
+            "defaultContent": ""
         },
         {
             "data": {
                 "_": "recipe.data.ingredientsVal",
                 "display": "recipe.data.ingredientsDisp"
-            }
+            },
+            "defaultContent": ""
         },
         {
-            "data": "recipe.data.price"
+            "data": "recipe.data.price",
+            "defaultContent": ""
         },
         {
-            "data": "recipe.quantity"
+            "data": "recipe.quantity",
+            "className": "cal-td-quantity",
+            "defaultContent": "",
+            "width": "38px"
         },
         {
             "data": {
                 "_": "recipe.qualityVal",
                 "display": "recipe.qualityDisp"
-            }
+            },
+            "defaultContent": ""
         },
         {
             "data": {
                 "_": "recipe.qualityAddition",
                 "display": "recipe.qualityAdditionDisp"
-            }
+            },
+            "defaultContent": ""
         },
         {
             "data": {
                 "_": "recipe.skillAddition",
                 "display": "recipe.skillAdditionDisp"
-            }
+            },
+            "defaultContent": ""
+        },
+        {
+            "data": "kitchenware.disp",
+            "className": "cal-td-kitchenware-name",
+            "defaultContent": ""
+        },
+        {
+            "data": {
+                "_": "recipe.kitchenwareAddition",
+                "display": "recipe.kitchenwareAdditionDisp"
+            },
+            "defaultContent": ""
         },
         {
             "data": {
                 "_": "recipe.otherAddition",
                 "display": "recipe.otherAdditionDisp"
-            }
+            },
+            "defaultContent": ""
         },
         {
-            "data": "recipe.totalPrice"
+            "data": "recipe.totalPrice",
+            "defaultContent": ""
         },
         {
-            "data": "recipe.realTotalPrice"
+            "data": "recipe.realTotalPrice",
+            "defaultContent": ""
         },
         {
-            "data": "recipe.bonusScore"
+            "data": "recipe.bonusScore",
+            "defaultContent": ""
         },
         {
-            "data": "recipe.totalScore"
+            "data": "recipe.totalScore",
+            "defaultContent": ""
         }
     ];
 
-    var calResultsFilterFunction1 = function (settings, data, dataIndex) {
-        if (settings.nTable != document.getElementById('cal-results-table')) {
-            return true;
-        }
-
-        var value = $("#pane-cal-results .search-box input").val();
-        var searchCols = [1, 10, 18];   //chefname, recipename, ingredients
-
-        for (var i = 0, len = searchCols.length; i < len; i++) {
-            if (data[searchCols[i]].indexOf(value) !== -1) {
-                return true;
-            }
-        }
-
-        return false;
+    var paging = true;
+    if (mode == "optimal" || mode == "self-select") {
+        paging = false;
     }
 
-    var calResultsFilterFunction2 = function (settings, data, dataIndex) {
-        if (settings.nTable != document.getElementById('cal-results-table')) {
-            return true;
-        }
-
-        if ($('#chk-cal-results-show-selected').prop("checked")) {
-            var tr = settings.aoData[dataIndex].nTr;
-            if ($(tr).hasClass("selected")) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        } else {
-            return true;
-        }
-    }
-
-    $('.btn-cal-results-cal').click(function () {
-
-        var mode = "";
-        if (this.id == "btn-cal-results-cal-all") {
-            mode = "all";
-        } else if (this.id == "btn-cal-results-cal-optimal") {
-            mode = "optimal";
-        } else if (this.id == "btn-cal-results-cal-stop") {
-            mode = "stop";
-        }
-
-        if (mode != "stop") {
-            $(".btn-cal-results-cal").prop("disabled", true);
-            $("#btn-cal-results-cal-stop").prop("disabled", false);
-            $(".cal-results-wrapper").addClass("hidden");
-            $(".cal-results-progress .progress-bar").css("width", "0%");
-            $(".cal-results-progress .progress-bar span").text("预处理中");
-            $(".cal-results-progress").removeClass("hidden");
-        }
-
-        if (typeof (calWorker) != "undefined") {
-            calWorker.terminate();
-            calWorker = undefined;
-        }
-
-        if (mode != "stop") {
-            calWorker = new Worker("js/cal.js?v=1");
-
-            calWorker.onmessage = function (event) {
-                if (event.data.progress) {
-                    $(".cal-results-progress .progress-bar").css("width", event.data.progress.value + "%");
-                    $(".cal-results-progress .progress-bar span").text(event.data.progress.display);
-                } else if (event.data.menu) {
-
-                    $("#btn-cal-results-cal-stop").prop("disabled", true);
-
-                    setTimeout(function () {
-                        $(".cal-results-progress .progress-bar span").text("加载中");
-                    }, 500);
-
-                    setTimeout(function () {
-
-                        if (calResultsTable) {
-                            $.fn.dataTableExt.afnFiltering.splice($.fn.dataTableExt.afnFiltering.indexOf(calResultsFilterFunction1), 1);
-                            $.fn.dataTableExt.afnFiltering.splice($.fn.dataTableExt.afnFiltering.indexOf(calResultsFilterFunction2), 1);
-                            calResultsTable.destroy();
-                        }
-                        calResultsTable = $('#cal-results-table').DataTable({
-                            data: event.data.menu,
-                            columns: calResultsColumns,
-                            language: {
-                                search: "查找:",
-                                lengthMenu: "一页显示 _MENU_ 个",
-                                zeroRecords: "没有找到",
-                                info: "共 _MAX_ 个",
-                                infoEmpty: "没有数据",
-                                infoFiltered: "",
-                                select: {
-                                    rows: {
-                                        _: "选择了 %d 个",
-                                        0: "选择了 %d 个",
-                                        1: "选择了 %d 个"
-                                    }
-                                }
-                            },
-                            pagingType: "numbers",
-                            lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
-                            pageLength: 20,
-                            dom: "<'row'<'col-sm-12'<'selected-sum'>>>" +
-                            "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-                            "<'row'<'col-sm-12'tr>>" +
-                            "<'row'<'col-sm-12'p>>",
-                            select: {
-                                style: 'multi',
-                                selector: 'td.select-checkbox'
-                            },
-                            autoWidth: false,
-                            order: [[28, "desc"]]  //score
-                        });
-
-                        $("#pane-cal-results div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="厨师 菜名 材料"></label>');
-
-                        if (event.data.message) {
-                            $("#pane-cal-results .selected-sum").html(event.data.message);
-                        } else {
-                            $("#pane-cal-results .selected-sum").html("点击列可选择");
-                        }
-
-                        $.fn.dataTableExt.afnFiltering.push(calResultsFilterFunction1);
-                        $.fn.dataTableExt.afnFiltering.push(calResultsFilterFunction2);
-
-                        calResultsTable.on('select deselect', function (e, dt, type, indexes) {
-                            var selectedRows = dt.rows({ selected: true }).indexes();
-                            var totalPrice = dt.cells(selectedRows, 25).data().reduce(function (a, b) { return a + b; }, 0);    //totalPrice
-                            var realTotalPrice = dt.cells(selectedRows, 26).data().reduce(function (a, b) { return a + b; }, 0);    //realTotalPrice
-                            var bonusScore = dt.cells(selectedRows, 27).data().reduce(function (a, b) { return a + b; }, 0);    //bonusScore
-                            var totalScore = dt.cells(selectedRows, 28).data().reduce(function (a, b) { return a + b; }, 0);    //totalScore
-                            $("#pane-cal-results .selected-sum").html("原售价：" + totalPrice + " 实售价：" + realTotalPrice + " 规则分：" + bonusScore + " 总得分：" + totalScore);
-
-                            if ($('#chk-cal-results-show-selected').prop("checked")) {
-                                calResultsTable.draw();
-                            }
-                        })
-
-                        $('#pane-cal-results .search-box input').keyup(function () {
-                            calResultsTable.draw();
-                        });
-
-                        $('#chk-cal-results-show-selected').prop("checked", false);
-                        var allResultsSearchInput = "";
-                        var selectedResultsSearchInput = "";
-                        $('#chk-cal-results-show-selected').change(function () {
-                            if ($('#chk-cal-results-show-selected').prop("checked")) {
-                                allResultsSearchInput = $('#pane-cal-results .search-box input').val();
-                                $('#pane-cal-results .search-box input').val(selectedResultsSearchInput);
-                            } else {
-                                selectedResultsSearchInput = $('#pane-cal-results .search-box input').val();
-                                $('#pane-cal-results .search-box input').val(allResultsSearchInput);
-                            }
-                            calResultsTable.draw();
-                        });
-
-
-                        $('.chk-cal-results-show').off('click').click(function () {
-                            initCalResultsShow(calResultsTable);
-                        });
-
-                        $('#chk-cal-results-show-all').off('click').click(function () {
-                            if ($('.chk-cal-results-show:checked').length == $('.chk-cal-results-show').length) {
-                                $('.chk-cal-results-show').prop("checked", false);
-                            }
-                            else {
-                                $('.chk-cal-results-show').prop("checked", true);
-                            }
-                            initCalResultsShow(calResultsTable);
-                        });
-
-                        initCalResultsShow(calResultsTable);
-
-                        if (mode == "optimal") {
-                            $(".chk-cal-results-show-selected-wrapper").addClass("hidden");
-                            calResultsTable.rows().select();
-                        } else if (mode == "all") {
-                            $(".chk-cal-results-show-selected-wrapper").removeClass("hidden");
-                        }
-
-                        $(".cal-results-progress").addClass("hidden");
-                        $(".cal-results-wrapper").removeClass("hidden");
-                        $(".btn-cal-results-cal").prop("disabled", false);
-                        $("#btn-cal-results-cal-stop").prop("disabled", true);
-                    }, 1000);
+    var table = panel.find('.cal-results-table').DataTable({
+        data: data,
+        columns: calResultsColumns,
+        language: {
+            search: "查找:",
+            lengthMenu: "一页显示 _MENU_ 条",
+            zeroRecords: "没有找到",
+            info: "共 _TOTAL_ 条",
+            infoEmpty: "没有数据",
+            infoFiltered: "(从 _MAX_ 条中过滤)",
+            select: {
+                rows: {
+                    _: "选择了 %d 条",
+                    0: "选择了 %d 条",
+                    1: "选择了 %d 条"
                 }
-            };
+            }
+        },
+        paging: paging,
+        pagingType: "numbers",
+        lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
+        pageLength: 20,
+        dom: "<'row'<'col-sm-12'<'selected-sum'>>>" +
+        "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
+        select: {
+            style: 'multi',
+            selector: 'td.select-checkbox'
+        },
+        autoWidth: false,
+        order: [[30, "desc"]]  //score
+    });
 
-            var calRecipesData = calRecipesTable.rows({ selected: true }).data().toArray();
-            var hasRecipesAddition = $("#chk-cal-recipes-addition").prop("checked");
+    panel.find(".selected-sum").html("点击可选择");
 
-            var calChefsData = calChefsTable.rows({ selected: true }).data().toArray();
+    if (mode == "all" || mode == "recipes") {
+        panel.find("div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="厨师 菜名 材料"></label>');
+        panel.find('.search-box input').keyup(function () {
+            table.draw();
+        });
+
+        panel.find('.chk-cal-results-show-selected').prop("checked", false);
+
+        var allResultsSearchInput = "";
+        var selectedResultsSearchInput = "";
+        panel.find('.chk-cal-results-show-selected').change(function () {
+            if ($(this).prop("checked")) {
+                allResultsSearchInput = panel.find('.search-box input').val();
+                panel.find('.search-box input').val(selectedResultsSearchInput);
+            } else {
+                selectedResultsSearchInput = panel.find('.search-box input').val();
+                panel.find('.search-box input').val(allResultsSearchInput);
+            }
+            table.draw();
+        });
+    }
+
+    table.on('select deselect', function (e, dt, type, indexes) {
+        if (type === 'row') {
+            var selectedRows = dt.rows({ selected: true }).indexes();
+
+            var totalPrice = dt.cells(selectedRows, 27).data().reduce(function (a, b) { return a + b; }, 0);    //totalPrice
+            var sumText = "原售价：" + totalPrice;
+
+            if (mode == "all" || mode == "optimal" || mode == "self-select") {
+                var realTotalPrice = dt.cells(selectedRows, 28).data().reduce(function (a, b) { return a + b; }, 0);    //realTotalPrice
+                sumText += " 实售价：" + realTotalPrice;
+            }
+
+            var bonusScore = dt.cells(selectedRows, 29).data().reduce(function (a, b) { return a + b; }, 0);    //bonusScore
+            sumText += " 规则分：" + bonusScore;
+
+            var totalScore = dt.cells(selectedRows, 30).data().reduce(function (a, b) { return a + b; }, 0);    //totalScore
+            sumText += " 总得分：" + totalScore;
+
+            panel.find(".selected-sum").html(sumText);
+
+            if (mode == "all" || mode == "recipes") {
+                if (panel.find('.chk-cal-results-show-selected').prop("checked")) {
+                    table.draw();
+                }
+            }
+        }
+    });
+
+    panel.find('.chk-cal-results-show').click(function () {
+        initCalResultsShow(mode, table, panel);
+    });
+
+    panel.find('.chk-cal-results-show-all').click(function () {
+        if (panel.find('.btn:not(.hidden) .chk-cal-results-show:checked').length == panel.find('.btn:not(.hidden) .chk-cal-results-show').length) {
+            panel.find('.btn:not(.hidden) .chk-cal-results-show').prop("checked", false);
+        }
+        else {
+            panel.find('.btn:not(.hidden) .chk-cal-results-show').prop("checked", true);
+        }
+        initCalResultsShow(mode, table, panel);
+    });
+
+    if (mode == "all") {
+        $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+            if (settings.nTable != document.getElementById('cal-all-results-table')) {
+                return true;
+            }
+
+            var value = $("#pane-cal-all-results .search-box input").val();
+            var searchCols = [1, 10, 18];   //chefname, recipename, ingredients
+
+            for (var i = 0, len = searchCols.length; i < len; i++) {
+                if (data[searchCols[i]].indexOf(value) !== -1) {
+                    return true;
+                }
+            }
+
+            return false;
+        });
+
+        $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+            if (settings.nTable != document.getElementById('cal-all-results-table')) {
+                return true;
+            }
+
+            if ($('#pane-cal-all-results .chk-cal-results-show-selected').prop("checked")) {
+                var tr = settings.aoData[dataIndex].nTr;
+                if ($(tr).hasClass("selected")) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        });
+    } else if (mode == "recipes") {
+        $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+            if (settings.nTable != document.getElementById('cal-recipes-results-table')) {
+                return true;
+            }
+
+            var value = $("#pane-cal-recipes-results .search-box input").val();
+            var searchCols = [1, 10, 18];   //chefname, recipename, ingredients
+
+            for (var i = 0, len = searchCols.length; i < len; i++) {
+                if (data[searchCols[i]].indexOf(value) !== -1) {
+                    return true;
+                }
+            }
+
+            return false;
+        });
+
+        $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+            if (settings.nTable != document.getElementById('cal-recipes-results-table')) {
+                return true;
+            }
+
+            if ($('#pane-cal-recipes-results .chk-cal-results-show-selected').prop("checked")) {
+                var tr = settings.aoData[dataIndex].nTr;
+                if ($(tr).hasClass("selected")) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        });
+    }
+
+    initCalResultsShow(mode, table, panel);
+
+    return table;
+}
+
+function initCalSelfSelect(data) {
+
+    $("#cal-self-select-place").html($("#pane-cal-results-common").html());
+    $("#cal-self-select-place .cal-results-table").prop("id", "cal-self-select-table");
+    $("#cal-self-select-place .chk-cal-results-show-selected").remove();
+
+    $("#cal-self-select-place .chk-cal-results-show-chef-kitchenware").prop("checked", true);
+
+    var selfSelectData = new Array();
+    for (var i = 0; i < 6; i++) {
+        var oneMenu = new Object();
+        oneMenu["chef"] = new Object();
+        oneMenu["recipe"] = new Object();
+        oneMenu["kitchenware"] = new Object();
+        selfSelectData.push(oneMenu);
+    }
+    var table = initCalResultTableCommon("self-select", selfSelectData, $("#pane-cal-self-select"));
+
+    $("#pane-cal-self-select").find(".cal-results-wrapper").removeClass("hidden");
+
+    var calChefsData = $('#cal-chefs-table').DataTable().data().toArray();
+    var calRecipesData = $('#cal-recipes-table').DataTable().data().toArray();
+
+    var chefsOptions = getChefsOptions(calChefsData);
+    var recipesOptions = getRecipesOptions(calRecipesData);
+    var kitchenwareOptions = getKitchenwareOptions(data.kitchenware);
+    table.MakeCellsEditable({
+        "columns": [1, 10, 20, 24],  // chef name, recipe name, quantity, kitchenware
+        "inputTypes": [
+            {
+                "column": 1,
+                "type": "list",
+                "options": chefsOptions
+            },
+            {
+                "column": 10,
+                "type": "list",
+                "options": recipesOptions
+            },
+            {
+                "column": 24,
+                "type": "list",
+                "options": kitchenwareOptions
+            }
+        ],
+        "onUpdate": function updateSelfSelectTable(table, row, cell) {
+            var calRecipesData = $('#cal-recipes-table').DataTable().rows({ selected: true }).data().toArray();
+            var calChefsData = $('#cal-chefs-table').DataTable().rows({ selected: true }).data().toArray();
+            var calIngredientsData = $('#cal-ingredients-table').DataTable().rows({ selected: true }).data().toArray();
             var hasChefsAddition = $("#chk-cal-chefs-addition").prop("checked");
-
-            var calIngredientsData = calIngredientsTable.rows({ selected: true }).data().toArray();
+            var hasRecipesAddition = $("#chk-cal-recipes-addition").prop("checked");
             var hasIngredientsAddition = $("#chk-cal-ingredients-addition").prop("checked");
             var ingredientsAdditionCumulative = $("#chk-cal-ingredients-addition-cumulative").prop("checked");
 
-            var allLimit = Math.floor($("#input-cal-results-show-top").val());
-            var recipesMulitple = $("#chk-cal-recipes-mulitple").prop("checked");
-            var optimalChefsNum = $("#select-cal-results-chefs-number").val();
-            var optimalRecipesNum = $("#select-cal-results-recipes-number").val();
+            var currentData = table.data().toArray();
+            for (var i = 0; i < currentData.length; i++) {
 
-            calWorker.postMessage({
-                "recipes": calRecipesData,
-                "chefs": calChefsData,
-                "ingredients": calIngredientsData,
-                'mode': mode,
-                "allLimit": allLimit,
-                "optimalChefsNum": optimalChefsNum,
-                "optimalRecipesNum": optimalRecipesNum,
-                "recipesMulitple": recipesMulitple,
-                "hasRecipesAddition": hasRecipesAddition,
-                "hasChefsAddition": hasChefsAddition,
-                "hasIngredientsAddition": hasIngredientsAddition,
-                "ingredientsAdditionCumulative": ingredientsAdditionCumulative
-            });
-        } else {
-            $(".cal-results-progress").addClass("hidden");
-            $(".btn-cal-results-cal").prop("disabled", false);
-            $("#btn-cal-results-cal-stop").prop("disabled", true);
+                var chefSelected = new Object();
+                if (currentData[i].chef.name) {
+                    for (var j in calChefsData) {
+                        if (currentData[i].chef.name == calChefsData[j].name) {
+                            chefSelected = Object.assign({}, calChefsData[j]);
+                        }
+                    }
+                }
+                currentData[i].chef = chefSelected;
+
+                var recipeSelected = new Object();
+                recipeSelected.quantity = currentData[i].recipe.quantity;
+                if (currentData[i].recipe.data && currentData[i].recipe.data.name) {
+                    for (var j in calRecipesData) {
+                        if (currentData[i].recipe.data.name == calRecipesData[j].name) {
+                            recipeSelected.data = Object.assign({}, calRecipesData[j]);
+                        }
+                    }
+                }
+                currentData[i].recipe = recipeSelected;
+
+                if (currentData[i].chef.name && currentData[i].recipe.data && currentData[i].recipe.quantity) {
+                    var hasKitchenware = false;
+                    var kitchenwareInfo;
+                    if (currentData[i].kitchenware && currentData[i].kitchenware.disp) {
+                        hasKitchenware = true;
+                        kitchenwareInfo = getKitchenwareInfo(currentData[i].kitchenware.disp, data.kitchenware);
+                    }
+
+                    var resultData = getRecipeResult(currentData[i].chef, hasChefsAddition, hasKitchenware, kitchenwareInfo, currentData[i].recipe.data, currentData[i].recipe.quantity,
+                        hasRecipesAddition, data.ingredients, hasIngredientsAddition, ingredientsAdditionCumulative);
+                    if (resultData) {
+                        currentData[i].recipe = resultData;
+                    }
+                }
+
+            }
+
+            table.clear().rows.add(currentData).draw(false);
         }
     });
 
@@ -1817,6 +2054,7 @@ function generateData(json, private) {
         chefData["veg"] = json.chefs[i].veg || "";
         chefData["fish"] = json.chefs[i].fish || "";
         chefData["addition"] = "";
+        chefData["kitchenwareName"] = "";
 
         chefData["chefIdDisp"] = json.chefs[i].chefId + " - " + (json.chefs[i].chefId + 2);
         chefData["fireDisp"] = getFireDisp(json.chefs[i].fire);
@@ -1917,13 +2155,13 @@ function generateData(json, private) {
 
         for (j in retData["chefs"]) {
 
-            var qualityInfo = getQualityInfo(json.recipes[i], retData["chefs"][j]);
+            var qualityInfo = getQualityInfo(json.recipes[i], retData["chefs"][j], false, null);
 
             var chefEff = 0;
 
             if (qualityInfo.qualityVal > 0) {
 
-                var skillAddition = getChefSkillAddition(json.recipes[i], retData["chefs"][j], retData["ingredients"]);
+                var skillAddition = getSkillAddition(json.recipes[i], retData["chefs"][j].skill, retData["ingredients"]);
 
                 if (efficiency > 0) {
                     chefEff = (1 + qualityInfo.qualityAddition + skillAddition + (private ? json.furniture : 0)) * efficiency;
@@ -1962,105 +2200,17 @@ function generateData(json, private) {
     return retData;
 }
 
-function generateCalRecipeData(data) {
+function generateCalRecipeData(recipes) {
     var calRecipesData = new Array();
-    for (i in data.recipes) {
+    for (i in recipes) {
 
-        if (!data.recipes[i].price) {
+        if (!recipes[i].price) {
             continue;
         }
 
-        calRecipesData.push(data.recipes[i]);
+        calRecipesData.push(recipes[i]);
     }
     return calRecipesData;
-}
-
-function getQualityInfo(recipe, chef) {
-    var times = Number.MAX_VALUE;
-
-    if (recipe.stirfry > 0) {
-        if (chef.stirfry > 0) {
-            times = Math.min(times, chef.stirfry / recipe.stirfry);
-        } else {
-            times = 0;
-        }
-    }
-    if (times >= 1) {
-        if (recipe.boil > 0) {
-            if (chef.boil > 0) {
-                times = Math.min(times, chef.boil / recipe.boil);
-            } else {
-                times = 0;
-            }
-        }
-    }
-    if (times >= 1) {
-        if (recipe.cut > 0) {
-            if (chef.cut > 0) {
-                times = Math.min(times, chef.cut / recipe.cut);
-            } else {
-                times = 0;
-            }
-        }
-    }
-    if (times >= 1) {
-        if (recipe.fry > 0) {
-            if (chef.fry > 0) {
-                times = Math.min(times, chef.fry / recipe.fry);
-            } else {
-                times = 0;
-            }
-        }
-    }
-    if (times >= 1) {
-        if (recipe.roast > 0) {
-            if (chef.roast > 0) {
-                times = Math.min(times, chef.roast / recipe.roast);
-            } else {
-                times = 0;
-            }
-        }
-    }
-    if (times >= 1) {
-        if (recipe.steam > 0) {
-            if (chef.steam > 0) {
-                times = Math.min(times, chef.steam / recipe.steam);
-            } else {
-                times = 0;
-            }
-        }
-    }
-
-    var qualityInfo = new Object();
-
-    var qualityAddition = 0;
-    var qualityDisp = "-";
-    var qualityVal = 0;
-
-    if (times != Number.MAX_VALUE && times >= 1) {
-        if (times >= 4) {
-            qualityAddition = 0.5;
-            qualityDisp = "神";
-            qualityVal = 4;
-        } else if (times >= 3) {
-            qualityAddition = 0.3;
-            qualityDisp = "特";
-            qualityVal = 3;
-        } else if (times >= 2) {
-            qualityAddition = 0.1;
-            qualityDisp = "优";
-            qualityVal = 2;
-        } else if (times >= 1) {
-            qualityAddition = 0;
-            qualityDisp = "可";
-            qualityVal = 1;
-        }
-    }
-
-    qualityInfo["qualityAddition"] = qualityAddition;
-    qualityInfo["qualityDisp"] = qualityDisp;
-    qualityInfo["qualityVal"] = qualityVal;
-    return qualityInfo;
 }
 
 function getIngredientsInfo(recipe) {
@@ -2080,122 +2230,6 @@ function getIngredientsInfo(recipe) {
     ingredientsInfo["ingredientsVal"] = ingredientsVal;
     ingredientsInfo["ingredientsCount"] = ingredientsCount;
     return ingredientsInfo;
-}
-
-function getSkillInfo(skill) {
-    var skillInfo = new Object();
-    var skillDisp = "";
-    var skillVal = "";
-    for (j in skill) {
-        skillDisp += skill[j].type + " ";
-        if (skill[j].type.indexOf("稀有客人") >= 0
-            || skill[j].type.indexOf("料理") >= 0
-            || skill[j].type.indexOf("金币获得") >= 0
-            || skill[j].type.indexOf("素材获得") >= 0) {
-            skillDisp += "+" + skill[j].addition * 100 + "%<br>";
-        } else if (skill[j].type.indexOf("技法") >= 0
-            || skill[j].type.indexOf("采集") >= 0) {
-            skillDisp += "+" + skill[j].addition + "<br>";
-        } else {
-            skillDisp += skill[j].addition + "<br>";
-        }
-
-        skillVal += skill[j].type;
-    }
-    skillInfo["skillDisp"] = skillDisp;
-    skillInfo["skillVal"] = skillVal;
-    return skillInfo;
-}
-
-function getChefSkillAddition(recipe, chef, ingredients) {
-    var skillAddition = 0;
-
-    if (chef.hasOwnProperty('skill')) {
-        for (var k in chef.skill) {
-            var hasSkill = false;
-            if (chef.skill[k].type.indexOf("水产料理") >= 0) {
-                for (var m in recipe.ingredients) {
-                    for (var n in ingredients) {
-                        if (recipe.ingredients[m].name == ingredients[n].name) {
-                            if (ingredients[n].origin == "鱼塘") {
-                                hasSkill = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            } else if (chef.skill[k].type.indexOf("面类料理") >= 0) {
-                for (var m in recipe.ingredients) {
-                    for (var n in ingredients) {
-                        if (recipe.ingredients[m].name == ingredients[n].name) {
-                            if (ingredients[n].origin == "作坊") {
-                                hasSkill = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            } else if (chef.skill[k].type.indexOf("肉类料理") >= 0) {
-                for (var m in recipe.ingredients) {
-                    for (var n in ingredients) {
-                        if (recipe.ingredients[m].name == ingredients[n].name) {
-                            if (ingredients[n].origin == "牧场"
-                                || ingredients[n].origin == "鸡舍"
-                                || ingredients[n].origin == "猪圈") {
-                                hasSkill = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            } else if (chef.skill[k].type.indexOf("蔬菜料理") >= 0) {
-                for (var m in recipe.ingredients) {
-                    for (var n in ingredients) {
-                        if (recipe.ingredients[m].name == ingredients[n].name) {
-                            if (ingredients[n].origin == "菜棚"
-                                || ingredients[n].origin == "菜地"
-                                || ingredients[n].origin == "森林") {
-                                hasSkill = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            } else if (chef.skill[k].type.indexOf("炒类料理") >= 0) {
-                if (recipe.stirfry > 0) {
-                    hasSkill = true;
-                }
-            } else if (chef.skill[k].type.indexOf("煮类料理") >= 0) {
-                if (recipe.boil > 0) {
-                    hasSkill = true;
-                }
-            } else if (chef.skill[k].type.indexOf("炸类料理") >= 0) {
-                if (recipe.fry > 0) {
-                    hasSkill = true;
-                }
-            } else if (chef.skill[k].type.indexOf("切类料理") >= 0) {
-                if (recipe.cut > 0) {
-                    hasSkill = true;
-                }
-            } else if (chef.skill[k].type.indexOf("烤类料理") >= 0) {
-                if (recipe.roast > 0) {
-                    hasSkill = true;
-                }
-            } else if (chef.skill[k].type.indexOf("蒸类料理") >= 0) {
-                if (recipe.steam > 0) {
-                    hasSkill = true;
-                }
-            } else if (chef.skill[k].type.indexOf("金币获得") >= 0) {
-                hasSkill = true;
-            }
-
-            if (hasSkill) {
-                skillAddition += chef.skill[k].addition;
-            }
-        }
-    }
-
-    return skillAddition;
 }
 
 function getFireDisp(fire) {
@@ -2226,6 +2260,57 @@ function getOriginVal(origin) {
         originVal = 8;
     }
     return originVal;
+}
+
+function getKitchenwareOptions(kitchenware) {
+    var list = new Array();
+    var option = new Object();
+    option["display"] = "无厨具";
+    option["subtext"] = "";
+    option["tokens"] = "";
+    option["value"] = "";
+    list.push(option);
+    for (var i in kitchenware) {
+        var skillInfo = getSkillInfo(kitchenware[i].skill);
+        var skillDisp = skillInfo.skillDisp.replace("<br>", " ");
+        var option = new Object();
+        option["display"] = kitchenware[i].name;
+        option["subtext"] = skillDisp;
+        option["tokens"] = kitchenware[i].name + skillDisp;
+        option["value"] = kitchenware[i].name;
+        list.push(option);
+    }
+    return list;
+}
+
+function getChefsOptions(chefs) {
+    var list = new Array();
+    var option = new Object();
+    option["display"] = "无厨师";
+    option["value"] = "";
+    list.push(option);
+    for (var i in chefs) {
+        var option = new Object();
+        option["display"] = chefs[i].name;
+        option["value"] = chefs[i].name;
+        list.push(option);
+    }
+    return list;
+}
+
+function getRecipesOptions(recipes) {
+    var list = new Array();
+    var option = new Object();
+    option["display"] = "无菜谱";
+    option["value"] = "";
+    list.push(option);
+    for (var i in recipes) {
+        var option = new Object();
+        option["display"] = recipes[i].name;
+        option["value"] = recipes[i].name;
+        list.push(option);
+    }
+    return list;
 }
 
 function initRecipeShow(recipeTable, data, private) {
@@ -2260,7 +2345,7 @@ function initRecipeShow(recipeTable, data, private) {
     }
 
     var chkChefs = $('#chk-recipe-show-chef').val();
-    for (j = 0; j < data.chefs.length; j++) {
+    for (var j = 0; j < data.chefs.length; j++) {
         recipeTable.column(23 + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
         recipeTable.column(24 + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
     }
@@ -2289,7 +2374,7 @@ function initChefShow(chefTable, data) {
     chefTable.column(15).visible($('#chk-chef-show-origin').prop("checked"), false);
 
     var chkRecipes = $('#chk-chef-show-recipe').val();
-    for (j = 0; j < data.recipes.length; j++) {
+    for (var j = 0; j < data.recipes.length; j++) {
         chefTable.column(16 + j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
     }
 
@@ -2343,6 +2428,7 @@ function initCalChefsShow(calChefsTable) {
     calChefsTable.column(11).visible($('#chk-cal-chefs-show-sex').prop("checked"), false);
     calChefsTable.column(12).visible($('#chk-cal-chefs-show-origin').prop("checked"), false);
     calChefsTable.column(13).visible($('#chk-cal-chefs-addition').prop("checked"), false);
+    calChefsTable.column(14).visible($('#chk-cal-chefs-kitchenware').prop("checked"), false);
 
     calChefsTable.columns.adjust().draw(false);
 }
@@ -2356,12 +2442,28 @@ function initCalIngredientsShow(calIngredientsTable) {
     calIngredientsTable.columns.adjust().draw(false);
 }
 
-function initCalResultsShow(calResultsTable) {
+function initCalResultsShow(mode, calResultsTable, panel) {
 
-    calResultsTable.column(2).visible($('#chk-cal-results-show-chef-fire').prop("checked"), false);
-    calResultsTable.column(3).visible($('#chk-cal-results-show-chef-sex').prop("checked"), false);
+    if (mode == "recipes") {
 
-    var chkChefSkill = $('#chk-cal-results-show-chef-skill').prop("checked");
+        panel.find('.chk-cal-results-show-chef-fire').prop("checked", false).closest(".btn").addClass("hidden");
+        panel.find('.chk-cal-results-show-chef-sex').prop("checked", false).closest(".btn").addClass("hidden");
+        panel.find('.chk-cal-results-show-chef-skill').prop("checked", false).closest(".btn").addClass("hidden");
+        panel.find('.chk-cal-results-show-recipe-quality').prop("checked", false).closest(".btn").addClass("hidden");
+        panel.find('.chk-cal-results-show-chef-kitchenware').prop("checked", false).closest(".btn").addClass("hidden");
+        panel.find('.chk-cal-results-show-chef-kitchenware-addition').prop("checked", false).closest(".btn").addClass("hidden");
+        panel.find('.chk-cal-results-show-recipe-real-total-price').prop("checked", false).closest(".btn").addClass("hidden");
+
+        calResultsTable.column(1).visible(false, false);    // chef name
+        calResultsTable.column(22).visible(false, false);   // quality addtion
+        calResultsTable.column(23).visible(false, false);   // skill addtion
+
+    }
+
+    calResultsTable.column(2).visible(panel.find('.chk-cal-results-show-chef-fire').prop("checked"), false);
+    calResultsTable.column(3).visible(panel.find('.chk-cal-results-show-chef-sex').prop("checked"), false);
+
+    var chkChefSkill = panel.find('.chk-cal-results-show-chef-skill').prop("checked");
     calResultsTable.column(4).visible(chkChefSkill, false);
     calResultsTable.column(5).visible(chkChefSkill, false);
     calResultsTable.column(6).visible(chkChefSkill, false);
@@ -2369,9 +2471,9 @@ function initCalResultsShow(calResultsTable) {
     calResultsTable.column(8).visible(chkChefSkill, false);
     calResultsTable.column(9).visible(chkChefSkill, false);
 
-    calResultsTable.column(11).visible($('#chk-cal-results-show-recipe-fire').prop("checked"), false);
+    calResultsTable.column(11).visible(panel.find('.chk-cal-results-show-recipe-fire').prop("checked"), false);
 
-    var chkRecipeSkill = $('#chk-cal-results-show-recipe-skill').prop("checked");
+    var chkRecipeSkill = panel.find('.chk-cal-results-show-recipe-skill').prop("checked");
     calResultsTable.column(12).visible(chkRecipeSkill, false);
     calResultsTable.column(13).visible(chkRecipeSkill, false);
     calResultsTable.column(14).visible(chkRecipeSkill, false);
@@ -2379,11 +2481,14 @@ function initCalResultsShow(calResultsTable) {
     calResultsTable.column(16).visible(chkRecipeSkill, false);
     calResultsTable.column(17).visible(chkRecipeSkill, false);
 
-    calResultsTable.column(18).visible($('#chk-cal-results-show-recipe-ingredient').prop("checked"), false);
-    calResultsTable.column(21).visible($('#chk-cal-results-show-recipe-quality').prop("checked"), false);
-    calResultsTable.column(25).visible($('#chk-cal-results-show-recipe-total-price').prop("checked"), false);
-    calResultsTable.column(26).visible($('#chk-cal-results-show-recipe-real-total-price').prop("checked"), false);
-    calResultsTable.column(27).visible($('#chk-cal-results-show-recipe-bonus-score').prop("checked"), false);
+    calResultsTable.column(18).visible(panel.find('.chk-cal-results-show-recipe-ingredient').prop("checked"), false);
+    calResultsTable.column(21).visible(panel.find('.chk-cal-results-show-recipe-quality').prop("checked"), false);
+    calResultsTable.column(24).visible(panel.find('.chk-cal-results-show-chef-kitchenware').prop("checked"), false);
+    calResultsTable.column(25).visible(panel.find('.chk-cal-results-show-chef-kitchenware-addition').prop("checked"), false);
+    calResultsTable.column(26).visible(panel.find('.chk-cal-results-show-bonus-addition').prop("checked"), false);
+    calResultsTable.column(27).visible(panel.find('.chk-cal-results-show-recipe-total-price').prop("checked"), false);
+    calResultsTable.column(28).visible(panel.find('.chk-cal-results-show-recipe-real-total-price').prop("checked"), false);
+    calResultsTable.column(29).visible(panel.find('.chk-cal-results-show-bonus-score').prop("checked"), false);
 
     calResultsTable.columns.adjust().draw(false);
 }
@@ -2439,12 +2544,12 @@ function secondsToTime(sec) {
 $.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
     var table = this.table();
 
-    jQuery.fn.extend({
+    $.fn.extend({
         // UPDATE
-        updateEditableCell: function (callingElement) {
+        updateEditableCell: function (callingElement, settings) {
             var table = $(callingElement).closest("table").DataTable().table();
             var row = table.row($(callingElement).parents('tr'));
-            var cell = table.cell($(callingElement).parent());
+            var cell = table.cell($(callingElement).closest("td"));
             var columnIndex = cell.index().column;
             var inputField = $(callingElement);
 
@@ -2476,19 +2581,11 @@ $.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
                 }
             }
             function _update(newValue) {
-                var oldValue = cell.data();
                 cell.data(newValue);
+                if (settings.onUpdate) {
+                    settings.onUpdate(table, row, cell);
+                }
             }
-        },
-        // CANCEL
-        cancelEditableCell: function (callingElement) {
-            var table = $(callingElement.closest("table")).DataTable().table();
-            var cell = table.cell($(callingElement).parent());
-            // Set cell to it's original value
-            cell.data(cell.data());
-
-            // Redraw table
-            table.draw();
         }
     });
 
@@ -2501,13 +2598,10 @@ $.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
     if (table != null) {
         // On cell click
         $(table.body()).on('click', 'td', function () {
-
             var currentColumnIndex = table.cell(this).index().column;
 
             // DETERMINE WHAT COLUMNS CAN BE EDITED
             if ((settings.columns && settings.columns.indexOf(currentColumnIndex) > -1) || (!settings.columns)) {
-                var row = table.row($(this).parents('tr'));
-                editableCellsRow = row;
 
                 var cell = table.cell(this).node();
                 var oldValue = table.cell(this).data();
@@ -2515,12 +2609,18 @@ $.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
                 oldValue = sanitizeCellValue(oldValue);
 
                 // Show input
-                if (!$(cell).find('input').length && !$(cell).find('select').length && !$(cell).find('textarea').length) {
+                if (!$(cell).find('input').length && !$(cell).find('select').length) {
                     // Input CSS
                     var input = getInputHtml(currentColumnIndex, settings, oldValue);
                     $(cell).html(input.html);
-                    if (input.focus) {
-                        $('#ejbeatycelledit').select().focus();
+                    if (input.type == "input") {
+                        $(cell).find("input").select().focus().on('focusout', function () {
+                            $(this).updateEditableCell(this, settings);
+                        });
+                    } else if (input.type == "list") {
+                        $(cell).find("select").selectpicker('toggle').on('hidden.bs.select', function (e) {
+                            $(this).updateEditableCell(this, settings);
+                        });;
                     }
                 }
             }
@@ -2530,9 +2630,9 @@ $.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
 });
 
 function getInputHtml(currentColumnIndex, settings, oldValue) {
-    var inputSetting, inputType, input, inputCss, confirmCss, cancelCss;
+    var inputSetting, inputType, input;
 
-    input = { "focus": true, "html": null }
+    input = { "type": "input", "html": null }
 
     if (settings.inputTypes) {
         $.each(settings.inputTypes, function (index, setting) {
@@ -2543,27 +2643,27 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
         });
     }
 
-    if (settings.inputCss) { inputCss = settings.inputCss; }
-    if (settings.confirmationButton) {
-        confirmCss = settings.confirmationButton.confirmCss;
-        cancelCss = settings.confirmationButton.cancelCss;
-        inputType = inputType + "-confirm";
-    }
     switch (inputType) {
         case "list":
-            input.html = "<select class='" + inputCss + "' onchange='$(this).updateEditableCell(this);'>";
+            input.html = "<select data-live-search='true' data-width='fit' data-dropdown-align-right='auto' data-live-search-placeholder='查找' data-none-results-text='没有找到'>";
             $.each(inputSetting.options, function (index, option) {
-                if (oldValue == option.value) {
-                    input.html = input.html + "<option value='" + option.value + "' selected>" + option.display + "</option>"
-                } else {
-                    input.html = input.html + "<option value='" + option.value + "' >" + option.display + "</option>"
+                input.html = input.html + "<option value='" + option.value + "'";
+                if (option.tokens) {
+                    input.html += " data-tokens='" + option.tokens + "'";
                 }
+                if (option.subtext) {
+                    input.html += " data-subtext='" + option.subtext + "'";
+                }
+                if (oldValue == option.value) {
+                    input.html += " selected";
+                }
+                input.html += ">" + option.display + "</option>"
             });
             input.html = input.html + "</select>";
-            input.focus = false;
+            input.type = inputType;
             break;
         default: // text input
-            input.html = "<input id='ejbeatycelledit' class='form-control " + inputCss + "' onfocusout='$(this).updateEditableCell(this)' value='" + oldValue + "'></input>";
+            input.html = "<input class='form-control' value='" + oldValue + "'></input>";
             break;
     }
     return input;

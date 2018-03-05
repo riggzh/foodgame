@@ -4,21 +4,11 @@
 <head>
     <title>图鉴</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/style.min.css?v=2" />
-    <script type="text/javascript" src="js/script.min.js?v=4"></script>
-    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=11" />
-    <script type="text/javascript" src="js/food.min.js?v=25"></script>
-    <script>
-        $(function () {
-            $.ajax({
-                cache: false,
-                success: function (data) {
-                    init(data);
-                },
-                url: 'data/data.json'
-            });
-        });
-    </script>
+    <link rel="stylesheet" type="text/css" href="css/style.min.css?v=3" />
+    <script type="text/javascript" src="js/script.min.js?v=5"></script>
+    <script type="text/javascript" src="js/common.min.js?v=1"></script>
+    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=12" />
+    <script type="text/javascript" src="js/food.min.js?v=26"></script>
 </head>
 
 <body>
@@ -137,7 +127,9 @@
                             品质
                         </label>
                         <div class="chk-recipe-show-chef-wrapper">
-                            <select id="chk-recipe-show-chef" multiple="multiple"></select>
+                            <select id="chk-recipe-show-chef" multiple data-live-search="true" data-live-search-placeholder="查找" data-width="auto" data-dropdown-align-right='auto'
+                                data-none-selected-text="选择厨师" data-selected-text-format="count" data-count-selected-text="{0} 厨师"
+                                data-none-results-text="没有找到" data-actions-box="true" data-deselect-all-text="清空"></select>
                         </div>
                     </div>
                 </div>
@@ -310,7 +302,9 @@
                             来源
                         </label>
                         <div class="chk-chef-show-recipe-wrapper">
-                            <select id="chk-chef-show-recipe" multiple="multiple"></select>
+                            <select id="chk-chef-show-recipe" multiple data-live-search="true" data-live-search-placeholder="查找" data-width="auto" data-dropdown-align-right='auto'
+                                data-none-selected-text="选择菜谱" data-selected-text-format="count" data-count-selected-text="{0} 菜谱"
+                                data-none-results-text="没有找到" data-actions-box="true" data-deselect-all-text="清空"></select>
                         </div>
                     </div>
                 </div>
@@ -603,7 +597,16 @@
                             <a href="#pane-cal-ingredients" data-toggle="tab">配置食材</a>
                         </li>
                         <li>
-                            <a href="#pane-cal-results" data-toggle="tab">计&nbsp;算</a>
+                            <a href="#pane-cal-recipes-results" data-toggle="tab">计算菜谱</a>
+                        </li>
+                        <li>
+                            <a href="#pane-cal-all-results" data-toggle="tab">所有组合</a>
+                        </li>
+                        <li>
+                            <a href="#pane-cal-optimal-results" data-toggle="tab">最优组合</a>
+                        </li>
+                        <li>
+                            <a href="#pane-cal-self-select" data-toggle="tab">自选组合</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -843,6 +846,13 @@
                                             </a>
                                         </span>
                                     </div>
+                                    <div class="box">
+                                        <input type="checkbox" id="chk-cal-chefs-kitchenware" data-toggle="toggle" data-on="有厨具" data-off="无厨具" data-onstyle="default"
+                                            data-width="80px" data-height="34px">
+                                        <a id="btn-cal-chefs-kitchenware-clear" class="btn btn-default hidden">
+                                            清空厨具
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -863,6 +873,7 @@
                                             <th>性别</th>
                                             <th>来源</th>
                                             <th>加成</th>
+                                            <th>厨具</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -983,21 +994,46 @@
                                 </table>
                             </div>
                         </div>
-                        <div id="pane-cal-results" class="tab-pane">
+                        <div id="pane-cal-recipes-results" class="tab-pane pane-cal-results">
+                            <div>
+                                <div class="box">
+                                    <button class="btn btn-default btn-cal-results-cal start" type="button">
+                                        <span class="glyphicon glyphicon-pencil"></span>&nbsp;计算菜谱
+                                    </button>
+                                </div>
+                                <div class="box">
+                                    <button class="btn btn-default btn-cal-results-cal stop" type="button" disabled>
+                                        <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;停止计算
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="cal-recipes-results-place"></div>
+                        </div>
+                        <div id="pane-cal-all-results" class="tab-pane pane-cal-results">
                             <div>
                                 <div class="box">
                                     <div class="input-group">
                                         <div class="input-group-addon">每个厨师显示前</div>
-                                        <input type="text" class="form-control" id="input-cal-results-show-top" value="9">
+                                        <input type="text" class="form-control" id="input-cal-all-results-show-top" value="9">
                                         <div class="input-group-addon">条</div>
                                     </div>
-                                    <button id="btn-cal-results-cal-all" class="btn btn-default btn-cal-results-cal" type="button">
+                                    <button class="btn btn-default btn-cal-results-cal start" type="button">
                                         <span class="glyphicon glyphicon-pencil"></span>&nbsp;计算所有解
                                     </button>
                                 </div>
                                 <div class="box">
+                                    <button class="btn btn-default btn-cal-results-cal stop" type="button" disabled>
+                                        <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;停止计算
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="cal-all-results-place"></div>
+                        </div>
+                        <div id="pane-cal-optimal-results" class="tab-pane pane-cal-results">
+                            <div>
+                                <div class="box">
                                     <div class="input-group">
-                                        <select id="select-cal-results-chefs-number" class="form-control">
+                                        <select id="select-cal-optimal-results-chefs-number" class="form-control">
                                             <option>1</option>
                                             <option>2</option>
                                             <option selected>3</option>
@@ -1006,23 +1042,29 @@
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">每个厨师</div>
-                                        <select id="select-cal-results-recipes-number" class="form-control">
+                                        <select id="select-cal-optimal-results-recipes-number" class="form-control">
                                             <option>1</option>
                                             <option>2</option>
                                             <option selected>3</option>
                                         </select>
                                         <div class="input-group-addon">个菜</div>
                                     </div>
-                                    <button id="btn-cal-results-cal-optimal" class="btn btn-default btn-cal-results-cal" type="button">
+                                    <button class="btn btn-default btn-cal-results-cal start" type="button">
                                         <span class="glyphicon glyphicon-pencil"></span>&nbsp;计算最优解
                                     </button>
                                 </div>
                                 <div class="box">
-                                    <button id="btn-cal-results-cal-stop" class="btn btn-default btn-cal-results-cal" type="button" disabled>
+                                    <button class="btn btn-default btn-cal-results-cal stop" type="button" disabled>
                                         <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;停止计算
                                     </button>
                                 </div>
                             </div>
+                            <div id="cal-optimal-results-place"></div>
+                        </div>
+                        <div id="pane-cal-self-select" class="tab-pane pane-cal-results">
+                            <div id="cal-self-select-place"></div>
+                        </div>
+                        <div id="pane-cal-results-common">
                             <div class="cal-results-progress hidden">
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-striped active">
@@ -1033,67 +1075,82 @@
                             <div class="cal-results-wrapper hidden">
                                 <div>
                                     <div class="box">
-                                        <a id="chk-cal-results-show-all" class="btn btn-default">
+                                        <a class="chk-cal-results-show-all btn btn-default">
                                             全选
                                         </a>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" id="chk-cal-results-show-chef-fire" class="chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-chef-fire chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             厨师星
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" id="chk-cal-results-show-chef-sex" class="chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-chef-sex chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             性别
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" id="chk-cal-results-show-chef-skill" class="chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-chef-skill chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             厨师技法
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" id="chk-cal-results-show-recipe-fire" class="chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-recipe-fire chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             菜谱星
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" id="chk-cal-results-show-recipe-skill" class="chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-recipe-skill chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             菜谱技法
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" id="chk-cal-results-show-recipe-ingredient" class="chk-cal-results-show" checked>
+                                            <input type="checkbox" class="chk-cal-results-show-recipe-ingredient chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             材料
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" id="chk-cal-results-show-recipe-quality" class="chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-recipe-quality chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             品质
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" id="chk-cal-results-show-recipe-total-price" class="chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-chef-kitchenware chk-cal-results-show">
+                                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                                            厨具
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <input type="checkbox" class="chk-cal-results-show-chef-kitchenware-addition chk-cal-results-show" checked>
+                                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                                            厨具加成
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <input type="checkbox" class="chk-cal-results-show-bonus-addition chk-cal-results-show" checked>
+                                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                                            规则加成
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <input type="checkbox" class="chk-cal-results-show-recipe-total-price chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             原售价
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" id="chk-cal-results-show-recipe-real-total-price" class="chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-recipe-real-total-price chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             实售价
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" id="chk-cal-results-show-recipe-bonus-score" class="chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-bonus-score chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             规则分
                                         </label>
                                     </div>
                                 </div>
-                                <div class="chk-cal-results-show-selected-wrapper">
-                                    <input type="checkbox" id="chk-cal-results-show-selected" data-toggle="toggle" data-on="显示选中" data-off="显示全部" data-onstyle="default"
-                                        data-width="130px" data-height="34px">
+                                <div>
+                                    <input type="checkbox" class="chk-cal-results-show-selected" data-on="显示选中" data-off="显示全部" data-onstyle="default" data-width="130px"
+                                        data-height="34px">
                                 </div>
                                 <div>
-                                    <table id="cal-results-table" class="table table-hover table-bordered" width="100%">
+                                    <table class="cal-results-table table table-hover table-bordered" width="100%">
                                         <thead>
                                             <tr>
                                                 <th></th>
@@ -1120,6 +1177,8 @@
                                                 <th>品质</th>
                                                 <th>品质加成</th>
                                                 <th>技能加成</th>
+                                                <th>厨具</th>
+                                                <th>厨具加成</th>
                                                 <th>规则加成</th>
                                                 <th>原售价</th>
                                                 <th>实售价</th>

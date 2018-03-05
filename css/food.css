@@ -142,20 +142,11 @@ label.btn input[type="checkbox"]:checked+.fa {
     width: 50px;
 }
 
-.dropdown-menu>li>a.deselect-all {
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    padding: 2px;
-}
-
-#btn-cal-results-cal .glyphicon {
+.btn-cal-results-cal .glyphicon {
     top: 2px;
 }
 
-#pane-cal-results {
+.pane-cal-results {
     position: relative;
     min-height: 85vh;
 }
@@ -276,10 +267,37 @@ table.dataTable tbody>tr>.selected {
     text-align: center;
 }
 
-#input-cal-results-show-top {
+#input-cal-all-results-show-top {
     width: 40px;
 }
 
 .cal-td-input-addition .form-control {
     width: 60px;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a {
+    color: #333;
+}
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: inherit;
+}
+
+.bs-actionsbox .btn-group button {
+    width: 100%;
+}
+
+#cal-self-select-table td {
+    height: 20px;
+}
+
+#cal-self-select-table .cal-td-quantity .form-control {
+    width: 60px;
+}
+
+#cal-self-select-table .cal-td-chef-name,
+#cal-self-select-table .cal-td-recipe-name,
+#cal-self-select-table .cal-td-kitchenware-name,
+#cal-self-select-table .cal-td-quantity {
+    background-color: rgba(0, 0, 0, 0.05);
 }

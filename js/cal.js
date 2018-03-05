@@ -1,4 +1,4 @@
-importScripts('food.min.js?v=21');
+importScripts('common.min.js?v=1');
 
 onmessage = function (e) {
     calculateMenu(e.data);
@@ -22,87 +22,92 @@ function calculateMenu(data) {
         }
     }
 
-    var totalCount = chefs.length;
-    var currentProgress = 0;
-
     var menusData = new Array();
+    var currentProgress = 0;
+    var totalCount = 0;
 
-    for (var i in chefs) {
+    if (mode == "recipes") {
 
-        if (mode == "all") {
-            var progress = Math.floor((Math.floor(i) + 1) * 100 / totalCount);
-            postMessage({ "progress": { "value": progress, "display": Math.floor(i) + 1 + " / " + totalCount } });
-        }
+        totalCount = recipes.length;
 
         var recipesData = new Array();
 
         for (var j in recipes) {
-            var qualityData = getQualityInfo(recipes[j], chefs[i]);
-            if (qualityData.qualityVal == 0) {
-                continue;
-            }
+
+            var progress = Math.floor((Math.floor(j) + 1) * 100 / totalCount);
+            postMessage({ "progress": { "value": progress, "display": Math.floor(j) + 1 + " / " + totalCount } });
 
             var quantity = 1;
             if (data.recipesMulitple) {
                 quantity = recipes[j].total;
             }
-            var skillAddition = getChefSkillAddition(recipes[j], chefs[i], ingredients);
-            var otherAddition = 0;
-            if (data.hasRecipesAddition) {
-                otherAddition += Math.floor(recipes[j].addition);
-            }
-            if (data.hasChefsAddition) {
-                otherAddition += Math.floor(chefs[i].addition);
-            }
-            if (data.hasIngredientsAddition) {
-                var ingredientsAddition = getIngredientsAddition(recipes[j], ingredients, data.ingredientsAdditionCumulative);
-                otherAddition += ingredientsAddition;
-            }
 
-            var recipeData = new Object();
-
-            recipeData["data"] = recipes[j];
-            recipeData["qualityVal"] = qualityData.qualityVal;
-            recipeData["qualityDisp"] = qualityData.qualityDisp;
-            recipeData["qualityAddition"] = qualityData.qualityAddition;
-            recipeData["qualityAdditionDisp"] = qualityData.qualityAddition || "";
-            recipeData["skillAddition"] = skillAddition;
-            recipeData["skillAdditionDisp"] = skillAddition || "";
-            recipeData["otherAddition"] = otherAddition;
-            recipeData["otherAdditionDisp"] = otherAddition || "";
-            recipeData["quantity"] = quantity;
-            recipeData["totalPrice"] = recipes[j].price * quantity;
-            recipeData["realTotalPrice"] = Math.ceil(recipes[j].price * (1 + qualityData.qualityAddition + skillAddition)) * quantity;
-            recipeData["bonusScore"] = Math.ceil(recipes[j].price * otherAddition) * quantity;
-            recipeData["totalScore"] = recipeData.realTotalPrice + recipeData.bonusScore;
-
-            recipesData.push(recipeData);
+            var resultData = getRecipeResult(null, false, false, null, recipes[j], quantity, data.hasRecipesAddition, ingredients, data.hasIngredientsAddition, data.ingredientsAdditionCumulative);
+            recipesData.push(resultData);
         }
-
-        recipesData.sort(function (a, b) {
-            return b.totalScore - a.totalScore
-        });
-
-        var limit = 0;
-        if (mode == "all") {
-            limit = data.allLimit;
-        } else {
-            limit = data.optimalChefsNum * data.optimalRecipesNum;
-        }
-
-        var maxSize = Math.min(limit, recipesData.length);
-        recipesData = recipesData.slice(0, maxSize);
 
         var menuData = new Object();
-        menuData["chef"] = chefs[i];
+        menuData["chef"] = new Object();
         menuData["recipes"] = recipesData;
 
-        if (mode == "optimal") {
-            menuData["minNSum"] = getMinNSum(recipesData, data.optimalRecipesNum);
-            menuData["maxNSum"] = getMaxNSum(recipesData, data.optimalRecipesNum);
-        }
-
         menusData.push(menuData);
+    }
+
+    if (mode == "all" || mode == "optimal") {
+
+        totalCount = chefs.length;
+
+        for (var i in chefs) {
+
+            if (mode == "all") {
+                var progress = Math.floor((Math.floor(i) + 1) * 100 / totalCount);
+                postMessage({ "progress": { "value": progress, "display": Math.floor(i) + 1 + " / " + totalCount } });
+            }
+
+            var kitchenwareInfo = new Object();
+            if (data.hasKitchenware) {
+                kitchenwareInfo = getKitchenwareInfo(chefs[i].kitchenwareName, data.kitchenware);
+            }
+
+            var recipesData = new Array();
+
+            for (var j in recipes) {
+                var quantity = 1;
+                if (data.recipesMulitple) {
+                    quantity = recipes[j].total;
+                }
+                var resultData = getRecipeResult(chefs[i], data.hasChefsAddition, data.hasKitchenware, kitchenwareInfo, recipes[j], quantity, data.hasRecipesAddition, ingredients, data.hasIngredientsAddition, data.ingredientsAdditionCumulative);
+                if (resultData) {
+                    recipesData.push(resultData);
+                }
+            }
+
+            recipesData.sort(function (a, b) {
+                return b.totalScore - a.totalScore
+            });
+
+            var limit = 0;
+            if (mode == "all") {
+                limit = data.allLimit;
+            } else {
+                limit = data.optimalChefsNum * data.optimalRecipesNum;
+            }
+
+            var maxSize = Math.min(limit, recipesData.length);
+            recipesData = recipesData.slice(0, maxSize);
+
+            var menuData = new Object();
+            menuData["chef"] = chefs[i];
+            menuData["recipes"] = recipesData;
+            menuData["kitchenware"] = kitchenwareInfo;
+
+            if (mode == "optimal") {
+                menuData["minNSum"] = getMinNSum(recipesData, data.optimalRecipesNum);
+                menuData["maxNSum"] = getMaxNSum(recipesData, data.optimalRecipesNum);
+            }
+
+            menusData.push(menuData);
+        }
     }
 
     if (mode == "optimal") {
@@ -199,6 +204,7 @@ function calculateMenu(data) {
             var oneMenu = new Object();
             oneMenu["chef"] = menusData[i].chef;
             oneMenu["recipe"] = menusData[i].recipes[j];
+            oneMenu["kitchenware"] = menusData[i].kitchenware;
             finalData.push(oneMenu);
         }
     }
@@ -241,35 +247,6 @@ function getMaxNLimit(menusData, chefsNum, recipesNum) {
         }
     }
     return maxNLimit;
-}
-
-function getIngredientsAddition(recipe, ingredients, cumulative) {
-    var addition = 0;
-    var positiveAddition = 0;
-    var negativeAddition = 0;
-
-    for (var m in recipe.ingredients) {
-        for (var n in ingredients) {
-            if (recipe.ingredients[m].name == ingredients[n].name) {
-                if (cumulative) {
-                    addition += Math.floor(ingredients[n].addition);
-                    break;
-                } else {
-                    if (Math.floor(ingredients[n].addition) > positiveAddition) {
-                        positiveAddition = Math.floor(ingredients[n].addition);
-                    } else if (Math.floor(ingredients[n].addition) < 0) {
-                        negativeAddition += Math.floor(ingredients[n].addition);
-                    }
-                }
-            }
-        }
-    }
-
-    if (cumulative) {
-        return addition;
-    } else {
-        return positiveAddition + negativeAddition;
-    }
 }
 
 function filterRecipes(recipes, ingredients) {
