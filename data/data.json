@@ -7429,18 +7429,18 @@
             "sex": "男",
             "stirfry": 0,
             "boil": 0,
-            "cut": 91,
-            "fry": 137,
-            "roast": 22,
-            "steam": 45,
+            "cut": 133,
+            "fry": 199,
+            "roast": 33,
+            "steam": 66,
             "skill": [
                 {
                     "type": "面类料理",
                     "addition": 0.15
                 }
             ],
-            "meat": 3,
-            "wheat": 4,
+            "meat": 4,
+            "wheat": 5,
             "veg": 0,
             "fish": 0,
             "origin": "春节壁池"
@@ -7515,29 +7515,6 @@
             "origin": "春节壁池"
         },
         {
-            "chefId": 220,
-            "name": "雷慕",
-            "fire": 4,
-            "sex": "女",
-            "stirfry": 46,
-            "boil": 0,
-            "cut": 0,
-            "fry": 92,
-            "roast": 276,
-            "steam": 184,
-            "skill": [
-                {
-                    "type": "面",
-                    "addition": 0.2
-                }
-            ],
-            "meat": 5,
-            "wheat": 6,
-            "veg": 0,
-            "fish": 0,
-            "origin": "厨师礼包"
-        },
-        {
             "chefId": 223,
             "name": "姜灵儿",
             "fire": 3,
@@ -7575,29 +7552,6 @@
             "wheat": 2,
             "veg": 0,
             "fish": 0,
-            "origin": "情人节壁池"
-        },
-        {
-            "chefId": 247,
-            "name": "盐如玉",
-            "fire": 4,
-            "sex": "女",
-            "stirfry": 188,
-            "boil": 0,
-            "cut": 31,
-            "fry": 62,
-            "roast": 125,
-            "steam": 0,
-            "skill": [
-                {
-                    "type": "稀有客人",
-                    "addition": 0.4
-                }
-            ],
-            "meat": 5,
-            "wheat": 0,
-            "veg": 0,
-            "fish": 5,
             "origin": "情人节壁池"
         },
         {
