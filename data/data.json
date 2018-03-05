@@ -3181,12 +3181,12 @@
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "苏轼"
                 }
             ],
             "godRune": "-",
             "categories": [],
-            "quality": "优"
+            "quality": "神"
         },
         {
             "recipeId": 106,
@@ -4888,18 +4888,18 @@
             "guests": [
                 {
                     "quality": "优",
-                    "guest": ""
+                    "guest": "迷弟杜甫"
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "木优"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "大明湖畔的美女"
                 }
             ],
-            "godRune": "",
+            "godRune": "一昧真火",
             "categories": [],
             "quality": ""
         },
@@ -4986,14 +4986,14 @@
                 },
                 {
                     "quality": "特",
-                    "guest": ""
+                    "guest": "大内侍卫"
                 },
                 {
                     "quality": "神",
-                    "guest": ""
+                    "guest": "刘备"
                 }
             ],
-            "godRune": "",
+            "godRune": "剪刀蟹",
             "categories": [
                 "汤"
             ],
@@ -8853,15 +8853,19 @@
         },
         {
             "kitchenwareId": 98,
-            "name": "",
-            "fire": 0,
+            "name": "银瓷杯",
+            "fire": 2,
             "skill": [
                 {
-                    "type": "",
-                    "addition": 0
+                    "type": "肉类料理",
+                    "addition": 0.1
+                },
+                {
+                    "type": "蔬菜料理",
+                    "addition": 0.1
                 }
             ],
-            "origin": ""
+            "origin": "厨神"
         },
         {
             "kitchenwareId": 99,
