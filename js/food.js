@@ -1895,7 +1895,7 @@ function initCalSelfSelect(data) {
     $("#cal-self-select-place .chk-cal-results-show-chef-kitchenware").prop("checked", true);
 
     var selfSelectData = new Array();
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 9; i++) {
         var oneMenu = new Object();
         oneMenu["chef"] = new Object();
         oneMenu["recipe"] = new Object();
@@ -1947,7 +1947,7 @@ function initCalSelfSelect(data) {
                 if (currentData[i].chef.name) {
                     for (var j in calChefsData) {
                         if (currentData[i].chef.name == calChefsData[j].name) {
-                            chefSelected = Object.assign({}, calChefsData[j]);
+                            chefSelected = $.extend(true, {}, calChefsData[j]);
                         }
                     }
                 }
@@ -1958,7 +1958,7 @@ function initCalSelfSelect(data) {
                 if (currentData[i].recipe.data && currentData[i].recipe.data.name) {
                     for (var j in calRecipesData) {
                         if (currentData[i].recipe.data.name == calRecipesData[j].name) {
-                            recipeSelected.data = Object.assign({}, calRecipesData[j]);
+                            recipeSelected.data = $.extend(true, {}, calRecipesData[j]);
                         }
                     }
                 }
