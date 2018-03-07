@@ -2417,7 +2417,7 @@
             "categories": [
                 "汤"
             ],
-            "quality": "优"
+            "quality": "特"
         },
         {
             "recipeId": 53,
@@ -3065,7 +3065,7 @@
             ],
             "godRune": "耐煮的水草",
             "categories": [],
-            "quality": ""
+            "quality": "优"
         },
         {
             "recipeId": 67,
@@ -5668,7 +5668,7 @@
             ],
             "godRune": "",
             "categories": [],
-            "quality": ""
+            "quality": "优"
         },
         {
             "recipeId": 122,
@@ -6097,7 +6097,7 @@
             "categories": [
                 "冷菜"
             ],
-            "quality": ""
+            "quality": "特"
         },
         {
             "recipeId": 131,
@@ -6432,7 +6432,7 @@
             "categories": [
                 "冷菜"
             ],
-            "quality": ""
+            "quality": "优"
         },
         {
             "recipeId": 138,
