@@ -7395,15 +7395,21 @@
             "fire": 3,
             "sex": "女",
             "stirfry": 0,
-            "boil": 74,
-            "cut": 49,
+            "boil": 137,
+            "cut": 91,
             "fry": 0,
-            "roast": 12,
-            "steam": 24,
+            "roast": 22,
+            "steam": 45,
+            "skill": [
+                {
+                    "type": "煮类料理",
+                    "addition": 0.15
+                }
+            ],
             "meat": 0,
-            "wheat": 3,
+            "wheat": 4,
             "veg": 0,
-            "fish": 2,
+            "fish": 3,
             "origin": "情人节壁池"
         },
         {
