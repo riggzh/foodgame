@@ -1106,7 +1106,8 @@
             ],
             "godRune": "刀嘴鹦鹉",
             "categories": [
-                "冷菜"
+                "冷菜",
+                "点心"
             ],
             "quality": ""
         },
@@ -3629,7 +3630,7 @@
             "categories": [
                 "冷菜"
             ],
-            "quality": ""
+            "quality": "优"
         },
         {
             "recipeId": 79,
@@ -6483,7 +6484,8 @@
             ],
             "godRune": "",
             "categories": [
-                "汤"
+                "汤",
+                "点心"
             ],
             "quality": ""
         },
@@ -7584,7 +7586,7 @@
             "categories": [
                 "汤"
             ],
-            "quality": "优"
+            "quality": "特"
         },
         {
             "recipeId": 163,
@@ -8313,7 +8315,9 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
+            "categories": [
+                "点心"
+            ],
             "quality": "优"
         },
         {
@@ -9731,7 +9735,8 @@
             ],
             "godRune": "刀嘴鹦鹉",
             "categories": [
-                "冷菜"
+                "冷菜",
+                "点心"
             ],
             "quality": "特"
         },
@@ -11486,7 +11491,7 @@
             ],
             "godRune": "剪刀蟹",
             "categories": [],
-            "quality": ""
+            "quality": "优"
         },
         {
             "recipeId": 245,
@@ -11712,7 +11717,9 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
+            "categories": [
+                "点心"
+            ],
             "quality": ""
         },
         {
@@ -11759,7 +11766,9 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [],
+            "categories": [
+                "点心"
+            ],
             "quality": ""
         },
         {
@@ -11965,7 +11974,9 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
+            "categories": [
+                "点心"
+            ],
             "quality": ""
         },
         {
