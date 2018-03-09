@@ -2527,7 +2527,7 @@
             "categories": [
                 "冷菜"
             ],
-            "quality": ""
+            "quality": "优"
         },
         {
             "recipeId": 79,
@@ -5366,7 +5366,9 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
+            "categories": [
+                "点心"
+            ],
             "quality": ""
         }
     ],
