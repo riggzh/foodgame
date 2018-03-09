@@ -723,6 +723,53 @@
             "quality": "神"
         },
         {
+            "recipeId": 22,
+            "name": "回锅肉",
+            "fire": 3,
+            "unlock": "-",
+            "stirfry": 50,
+            "boil": 0,
+            "cut": 30,
+            "fry": 0,
+            "roast": 0,
+            "steam": 0,
+            "ingredients": [
+                {
+                    "name": "猪腿肉",
+                    "quantity": 2
+                },
+                {
+                    "name": "青椒",
+                    "quantity": 6
+                },
+                {
+                    "name": "土豆",
+                    "quantity": 6
+                }
+            ],
+            "price": 336,
+            "time": 437,
+            "total": 25,
+            "origin": "主线116",
+            "guests": [
+                {
+                    "quality": "优",
+                    "guest": "富人"
+                },
+                {
+                    "quality": "特",
+                    "guest": "富人"
+                },
+                {
+                    "quality": "神",
+                    "guest": "迷弟杜甫"
+                }
+            ],
+            "godRune": "刀嘴鹦鹉",
+            "categories": [],
+            "quality": "特"
+        },
+        {
             "recipeId": 25,
             "name": "鱼香肉丝",
             "fire": 2,
@@ -7325,14 +7372,20 @@
             "fire": 3,
             "sex": "女",
             "stirfry": 0,
-            "boil": 12,
-            "cut": 49,
+            "boil": 33,
+            "cut": 133,
             "fry": 0,
-            "roast": 24,
-            "steam": 74,
+            "roast": 66,
+            "steam": 199,
+            "skill": [
+                {
+                    "type": "稀有客人",
+                    "addition": 0.3
+                }
+            ],
             "meat": 0,
-            "wheat": 2,
-            "veg": 3,
+            "wheat": 4,
+            "veg": 5,
             "fish": 0,
             "origin": "情人节壁池"
         },
