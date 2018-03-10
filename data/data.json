@@ -1381,6 +1381,49 @@
             "quality": "神"
         },
         {
+            "recipeId": 41,
+            "name": "蘑菇炒肉",
+            "fire": 1,
+            "unlock": "-",
+            "stirfry": 35,
+            "boil": 0,
+            "cut": 0,
+            "fry": 0,
+            "roast": 0,
+            "steam": 0,
+            "ingredients": [
+                {
+                    "name": "香菇",
+                    "quantity": 6
+                },
+                {
+                    "name": "猪腿肉",
+                    "quantity": 2
+                }
+            ],
+            "price": 77,
+            "time": 302,
+            "total": 40,
+            "origin": "主线120",
+            "guests": [
+                {
+                    "quality": "优",
+                    "guest": "屠夫老王"
+                },
+                {
+                    "quality": "特",
+                    "guest": "大胃王"
+                },
+                {
+                    "quality": "神",
+                    "guest": "迷思吹法师"
+                }
+            ],
+            "godRune": "五香果",
+            "categories": [],
+            "quality": "神"
+        },
+        {
             "recipeId": 42,
             "name": "黄瓜炒肉",
             "fire": 2,
