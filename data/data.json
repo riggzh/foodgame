@@ -13435,6 +13435,29 @@
             "origin": "中级奖池"
         },
         {
+            "chefId": 55,
+            "name": "谛天",
+            "fire": 1,
+            "sex": "男",
+            "stirfry": 0,
+            "boil": 0,
+            "cut": 72,
+            "fry": 18,
+            "roast": 109,
+            "steam": 0,
+            "skill": [
+                {
+                    "type": "肉类料理",
+                    "addition": 0.05
+                }
+            ],
+            "meat": 3,
+            "wheat": 0,
+            "veg": 0,
+            "fish": 3,
+            "origin": "每周挑战"
+        },
+        {
             "chefId": 58,
             "name": "锄小禾",
             "fire": 1,
