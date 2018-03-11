@@ -36,7 +36,6 @@
                 }
             ],
             "godRune": "油火虫",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -75,9 +74,6 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "categories": [
-                "汤"
-            ],
             "quality": "神"
         },
         {
@@ -116,7 +112,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -163,7 +158,6 @@
                 }
             ],
             "godRune": "五香果",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -210,7 +204,6 @@
                 }
             ],
             "godRune": "五香果",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -257,7 +250,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -304,7 +296,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [],
             "quality": ""
         },
         {
@@ -351,7 +342,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -398,7 +388,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -445,7 +434,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -492,7 +480,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -543,7 +530,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -590,7 +576,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -637,7 +622,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -680,7 +664,6 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "categories": [],
             "quality": ""
         },
         {
@@ -731,9 +714,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [
-                "汤"
-            ],
             "quality": "特"
         },
         {
@@ -776,7 +756,6 @@
                 }
             ],
             "godRune": "五香果",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -823,7 +802,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -870,7 +848,6 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -917,7 +894,6 @@
                 }
             ],
             "godRune": "一昧真火",
-            "categories": [],
             "quality": ""
         },
         {
@@ -964,7 +940,6 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -1011,7 +986,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -1058,7 +1032,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -1105,10 +1078,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜",
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -1155,7 +1124,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -1202,9 +1170,6 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -1251,7 +1216,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": "可"
         },
         {
@@ -1294,9 +1258,6 @@
                 }
             ],
             "godRune": "烤焦的菊花",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -1343,10 +1304,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "点心",
-                "冷菜"
-            ],
             "quality": "优"
         },
         {
@@ -1397,7 +1354,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -1444,7 +1400,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -1487,9 +1442,6 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -1532,9 +1484,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -1585,9 +1534,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "汤"
-            ],
             "quality": "可"
         },
         {
@@ -1634,9 +1580,6 @@
                 }
             ],
             "godRune": "油火虫",
-            "categories": [
-                "点心"
-            ],
             "quality": "特"
         },
         {
@@ -1679,9 +1622,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -1728,7 +1668,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -1771,7 +1710,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -1818,7 +1756,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -1861,9 +1798,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "汤"
-            ],
             "quality": "神"
         },
         {
@@ -1906,7 +1840,6 @@
                 }
             ],
             "godRune": "五香果",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -1949,7 +1882,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -1992,9 +1924,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -2033,9 +1962,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -2086,7 +2012,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": ""
         },
         {
@@ -2129,7 +2054,6 @@
                 }
             ],
             "godRune": "一昧真火",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -2180,7 +2104,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -2223,9 +2146,6 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "categories": [
-                "点心"
-            ],
             "quality": "特"
         },
         {
@@ -2268,9 +2188,6 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -2317,9 +2234,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [
-                "汤"
-            ],
             "quality": "优"
         },
         {
@@ -2362,9 +2276,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -2415,9 +2326,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "汤"
-            ],
             "quality": "特"
         },
         {
@@ -2460,9 +2368,6 @@
                 }
             ],
             "godRune": "一昧真火",
-            "categories": [
-                "点心"
-            ],
             "quality": "特"
         },
         {
@@ -2505,9 +2410,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -2554,9 +2456,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -2603,9 +2502,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -2656,7 +2552,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -2699,7 +2594,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -2750,9 +2644,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "汤"
-            ],
             "quality": "神"
         },
         {
@@ -2799,7 +2690,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -2842,7 +2732,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -2885,7 +2774,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -2928,7 +2816,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -2971,9 +2858,6 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -3016,9 +2900,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -3065,7 +2946,6 @@
                 }
             ],
             "godRune": "耐煮的水草",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -3112,7 +2992,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -3163,9 +3042,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -3212,9 +3088,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "汤"
-            ],
             "quality": "神"
         },
         {
@@ -3261,9 +3134,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "汤"
-            ],
             "quality": "神"
         },
         {
@@ -3306,9 +3176,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "汤"
-            ],
             "quality": ""
         },
         {
@@ -3355,9 +3222,6 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "categories": [
-                "汤"
-            ],
             "quality": "优"
         },
         {
@@ -3404,7 +3268,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -3447,7 +3310,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -3494,7 +3356,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -3541,7 +3402,6 @@
                 }
             ],
             "godRune": "鼓风机",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -3584,7 +3444,6 @@
                 }
             ],
             "godRune": "一昧真火",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -3627,9 +3486,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "优"
         },
         {
@@ -3672,7 +3528,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -3715,9 +3570,6 @@
                 }
             ],
             "godRune": "油火虫",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "特"
         },
         {
@@ -3760,9 +3612,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "汤"
-            ],
             "quality": "神"
         },
         {
@@ -3805,9 +3654,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -3854,9 +3700,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -3907,7 +3750,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [],
             "quality": ""
         },
         {
@@ -3950,7 +3792,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -4001,7 +3842,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -4052,7 +3892,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -4103,9 +3942,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [
-                "汤"
-            ],
             "quality": ""
         },
         {
@@ -4156,7 +3992,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -4207,9 +4042,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [
-                "汤"
-            ],
             "quality": ""
         },
         {
@@ -4252,7 +4084,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -4303,10 +4134,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "点心",
-                "冷菜"
-            ],
             "quality": "优"
         },
         {
@@ -4349,9 +4176,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -4398,7 +4222,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -4449,10 +4272,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [
-                "点心",
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -4495,7 +4314,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -4538,7 +4356,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -4581,7 +4398,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -4624,9 +4440,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -4673,7 +4486,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -4716,7 +4528,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -4763,7 +4574,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -4814,9 +4624,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "特"
         },
         {
@@ -4867,9 +4674,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -4916,7 +4720,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -4959,9 +4762,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -5004,10 +4804,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [
-                "点心",
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -5050,9 +4846,6 @@
                 }
             ],
             "godRune": "油火虫",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -5095,7 +4888,6 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -5146,7 +4938,6 @@
                 }
             ],
             "godRune": "耐煮的水草",
-            "categories": [],
             "quality": ""
         },
         {
@@ -5197,7 +4988,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -5248,9 +5038,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [
-                "点心"
-            ],
             "quality": "特"
         },
         {
@@ -5297,7 +5084,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -5344,7 +5130,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -5387,9 +5172,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "汤"
-            ],
             "quality": "优"
         },
         {
@@ -5440,9 +5222,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [
-                "汤"
-            ],
             "quality": ""
         },
         {
@@ -5493,7 +5272,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -5536,7 +5314,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -5579,9 +5356,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "可"
         },
         {
@@ -5632,9 +5406,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "汤"
-            ],
             "quality": "优"
         },
         {
@@ -5681,7 +5452,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -5728,7 +5498,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -5775,7 +5544,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": ""
         },
         {
@@ -5822,7 +5590,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -5869,10 +5636,6 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "categories": [
-                "汤",
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -5919,7 +5682,6 @@
                 }
             ],
             "godRune": "耐煮的水草",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -5966,9 +5728,6 @@
                 }
             ],
             "godRune": "油火虫",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -6007,10 +5766,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "点心",
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -6057,7 +5812,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -6108,9 +5862,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "特"
         },
         {
@@ -6157,7 +5908,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -6208,7 +5958,6 @@
                 }
             ],
             "godRune": "鼓风机",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -6255,7 +6004,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -6306,7 +6054,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": ""
         },
         {
@@ -6353,7 +6100,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": ""
         },
         {
@@ -6396,7 +6142,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -6443,9 +6188,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "优"
         },
         {
@@ -6496,10 +6238,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [
-                "汤",
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -6550,7 +6288,6 @@
                 }
             ],
             "godRune": "一昧真火",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -6601,9 +6338,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -6654,7 +6388,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -6697,9 +6430,6 @@
                 }
             ],
             "godRune": "千年煮鳖",
-            "categories": [
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -6733,7 +6463,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -6780,10 +6509,6 @@
                 }
             ],
             "godRune": "恐怖利刃",
-            "categories": [
-                "点心",
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -6834,7 +6559,6 @@
                 }
             ],
             "godRune": "暖石",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -6881,7 +6605,6 @@
                 }
             ],
             "godRune": "一昧真火",
-            "categories": [],
             "quality": ""
         },
         {
@@ -6928,9 +6651,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -6977,7 +6697,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -7028,7 +6747,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [],
             "quality": "可"
         },
         {
@@ -7075,7 +6793,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -7122,9 +6839,6 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "categories": [
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -7167,7 +6881,6 @@
                 }
             ],
             "godRune": "一昧真火",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -7214,7 +6927,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -7261,7 +6973,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -7308,7 +7019,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -7355,7 +7065,6 @@
                 }
             ],
             "godRune": "一昧真火",
-            "categories": [],
             "quality": ""
         },
         {
@@ -7394,7 +7103,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -7433,7 +7141,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -7476,7 +7183,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -7523,7 +7229,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -7562,7 +7267,6 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -7609,9 +7313,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "汤"
-            ],
             "quality": "特"
         },
         {
@@ -7658,9 +7359,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "汤"
-            ],
             "quality": "可"
         },
         {
@@ -7703,7 +7401,6 @@
                 }
             ],
             "godRune": "油火虫",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -7746,7 +7443,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -7785,9 +7481,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "神"
         },
         {
@@ -7834,7 +7527,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -7877,7 +7569,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [],
             "quality": "神"
         },
         {
@@ -7920,7 +7611,6 @@
                 }
             ],
             "godRune": "烤焦的菊花",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -7971,7 +7661,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8022,7 +7711,6 @@
                 }
             ],
             "godRune": "暖石",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8069,9 +7757,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "点心"
-            ],
             "quality": "优"
         },
         {
@@ -8114,7 +7799,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -8157,9 +7841,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -8206,9 +7887,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -8251,7 +7929,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8298,7 +7975,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8341,9 +8017,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [
-                "点心"
-            ],
             "quality": "优"
         },
         {
@@ -8390,7 +8063,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8441,7 +8113,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8488,7 +8159,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8535,7 +8205,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8582,9 +8251,6 @@
                 }
             ],
             "godRune": "-",
-            "categories": [
-                "点心"
-            ],
             "quality": "神"
         },
         {
@@ -8635,7 +8301,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -8682,7 +8347,6 @@
                 }
             ],
             "godRune": "神秘魔方",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8729,9 +8393,6 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "categories": [
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -8774,7 +8435,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8825,7 +8485,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8872,7 +8531,6 @@
                 }
             ],
             "godRune": "一昧真火",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8923,7 +8581,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -8970,7 +8627,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": ""
         },
         {
@@ -9017,7 +8673,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -9064,7 +8719,6 @@
                 }
             ],
             "godRune": "耐煮的水草",
-            "categories": [],
             "quality": ""
         },
         {
@@ -9115,7 +8769,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -9166,9 +8819,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -9219,7 +8869,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [],
             "quality": ""
         },
         {
@@ -9266,7 +8915,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -9317,9 +8965,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "优"
         },
         {
@@ -9370,9 +9015,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜"
-            ],
             "quality": ""
         },
         {
@@ -9423,7 +9065,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -9474,7 +9115,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -9521,7 +9161,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -9564,7 +9203,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": ""
         },
         {
@@ -9615,7 +9253,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -9662,7 +9299,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [],
             "quality": ""
         },
         {
@@ -9709,7 +9345,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -9760,10 +9395,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜",
-                "点心"
-            ],
             "quality": "特"
         },
         {
@@ -9814,9 +9445,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "冷菜"
-            ],
             "quality": "优"
         },
         {
@@ -9867,7 +9495,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -9914,7 +9541,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -9961,7 +9587,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10008,7 +9633,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10055,7 +9679,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10102,7 +9725,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10149,7 +9771,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10196,7 +9817,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10243,7 +9863,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10290,7 +9909,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10337,7 +9955,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10384,7 +10001,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10431,7 +10047,6 @@
                 }
             ],
             "godRune": "五香果",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10482,7 +10097,6 @@
                 }
             ],
             "godRune": "油火虫",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10529,9 +10143,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -10578,7 +10189,6 @@
                 }
             ],
             "godRune": "一昧真火",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10629,9 +10239,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -10678,7 +10285,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10725,7 +10331,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10772,7 +10377,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10819,7 +10423,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10866,7 +10469,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10913,7 +10515,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -10960,7 +10561,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11007,7 +10607,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11054,7 +10653,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11101,7 +10699,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11148,7 +10745,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11195,9 +10791,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [
-                "汤"
-            ],
             "quality": ""
         },
         {
@@ -11240,9 +10833,6 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "categories": [
-                "汤"
-            ],
             "quality": ""
         },
         {
@@ -11289,7 +10879,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11336,7 +10925,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -11383,7 +10971,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11430,7 +11017,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11477,7 +11063,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11516,7 +11101,6 @@
                 }
             ],
             "godRune": "剪刀蟹",
-            "categories": [],
             "quality": "优"
         },
         {
@@ -11559,7 +11143,6 @@
                 }
             ],
             "godRune": "烤焦的菊花",
-            "categories": [],
             "quality": "特"
         },
         {
@@ -11602,7 +11185,6 @@
                 }
             ],
             "godRune": "蒸汽耳环",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11645,9 +11227,6 @@
                 }
             ],
             "godRune": "防水的柠檬",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -11690,9 +11269,6 @@
                 }
             ],
             "godRune": "油火虫",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -11743,9 +11319,6 @@
                 }
             ],
             "godRune": "焦虫",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -11792,9 +11365,6 @@
                 }
             ],
             "godRune": "蒸汽宝石",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -11845,9 +11415,6 @@
                 }
             ],
             "godRune": "耐煮的水草",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -11898,7 +11465,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [],
             "quality": ""
         },
         {
@@ -11949,7 +11515,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         },
         {
@@ -12000,9 +11565,6 @@
                 }
             ],
             "godRune": "刀嘴鹦鹉",
-            "categories": [
-                "点心"
-            ],
             "quality": ""
         },
         {
@@ -12049,7 +11611,6 @@
                 }
             ],
             "godRune": "",
-            "categories": [],
             "quality": ""
         }
     ],
