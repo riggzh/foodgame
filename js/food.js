@@ -167,7 +167,6 @@ function initRecipeTable(data, private) {
             return true;
         }
 
-        var chkFire0 = $('#chk-recipe-fire-0').prop("checked");
         var chkFire1 = $('#chk-recipe-fire-1').prop("checked");
         var chkFire2 = $('#chk-recipe-fire-2').prop("checked");
         var chkFire3 = $('#chk-recipe-fire-3').prop("checked");
@@ -175,8 +174,7 @@ function initRecipeTable(data, private) {
         var chkFire5 = $('#chk-recipe-fire-5').prop("checked");
         var fire = Math.floor(data[2]) || 0;
 
-        if (chkFire0 && fire == 0
-            || chkFire1 && fire == 1
+        if (chkFire1 && fire == 1
             || chkFire2 && fire == 2
             || chkFire3 && fire == 3
             || chkFire4 && fire == 4
@@ -199,8 +197,6 @@ function initRecipeTable(data, private) {
             || $('#chk-recipe-skill-fry').prop("checked") && (Math.floor(data[6]) || 0) > 0
             || $('#chk-recipe-skill-roast').prop("checked") && (Math.floor(data[7]) || 0) > 0
             || $('#chk-recipe-skill-steam').prop("checked") && (Math.floor(data[8]) || 0) > 0
-            || ($('#chk-recipe-skill-unknown').prop("checked") && (Math.floor(data[3]) || 0) == 0 && (Math.floor(data[4]) || 0) == 0 && (Math.floor(data[5]) || 0) == 0
-                && (Math.floor(data[6]) || 0) == 0 && (Math.floor(data[7]) || 0) == 0 && (Math.floor(data[8]) || 0) == 0)
         ) {
             return true;
         } else {
