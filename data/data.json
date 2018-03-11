@@ -6691,12 +6691,12 @@
         },
         {
             "recipeId": 143,
-            "name": "雪花鸡",
+            "name": "",
             "fire": 0,
             "unlock": "-",
-            "stirfry": 95,
+            "stirfry": 0,
             "boil": 0,
-            "cut": 105,
+            "cut": 0,
             "fry": 0,
             "roast": 0,
             "steam": 0,
@@ -6923,7 +6923,7 @@
         {
             "recipeId": 148,
             "name": "九转大肠",
-            "fire": 0,
+            "fire": 5,
             "unlock": "-",
             "stirfry": 100,
             "boil": 0,
@@ -6931,11 +6931,24 @@
             "fry": 100,
             "roast": 0,
             "steam": 0,
-            "ingredients": [],
-            "price": 0,
-            "time": 0,
-            "total": 0,
-            "origin": "",
+            "ingredients": [
+                {
+                    "name": "猪杂",
+                    "quantity": 12
+                },
+                {
+                    "name": "辣椒",
+                    "quantity": 12
+                },
+                {
+                    "name": "酒",
+                    "quantity": 10
+                }
+            ],
+            "price": 940,
+            "time": 408,
+            "total": 15,
+            "origin": "未出",
             "guests": [
                 {
                     "quality": "优",
