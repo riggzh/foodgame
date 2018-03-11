@@ -5256,7 +5256,7 @@
         {
             "recipeId": 113,
             "name": "咖喱香辣虾",
-            "fire": 0,
+            "fire": 5,
             "unlock": "-",
             "stirfry": 75,
             "boil": 0,
@@ -5264,11 +5264,24 @@
             "fry": 0,
             "roast": 85,
             "steam": 0,
-            "ingredients": [],
-            "price": 0,
+            "ingredients": [
+                {
+                    "name": "咖喱",
+                    "quantity": 5
+                },
+                {
+                    "name": "辣椒",
+                    "quantity": 10
+                },
+                {
+                    "name": "虾",
+                    "quantity": 10
+                }
+            ],
+            "price": 1556,
             "time": 301,
-            "total": 0,
-            "origin": "",
+            "total": 15,
+            "origin": "未出",
             "guests": [
                 {
                     "quality": "优",
