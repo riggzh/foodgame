@@ -2086,6 +2086,10 @@ function generateData(json, private) {
     var questsData = new Array();
     for (var i in json.quests) {
 
+        if (json.quests[i].questId > 400) {
+            continue;
+        }
+
         if (!json.quests[i].goal) {
             continue;
         }
