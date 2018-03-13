@@ -27,6 +27,8 @@ function init(json) {
 
     initKitchenwareTable(data);
 
+    initQuestTable(data);
+
     if (private || cal) {
         initCalTables(json, data);
         $(".nav-tabs li").removeClass("hidden");
@@ -167,8 +169,8 @@ function initRecipeTable(data, private) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>"
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>"
     });
 
     $("#pane-recipes div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="菜名 材料 贵客 符文"></label>');
@@ -178,7 +180,6 @@ function initRecipeTable(data, private) {
             return true;
         }
 
-        var chkFire0 = $('#chk-recipe-fire-0').prop("checked");
         var chkFire1 = $('#chk-recipe-fire-1').prop("checked");
         var chkFire2 = $('#chk-recipe-fire-2').prop("checked");
         var chkFire3 = $('#chk-recipe-fire-3').prop("checked");
@@ -186,8 +187,7 @@ function initRecipeTable(data, private) {
         var chkFire5 = $('#chk-recipe-fire-5').prop("checked");
         var fire = Math.floor(data[2]) || 0;
 
-        if (chkFire0 && fire == 0
-            || chkFire1 && fire == 1
+        if (chkFire1 && fire == 1
             || chkFire2 && fire == 2
             || chkFire3 && fire == 3
             || chkFire4 && fire == 4
@@ -210,8 +210,6 @@ function initRecipeTable(data, private) {
             || $('#chk-recipe-skill-fry').prop("checked") && (Math.floor(data[6]) || 0) > 0
             || $('#chk-recipe-skill-roast').prop("checked") && (Math.floor(data[7]) || 0) > 0
             || $('#chk-recipe-skill-steam').prop("checked") && (Math.floor(data[8]) || 0) > 0
-            || ($('#chk-recipe-skill-unknown').prop("checked") && (Math.floor(data[3]) || 0) == 0 && (Math.floor(data[4]) || 0) == 0 && (Math.floor(data[5]) || 0) == 0
-                && (Math.floor(data[6]) || 0) == 0 && (Math.floor(data[7]) || 0) == 0 && (Math.floor(data[8]) || 0) == 0)
         ) {
             return true;
         } else {
@@ -423,7 +421,7 @@ function initChefTable(data) {
         }
     ];
 
-    for (j in data.recipes) {
+    for (var j in data.recipes) {
         $('#chk-chef-show-recipe').append("<option value='" + j + "'>" + data.recipes[j].name + "</option>");
         $('#chef-table thead tr').append("<th>" + data.recipes[j].name + "</th>");
 
@@ -450,8 +448,8 @@ function initChefTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>"
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>"
     });
 
     $("#pane-chefs div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="名字 技能 来源"></label>');
@@ -621,8 +619,8 @@ function initKitchenwareTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>"
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>"
     });
 
     $("#pane-kitchenware div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="名字 技能 来源"></label>');
@@ -732,6 +730,72 @@ function initKitchenwareTable(data) {
     initKitchenwareShow(kitchenwareTable);
 }
 
+function initQuestTable(data) {
+    var questColumns = [
+        {
+            "data": "questId"
+        },
+        {
+            "data": "goal"
+        },
+        {
+            "data": {
+                "_": "rewardsVal",
+                "display": "rewardsDisp"
+            }
+        }
+    ];
+
+    var questsData = getQuestsData(data.quests, $('#select-quest-type').val());
+
+    var questTable = $('#quest-table').DataTable({
+        data: questsData,
+        columns: questColumns,
+        language: {
+            search: "查找:",
+            lengthMenu: "一页显示 _MENU_ 个",
+            zeroRecords: "没有找到",
+            info: "第 _PAGE_ 页 共 _PAGES_ 页 _TOTAL_ 个任务",
+            infoEmpty: "没有数据",
+            infoFiltered: "(从 _MAX_ 个任务中过滤)"
+        },
+        pagingType: "numbers",
+        lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
+        pageLength: 20,
+        dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>"
+    });
+
+    $("#pane-quest div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="编号 任务 奖励"></label>');
+
+    $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+        if (settings.nTable != document.getElementById('quest-table')) {
+            return true;
+        }
+
+        var value = $("#pane-quest .search-box input").val();
+        var searchCols = [0, 1, 2];    // questId, goal, rewards
+
+        for (var i = 0, len = searchCols.length; i < len; i++) {
+            if (data[searchCols[i]].indexOf(value) !== -1) {
+                return true;
+            }
+        }
+
+        return false;
+    });
+
+    $('#pane-quest .search-box input').keyup(function () {
+        questTable.draw();
+    });
+
+    $('#select-quest-type').change(function () {
+        var questsData = getQuestsData(data.quests, $(this).val());
+        questTable.clear().rows.add(questsData).draw();
+    });
+}
+
 function initCalTables(json, data) {
 
     initCalRecipesTable(data);
@@ -838,8 +902,8 @@ function initCalRecipesTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -1046,8 +1110,8 @@ function initCalChefsTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -1281,8 +1345,8 @@ function initCalIngredientsTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -1743,9 +1807,9 @@ function initCalResultTableCommon(mode, data, panel) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-12'<'selected-sum'>>>" +
-        "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -2004,9 +2068,8 @@ function generateData(json, private) {
     retData["history"] = json.history;
 
     var ingredientsData = new Array();
-    for (i in json.ingredients) {
-        var ingredientData = new Object();
-        ingredientData = json.ingredients[i];
+    for (var i in json.ingredients) {
+        var ingredientData = json.ingredients[i];
         ingredientData["fireDisp"] = getFireDisp(json.ingredients[i].fire);
         ingredientData["originVal"] = getOriginVal(json.ingredients[i].origin);
         ingredientData["addition"] = "";
@@ -2015,14 +2078,13 @@ function generateData(json, private) {
     retData["ingredients"] = ingredientsData;
 
     var kitchenwareData = new Array();
-    for (i in json.kitchenware) {
+    for (var i in json.kitchenware) {
 
         if (!json.kitchenware[i].name) {
             continue;
         }
 
-        var kitchenware = new Object();
-        kitchenware = json.kitchenware[i];
+        var kitchenware = json.kitchenware[i];
         kitchenware["fireDisp"] = getFireDisp(json.kitchenware[i].fire);
         var skillInfo = getSkillInfo(json.kitchenware[i].skill);
         kitchenware["skillVal"] = skillInfo.skillVal;
@@ -2032,15 +2094,43 @@ function generateData(json, private) {
     }
     retData["kitchenware"] = kitchenwareData;
 
+    var questsData = new Array();
+    for (var i in json.quests) {
+
+        if (json.quests[i].questId > 400) {
+            continue;
+        }
+
+        if (!json.quests[i].goal) {
+            continue;
+        }
+
+        var questData = json.quests[i];
+        var rewardsDisp = "";
+        var rewardsVal = "";
+        for (var j in json.quests[i].rewards) {
+            rewardsDisp += json.quests[i].rewards[j].name;
+            if (json.quests[i].rewards[j].quantity) {
+                rewardsDisp += "*" + json.quests[i].rewards[j].quantity;
+            }
+            rewardsDisp += " ";
+            rewardsVal += json.quests[i].rewards[j].name;
+        }
+        questData["rewardsVal"] = rewardsVal;
+        questData["rewardsDisp"] = rewardsDisp;
+
+        questsData.push(questData);
+    }
+    retData["quests"] = questsData;
+
     var chefsData = new Array();
-    for (i in json.chefs) {
+    for (var i in json.chefs) {
 
         if (!json.chefs[i].name) {
             continue;
         }
 
-        var chefData = new Object();
-        chefData = json.chefs[i];
+        var chefData = json.chefs[i];
         chefData["recipes"] = new Array();
 
         chefData["stirfry"] = json.chefs[i].stirfry || "";
@@ -2068,7 +2158,7 @@ function generateData(json, private) {
     retData["chefs"] = chefsData;
 
     var recipesData = new Array();
-    for (i in json.recipes) {
+    for (var i in json.recipes) {
 
         if (!json.recipes[i].name) {
             continue;
@@ -2138,8 +2228,8 @@ function generateData(json, private) {
         recipeData["levelGuestsDisp"] = levelGuestsDisp;
 
         var guests = "";
-        for (m in json.guests) {
-            for (n in json.guests[m].gifts) {
+        for (var m in json.guests) {
+            for (var n in json.guests[m].gifts) {
                 if (json.recipes[i].name == json.guests[m].gifts[n].recipe) {
                     guests += json.guests[m].name + "-" + json.guests[m].gifts[n].rune + "<br>";
                     break;
@@ -2153,7 +2243,7 @@ function generateData(json, private) {
         var maxEff = 0;
         var maxQlty = "";
 
-        for (j in retData["chefs"]) {
+        for (var j in retData["chefs"]) {
 
             var qualityInfo = getQualityInfo(json.recipes[i], retData["chefs"][j], false, null);
 
@@ -2200,9 +2290,19 @@ function generateData(json, private) {
     return retData;
 }
 
+function getQuestsData(quests, type) {
+    var retData = new Array();
+    for (var i in quests) {
+        if (quests[i].type == type) {
+            retData.push(quests[i]);
+        }
+    }
+    return retData;
+}
+
 function generateCalRecipeData(recipes) {
     var calRecipesData = new Array();
-    for (i in recipes) {
+    for (var i in recipes) {
 
         if (!recipes[i].price) {
             continue;
