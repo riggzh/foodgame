@@ -735,10 +735,10 @@ function initQuestTable(data) {
         }
     ];
 
-    // var questsData = getQuestsData(data.quests, $('#select-quest-type').val());
+    var questsData = getQuestsData(data.quests, $('#select-quest-type').val());
 
     var questTable = $('#quest-table').DataTable({
-        data: data.quests,
+        data: questsData,
         columns: questColumns,
         language: {
             search: "查找:",
@@ -779,10 +779,10 @@ function initQuestTable(data) {
         questTable.draw();
     });
 
-    // $('#select-quest-type').change(function () {
-    //     var questsData = getQuestsData(data.quests, $(this).val());
-    //     questTable.clear().rows.add(questsData).draw();
-    // });
+    $('#select-quest-type').change(function () {
+        var questsData = getQuestsData(data.quests, $(this).val());
+        questTable.clear().rows.add(questsData).draw();
+    });
 }
 
 function initCalTables(json, data) {
@@ -2087,7 +2087,7 @@ function generateData(json, private) {
     for (var i in json.quests) {
 
         if (json.quests[i].questId > 400) {
-            break;
+            continue;
         }
 
         if (!json.quests[i].goal) {
@@ -2575,9 +2575,9 @@ function initInfo(data) {
         },
         pageSize: 10,
         showPageNumbers: false,
-        showNavigator: false,   //true
-        showPrevious: false,    //true
-        showNext: false         //true
+        showNavigator: true,
+        showPrevious: true,
+        showNext: true
     });
 }
 
