@@ -2575,9 +2575,9 @@ function initInfo(data) {
         },
         pageSize: 10,
         showPageNumbers: false,
-        showNavigator: false,   //true
-        showPrevious: false,    //true
-        showNext: false         //true
+        showNavigator: true,
+        showPrevious: true,
+        showNext: true
     });
 }
 
