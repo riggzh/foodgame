@@ -7,11 +7,18 @@ function getSkillInfo(skill) {
         if (skill[j].type.indexOf("稀有客人") >= 0
             || skill[j].type.indexOf("料理") >= 0
             || skill[j].type.indexOf("金币获得") >= 0
-            || skill[j].type.indexOf("素材获得") >= 0) {
-            skillDisp += "+" + skill[j].addition * 100 + "%<br>";
+            || skill[j].type.indexOf("素材获得") >= 0
+            || skill[j].type.indexOf("开业时间") >= 0) {
+            if (skill[j].addition > 0) {
+                skillDisp += "+";
+            }
+            skillDisp += mul(skill[j].addition, 100) + "%<br>";
         } else if (skill[j].type.indexOf("技法") >= 0
             || skill[j].type.indexOf("采集") >= 0) {
-            skillDisp += "+" + skill[j].addition + "<br>";
+            if (skill[j].addition > 0) {
+                skillDisp += "+";
+            }
+            skillDisp += skill[j].addition + "<br>";
         } else {
             skillDisp += skill[j].addition + "<br>";
         }
@@ -23,7 +30,7 @@ function getSkillInfo(skill) {
     return skillInfo;
 }
 
-function getQualityInfo(recipe, chef, hasKitchenware, kitchenwareInfo) {
+function getQualityInfo(recipe, chef, kitchenware) {
     var times = Number.MAX_VALUE;
 
     var stirfry = chef.stirfry;
@@ -33,8 +40,8 @@ function getQualityInfo(recipe, chef, hasKitchenware, kitchenwareInfo) {
     var roast = chef.roast;
     var steam = chef.steam;
 
-    if (hasKitchenware && kitchenwareInfo) {
-        var skill = kitchenwareInfo.data.skill;
+    if (kitchenware) {
+        var skill = kitchenware.skill;
         for (var i in skill) {
             if (skill[i].type.indexOf("炒技法") >= 0
                 || skill[i].type.indexOf("全技法") >= 0) {
@@ -145,7 +152,6 @@ function getQualityInfo(recipe, chef, hasKitchenware, kitchenwareInfo) {
 
 function getSkillAddition(recipe, skill, ingredients) {
     var skillAddition = 0;
-
     for (var k in skill) {
         var hasSkill = false;
         if (skill[k].type.indexOf("水产料理") >= 0) {
@@ -232,104 +238,16 @@ function getSkillAddition(recipe, skill, ingredients) {
     return skillAddition;
 }
 
-function getIngredientsAddition(recipe, ingredients, cumulative) {
-    var addition = 0;
-    var positiveAddition = 0;
-    var negativeAddition = 0;
-
-    for (var m in recipe.ingredients) {
-        for (var n in ingredients) {
-            if (recipe.ingredients[m].name == ingredients[n].name) {
-                if (cumulative) {
-                    addition += Math.floor(ingredients[n].addition);
-                    break;
-                } else {
-                    if (Math.floor(ingredients[n].addition) > positiveAddition) {
-                        positiveAddition = Math.floor(ingredients[n].addition);
-                    } else if (Math.floor(ingredients[n].addition) < 0) {
-                        negativeAddition += Math.floor(ingredients[n].addition);
-                    }
-                }
-            }
-        }
-    }
-
-    if (cumulative) {
-        return addition;
-    } else {
-        return positiveAddition + negativeAddition;
-    }
+function mul(a, b) {
+    var c = 0,
+        d = a.toString(),
+        e = b.toString();
+    try {
+        c += d.split(".")[1].length;
+    } catch (f) { }
+    try {
+        c += e.split(".")[1].length;
+    } catch (f) { }
+    return Number(d.replace(".", "")) * Number(e.replace(".", "")) / Math.pow(10, c);
 }
 
-function getKitchenwareInfo(kitchenwareName, kitchenware) {
-    var info = new Object();
-    if (kitchenwareName) {
-        for (var j in kitchenware) {
-            if (kitchenwareName == kitchenware[j].name) {
-                info["data"] = kitchenware[j];
-                var skillInfo = getSkillInfo(kitchenware[j].skill);
-                info["disp"] = kitchenware[j].name + "<br>" + skillInfo.skillDisp;
-                break;
-            }
-        }
-    }
-    return info;
-}
-
-function getRecipeResult(chef, hasChefsAddition, hasKitchenware, kitchenwareInfo, recipe, quantity, hasRecipesAddition, ingredients, hasIngredientsAddition, ingredientsAdditionCumulative) {
-
-    var resultData = new Object();
-
-    var qualityAddition = 0;
-    var skillAddition = 0;
-    var kitchenwareAddition = 0;
-    var otherAddition = 0;
-
-    if (chef) {
-        var qualityData = getQualityInfo(recipe, chef, hasKitchenware, kitchenwareInfo);
-        if (qualityData.qualityVal == 0) {
-            return null;
-        }
-
-        qualityAddition = qualityData.qualityAddition;
-
-        resultData["qualityVal"] = qualityData.qualityVal;
-        resultData["qualityDisp"] = qualityData.qualityDisp;
-        resultData["qualityAddition"] = qualityAddition;
-        resultData["qualityAdditionDisp"] = qualityAddition || "";
-
-        skillAddition = getSkillAddition(recipe, chef.skill, ingredients);
-        resultData["skillAddition"] = skillAddition;
-        resultData["skillAdditionDisp"] = skillAddition || "";
-
-        if (hasKitchenware && kitchenwareInfo) {
-            kitchenwareAddition = getSkillAddition(recipe, kitchenwareInfo.data.skill, ingredients);
-            resultData["kitchenwareAddition"] = kitchenwareAddition;
-            resultData["kitchenwareAdditionDisp"] = kitchenwareAddition || "";
-        }
-
-        if (hasChefsAddition) {
-            otherAddition += Math.floor(chef.addition);
-        }
-    }
-
-    if (hasRecipesAddition) {
-        otherAddition += Math.floor(recipe.addition);
-    }
-
-    if (hasIngredientsAddition) {
-        var ingredientsAddition = getIngredientsAddition(recipe, ingredients, ingredientsAdditionCumulative);
-        otherAddition += ingredientsAddition;
-    }
-
-    resultData["data"] = recipe;
-    resultData["otherAddition"] = otherAddition;
-    resultData["otherAdditionDisp"] = otherAddition || "";
-    resultData["quantity"] = quantity;
-    resultData["totalPrice"] = recipe.price * quantity;
-    resultData["realTotalPrice"] = Math.ceil(recipe.price * (1 + qualityAddition + skillAddition + kitchenwareAddition)) * quantity;
-    resultData["bonusScore"] = Math.ceil(recipe.price * otherAddition) * quantity;
-    resultData["totalScore"] = resultData.realTotalPrice + resultData.bonusScore;
-
-    return resultData;
-}
