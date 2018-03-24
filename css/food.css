@@ -56,7 +56,7 @@ label.btn input[type="checkbox"]:checked+.fa {
     width: 60px;
 }
 
-#input-recipe-guest-rune {
+#input-recipe-guest-antique {
     width: 150px;
 }
 
@@ -135,9 +135,9 @@ label.btn input[type="checkbox"]:checked+.fa {
 
 #input-chef-stirfry,
 #input-chef-boil,
-#input-chef-cut,
+#input-chef-knife,
 #input-chef-fry,
-#input-chef-roast,
+#input-chef-bake,
 #input-chef-steam {
     width: 50px;
 }
@@ -275,6 +275,10 @@ table.dataTable tbody>tr>.selected {
     width: 60px;
 }
 
+.cal-td-input-quantity .form-control {
+    width: 60px;
+}
+
 .bootstrap-select.btn-group .dropdown-menu li a {
     color: #333;
 }
@@ -297,7 +301,7 @@ table.dataTable tbody>tr>.selected {
 
 #cal-self-select-table .cal-td-chef-name,
 #cal-self-select-table .cal-td-recipe-name,
-#cal-self-select-table .cal-td-kitchenware-name,
+#cal-self-select-table .cal-td-equip-name,
 #cal-self-select-table .cal-td-quantity {
     background-color: rgba(0, 0, 0, 0.05);
 }
