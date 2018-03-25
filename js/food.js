@@ -2460,7 +2460,7 @@ function generateData(json, json2) {
         }
 
         recipeData["rank"] = "";
-        recipeData["got"] = "是";
+        recipeData["got"] = "";
 
         if (person) {
             for (var j in person.recipes) {
