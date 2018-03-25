@@ -1033,6 +1033,9 @@ function importData(data) {
             if (recipes[i].recipeId == person.recipes[j].id) {
                 if (person.recipes[j].hasOwnProperty("rank")) {
                     recipes[i].rank = person.recipes[j].rank;
+                    var rankGuestInfo = getRankGuestInfo(recipes[i], recipes[i].rank);
+                    recipes[i].rankGuestsVal = rankGuestInfo.rankGuestsVal;
+                    recipes[i].rankGuestsDisp = rankGuestInfo.rankGuestsDisp;
                 }
                 if (person.recipes[j].hasOwnProperty("got")) {
                     recipes[i].got = person.recipes[j].got;
