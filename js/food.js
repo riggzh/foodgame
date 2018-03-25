@@ -2410,7 +2410,7 @@ function generateData(json, json2) {
             }
         }
 
-        chefData["got"] = "是";
+        chefData["got"] = "";
 
         if (person) {
             for (var j in person.chefs) {
