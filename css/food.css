@@ -202,7 +202,7 @@ table.dataTable tbody tr.selected {
 
 table.dataTable tbody>tr.selected,
 table.dataTable tbody>tr>.selected {
-    background-color: #e3ebef;
+    background-color: inherit;
 }
 
 .selected-sum {
@@ -304,4 +304,9 @@ table.dataTable tbody>tr>.selected {
 #cal-self-select-table .cal-td-equip-name,
 #cal-self-select-table .cal-td-quantity {
     background-color: rgba(0, 0, 0, 0.05);
+}
+
+#input-export-import {
+    width: 100% !important;
+    min-height: 50vh;
 }

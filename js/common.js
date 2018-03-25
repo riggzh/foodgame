@@ -30,7 +30,7 @@ function getSkillInfo(skill) {
     return skillInfo;
 }
 
-function getQualityInfo(recipe, chef, equip) {
+function getRankInfo(recipe, chef, equip) {
     var times = Number.MAX_VALUE;
 
     var stirfry = chef.stirfry;
@@ -118,36 +118,36 @@ function getQualityInfo(recipe, chef, equip) {
         }
     }
 
-    var qualityInfo = new Object();
+    var rankInfo = new Object();
 
-    var qualityAddition = 0;
-    var qualityDisp = "-";
-    var qualityVal = 0;
+    var rankAddition = 0;
+    var rankDisp = "-";
+    var rankVal = 0;
 
     if (times != Number.MAX_VALUE && times >= 1) {
         if (times >= 4) {
-            qualityAddition = 0.5;
-            qualityDisp = "神";
-            qualityVal = 4;
+            rankAddition = 0.5;
+            rankDisp = "神";
+            rankVal = 4;
         } else if (times >= 3) {
-            qualityAddition = 0.3;
-            qualityDisp = "特";
-            qualityVal = 3;
+            rankAddition = 0.3;
+            rankDisp = "特";
+            rankVal = 3;
         } else if (times >= 2) {
-            qualityAddition = 0.1;
-            qualityDisp = "优";
-            qualityVal = 2;
+            rankAddition = 0.1;
+            rankDisp = "优";
+            rankVal = 2;
         } else if (times >= 1) {
-            qualityAddition = 0;
-            qualityDisp = "可";
-            qualityVal = 1;
+            rankAddition = 0;
+            rankDisp = "可";
+            rankVal = 1;
         }
     }
 
-    qualityInfo["qualityAddition"] = qualityAddition;
-    qualityInfo["qualityDisp"] = qualityDisp;
-    qualityInfo["qualityVal"] = qualityVal;
-    return qualityInfo;
+    rankInfo["rankAddition"] = rankAddition;
+    rankInfo["rankDisp"] = rankDisp;
+    rankInfo["rankVal"] = rankVal;
+    return rankInfo;
 }
 
 function getSkillAddition(recipe, skill, materials) {

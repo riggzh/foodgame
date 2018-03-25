@@ -47,6 +47,8 @@ function initTables(data) {
 
     initQuestTable(data);
 
+    initImportExport();
+
     if (private) {
         initCalTables(data);
         $(".nav-tabs li").removeClass("hidden");
@@ -131,23 +133,28 @@ function initRecipeTable(data) {
             "data": "unlock"
         },
         {
+            "data": "tagsDisp",
+            "defaultContent": ""
+        },
+        {
             "data": "guestsDisp"
         },
         {
             "data": {
-                "_": "levelGuestsVal",
-                "display": "levelGuestsDisp"
+                "_": "rankGuestsVal",
+                "display": "rankGuestsDisp"
             }
         },
         {
             "data": "godAntique"
         },
         {
-            "data": "tagsDisp",
-            "defaultContent": ""
+            "data": "rank",
+            "width": "31px"
         },
         {
-            "data": "quality"
+            "data": "got",
+            "width": "31px"
         }
     ];
 
@@ -157,8 +164,8 @@ function initRecipeTable(data) {
 
         recipeColumns.push({
             "data": {
-                "_": "chefs." + j + ".qualityVal",
-                "display": "chefs." + j + ".qualityDisp"
+                "_": "chefs." + j + ".rankVal",
+                "display": "chefs." + j + ".rankDisp"
             }
         });
         recipeColumns.push({
@@ -183,7 +190,9 @@ function initRecipeTable(data) {
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
             "<'row'<'col-sm-12'tr>>" +
             "<'row'<'col-sm-12'p>>",
-        "deferRender": true
+        deferRender: true,
+        order: [],
+        autoWidth: false
     });
 
     $("#pane-recipes div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="菜名 材料 贵客 符文"></label>');
@@ -251,7 +260,7 @@ function initRecipeTable(data) {
         }
 
         var check = $('#chk-recipe-guest').prop("checked");
-        var guest = data[19];
+        var guest = data[20];
 
         if (!check || check && guest) {
             return true;
@@ -283,7 +292,7 @@ function initRecipeTable(data) {
         }
 
         var value = $("#input-recipe-guest-antique").val();
-        var searchCols = [20, 21];  // level guest, level antique
+        var searchCols = [21, 22];  // rank guest, rank antique
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
             if (data[searchCols[i]].indexOf(value) !== -1) {
@@ -294,13 +303,30 @@ function initRecipeTable(data) {
         return false;
     });
 
+
+    $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+        if (settings.nTable != document.getElementById('recipe-table')) {
+            return true;
+        }
+
+        var check = $('#chk-recipe-got').prop("checked");
+        var got = data[24];   // got
+
+        if (!check || check && got) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
+
     $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
         if (settings.nTable != document.getElementById('recipe-table')) {
             return true;
         }
 
         var value = $("#pane-recipes .search-box input").val();
-        var searchCols = [0, 1, 9, 19, 22]; // id, name, materials, guest, tags
+        var searchCols = [0, 1, 9, 19, 20]; // id, name, materials, tags, guest
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
             if (data[searchCols[i]].indexOf(value) !== -1) {
@@ -309,6 +335,37 @@ function initRecipeTable(data) {
         }
 
         return false;
+    });
+
+    var rankOptions = getRankOptions();
+    var gotOptions = getGotOptions();
+    recipeTable.MakeCellsEditable({
+        "columns": [23, 24],  // rank, got
+        "inputTypes": [
+            {
+                "column": 23,
+                "type": "list",
+                "options": rankOptions
+            },
+            {
+                "column": 24,
+                "type": "list",
+                "options": gotOptions
+            }
+        ],
+        "onUpdate": function updateSelfSelectTable(table, row, cell) {
+            var recipe = row.data();
+            var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank);
+            recipe.rankGuestsVal = rankGuestInfo.rankGuestsVal;
+            recipe.rankGuestsDisp = rankGuestInfo.rankGuestsDisp;
+            row.data(recipe);
+            table.draw(false);
+
+            var exportData = generateExportData();
+            try {
+                localStorage.setItem('data', exportData);
+            } catch (e) { }
+        }
     });
 
     $('#chk-recipe-show-chef').selectpicker().on('changed.bs.select', function () {
@@ -365,14 +422,30 @@ function initRecipeTable(data) {
     });
 
     $('#input-recipe-guest-antique').keyup(function () {
-        if (!$('#chk-recipe-show-level-guest').prop("checked")) {
-            $('#chk-recipe-show-level-guest').prop("checked", true);
+        if (!$('#chk-recipe-show-rank-guest').prop("checked")) {
+            $('#chk-recipe-show-rank-guest').prop("checked", true);
             initRecipeShow(recipeTable, data);
         }
         recipeTable.draw();
     });
 
     $('#chk-recipe-guest').click(function () {
+        recipeTable.draw();
+    });
+
+    $('#chk-recipe-filter-guest').click(function () {
+        recipeTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+            var recipe = this.data();
+            var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank);
+            recipe.rankGuestsVal = rankGuestInfo.rankGuestsVal;
+            recipe.rankGuestsDisp = rankGuestInfo.rankGuestsDisp;
+            this.data(recipe);
+        });
+
+        recipeTable.draw();
+    });
+
+    $('#chk-recipe-got').click(function () {
         recipeTable.draw();
     });
 
@@ -388,7 +461,6 @@ function initRecipeTable(data) {
         $('#chk-recipe-show-origin').prop("checked", false);
         $('#chk-recipe-show-unlock').prop("checked", false);
         $('#chk-recipe-show-tags').parent(".btn").removeClass('hidden');
-        $('#chk-recipe-show-quality').prop("checked", true).parent(".btn").removeClass('hidden');
         $('#chk-recipe-no-origin').closest(".box").removeClass('hidden');
     }
 
@@ -457,6 +529,10 @@ function initChefTable(data) {
         {
             "data": "tagsDisp",
             "defaultContent": ""
+        },
+        {
+            "data": "got",
+            "width": "31px"
         }
     ];
 
@@ -466,8 +542,8 @@ function initChefTable(data) {
 
         chefColumns.push({
             "data": {
-                "_": "recipes." + j + ".qualityVal",
-                "display": "recipes." + j + ".qualityDisp"
+                "_": "recipes." + j + ".rankVal",
+                "display": "recipes." + j + ".rankDisp"
             }
         });
     }
@@ -489,7 +565,9 @@ function initChefTable(data) {
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
             "<'row'<'col-sm-12'tr>>" +
             "<'row'<'col-sm-12'p>>",
-        "deferRender": true
+        deferRender: true,
+        order: [],
+        autoWidth: false
     });
 
     $("#pane-chefs div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="名字 技能 来源"></label>');
@@ -581,6 +659,22 @@ function initChefTable(data) {
             return true;
         }
 
+        var check = $('#chk-chef-got').prop("checked");
+        var got = data[17];   // got
+
+        if (!check || check && got) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
+
+    $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+        if (settings.nTable != document.getElementById('chef-table')) {
+            return true;
+        }
+
         var value = $("#pane-chefs .search-box input").val();
         var searchCols = [1, 9, 15, 16];    //  name, skill, origin, tags
 
@@ -591,6 +685,24 @@ function initChefTable(data) {
         }
 
         return false;
+    });
+
+    var gotOptions = getGotOptions();
+    chefTable.MakeCellsEditable({
+        "columns": [17],  // got
+        "inputTypes": [
+            {
+                "column": 17,
+                "type": "list",
+                "options": gotOptions
+            }
+        ],
+        "onUpdate": function updateSelfSelectTable(table, row, cell) {
+            table.draw(false);
+            try {
+                localStorage.setItem('data', generateExportData());
+            } catch (e) { }
+        }
     });
 
     $('#chk-chef-show-recipe').selectpicker().on('changed.bs.select', function () {
@@ -625,6 +737,10 @@ function initChefTable(data) {
     });
 
     $('.chk-chef-sex input[type="checkbox"]').click(function () {
+        chefTable.draw();
+    });
+
+    $('#chk-chef-got').click(function () {
         chefTable.draw();
     });
 
@@ -686,7 +802,7 @@ function initEquipTable(data) {
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
             "<'row'<'col-sm-12'tr>>" +
             "<'row'<'col-sm-12'p>>",
-        "deferRender": true
+        deferRender: true
     });
 
     $("#pane-equips div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="名字 技能 来源"></label>');
@@ -855,7 +971,7 @@ function initQuestTable(data) {
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
             "<'row'<'col-sm-12'tr>>" +
             "<'row'<'col-sm-12'p>>",
-        "deferRender": true
+        deferRender: true
     });
 
     $("#pane-quest div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="编号 任务 奖励"></label>');
@@ -885,6 +1001,93 @@ function initQuestTable(data) {
         var questsData = getQuestsData(data.quests, $(this).val());
         questTable.clear().rows.add(questsData).draw();
     });
+}
+
+function initImportExport() {
+    $('#btn-export').click(function () {
+        $("#input-export-import").val(generateExportData());
+    });
+    $('#btn-import').click(function () {
+        $(this).prop("disabled", true);
+        var success = importData($("#input-export-import").val());
+        if (success) {
+            $("#input-export-import").val("");
+        } else {
+            alert("格式有误");
+        }
+        $(this).prop("disabled", false);
+    });
+}
+
+function importData(data) {
+    var person;
+    try {
+        person = JSON.parse(data);
+    } catch (e) {
+        return false;
+    }
+
+    var recipes = $('#recipe-table').DataTable().data().toArray();
+    for (var i in recipes) {
+        for (var j in person.recipes) {
+            if (recipes[i].recipeId == person.recipes[j].id) {
+                if (person.recipes[j].hasOwnProperty("rank")) {
+                    recipes[i].rank = person.recipes[j].rank;
+                }
+                if (person.recipes[j].hasOwnProperty("got")) {
+                    recipes[i].got = person.recipes[j].got;
+                }
+                break;
+            }
+        }
+    }
+    $('#recipe-table').DataTable().clear().rows.add(recipes).draw();
+
+    var chefs = $('#chef-table').DataTable().data().toArray();
+    for (var i in chefs) {
+        for (var j in person.chefs) {
+            if (chefs[i].chefId == person.chefs[j].id) {
+                if (person.chefs[j].hasOwnProperty("got")) {
+                    chefs[i].got = person.chefs[j].got;
+                }
+                break;
+            }
+        }
+    }
+    $('#chef-table').DataTable().clear().rows.add(chefs).draw();
+
+    try {
+        localStorage.setItem('data', generateExportData());
+    } catch (e) { }
+
+    return true;
+}
+
+function generateExportData() {
+    var exportData = new Object();
+
+    var exportRecipes = new Array();
+    var recipes = $('#recipe-table').DataTable().data().toArray();
+    for (var i in recipes) {
+        var recipe = new Object();
+        recipe["id"] = recipes[i].recipeId;
+        recipe["rank"] = recipes[i].rank;
+        recipe["got"] = recipes[i].got;
+        exportRecipes.push(recipe);
+    }
+    exportData["recipes"] = exportRecipes;
+
+    var exportChefs = new Array();
+    var chefs = $('#chef-table').DataTable().data().toArray();
+    for (var i in chefs) {
+        var chef = new Object();
+        chef["id"] = chefs[i].chefId;
+        chef["got"] = chefs[i].got;
+        exportChefs.push(chef);
+    }
+    exportData["chefs"] = exportChefs;
+
+    return JSON.stringify(exportData);
 }
 
 function initCalTables(data) {
@@ -940,16 +1143,16 @@ function initCalRules(data) {
 
         ruleWorker = new Worker("js/cal.js");
         ruleWorker.onmessage = function (event) {
-            $('#cal-recipes-table').DataTable().clear().rows.add(event.data.recipes).draw(false);
+            $('#cal-recipes-table').DataTable().clear().rows.add(event.data.recipes).draw();
             $('#cal-recipes-table').DataTable().rows().select();
 
-            $('#cal-chefs-table').DataTable().clear().rows.add(event.data.chefs).draw(false);
+            $('#cal-chefs-table').DataTable().clear().rows.add(event.data.chefs).draw();
             $('#cal-chefs-table').DataTable().rows().select();
 
-            $('#cal-materials-table').DataTable().clear().rows.add(event.data.materials).draw(false);
+            $('#cal-materials-table').DataTable().clear().rows.add(event.data.materials).draw();
             $('#cal-materials-table').DataTable().rows().select();
 
-            $('#cal-equips-table').DataTable().clear().rows.add(event.data.equips).draw(false);
+            $('#cal-equips-table').DataTable().clear().rows.add(event.data.equips).draw();
             $('#cal-equips-table').DataTable().rows().select();
 
             var customWorker;
@@ -966,16 +1169,19 @@ function initCalRules(data) {
                     {
                         "column": 1,
                         "type": "list",
+                        "search": true,
                         "options": chefsOptions
                     },
                     {
                         "column": 10,
                         "type": "list",
+                        "search": true,
                         "options": recipesOptions
                     },
                     {
                         "column": 24,
                         "type": "list",
+                        "search": true,
                         "options": equipsOptions
                     }
                 ],
@@ -988,7 +1194,7 @@ function initCalRules(data) {
 
                     customWorker = new Worker("js/cal.js");
                     customWorker.onmessage = function (cevent) {
-                        table.clear().rows.add(cevent.data).draw(false);
+                        table.clear().rows.add(cevent.data).draw();
                         $(table.body()).removeClass("processing");
                     }
 
@@ -1311,6 +1517,7 @@ function initCalChefsTable(data) {
             {
                 "column": 15,   // equip
                 "type": "list",
+                "search": true,
                 "options": options
             }
         ]
@@ -1679,13 +1886,13 @@ function initCalResultsTable(data) {
 
                 if (mode == "all") {
                     panel.find('.chk-cal-results-show-selected').prop("checked", false);
-                    $("#cal-all-results-table").DataTable().clear().rows.add(event.data.menu).draw(false);
+                    $("#cal-all-results-table").DataTable().clear().rows.add(event.data.menu).draw();
                 } else if (mode == "optimal") {
-                    $("#cal-optimal-results-table").DataTable().clear().rows.add(event.data.menu).draw(false);
+                    $("#cal-optimal-results-table").DataTable().clear().rows.add(event.data.menu).draw();
                     $("#cal-optimal-results-table").DataTable().rows().select();
                 } else if (mode == "recipes") {
                     panel.find('.chk-cal-results-show-selected').prop("checked", false);
-                    $("#cal-recipes-results-table").DataTable().clear().rows.add(event.data.menu).draw(false);
+                    $("#cal-recipes-results-table").DataTable().clear().rows.add(event.data.menu).draw();
                 }
 
                 panel.find(".cal-results-wrapper").removeClass("hidden");
@@ -1824,15 +2031,15 @@ function initCalResultTableCommon(mode, data, panel) {
         },
         {
             "data": {
-                "_": "recipe.qualityVal",
-                "display": "recipe.qualityDisp"
+                "_": "recipe.rankVal",
+                "display": "recipe.rankDisp"
             },
             "defaultContent": ""
         },
         {
             "data": {
-                "_": "recipe.qualityAddition",
-                "display": "recipe.qualityAdditionDisp"
+                "_": "recipe.rankAddition",
+                "display": "recipe.rankAdditionDisp"
             },
             "defaultContent": ""
         },
@@ -2093,6 +2300,12 @@ function initCalSelfSelect(data) {
 
 function generateData(json, json2) {
 
+    var person;
+    try {
+        var localData = localStorage.getItem('data');
+        person = JSON.parse(localData);
+    } catch (e) { }
+
     if (json2) {
         json.equips = json.equips.concat(json2.equips);
         json.quests = json.quests.concat(json2.quests);
@@ -2197,6 +2410,19 @@ function generateData(json, json2) {
             }
         }
 
+        chefData["got"] = "是";
+
+        if (person) {
+            for (var j in person.chefs) {
+                if (json.chefs[i].chefId == person.chefs[j].id) {
+                    if (person.chefs[j].hasOwnProperty("got")) {
+                        chefData["got"] = person.chefs[j].got;
+                    }
+                    break;
+                }
+            }
+        }
+
         chefsData.push(chefData);
     }
     retData["chefs"] = chefsData;
@@ -2233,6 +2459,23 @@ function generateData(json, json2) {
             }
         }
 
+        recipeData["rank"] = "";
+        recipeData["got"] = "是";
+
+        if (person) {
+            for (var j in person.recipes) {
+                if (json.recipes[i].recipeId == person.recipes[j].id) {
+                    if (person.recipes[j].hasOwnProperty("rank")) {
+                        recipeData["rank"] = person.recipes[j].rank;
+                    }
+                    if (person.recipes[j].hasOwnProperty("got")) {
+                        recipeData["got"] = person.recipes[j].got;
+                    }
+                    break;
+                }
+            }
+        }
+
         var totalPrice = 0;
         var totalTime = 0;
         var efficiency = 0;
@@ -2262,23 +2505,9 @@ function generateData(json, json2) {
         }
         recipeData["materialsEff"] = materialsEff ? Math.floor(materialsEff) : "";
 
-        var levelGuestsDisp = "";
-        var levelGuestsVal = "";
-        for (g in json.recipes[i].guests) {
-            if (json.recipes[i].guests[g].guest) {
-                if (private) {
-                    if (json.recipes[i].quality == "优" && json.recipes[i].guests[g].quality == "优"
-                        || json.recipes[i].quality == "特" && json.recipes[i].guests[g].quality != "神"
-                        || json.recipes[i].quality == "神") {
-                        continue;
-                    }
-                }
-                levelGuestsDisp += json.recipes[i].guests[g].quality + "-" + json.recipes[i].guests[g].guest + "<br>";
-                levelGuestsVal += json.recipes[i].guests[g].guest;
-            }
-        }
-        recipeData["levelGuestsVal"] = levelGuestsVal;
-        recipeData["levelGuestsDisp"] = levelGuestsDisp;
+        var rankGuestInfo = getRankGuestInfo(json.recipes[i], recipeData.rank);
+        recipeData["rankGuestsVal"] = rankGuestInfo.rankGuestsVal;
+        recipeData["rankGuestsDisp"] = rankGuestInfo.rankGuestsDisp;
 
         var guests = "";
         for (var m in json.guests) {
@@ -2294,28 +2523,28 @@ function generateData(json, json2) {
         recipeData["chefs"] = new Array();
         for (var j in retData["chefs"]) {
 
-            var qualityInfo = getQualityInfo(json.recipes[i], retData["chefs"][j]);
+            var rankInfo = getRankInfo(json.recipes[i], retData["chefs"][j]);
 
             var chefEff = 0;
 
-            if (qualityInfo.qualityVal > 0) {
+            if (rankInfo.rankVal > 0) {
 
                 var skillAddition = getSkillAddition(json.recipes[i], retData["chefs"][j].skill, retData["materials"]);
 
                 if (efficiency > 0) {
-                    chefEff = (1 + qualityInfo.qualityAddition + skillAddition) * efficiency;
+                    chefEff = (1 + rankInfo.rankAddition + skillAddition) * efficiency;
                 }
             }
 
             var recipeChefData = new Object();
-            recipeChefData["qualityVal"] = qualityInfo.qualityVal;
-            recipeChefData["qualityDisp"] = qualityInfo.qualityDisp;
+            recipeChefData["rankVal"] = rankInfo.rankVal;
+            recipeChefData["rankDisp"] = rankInfo.rankDisp;
             recipeChefData["efficiency"] = Math.floor(chefEff) || "";
             recipeData["chefs"].push(recipeChefData);
 
             var chefRecipeData = new Object();
-            chefRecipeData["qualityVal"] = qualityInfo.qualityVal;
-            chefRecipeData["qualityDisp"] = qualityInfo.qualityDisp;
+            chefRecipeData["rankVal"] = rankInfo.rankVal;
+            chefRecipeData["rankDisp"] = rankInfo.rankDisp;
             retData["chefs"][j]["recipes"].push(chefRecipeData);
         }
 
@@ -2411,6 +2640,66 @@ function getOriginVal(origin) {
     return originVal;
 }
 
+function getRankGuestInfo(recipe, rank) {
+    var rankGuestsDisp = "";
+    var rankGuestsVal = "";
+
+    var filter = $('#chk-recipe-filter-guest').prop("checked");
+
+    for (var i in recipe.guests) {
+        if (filter) {
+            if (rank == "优" && recipe.guests[i].rank == "优"
+                || rank == "特" && recipe.guests[i].rank != "神"
+                || rank == "神") {
+                continue;
+            }
+        }
+        rankGuestsDisp += recipe.guests[i].rank + "-" + recipe.guests[i].guest + "<br>";
+        rankGuestsVal += recipe.guests[i].guest;
+    }
+
+    var retData = new Object();
+    retData["rankGuestsVal"] = rankGuestsVal;
+    retData["rankGuestsDisp"] = rankGuestsDisp;
+    return retData;
+}
+
+function getRankOptions() {
+    var list = new Array();
+    var option = new Object();
+    option["display"] = "";
+    option["value"] = "";
+    list.push(option);
+    option = new Object();
+    option["display"] = "优";
+    option["value"] = "优";
+    list.push(option);
+    option = new Object();
+    option["display"] = "特";
+    option["value"] = "特";
+    list.push(option);
+    option = new Object();
+    option["display"] = "神";
+    option["value"] = "神";
+    list.push(option);
+
+    return list;
+}
+
+function getGotOptions() {
+    var list = new Array();
+    var option = new Object();
+    option["display"] = "否";
+    option["value"] = "";
+    list.push(option);
+    option = new Object();
+    option["display"] = "是";
+    option["value"] = "是";
+    list.push(option);
+
+    return list;
+}
+
 function getEquipsOptions(equips) {
     var list = new Array();
     var option = new Object();
@@ -2483,22 +2772,23 @@ function initRecipeShow(recipeTable, data) {
     recipeTable.column(16).visible($('#chk-recipe-show-materials-efficiency').prop("checked"), false);
     recipeTable.column(17).visible($('#chk-recipe-show-origin').prop("checked"), false);
     recipeTable.column(18).visible($('#chk-recipe-show-unlock').prop("checked"), false);
-    recipeTable.column(19).visible($('#chk-recipe-show-guest').prop("checked"), false);
-    recipeTable.column(20).visible($('#chk-recipe-show-level-guest').prop("checked"), false);
-    recipeTable.column(21).visible($('#chk-recipe-show-god-antique').prop("checked"), false);
 
     if (private) {
-        recipeTable.column(22).visible($('#chk-recipe-show-tags').prop("checked"), false);
-        recipeTable.column(23).visible($('#chk-recipe-show-quality').prop("checked"), false);
+        recipeTable.column(19).visible($('#chk-recipe-show-tags').prop("checked"), false);
     } else {
-        recipeTable.column(22).visible(false, false);
-        recipeTable.column(23).visible(false, false);
+        recipeTable.column(19).visible(false, false);
     }
+
+    recipeTable.column(20).visible($('#chk-recipe-show-guest').prop("checked"), false);
+    recipeTable.column(21).visible($('#chk-recipe-show-rank-guest').prop("checked"), false);
+    recipeTable.column(22).visible($('#chk-recipe-show-god-antique').prop("checked"), false);
+    recipeTable.column(23).visible($('#chk-recipe-show-rank').prop("checked"), false);
+    recipeTable.column(24).visible($('#chk-recipe-show-got').prop("checked"), false);
 
     var chkChefs = $('#chk-recipe-show-chef').val();
     for (var j = 0; j < data.chefs.length; j++) {
-        recipeTable.column(24 + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
         recipeTable.column(25 + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
+        recipeTable.column(26 + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
     }
 
     recipeTable.columns.adjust().draw(false);
@@ -2530,9 +2820,12 @@ function initChefShow(chefTable, data) {
         chefTable.column(16).visible(false, false);
     }
 
+    chefTable.column(17).visible($('#chk-chef-show-got').prop("checked"), false);
+
+
     var chkRecipes = $('#chk-chef-show-recipe').val();
     for (var j = 0; j < data.recipes.length; j++) {
-        chefTable.column(17 + j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
+        chefTable.column(18 + j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
     }
 
     chefTable.columns.adjust().draw(false);
@@ -2613,13 +2906,13 @@ function initCalResultsShow(mode, calResultsTable, panel) {
         panel.find('.chk-cal-results-show-chef-rarity').prop("checked", false).closest(".btn").addClass("hidden");
         panel.find('.chk-cal-results-show-chef-sex').prop("checked", false).closest(".btn").addClass("hidden");
         panel.find('.chk-cal-results-show-chef-skill').prop("checked", false).closest(".btn").addClass("hidden");
-        panel.find('.chk-cal-results-show-recipe-quality').prop("checked", false).closest(".btn").addClass("hidden");
+        panel.find('.chk-cal-results-show-recipe-rank').prop("checked", false).closest(".btn").addClass("hidden");
         panel.find('.chk-cal-results-show-chef-equip').prop("checked", false).closest(".btn").addClass("hidden");
         panel.find('.chk-cal-results-show-chef-equip-addition').prop("checked", false).closest(".btn").addClass("hidden");
         panel.find('.chk-cal-results-show-recipe-real-total-price').prop("checked", false).closest(".btn").addClass("hidden");
 
         calResultsTable.column(1).visible(false, false);    // chef name
-        calResultsTable.column(22).visible(false, false);   // quality addtion
+        calResultsTable.column(22).visible(false, false);   // rank addtion
         calResultsTable.column(23).visible(false, false);   // skill addtion
 
     }
@@ -2646,7 +2939,7 @@ function initCalResultsShow(mode, calResultsTable, panel) {
     calResultsTable.column(17).visible(chkRecipeSkill, false);
 
     calResultsTable.column(18).visible(panel.find('.chk-cal-results-show-recipe-material').prop("checked"), false);
-    calResultsTable.column(21).visible(panel.find('.chk-cal-results-show-recipe-quality').prop("checked"), false);
+    calResultsTable.column(21).visible(panel.find('.chk-cal-results-show-recipe-rank').prop("checked"), false);
     calResultsTable.column(24).visible(panel.find('.chk-cal-results-show-chef-equip').prop("checked"), false);
     calResultsTable.column(25).visible(panel.find('.chk-cal-results-show-chef-equip-addition').prop("checked"), false);
     calResultsTable.column(26).visible(panel.find('.chk-cal-results-show-bonus-addition').prop("checked"), false);
@@ -2790,7 +3083,11 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
 
     switch (inputType) {
         case "list":
-            input.html = "<select data-live-search='true' data-width='fit' data-dropdown-align-right='auto' data-live-search-placeholder='查找' data-none-results-text='没有找到'>";
+            var searchable = "data-live-search='false'";
+            if (inputSetting.search) {
+                searchable = "data-live-search='true'";
+            }
+            input.html = "<select " + searchable + " data-width='fit' data-dropdown-align-right='auto' data-live-search-placeholder='查找' data-none-results-text='没有找到' data-none-selected-text=''>";
             $.each(inputSetting.options, function (index, option) {
                 input.html = input.html + "<option value='" + option.value + "'";
                 if (option.tokens) {

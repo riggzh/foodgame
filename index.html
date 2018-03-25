@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=3" />
     <script type="text/javascript" src="js/script.min.js?v=5"></script>
-    <script type="text/javascript" src="js/common.min.js?v=3"></script>
-    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=13" />
-    <script type="text/javascript" src="js/food.min.js?v=34"></script>
+    <script type="text/javascript" src="js/common.min.js?v=4"></script>
+    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=14" />
+    <script type="text/javascript" src="js/food.min.js?v=35"></script>
 </head>
 
 <body>
@@ -29,6 +29,9 @@
             </li>
             <li>
                 <a href="#pane-quest" data-toggle="tab">任务</a>
+            </li>
+            <li>
+                <a href="#pane-export-import" data-toggle="tab">个人</a>
             </li>
             <li class="hidden">
                 <a href="#pane-cal" data-toggle="tab">算分</a>
@@ -109,13 +112,18 @@
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             解锁
                         </label>
+                        <label class="btn btn-default hidden">
+                            <input type="checkbox" id="chk-recipe-show-tags" class="chk-recipe-show">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            类别
+                        </label>
                         <label class="btn btn-default">
                             <input type="checkbox" id="chk-recipe-show-guest" class="chk-recipe-show" checked>
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             贵客
                         </label>
                         <label class="btn btn-default">
-                            <input type="checkbox" id="chk-recipe-show-level-guest" class="chk-recipe-show">
+                            <input type="checkbox" id="chk-recipe-show-rank-guest" class="chk-recipe-show">
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             升阶贵客
                         </label>
@@ -124,15 +132,15 @@
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             神级符文
                         </label>
-                        <label class="btn btn-default hidden">
-                            <input type="checkbox" id="chk-recipe-show-tags" class="chk-recipe-show">
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-recipe-show-rank" class="chk-recipe-show" checked>
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                            类别
+                            品阶
                         </label>
-                        <label class="btn btn-default hidden">
-                            <input type="checkbox" id="chk-recipe-show-quality" class="chk-recipe-show">
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-recipe-show-got" class="chk-recipe-show">
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                            品质
+                            已有
                         </label>
                         <div class="chk-recipe-show-chef-wrapper">
                             <select id="chk-recipe-show-chef" multiple data-live-search="true" data-live-search-placeholder="查找" data-width="auto" data-dropdown-align-right='auto'
@@ -213,6 +221,20 @@
                             贵客
                         </label>
                     </div>
+                    <div class="box">
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-recipe-filter-guest" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            过滤升阶贵客
+                        </label>
+                    </div>
+                    <div class="box">
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-recipe-got">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            已有
+                        </label>
+                    </div>
                     <div class="box hidden">
                         <label class="btn btn-default">
                             <input type="checkbox" id="chk-recipe-no-origin">
@@ -256,11 +278,12 @@
                                 <th>耗材/小时</th>
                                 <th>来源</th>
                                 <th>可解锁</th>
+                                <th>类别</th>
                                 <th>贵客</th>
                                 <th>升阶贵客</th>
                                 <th>神级符文</th>
-                                <th>类别</th>
-                                <th>品质</th>
+                                <th>品阶</th>
+                                <th>已有</th>
                             </tr>
                         </thead>
                     </table>
@@ -311,6 +334,11 @@
                             <input type="checkbox" id="chk-chef-show-tags" class="chk-chef-show">
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             类别
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-chef-show-got" class="chk-chef-show">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            已有
                         </label>
                         <div class="chk-chef-show-recipe-wrapper">
                             <select id="chk-chef-show-recipe" multiple data-live-search="true" data-live-search-placeholder="查找" data-width="auto" data-dropdown-align-right='auto'
@@ -388,6 +416,13 @@
                             女
                         </label>
                     </div>
+                    <div class="box">
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-chef-got">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            已有
+                        </label>
+                    </div>
                     <div class="box hidden">
                         <label class="btn btn-default">
                             <input type="checkbox" id="chk-chef-no-origin">
@@ -417,6 +452,7 @@
                                 <th>性别</th>
                                 <th>来源</th>
                                 <th>类别</th>
+                                <th>已有</th>
                             </tr>
                         </thead>
                     </table>
@@ -628,6 +664,17 @@
                         </thead>
                     </table>
                 </div>
+            </div>
+            <div id="pane-export-import" class="tab-pane">
+                <div class="form-group">
+                    <textarea id="input-export-import" class="form-control"></textarea>
+                </div>
+                <button id="btn-export" class="btn btn-default" type="button">
+                    导出数据
+                </button>
+                <button id="btn-import" class="btn btn-default" type="button">
+                    导入数据
+                </button>
             </div>
             <div id="pane-cal" class="tab-pane">
                 <div class="tabs-left">
@@ -1149,9 +1196,9 @@
                                             材料
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" class="chk-cal-results-show-recipe-quality chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-recipe-rank chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                                            品质
+                                            品阶
                                         </label>
                                         <label class="btn btn-default">
                                             <input type="checkbox" class="chk-cal-results-show-chef-equip chk-cal-results-show">
@@ -1213,8 +1260,8 @@
                                                 <th>材料</th>
                                                 <th>单价</th>
                                                 <th>份数</th>
-                                                <th>品质</th>
-                                                <th>品质加成</th>
+                                                <th>品阶</th>
+                                                <th>品阶加成</th>
                                                 <th>技能加成</th>
                                                 <th>厨具</th>
                                                 <th>厨具加成</th>
@@ -1236,33 +1283,44 @@
                 <h3>
                     <span class="label label-primary">说明</span>
                 </h3>
-                <p>点击左上角切换功能。</p>
-                <p>图鉴第一组按钮选择显示项，默认没有全部显示，后面的负责筛选，点击列名可以排序。</p>
+                <p>点击左上角切换功能.</p>
+                <p>图鉴第一组按钮选择显示项, 默认没有全部显示, 后面的负责筛选, 点击列名可以排序.</p>
                 <h4>
                     <span class="label label-info">菜谱图鉴</span>
                 </h4>
-                <p>升阶贵客 - 第一次菜品升阶(升优-升特-升神)必来的贵客，该列默认不显示。</p>
-                <p>神级符文 - 第一次做神级菜品时贵客送的符文（升优，升特时贵客一般只给食材，升神会送符文或菜谱），该列默认不显示。</p>
-                <p>升阶贵客、神级符文搜索框 - 仅搜索升阶贵客和神级符文这两列，该搜索主要用于做贵客的碰瓷任务。</p>
-                <p>右侧搜索框 - 可搜索菜名，材料，贵客，符文。贵客和符文搜索的是贵客列，不同于升阶贵客和神级符文。</p>
+                <p>升阶贵客 - 第一次菜品升阶(升优-升特-升神)必来的贵客, 该列默认不显示.</p>
+                <p>神级符文 - 第一次做神级菜品时贵客送的符文（升优, 升特时贵客一般只给食材, 升神会送符文或菜谱）, 该列默认不显示.</p>
+                <p>升阶贵客、神级符文搜索框 - 仅搜索升阶贵客和神级符文这两列, 该搜索主要用于做贵客的碰瓷任务.</p>
+                <p>右侧搜索框 - 可搜索菜名, 材料, 贵客, 符文.贵客和符文搜索的是贵客列, 不同于升阶贵客和神级符文.</p>
+                <p class="text-danger">列 品阶 - 该列可编辑.</p>
+                <p class="text-danger">列 已有 - 该列可编辑, 默认不显示.</p>
+                <p class="text-danger">筛选 过滤升阶贵客 - 根据品阶已完成的升阶贵客不显示.</p>
+                <p class="text-danger">筛选 已有 - 只显示已有菜谱.</p>
                 <h4>
                     <span class="label label-info">厨师图鉴</span>
                 </h4>
-                <p>选择菜谱并点击菜谱列进行排序，可以看厨师可做的品质。</p>
+                <p>选择菜谱并点击菜谱列进行排序, 可以看厨师可做的品阶.</p>
+                <p class="text-danger">列 已有 - 该列可编辑, 默认不显示.</p>
+                <p class="text-danger">筛选 已有 - 只显示已有厨师.</p>
                 <h4>
                     <span class="label label-info">厨具图鉴</span>
                 </h4>
-                <p>可以选择类别进行筛选。</p>
+                <p>可以选择类别进行筛选.</p>
                 <h4>
                     <span class="label label-info">任务图鉴</span>
                 </h4>
-                <p>主线任务更新到400，隔一段时间会随着大佬们的进度更新。</p>
-                <p>支线任务更新到286，目前只出到286。</p>
-                <p>支线任务只列出了有特殊奖励的，其他支线任务也列出来感觉用处不大，就不做了。</p>
-                <p>支线任务编号解释 - 举例支线123.2，代表主线任务123会解锁，但需要完成支线123.1才会出现123.2。</p>
-                <p>同时支线任务的前置条件也包含了其他主线的支线任务，所以如果完成了主线任务却发现支线任务没有出现，说明它的前置支线任务没有完成。</p>
+                <p>主线任务更新到400, 隔一段时间会随着大佬们的进度更新.</p>
+                <p>支线任务更新到286, 目前只出到286.</p>
+                <p>支线任务只列出了有特殊奖励的, 其他支线任务也列出来感觉用处不大, 就不做了.</p>
+                <p>支线任务编号解释 - 举例支线123.2, 代表主线任务123会解锁, 但需要完成支线123.1才会出现123.2.</p>
+                <p>同时支线任务的前置条件也包含了其他主线的支线任务, 所以如果完成了主线任务却发现支线任务没有出现, 说明它的前置支线任务没有完成.</p>
+                <h4>
+                    <span class="label label-info">个人数据</span>
+                </h4>
+                <p class="text-danger">品阶等个人数据保存在本地, 正常情况下下次打开网站时数据不会丢失.</p>
+                <p class="text-danger">为防止需要更换设备或浏览器缓存被清空等情况, 提供了个人数据导出导入功能.</p>
                 <br>
-                <p>难免有数据缺失或错误，敬请谅解。如想纠错或补充数据可以联系我，官方1群或2群 L</p>
+                <p>难免有数据缺失或错误, 敬请谅解.如想纠错或补充数据可以联系我, 官方1群或2群 L</p>
                 <hr>
                 <h3>
                     <span class="label label-primary">更新</span>
@@ -1273,7 +1331,7 @@
                 <h3>
                     <span class="label label-primary">致谢</span>
                 </h3>
-                <p>感谢Boketto提供的菜谱数据。感谢官方2群闲时提供的升阶贵客符文数据。</p>
+                <p>感谢Boketto提供的菜谱数据.感谢官方2群闲时提供的升阶贵客符文数据.</p>
             </div>
         </div>
     </div>
