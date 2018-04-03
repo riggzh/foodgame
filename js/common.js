@@ -7,11 +7,18 @@ function getSkillInfo(skill) {
         if (skill[j].type.indexOf("稀有客人") >= 0
             || skill[j].type.indexOf("料理") >= 0
             || skill[j].type.indexOf("金币获得") >= 0
-            || skill[j].type.indexOf("素材获得") >= 0) {
-            skillDisp += "+" + skill[j].addition * 100 + "%<br>";
+            || skill[j].type.indexOf("素材获得") >= 0
+            || skill[j].type.indexOf("开业时间") >= 0) {
+            if (skill[j].addition > 0) {
+                skillDisp += "+";
+            }
+            skillDisp += mul(skill[j].addition, 100) + "%<br>";
         } else if (skill[j].type.indexOf("技法") >= 0
             || skill[j].type.indexOf("采集") >= 0) {
-            skillDisp += "+" + skill[j].addition + "<br>";
+            if (skill[j].addition > 0) {
+                skillDisp += "+";
+            }
+            skillDisp += skill[j].addition + "<br>";
         } else {
             skillDisp += skill[j].addition + "<br>";
         }
@@ -23,18 +30,18 @@ function getSkillInfo(skill) {
     return skillInfo;
 }
 
-function getQualityInfo(recipe, chef, hasKitchenware, kitchenwareInfo) {
+function getRankInfo(recipe, chef, equip) {
     var times = Number.MAX_VALUE;
 
     var stirfry = chef.stirfry;
     var boil = chef.boil;
-    var cut = chef.cut;
+    var knife = chef.knife;
     var fry = chef.fry;
-    var roast = chef.roast;
+    var bake = chef.bake;
     var steam = chef.steam;
 
-    if (hasKitchenware && kitchenwareInfo) {
-        var skill = kitchenwareInfo.data.skill;
+    if (equip) {
+        var skill = equip.skill;
         for (var i in skill) {
             if (skill[i].type.indexOf("炒技法") >= 0
                 || skill[i].type.indexOf("全技法") >= 0) {
@@ -44,13 +51,13 @@ function getQualityInfo(recipe, chef, hasKitchenware, kitchenwareInfo) {
                 boil += skill[i].addition;
             } else if (skill[i].type.indexOf("切技法") >= 0
                 || skill[i].type.indexOf("全技法") >= 0) {
-                cut += skill[i].addition;
+                knife += skill[i].addition;
             } else if (skill[i].type.indexOf("炸技法") >= 0
                 || skill[i].type.indexOf("全技法") >= 0) {
                 fry += skill[i].addition;
             } else if (skill[i].type.indexOf("烤技法") >= 0
                 || skill[i].type.indexOf("全技法") >= 0) {
-                roast += skill[i].addition;
+                bake += skill[i].addition;
             } else if (skill[i].type.indexOf("蒸技法") >= 0
                 || skill[i].type.indexOf("全技法") >= 0) {
                 steam += skill[i].addition;
@@ -75,9 +82,9 @@ function getQualityInfo(recipe, chef, hasKitchenware, kitchenwareInfo) {
         }
     }
     if (times >= 1) {
-        if (recipe.cut > 0) {
-            if (cut > 0) {
-                times = Math.min(times, cut / recipe.cut);
+        if (recipe.knife > 0) {
+            if (knife > 0) {
+                times = Math.min(times, knife / recipe.knife);
             } else {
                 times = 0;
             }
@@ -93,9 +100,9 @@ function getQualityInfo(recipe, chef, hasKitchenware, kitchenwareInfo) {
         }
     }
     if (times >= 1) {
-        if (recipe.roast > 0) {
-            if (roast > 0) {
-                times = Math.min(times, roast / recipe.roast);
+        if (recipe.bake > 0) {
+            if (bake > 0) {
+                times = Math.min(times, bake / recipe.bake);
             } else {
                 times = 0;
             }
@@ -111,48 +118,47 @@ function getQualityInfo(recipe, chef, hasKitchenware, kitchenwareInfo) {
         }
     }
 
-    var qualityInfo = new Object();
+    var rankInfo = new Object();
 
-    var qualityAddition = 0;
-    var qualityDisp = "-";
-    var qualityVal = 0;
+    var rankAddition = 0;
+    var rankDisp = "-";
+    var rankVal = 0;
 
     if (times != Number.MAX_VALUE && times >= 1) {
         if (times >= 4) {
-            qualityAddition = 0.5;
-            qualityDisp = "神";
-            qualityVal = 4;
+            rankAddition = 0.5;
+            rankDisp = "神";
+            rankVal = 4;
         } else if (times >= 3) {
-            qualityAddition = 0.3;
-            qualityDisp = "特";
-            qualityVal = 3;
+            rankAddition = 0.3;
+            rankDisp = "特";
+            rankVal = 3;
         } else if (times >= 2) {
-            qualityAddition = 0.1;
-            qualityDisp = "优";
-            qualityVal = 2;
+            rankAddition = 0.1;
+            rankDisp = "优";
+            rankVal = 2;
         } else if (times >= 1) {
-            qualityAddition = 0;
-            qualityDisp = "可";
-            qualityVal = 1;
+            rankAddition = 0;
+            rankDisp = "可";
+            rankVal = 1;
         }
     }
 
-    qualityInfo["qualityAddition"] = qualityAddition;
-    qualityInfo["qualityDisp"] = qualityDisp;
-    qualityInfo["qualityVal"] = qualityVal;
-    return qualityInfo;
+    rankInfo["rankAddition"] = rankAddition;
+    rankInfo["rankDisp"] = rankDisp;
+    rankInfo["rankVal"] = rankVal;
+    return rankInfo;
 }
 
-function getSkillAddition(recipe, skill, ingredients) {
+function getSkillAddition(recipe, skill, materials) {
     var skillAddition = 0;
-
     for (var k in skill) {
         var hasSkill = false;
         if (skill[k].type.indexOf("水产料理") >= 0) {
-            for (var m in recipe.ingredients) {
-                for (var n in ingredients) {
-                    if (recipe.ingredients[m].name == ingredients[n].name) {
-                        if (ingredients[n].origin == "鱼塘") {
+            for (var m in recipe.materials) {
+                for (var n in materials) {
+                    if (recipe.materials[m].name == materials[n].name) {
+                        if (materials[n].origin == "鱼塘") {
                             hasSkill = true;
                             break;
                         }
@@ -160,10 +166,10 @@ function getSkillAddition(recipe, skill, ingredients) {
                 }
             }
         } else if (skill[k].type.indexOf("面类料理") >= 0) {
-            for (var m in recipe.ingredients) {
-                for (var n in ingredients) {
-                    if (recipe.ingredients[m].name == ingredients[n].name) {
-                        if (ingredients[n].origin == "作坊") {
+            for (var m in recipe.materials) {
+                for (var n in materials) {
+                    if (recipe.materials[m].name == materials[n].name) {
+                        if (materials[n].origin == "作坊") {
                             hasSkill = true;
                             break;
                         }
@@ -171,12 +177,12 @@ function getSkillAddition(recipe, skill, ingredients) {
                 }
             }
         } else if (skill[k].type.indexOf("肉类料理") >= 0) {
-            for (var m in recipe.ingredients) {
-                for (var n in ingredients) {
-                    if (recipe.ingredients[m].name == ingredients[n].name) {
-                        if (ingredients[n].origin == "牧场"
-                            || ingredients[n].origin == "鸡舍"
-                            || ingredients[n].origin == "猪圈") {
+            for (var m in recipe.materials) {
+                for (var n in materials) {
+                    if (recipe.materials[m].name == materials[n].name) {
+                        if (materials[n].origin == "牧场"
+                            || materials[n].origin == "鸡舍"
+                            || materials[n].origin == "猪圈") {
                             hasSkill = true;
                             break;
                         }
@@ -184,12 +190,12 @@ function getSkillAddition(recipe, skill, ingredients) {
                 }
             }
         } else if (skill[k].type.indexOf("蔬菜料理") >= 0) {
-            for (var m in recipe.ingredients) {
-                for (var n in ingredients) {
-                    if (recipe.ingredients[m].name == ingredients[n].name) {
-                        if (ingredients[n].origin == "菜棚"
-                            || ingredients[n].origin == "菜地"
-                            || ingredients[n].origin == "森林") {
+            for (var m in recipe.materials) {
+                for (var n in materials) {
+                    if (recipe.materials[m].name == materials[n].name) {
+                        if (materials[n].origin == "菜棚"
+                            || materials[n].origin == "菜地"
+                            || materials[n].origin == "森林") {
                             hasSkill = true;
                             break;
                         }
@@ -209,11 +215,11 @@ function getSkillAddition(recipe, skill, ingredients) {
                 hasSkill = true;
             }
         } else if (skill[k].type.indexOf("切类料理") >= 0) {
-            if (recipe.cut > 0) {
+            if (recipe.knife > 0) {
                 hasSkill = true;
             }
         } else if (skill[k].type.indexOf("烤类料理") >= 0) {
-            if (recipe.roast > 0) {
+            if (recipe.bake > 0) {
                 hasSkill = true;
             }
         } else if (skill[k].type.indexOf("蒸类料理") >= 0) {
@@ -232,104 +238,16 @@ function getSkillAddition(recipe, skill, ingredients) {
     return skillAddition;
 }
 
-function getIngredientsAddition(recipe, ingredients, cumulative) {
-    var addition = 0;
-    var positiveAddition = 0;
-    var negativeAddition = 0;
-
-    for (var m in recipe.ingredients) {
-        for (var n in ingredients) {
-            if (recipe.ingredients[m].name == ingredients[n].name) {
-                if (cumulative) {
-                    addition += Math.floor(ingredients[n].addition);
-                    break;
-                } else {
-                    if (Math.floor(ingredients[n].addition) > positiveAddition) {
-                        positiveAddition = Math.floor(ingredients[n].addition);
-                    } else if (Math.floor(ingredients[n].addition) < 0) {
-                        negativeAddition += Math.floor(ingredients[n].addition);
-                    }
-                }
-            }
-        }
-    }
-
-    if (cumulative) {
-        return addition;
-    } else {
-        return positiveAddition + negativeAddition;
-    }
+function mul(a, b) {
+    var c = 0,
+        d = a.toString(),
+        e = b.toString();
+    try {
+        c += d.split(".")[1].length;
+    } catch (f) { }
+    try {
+        c += e.split(".")[1].length;
+    } catch (f) { }
+    return Number(d.replace(".", "")) * Number(e.replace(".", "")) / Math.pow(10, c);
 }
 
-function getKitchenwareInfo(kitchenwareName, kitchenware) {
-    var info = new Object();
-    if (kitchenwareName) {
-        for (var j in kitchenware) {
-            if (kitchenwareName == kitchenware[j].name) {
-                info["data"] = kitchenware[j];
-                var skillInfo = getSkillInfo(kitchenware[j].skill);
-                info["disp"] = kitchenware[j].name + "<br>" + skillInfo.skillDisp;
-                break;
-            }
-        }
-    }
-    return info;
-}
-
-function getRecipeResult(chef, hasChefsAddition, hasKitchenware, kitchenwareInfo, recipe, quantity, hasRecipesAddition, ingredients, hasIngredientsAddition, ingredientsAdditionCumulative) {
-
-    var resultData = new Object();
-
-    var qualityAddition = 0;
-    var skillAddition = 0;
-    var kitchenwareAddition = 0;
-    var otherAddition = 0;
-
-    if (chef) {
-        var qualityData = getQualityInfo(recipe, chef, hasKitchenware, kitchenwareInfo);
-        if (qualityData.qualityVal == 0) {
-            return null;
-        }
-
-        qualityAddition = qualityData.qualityAddition;
-
-        resultData["qualityVal"] = qualityData.qualityVal;
-        resultData["qualityDisp"] = qualityData.qualityDisp;
-        resultData["qualityAddition"] = qualityAddition;
-        resultData["qualityAdditionDisp"] = qualityAddition || "";
-
-        skillAddition = getSkillAddition(recipe, chef.skill, ingredients);
-        resultData["skillAddition"] = skillAddition;
-        resultData["skillAdditionDisp"] = skillAddition || "";
-
-        if (hasKitchenware && kitchenwareInfo) {
-            kitchenwareAddition = getSkillAddition(recipe, kitchenwareInfo.data.skill, ingredients);
-            resultData["kitchenwareAddition"] = kitchenwareAddition;
-            resultData["kitchenwareAdditionDisp"] = kitchenwareAddition || "";
-        }
-
-        if (hasChefsAddition) {
-            otherAddition += Math.floor(chef.addition);
-        }
-    }
-
-    if (hasRecipesAddition) {
-        otherAddition += Math.floor(recipe.addition);
-    }
-
-    if (hasIngredientsAddition) {
-        var ingredientsAddition = getIngredientsAddition(recipe, ingredients, ingredientsAdditionCumulative);
-        otherAddition += ingredientsAddition;
-    }
-
-    resultData["data"] = recipe;
-    resultData["otherAddition"] = otherAddition;
-    resultData["otherAdditionDisp"] = otherAddition || "";
-    resultData["quantity"] = quantity;
-    resultData["totalPrice"] = recipe.price * quantity;
-    resultData["realTotalPrice"] = Math.ceil(recipe.price * (1 + qualityAddition + skillAddition + kitchenwareAddition)) * quantity;
-    resultData["bonusScore"] = Math.ceil(recipe.price * otherAddition) * quantity;
-    resultData["totalScore"] = resultData.realTotalPrice + resultData.bonusScore;
-
-    return resultData;
-}
