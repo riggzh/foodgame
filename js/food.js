@@ -2556,9 +2556,9 @@ function generateData(json, json2) {
 
             if (maxEff < chefEff) {
                 maxEff = chefEff;
-                maxQlty = retData["chefs"][j].name + "[" + qualityInfo.qualityDisp + "]";
+                maxQlty = retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
             }else if(maxEff === chefEff) {
-                maxQlty += "," + retData["chefs"][j].name + "[" + qualityInfo.qualityDisp + "]";
+                maxQlty += "," + retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
             }
 
             var recipeChefData = new Object();
