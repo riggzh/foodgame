@@ -7674,29 +7674,6 @@
       "origin": "双11壁池"
     },
     {
-      "chefId": 135,
-      "name": "上宫晴",
-      "rarity": 5,
-      "sex": "女",
-      "stirfry": 124,
-      "bake": 0,
-      "boil": 249,
-      "steam": 374,
-      "fry": 0,
-      "knife": 62,
-      "skill": [
-        {
-          "type": "蒸类料理",
-          "addition": 0.25
-        }
-      ],
-      "meat": 0,
-      "fish": 0,
-      "veg": 7,
-      "creation": 7,
-      "origin": "限时礼包<br>情人节壁池"
-    },
-    {
       "chefId": 144,
       "name": "夏娃",
       "rarity": 4,
@@ -8115,15 +8092,15 @@
       "origin": "情人节壁池"
     },
     {
-      "chefId": 255,
+      "chefId": 254,
       "name": "雷公子",
       "rarity": 4,
       "sex": "男",
-      "stirfry": 92,
-      "bake": 276,
-      "boil": 46,
+      "stirfry": 62,
+      "bake": 188,
+      "boil": 31,
       "steam": 0,
-      "fry": 184,
+      "fry": 125,
       "knife": 0,
       "skill": [
         {
@@ -8133,27 +8110,21 @@
       ],
       "meat": 5,
       "fish": 0,
-      "veg": 6,
+      "veg": 5,
       "creation": 0,
       "origin": "情人节壁池"
     },
     {
-      "chefId": 285,
-      "name": "皮蛋 八哥 雍正",
+      "chefId": 283,
+      "name": "皮蛋",
       "rarity": 5,
       "sex": "男",
-      "stirfry": 135,
-      "bake": 135,
-      "boil": 135,
-      "steam": 135,
-      "fry": 135,
-      "knife": 135,
-      "skill": [
-        {
-          "type": "探索时间",
-          "addition": "显著减少"
-        }
-      ],
+      "stirfry": 45,
+      "bake": 45,
+      "boil": 45,
+      "steam": 45,
+      "fry": 45,
+      "knife": 45,
       "meat": -9,
       "fish": -9,
       "veg": -9,
