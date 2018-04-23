@@ -1333,7 +1333,6 @@ function initCalTables(data) {
 
     $("#pane-cal-results-common").remove();
 
-
 }
 
 function initCalRules(data) {
@@ -2046,6 +2045,10 @@ function initCalResultsTable(data) {
     $("#cal-recipes-results-place .cal-results-table").prop("id", "cal-recipes-results-table");
     $('#cal-recipes-results-place .chk-cal-results-show-selected').bootstrapToggle();
 
+    $("#cal-optimal-recipes-results-place").html($("#pane-cal-results-common").html());
+    $("#cal-optimal-recipes-results-place .cal-results-table").prop("id", "cal-optimal-recipes-results-table");
+    $('#cal-optimal-recipes-results-place .chk-cal-results-show-selected').remove();
+
     $("#cal-all-results-place").html($("#pane-cal-results-common").html());
     $("#cal-all-results-place .cal-results-table").prop("id", "cal-all-results-table");
     $('#cal-all-results-place .chk-cal-results-show-selected').bootstrapToggle();
@@ -2055,10 +2058,11 @@ function initCalResultsTable(data) {
     $("#cal-optimal-results-place .chk-cal-results-show-selected").remove();
 
     initCalResultTableCommon("recipes", new Array(), $("#pane-cal-recipes-results"));
+    initCalResultTableCommon("optimal-recipes", new Array(), $("#pane-cal-optimal-recipes-results"));
     initCalResultTableCommon("all", new Array(), $("#pane-cal-all-results"));
     initCalResultTableCommon("optimal", new Array(), $("#pane-cal-optimal-results"));
 
-    var calRecipesWorker, calAllWorker, calOptimalWorker;
+    var calRecipesWorker, calOptimalRecipesWorker, calAllWorker, calOptimalWorker;
 
     $('.btn-cal-results-cal').click(function () {
 
@@ -2081,6 +2085,9 @@ function initCalResultsTable(data) {
         } else if (panel.prop("id") == "pane-cal-recipes-results") {
             mode = "recipes";
             worker = calRecipesWorker;
+        } else if (panel.prop("id") == "pane-cal-optimal-recipes-results") {
+            mode = "optimal-recipes";
+            worker = calOptimalRecipesWorker;
         } else {
             return;
         }
@@ -2111,6 +2118,8 @@ function initCalResultsTable(data) {
             calOptimalWorker = worker;
         } else if (mode == "recipes") {
             calRecipesWorker = worker;
+        } else if (mode == "optimal-recipes") {
+            calOptimalRecipesWorker = worker;
         }
 
         worker.onmessage = function (event) {
@@ -2134,6 +2143,13 @@ function initCalResultsTable(data) {
                 } else if (mode == "recipes") {
                     panel.find('.chk-cal-results-show-selected').prop("checked", false);
                     $("#cal-recipes-results-table").DataTable().clear().rows.add(event.data.menu).draw();
+                } else if (mode == "optimal-recipes") {
+                    var menu = new Array();
+                    if (event.data.menu.length) {
+                        menu = event.data.menu[0];
+                    }
+                    $("#cal-optimal-recipes-results-table").DataTable().clear().rows.add(menu).draw();
+                    $("#cal-optimal-recipes-results-table").DataTable().rows().select();
                 }
 
                 panel.find(".cal-results-wrapper").removeClass("hidden");
@@ -2151,6 +2167,7 @@ function initCalResultsTable(data) {
         var calEquipsData = $('#cal-equips-table').DataTable().rows({ selected: true }).data().toArray();
         var calMaterialsData = $('#cal-materials-table').DataTable().rows({ selected: true }).data().toArray();
         var allLimit = Math.floor($("#input-cal-all-results-show-top").val());
+        var optimalRecipesLimit = Math.floor($("#input-cal-optimal-recipes-results-show-top").val());
         var autoEquips = $('#chk-cal-results-equips').prop("checked");
 
         worker.postMessage({
@@ -2162,6 +2179,7 @@ function initCalResultsTable(data) {
             "materials": calMaterialsData,
             "odata": data,
             "allLimit": allLimit,
+            "optimalRecipesLimit": optimalRecipesLimit,
             "autoEquips": autoEquips
         });
     });
@@ -2333,11 +2351,11 @@ function initCalResultTableCommon(mode, data, panel) {
             "defaultContent": ""
         },
         {
-            "data": "recipe.realTotalPrice",
+            "data": "recipe.totalRealPrice",
             "defaultContent": ""
         },
         {
-            "data": "recipe.bonusScore",
+            "data": "recipe.totalBonusScore",
             "defaultContent": ""
         },
         {
@@ -2347,7 +2365,7 @@ function initCalResultTableCommon(mode, data, panel) {
     ];
 
     var paging = true;
-    if (mode == "optimal" || mode == "self-select") {
+    if (mode == "optimal-recipes" || mode == "optimal" || mode == "self-select") {
         paging = false;
     }
 
@@ -2423,12 +2441,12 @@ function initCalResultTableCommon(mode, data, panel) {
             var sumText = "原售价：" + totalPrice;
 
             if (mode == "all" || mode == "optimal" || mode == "self-select") {
-                var realTotalPrice = dt.cells(selectedRows, 28).data().reduce(function (a, b) { return a + b; }, 0);    //realTotalPrice
-                sumText += " 实售价：" + realTotalPrice;
+                var totalRealPrice = dt.cells(selectedRows, 28).data().reduce(function (a, b) { return a + b; }, 0);    //totalRealPrice
+                sumText += " 实售价：" + totalRealPrice;
             }
 
-            var bonusScore = dt.cells(selectedRows, 29).data().reduce(function (a, b) { return a + b; }, 0);    //bonusScore
-            sumText += " 规则分：" + bonusScore;
+            var totalBonusScore = dt.cells(selectedRows, 29).data().reduce(function (a, b) { return a + b; }, 0);    //totalBonusScore
+            sumText += " 规则分：" + totalBonusScore;
 
             var totalScore = dt.cells(selectedRows, 30).data().reduce(function (a, b) { return a + b; }, 0);    //totalScore
             sumText += " 总得分：" + totalScore;

@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=3" />
     <script type="text/javascript" src="js/script.min.js?v=5"></script>
     <script type="text/javascript" src="js/common.min.js?v=5"></script>
-    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=15" />
-    <script type="text/javascript" src="js/food.min.js?v=39"></script>
+    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=16" />
+    <script type="text/javascript" src="js/food.min.js?v=40"></script>
 </head>
 
 <body>
@@ -731,6 +731,9 @@
                             <a href="#pane-cal-recipes-results" data-toggle="tab">计算菜谱</a>
                         </li>
                         <li>
+                            <a href="#pane-cal-optimal-recipes-results" data-toggle="tab">菜谱组合</a>
+                        </li>
+                        <li>
                             <a href="#pane-cal-all-results" data-toggle="tab">所有组合</a>
                         </li>
                         <li>
@@ -1144,6 +1147,24 @@
                                 </div>
                             </div>
                             <div id="cal-recipes-results-place"></div>
+                        </div>
+                        <div id="pane-cal-optimal-recipes-results" class="tab-pane pane-cal-results">
+                            <div>
+                                <div class="box">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">显示前</div>
+                                        <input type="text" class="form-control" id="input-cal-optimal-recipes-results-show-top" value="3">
+                                        <div class="input-group-addon">个组合</div>
+                                    </div>
+                                    <button class="btn btn-default btn-cal-results-cal start" type="button">
+                                        <span class="glyphicon glyphicon-pencil"></span>&nbsp;计算菜谱组合
+                                    </button>
+                                    <button class="btn btn-default btn-cal-results-cal stop" type="button" disabled>
+                                        <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;停止计算
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="cal-optimal-recipes-results-place"></div>
                         </div>
                         <div id="pane-cal-all-results" class="tab-pane pane-cal-results">
                             <div>

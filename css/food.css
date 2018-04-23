@@ -277,8 +277,9 @@ table.dataTable tbody>tr>.selected {
     text-align: center;
 }
 
-#input-cal-all-results-show-top {
-    width: 40px;
+#input-cal-all-results-show-top,
+#input-cal-optimal-recipes-results-show-top {
+    width: 45px;
 }
 
 .cal-td-input-addition .form-control {
