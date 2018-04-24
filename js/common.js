@@ -3,42 +3,53 @@ function getSkillInfo(skill) {
     var skillDisp = "";
     var skillVal = "";
     for (var j in skill) {
-        skillDisp += skill[j].type + " ";
-        if (skill[j].type.indexOf("稀有客人") >= 0
-            || skill[j].type.indexOf("料理") >= 0
-            || skill[j].type.indexOf("金币获得") >= 0
-            || skill[j].type.indexOf("素材获得") >= 0
-            || skill[j].type.indexOf("开业时间") >= 0) {
-            if (skill[j].addition > 0) {
-                skillDisp += "+";
-            }
-            skillDisp += mul(skill[j].addition, 100) + "%<br>";
-        } else if (skill[j].type.indexOf("技法") >= 0
-            || skill[j].type.indexOf("采集") >= 0) {
-            if (skill[j].addition > 0) {
-                skillDisp += "+";
-            }
-            skillDisp += skill[j].addition + "<br>";
-        } else {
-            skillDisp += skill[j].addition + "<br>";
-        }
-
-        skillVal += skill[j].type;
+        var oneInfo = getOneSkillInfo(skill[j]);
+        skillDisp += oneInfo.skillDisp;
+        skillVal += oneInfo.skillVal;
     }
     skillInfo["skillDisp"] = skillDisp;
     skillInfo["skillVal"] = skillVal;
     return skillInfo;
 }
 
+function getOneSkillInfo(skill) {
+    var skillInfo = new Object();
+    var skillDisp = skill.type + " ";
+
+    if (skill.type.indexOf("稀有客人") >= 0
+        || skill.type.indexOf("料理") >= 0
+        || skill.type.indexOf("金币获得") >= 0
+        || skill.type.indexOf("素材获得") >= 0
+        || skill.type.indexOf("开业时间") >= 0) {
+        if (skill.addition > 0) {
+            skillDisp += "+";
+        }
+        skillDisp += mul(skill.addition, 100) + "%<br>";
+    } else if (skill.type.indexOf("技法") >= 0
+        || skill.type.indexOf("采集") >= 0
+        || skill.type.indexOf("菜谱上限") >= 0) {
+        if (skill.addition > 0) {
+            skillDisp += "+";
+        }
+        skillDisp += skill.addition + "<br>";
+    } else {
+        skillDisp += skill.addition + "<br>";
+    }
+
+    skillInfo["skillDisp"] = skillDisp;
+    skillInfo["skillVal"] = skill.type;
+    return skillInfo;
+}
+
 function getRankInfo(recipe, chef, equip) {
     var times = Number.MAX_VALUE;
 
-    var stirfry = chef.stirfry;
-    var boil = chef.boil;
-    var knife = chef.knife;
-    var fry = chef.fry;
-    var bake = chef.bake;
-    var steam = chef.steam;
+    var stirfry = chef.stirfryVal;
+    var boil = chef.boilVal;
+    var knife = chef.knifeVal;
+    var fry = chef.fryVal;
+    var bake = chef.bakeVal;
+    var steam = chef.steamVal;
 
     if (equip) {
         var skill = equip.skill;

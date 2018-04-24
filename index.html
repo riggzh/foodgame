@@ -6,15 +6,17 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=3" />
     <script type="text/javascript" src="js/script.min.js?v=5"></script>
-    <script type="text/javascript" src="js/common.min.js?v=4"></script>
-    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=14" />
-    <script type="text/javascript" src="js/food.min.js?v=38"></script>
+    <script type="text/javascript" src="js/common.min.js?v=5"></script>
+    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=16" />
+    <script type="text/javascript" src="js/food.min.js?v=40"></script>
 </head>
 
 <body>
-    <div class="loading">
+    <div class="loading loading-text">
         <h1>加载中...</h1>
     </div>
+
+    <div class="loading loading-bg"></div>
 
     <div class="main-function hidden">
         <ul class="nav nav-tabs">
@@ -128,7 +130,7 @@
                             升阶贵客
                         </label>
                         <label class="btn btn-default">
-                            <input type="checkbox" id="chk-recipe-show-god-antique" class="chk-recipe-show">
+                            <input type="checkbox" id="chk-recipe-show-rank-antique" class="chk-recipe-show">
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             神级符文
                         </label>
@@ -138,7 +140,7 @@
                             品阶
                         </label>
                         <label class="btn btn-default">
-                            <input type="checkbox" id="chk-recipe-show-got" class="chk-recipe-show" checked>
+                            <input type="checkbox" id="chk-recipe-show-got" class="chk-recipe-show">
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             已有
                         </label>
@@ -311,17 +313,17 @@
                             技法
                         </label>
                         <label class="btn btn-default">
-                            <input type="checkbox" id="chk-chef-show-special-skill" class="chk-chef-show" checked>
+                            <input type="checkbox" id="chk-chef-show-chef-skill" class="chk-chef-show" checked>
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             技能
                         </label>
                         <label class="btn btn-default">
-                            <input type="checkbox" id="chk-chef-show-harvest" class="chk-chef-show">
+                            <input type="checkbox" id="chk-chef-show-explore" class="chk-chef-show">
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             采集
                         </label>
                         <label class="btn btn-default">
-                            <input type="checkbox" id="chk-chef-show-sex" class="chk-chef-show" checked>
+                            <input type="checkbox" id="chk-chef-show-gender" class="chk-chef-show" checked>
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             性别
                         </label>
@@ -336,7 +338,22 @@
                             类别
                         </label>
                         <label class="btn btn-default">
-                            <input type="checkbox" id="chk-chef-show-got" class="chk-chef-show" checked>
+                            <input type="checkbox" id="chk-chef-show-ultimate-goal" class="chk-chef-show">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            修炼任务
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-chef-show-ultimate-skill" class="chk-chef-show">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            修炼技能
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-chef-show-ultimate" class="chk-chef-show">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            已修炼
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-chef-show-got" class="chk-chef-show">
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             已有
                         </label>
@@ -404,14 +421,14 @@
                             清空
                         </a>
                     </div>
-                    <div class="box chk-chef-sex">
+                    <div class="box chk-chef-gender">
                         <label class="btn btn-default">
-                            <input type="checkbox" id="chk-chef-sex-male" checked>
+                            <input type="checkbox" id="chk-chef-gender-male" checked>
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             男
                         </label>
                         <label class="btn btn-default">
-                            <input type="checkbox" id="chk-chef-sex-female" checked>
+                            <input type="checkbox" id="chk-chef-gender-female" checked>
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             女
                         </label>
@@ -429,6 +446,19 @@
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             未出
                         </label>
+                    </div>
+                </div>
+                <div>
+                    <div class="box">
+                        <input type="checkbox" id="chk-chef-apply-ultimate" data-toggle="toggle" data-on="修炼技能开" data-off="修炼技能关" data-onstyle="default"
+                            data-width="105px" checked>
+                        <span class="chef-apply-ultimate">
+                            <input type="checkbox" id="chk-chef-apply-ultimate-person" data-toggle="toggle" data-on="已修炼" data-off="全修炼" data-onstyle="default"
+                                data-width="80px" checked>
+                            <a id="btn-chef-apply-ultimate-person" class="btn btn-default">
+                                重新计算已修炼
+                            </a>
+                        </span>
                     </div>
                 </div>
                 <div>
@@ -452,6 +482,9 @@
                                 <th>性别</th>
                                 <th>来源</th>
                                 <th>类别</th>
+                                <th>修炼任务</th>
+                                <th>修炼技能</th>
+                                <th>已修炼</th>
                                 <th>已有</th>
                             </tr>
                         </thead>
@@ -475,7 +508,7 @@
                             星
                         </label>
                         <label class="btn btn-default">
-                            <input type="checkbox" id="chk-equip-show-special-skill" class="chk-equip-show" checked>
+                            <input type="checkbox" id="chk-equip-show-skill" class="chk-equip-show" checked>
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             技能
                         </label>
@@ -698,6 +731,9 @@
                             <a href="#pane-cal-recipes-results" data-toggle="tab">计算菜谱</a>
                         </li>
                         <li>
+                            <a href="#pane-cal-optimal-recipes-results" data-toggle="tab">菜谱组合</a>
+                        </li>
+                        <li>
                             <a href="#pane-cal-all-results" data-toggle="tab">所有组合</a>
                         </li>
                         <li>
@@ -856,12 +892,12 @@
                                         技法
                                     </label>
                                     <label class="btn btn-default">
-                                        <input type="checkbox" id="chk-cal-chefs-show-special-skill" class="chk-cal-chefs-show" checked>
+                                        <input type="checkbox" id="chk-cal-chefs-show-chef-skill" class="chk-cal-chefs-show" checked>
                                         <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                         技能
                                     </label>
                                     <label class="btn btn-default">
-                                        <input type="checkbox" id="chk-cal-chefs-show-sex" class="chk-cal-chefs-show" checked>
+                                        <input type="checkbox" id="chk-cal-chefs-show-gender" class="chk-cal-chefs-show" checked>
                                         <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                         性别
                                     </label>
@@ -958,7 +994,7 @@
                                         星
                                     </label>
                                     <label class="btn btn-default">
-                                        <input type="checkbox" id="chk-cal-equips-show-special-skill" class="chk-cal-equips-show" checked>
+                                        <input type="checkbox" id="chk-cal-equips-show-skill" class="chk-cal-equips-show" checked>
                                         <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                         技能
                                     </label>
@@ -1112,6 +1148,24 @@
                             </div>
                             <div id="cal-recipes-results-place"></div>
                         </div>
+                        <div id="pane-cal-optimal-recipes-results" class="tab-pane pane-cal-results">
+                            <div>
+                                <div class="box">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">显示前</div>
+                                        <input type="text" class="form-control" id="input-cal-optimal-recipes-results-show-top" value="3">
+                                        <div class="input-group-addon">个组合</div>
+                                    </div>
+                                    <button class="btn btn-default btn-cal-results-cal start" type="button">
+                                        <span class="glyphicon glyphicon-pencil"></span>&nbsp;计算菜谱组合
+                                    </button>
+                                    <button class="btn btn-default btn-cal-results-cal stop" type="button" disabled>
+                                        <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;停止计算
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="cal-optimal-recipes-results-place"></div>
+                        </div>
                         <div id="pane-cal-all-results" class="tab-pane pane-cal-results">
                             <div>
                                 <div class="box">
@@ -1171,7 +1225,7 @@
                                             厨师星
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" class="chk-cal-results-show-chef-sex chk-cal-results-show">
+                                            <input type="checkbox" class="chk-cal-results-show-chef-gender chk-cal-results-show">
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             性别
                                         </label>
@@ -1292,16 +1346,22 @@
                 <p>神级符文 - 第一次做神级菜品时贵客送的符文（升优, 升特时贵客一般只给食材, 升神会送符文或菜谱）, 该列默认不显示.</p>
                 <p>升阶贵客、神级符文搜索框 - 仅搜索升阶贵客和神级符文这两列, 该搜索主要用于做贵客的碰瓷任务.</p>
                 <p>右侧搜索框 - 可搜索菜名, 材料, 贵客, 符文.贵客和符文搜索的是贵客列, 不同于升阶贵客和神级符文.</p>
-                <p class="text-danger">列 品阶 - 个人数据, 该列点击可编辑, 用来记录你当前做到的品阶.</p>
-                <p class="text-danger">列 已有 - 个人数据, 该列点击可编辑, 用来记录你是否用拥有该菜谱.</p>
-                <p class="text-danger">筛选按钮 过滤升阶贵客 - 根据你的菜谱品阶已完成的升阶贵客不显示.</p>
-                <p class="text-danger">筛选按钮 已有 - 只显示已有菜谱.</p>
+                <p>列 品阶 - 个人数据, 该列点击可编辑, 用来记录你当前做到的品阶.</p>
+                <p>列 已有 - 个人数据, 该列点击可编辑, 用来记录你是否用拥有该菜谱.</p>
+                <p>筛选按钮 过滤升阶贵客 - 根据你的菜谱品阶已完成的升阶贵客不显示.</p>
+                <p>筛选按钮 已有 - 只显示已有菜谱.</p>
                 <h4>
                     <span class="label label-info">厨师图鉴</span>
                 </h4>
                 <p>选择菜谱并点击菜谱列进行排序, 可以看厨师可做的品阶.</p>
-                <p class="text-danger">列 已有 - 个人数据, 该列点击可编辑, 用来记录你是否用拥有该厨师.</p>
-                <p class="text-danger">筛选按钮 已有 - 只显示已有厨师.</p>
+                <p class="text-danger">列 修炼任务</p>
+                <p class="text-danger">列 修炼技能</p>
+                <p class="text-danger">列 已修炼 - 个人数据, 该列点击可编辑, 用来记录你是否已修炼该厨师.</p>
+                <p>列 已有 - 个人数据, 该列点击可编辑, 用来记录你是否用拥有该厨师.</p>
+                <p>筛选按钮 已有 - 只显示已有厨师.</p>
+                <p class="text-danger">开关 修炼技能开/关 - 修炼技能开时, 图鉴数据会使用修炼技能加成.</p>
+                <p class="text-danger">开关 已修炼/全修炼 - 图鉴数据会使用已修炼,或者全修炼技能加成.</p>
+                <p class="text-danger">按钮 重新计算已修炼 - 基于效率考虑, 编辑已修炼列后图鉴数据不会重新计算,需要手动点击该按钮.</p>
                 <h4>
                     <span class="label label-info">厨具图鉴</span>
                 </h4>
@@ -1317,10 +1377,10 @@
                 <h4>
                     <span class="label label-info">个人数据</span>
                 </h4>
-                <p class="text-danger">品阶等个人数据保存在浏览器端, 正常情况下下次打开网站时数据不会丢失.</p>
-                <p class="text-danger">如需要更换设备或防止浏览器缓存被清空等情况, 可使用个人数据备份功能.</p>
-                <p class="text-danger">导出数据 - 点击按钮会生成个人数据, 可拷贝复制到其他地方用于备份.</p>
-                <p class="text-danger">导入数据 - 将备份的个人数据复制到文本框内, 点击按钮可以导入个人数据.</p>
+                <p>品阶等个人数据保存在浏览器端, 正常情况下下次打开网站时数据不会丢失.</p>
+                <p>如需要更换设备或防止浏览器缓存被清空等情况, 可使用个人数据备份功能.</p>
+                <p>导出数据 - 点击按钮会生成个人数据, 可拷贝复制到其他地方用于备份.</p>
+                <p>导入数据 - 将备份的个人数据复制到文本框内, 点击按钮可以导入个人数据.</p>
                 <br>
                 <p>难免有数据缺失或错误, 敬请谅解.如想纠错或补充数据可以联系我, 官方1群或2群 L</p>
                 <hr>
