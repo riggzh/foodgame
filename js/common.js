@@ -1,46 +1,3 @@
-function getSkillInfo(skill) {
-    var skillInfo = new Object();
-    var skillDisp = "";
-    var skillVal = "";
-    for (var j in skill) {
-        var oneInfo = getOneSkillInfo(skill[j]);
-        skillDisp += oneInfo.skillDisp;
-        skillVal += oneInfo.skillVal;
-    }
-    skillInfo["skillDisp"] = skillDisp;
-    skillInfo["skillVal"] = skillVal;
-    return skillInfo;
-}
-
-function getOneSkillInfo(skill) {
-    var skillInfo = new Object();
-    var skillDisp = skill.type + " ";
-
-    if (skill.type.indexOf("稀有客人") >= 0
-        || skill.type.indexOf("料理") >= 0
-        || skill.type.indexOf("金币获得") >= 0
-        || skill.type.indexOf("素材获得") >= 0
-        || skill.type.indexOf("开业时间") >= 0) {
-        if (skill.addition > 0) {
-            skillDisp += "+";
-        }
-        skillDisp += mul(skill.addition, 100) + "%<br>";
-    } else if (skill.type.indexOf("技法") >= 0
-        || skill.type.indexOf("采集") >= 0
-        || skill.type.indexOf("菜谱上限") >= 0) {
-        if (skill.addition > 0) {
-            skillDisp += "+";
-        }
-        skillDisp += skill.addition + "<br>";
-    } else {
-        skillDisp += skill.addition + "<br>";
-    }
-
-    skillInfo["skillDisp"] = skillDisp;
-    skillInfo["skillVal"] = skill.type;
-    return skillInfo;
-}
-
 function getRankInfo(recipe, chef, equip) {
     var times = Number.MAX_VALUE;
 
@@ -52,26 +9,52 @@ function getRankInfo(recipe, chef, equip) {
     var steam = chef.steamVal;
 
     if (equip) {
-        var skill = equip.skill;
-        for (var i in skill) {
-            if (skill[i].type.indexOf("炒技法") >= 0
-                || skill[i].type.indexOf("全技法") >= 0) {
-                stirfry += skill[i].addition;
-            } else if (skill[i].type.indexOf("煮技法") >= 0
-                || skill[i].type.indexOf("全技法") >= 0) {
-                boil += skill[i].addition;
-            } else if (skill[i].type.indexOf("切技法") >= 0
-                || skill[i].type.indexOf("全技法") >= 0) {
-                knife += skill[i].addition;
-            } else if (skill[i].type.indexOf("炸技法") >= 0
-                || skill[i].type.indexOf("全技法") >= 0) {
-                fry += skill[i].addition;
-            } else if (skill[i].type.indexOf("烤技法") >= 0
-                || skill[i].type.indexOf("全技法") >= 0) {
-                bake += skill[i].addition;
-            } else if (skill[i].type.indexOf("蒸技法") >= 0
-                || skill[i].type.indexOf("全技法") >= 0) {
-                steam += skill[i].addition;
+        var effect = equip.effect;
+        for (var i in effect) {
+            var type = effect[i].type;
+            var addition = effect[i].addition;
+            if (type.indexOf("炒技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    stirfry += addition;
+                } else {
+                    stirfry = stirfry * (1 + addition);
+                }
+            } else if (type.indexOf("煮技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    boil += addition;
+                } else {
+                    boil = boil * (1 + addition);
+                }
+            } else if (type.indexOf("切技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    knife += addition;
+                } else {
+                    knife = knife * (1 + addition);
+                }
+            } else if (type.indexOf("炸技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    fry += addition;
+                } else {
+                    fry = fry * (1 + addition);
+                }
+            } else if (type.indexOf("烤技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    bake += addition;
+                } else {
+                    bake = bake * (1 + addition);
+                }
+            } else if (type.indexOf("蒸技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    steam += addition;
+                } else {
+                    steam = steam * (1 + addition);
+                }
             }
         }
     }
@@ -165,79 +148,65 @@ function getSkillAddition(recipe, skill, materials) {
     var skillAddition = 0;
     for (var k in skill) {
         var hasSkill = false;
-        if (skill[k].type.indexOf("水产料理") >= 0) {
+        if (skill[k].type.indexOf("水产料理售价") >= 0) {
             for (var m in recipe.materials) {
-                for (var n in materials) {
-                    if (recipe.materials[m].name == materials[n].name) {
-                        if (materials[n].origin == "鱼塘") {
-                            hasSkill = true;
-                            break;
-                        }
-                    }
+                if (recipe.materials[m].origin == "鱼塘") {
+                    hasSkill = true;
+                    break;
                 }
             }
-        } else if (skill[k].type.indexOf("面类料理") >= 0) {
+        } else if (skill[k].type.indexOf("面类料理售价") >= 0) {
             for (var m in recipe.materials) {
-                for (var n in materials) {
-                    if (recipe.materials[m].name == materials[n].name) {
-                        if (materials[n].origin == "作坊") {
-                            hasSkill = true;
-                            break;
-                        }
-                    }
+                if (recipe.materials[m].origin == "作坊") {
+                    hasSkill = true;
+                    break;
                 }
             }
-        } else if (skill[k].type.indexOf("肉类料理") >= 0) {
+        } else if (skill[k].type.indexOf("肉类料理售价") >= 0) {
             for (var m in recipe.materials) {
-                for (var n in materials) {
-                    if (recipe.materials[m].name == materials[n].name) {
-                        if (materials[n].origin == "牧场"
-                            || materials[n].origin == "鸡舍"
-                            || materials[n].origin == "猪圈") {
-                            hasSkill = true;
-                            break;
-                        }
-                    }
+                if (recipe.materials[m].origin == "牧场"
+                    || recipe.materials[m].origin == "鸡舍"
+                    || recipe.materials[m].origin == "猪圈") {
+                    hasSkill = true;
+                    break;
                 }
             }
-        } else if (skill[k].type.indexOf("蔬菜料理") >= 0) {
+        } else if (skill[k].type.indexOf("蔬菜料理售价") >= 0) {
             for (var m in recipe.materials) {
-                for (var n in materials) {
-                    if (recipe.materials[m].name == materials[n].name) {
-                        if (materials[n].origin == "菜棚"
-                            || materials[n].origin == "菜地"
-                            || materials[n].origin == "森林") {
-                            hasSkill = true;
-                            break;
-                        }
-                    }
+                if (recipe.materials[m].origin == "菜棚"
+                    || recipe.materials[m].origin == "菜地"
+                    || recipe.materials[m].origin == "森林") {
+                    hasSkill = true;
+                    break;
                 }
             }
-        } else if (skill[k].type.indexOf("炒类料理") >= 0) {
+        } else if (skill[k].type.indexOf("炒类料理售价") >= 0) {
             if (recipe.stirfry > 0) {
                 hasSkill = true;
             }
-        } else if (skill[k].type.indexOf("煮类料理") >= 0) {
+        } else if (skill[k].type.indexOf("煮类料理售价") >= 0) {
             if (recipe.boil > 0) {
                 hasSkill = true;
             }
-        } else if (skill[k].type.indexOf("炸类料理") >= 0) {
+        } else if (skill[k].type.indexOf("炸类料理售价") >= 0) {
             if (recipe.fry > 0) {
                 hasSkill = true;
             }
-        } else if (skill[k].type.indexOf("切类料理") >= 0) {
+        } else if (skill[k].type.indexOf("切类料理售价") >= 0) {
             if (recipe.knife > 0) {
                 hasSkill = true;
             }
-        } else if (skill[k].type.indexOf("烤类料理") >= 0) {
+        } else if (skill[k].type.indexOf("烤类料理售价") >= 0) {
             if (recipe.bake > 0) {
                 hasSkill = true;
             }
-        } else if (skill[k].type.indexOf("蒸类料理") >= 0) {
+        } else if (skill[k].type.indexOf("蒸类料理售价") >= 0) {
             if (recipe.steam > 0) {
                 hasSkill = true;
             }
         } else if (skill[k].type.indexOf("金币获得") >= 0) {
+            hasSkill = true;
+        } else if (skill[k].type.indexOf("营业收入") >= 0) {
             hasSkill = true;
         }
 
@@ -262,3 +231,7 @@ function mul(a, b) {
     return Number(d.replace(".", "")) * Number(e.replace(".", "")) / Math.pow(10, c);
 }
 
+
+function isInt(n) {
+    return n % 1 === 0;
+}

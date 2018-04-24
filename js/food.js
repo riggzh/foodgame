@@ -154,7 +154,7 @@ function initRecipeTable(data) {
             }
         },
         {
-            "data": "godAntique"
+            "data": "godAntiqueDisp"
         },
         {
             "data": "rank",
@@ -363,7 +363,7 @@ function initRecipeTable(data) {
         ],
         "onUpdate": function (table, row, cell) {
             var recipe = row.data();
-            var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank);
+            var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank, data.guests);
             recipe.rankGuestsVal = rankGuestInfo.rankGuestsVal;
             recipe.rankGuestsDisp = rankGuestInfo.rankGuestsDisp;
             $(table.cell(row.index(), 21).node()).html(recipe.rankGuestsDisp);  // rank guest
@@ -442,7 +442,7 @@ function initRecipeTable(data) {
     $('#chk-recipe-filter-guest').click(function () {
         recipeTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
             var recipe = this.data();
-            var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank);
+            var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank, data.guests);
             recipe.rankGuestsVal = rankGuestInfo.rankGuestsVal;
             recipe.rankGuestsDisp = rankGuestInfo.rankGuestsDisp;
             this.data(recipe);
@@ -527,10 +527,7 @@ function initChefTable(data) {
             }
         },
         {
-            "data": {
-                "_": "specialSkillVal",
-                "display": "specialSkillDisp"
-            }
+            "data": "specialSkillDisp"
         },
         {
             "data": "meat"
@@ -558,10 +555,7 @@ function initChefTable(data) {
             "data": "ultimateGoal"
         },
         {
-            "data": {
-                "_": "ultimateSkillVal",
-                "display": "ultimateSkillDisp"
-            }
+            "data": "ultimateSkillDisp"
         },
         {
             "data": "ultimate",
@@ -838,10 +832,7 @@ function initEquipTable(data) {
             }
         },
         {
-            "data": {
-                "_": "skillVal",
-                "display": "skillDisp"
-            }
+            "data": "skillDisp"
         },
         {
             "data": "origin"
@@ -877,17 +868,17 @@ function initEquipTable(data) {
 
         var skill = data[3];    // skill
 
-        if ($('#chk-equip-skill-stirfry-price').prop("checked") && skill.indexOf("炒类料理") >= 0
-            || $('#chk-equip-skill-boil-price').prop("checked") && skill.indexOf("煮类料理") >= 0
-            || $('#chk-equip-skill-knife-price').prop("checked") && skill.indexOf("切类料理") >= 0
-            || $('#chk-equip-skill-fry-price').prop("checked") && skill.indexOf("炸类料理") >= 0
-            || $('#chk-equip-skill-bake-price').prop("checked") && skill.indexOf("烤类料理") >= 0
-            || $('#chk-equip-skill-steam-price').prop("checked") && skill.indexOf("蒸类料理") >= 0
-            || $('#chk-equip-skill-meat-price').prop("checked") && skill.indexOf("肉类料理") >= 0
-            || $('#chk-equip-skill-creation-price').prop("checked") && skill.indexOf("面类料理") >= 0
-            || $('#chk-equip-skill-veg-price').prop("checked") && skill.indexOf("蔬菜料理") >= 0
-            || $('#chk-equip-skill-fish-price').prop("checked") && skill.indexOf("水产料理") >= 0
-            || $('#chk-equip-skill-sell-price').prop("checked") && skill.indexOf("金币获得") >= 0
+        if ($('#chk-equip-skill-stirfry-price').prop("checked") && skill.indexOf("炒类料理售价") >= 0
+            || $('#chk-equip-skill-boil-price').prop("checked") && skill.indexOf("煮类料理售价") >= 0
+            || $('#chk-equip-skill-knife-price').prop("checked") && skill.indexOf("切类料理售价") >= 0
+            || $('#chk-equip-skill-fry-price').prop("checked") && skill.indexOf("炸类料理售价") >= 0
+            || $('#chk-equip-skill-bake-price').prop("checked") && skill.indexOf("烤类料理售价") >= 0
+            || $('#chk-equip-skill-steam-price').prop("checked") && skill.indexOf("蒸类料理售价") >= 0
+            || $('#chk-equip-skill-meat-price').prop("checked") && skill.indexOf("肉类料理售价") >= 0
+            || $('#chk-equip-skill-creation-price').prop("checked") && skill.indexOf("面类料理售价") >= 0
+            || $('#chk-equip-skill-veg-price').prop("checked") && skill.indexOf("蔬菜料理售价") >= 0
+            || $('#chk-equip-skill-fish-price').prop("checked") && skill.indexOf("水产料理售价") >= 0
+            || $('#chk-equip-skill-sell-price').prop("checked") && (skill.indexOf("金币获得") >= 0 || skill.indexOf("营业收入") >= 0)
             || $('#chk-equip-skill-stirfry-skill').prop("checked") && skill.indexOf("炒技法") >= 0
             || $('#chk-equip-skill-boil-skill').prop("checked") && skill.indexOf("煮技法") >= 0
             || $('#chk-equip-skill-knife-skill').prop("checked") && skill.indexOf("切技法") >= 0
@@ -1095,7 +1086,7 @@ function importData(data, input) {
             if (data.recipes[i].recipeId == person.recipes[j].id) {
                 if (person.recipes[j].hasOwnProperty("rank")) {
                     data.recipes[i].rank = person.recipes[j].rank;
-                    var rankGuestInfo = getRankGuestInfo(data.recipes[i], data.recipes[i].rank);
+                    var rankGuestInfo = getRankGuestInfo(data.recipes[i], data.recipes[i].rank, data.guests);
                     data.recipes[i].rankGuestsVal = rankGuestInfo.rankGuestsVal;
                     data.recipes[i].rankGuestsDisp = rankGuestInfo.rankGuestsDisp;
                 }
@@ -1381,7 +1372,7 @@ function initCalRules(data) {
 
             var chefsOptions = getChefsOptions(event.data.chefs);
             var recipesOptions = getRecipesOptions(event.data.recipes);
-            var equipsOptions = getEquipsOptions(data.equips);
+            var equipsOptions = getEquipsOptions(data.equips, data.skills);
 
             $('#cal-self-select-table').DataTable().MakeCellsEditable("destroy");
 
@@ -1670,10 +1661,7 @@ function initCalChefsTable(data) {
             }
         },
         {
-            "data": {
-                "_": "specialSkillVal",
-                "display": "specialSkillDisp"
-            }
+            "data": "specialSkillDisp"
         },
         {
             "data": "gender"
@@ -1750,7 +1738,7 @@ function initCalChefsTable(data) {
         return false;
     });
 
-    var options = getEquipsOptions(data.equips);
+    var options = getEquipsOptions(data.equips, data.skills);
     calChefsTable.MakeCellsEditable({
         "columns": [14, 15],  // addition, equip
         "inputTypes": [
@@ -1821,10 +1809,7 @@ function initCalEquipsTable(data) {
             }
         },
         {
-            "data": {
-                "_": "skillVal",
-                "display": "skillDisp"
-            }
+            "data": "skillDisp"
         },
         {
             "data": "origin"
@@ -2582,15 +2567,17 @@ function generateData(json, json2, person) {
         json.quests = json.quests.concat(json2.quests);
         json.recipes = json.recipes.concat(json2.recipes);
         json.chefs = json.chefs.concat(json2.chefs);
+        json.skills = json.skills.concat(json2.skills);
         json.ultimateGoals = json.ultimateGoals.concat(json2.ultimateGoals);
-        json.ultimateSkills = json.ultimateSkills.concat(json2.ultimateSkills);
     }
 
     var retData = new Object();
 
+    retData["guests"] = json.guests;
+
     retData["history"] = json.history;
 
-    retData["ultimateSkills"] = json.ultimateSkills;
+    retData["skills"] = json.skills;
 
     var materialsData = new Array();
     for (var i in json.materials) {
@@ -2612,10 +2599,10 @@ function generateData(json, json2, person) {
 
         var equip = json.equips[i];
         equip["rarityDisp"] = getRarityDisp(json.equips[i].rarity);
-        equip["cal"] = isCalEquip(json.equips[i].skill);
-        var skillInfo = getSkillInfo(json.equips[i].skill);
-        equip["skillVal"] = skillInfo.skillVal;
+        var skillInfo = getSkillInfo(json.skills, json.equips[i].skill);
         equip["skillDisp"] = skillInfo.skillDisp;
+        equip["effect"] = skillInfo.skillEffect;
+        equip["cal"] = isCalEquip(skillInfo.skillEffect);
 
         equipsData.push(equip);
     }
@@ -2646,7 +2633,7 @@ function generateData(json, json2, person) {
     }
     retData["quests"] = questsData;
 
-    var ultimateData = getUltimateData(json.chefs, person, json.ultimateSkills);
+    var ultimateData = getUltimateData(json.chefs, person, json.skills);
 
     var chefsData = new Array();
     for (var i in json.chefs) {
@@ -2668,9 +2655,9 @@ function generateData(json, json2, person) {
         chefData["chefIdDisp"] = (json.chefs[i].chefId - 2) + " - " + json.chefs[i].chefId;
         chefData["rarityDisp"] = getRarityDisp(json.chefs[i].rarity);
 
-        var skillInfo = getSkillInfo(json.chefs[i].skill);
-        chefData["specialSkillVal"] = skillInfo.skillVal;
+        var skillInfo = getSkillInfo(json.skills, json.chefs[i].skill);
         chefData["specialSkillDisp"] = skillInfo.skillDisp;
+        chefData["specialSkillEffect"] = skillInfo.skillEffect;
 
         if (json2) {
             for (var j in json2.chefsTags) {
@@ -2694,20 +2681,8 @@ function generateData(json, json2, person) {
         }
         chefData["ultimateGoal"] = ultimateGoal;
 
-        var ultimateSkillDisp = "";
-        var ultimateSkillVal = "";
-        if (json.chefs[i].ultimateSkill) {
-            for (var j in json.ultimateSkills) {
-                if (json.chefs[i].ultimateSkill == json.ultimateSkills[j].skillId) {
-                    var ultimateSkillInfo = getOneSkillInfo(json.ultimateSkills[j]);
-                    ultimateSkillDisp = ultimateSkillInfo.skillDisp;
-                    ultimateSkillVal = ultimateSkillInfo.skillVal;
-                    break;
-                }
-            }
-        }
-        chefData["ultimateSkillDisp"] = ultimateSkillDisp;
-        chefData["ultimateSkillVal"] = ultimateSkillVal;
+        var ultimateSkillInfo = getSkillInfo(json.skills, json.chefs[i].ultimateSkill);
+        chefData["ultimateSkillDisp"] = ultimateSkillInfo.skillDisp;
 
         setDataForChef(chefData, ultimateData);
 
@@ -2784,7 +2759,7 @@ function generateData(json, json2, person) {
 
         recipeData["efficiency"] = Math.floor(json.recipes[i].price * 3600 / json.recipes[i].time);
 
-        var materialsInfo = getMaterialsInfo(json.recipes[i]);
+        var materialsInfo = getMaterialsInfo(json.recipes[i], json.materials);
         recipeData["materialsVal"] = materialsInfo.materialsVal;
         recipeData["materialsDisp"] = materialsInfo.materialsDisp;
 
@@ -2794,9 +2769,24 @@ function generateData(json, json2, person) {
         }
         recipeData["materialsEff"] = materialsEff ? Math.floor(materialsEff) : "";
 
-        var rankGuestInfo = getRankGuestInfo(json.recipes[i], recipeData.rank);
+        var rankGuestInfo = getRankGuestInfo(json.recipes[i], recipeData.rank, json.guests);
         recipeData["rankGuestsVal"] = rankGuestInfo.rankGuestsVal;
         recipeData["rankGuestsDisp"] = rankGuestInfo.rankGuestsDisp;
+
+        var godAntiqueDisp = "";
+        if (json.recipes[i].godAntique) {
+            if (isNaN(json.recipes[i].godAntique)) {
+                godAntiqueDisp = json.recipes[i].godAntique;
+            } else {
+                for (var j in json.antiques) {
+                    if (json.recipes[i].godAntique == json.antiques[j].antiqueId) {
+                        godAntiqueDisp = json.antiques[j].name;
+                        break;
+                    }
+                }
+            }
+        }
+        recipeData["godAntiqueDisp"] = godAntiqueDisp;
 
         var guests = "";
         for (var m in json.guests) {
@@ -2818,7 +2808,7 @@ function generateData(json, json2, person) {
 
             if (rankInfo.rankVal > 0) {
 
-                var skillAddition = getSkillAddition(json.recipes[i], retData["chefs"][j].skill, retData["materials"]);
+                var skillAddition = getSkillAddition(json.recipes[i], retData["chefs"][j].specialSkillEffect, retData["materials"]);
 
                 chefEff = (1 + rankInfo.rankAddition + skillAddition) * recipeData.efficiency;
             }
@@ -2863,7 +2853,7 @@ function getUpdateData(data) {
         person = JSON.parse(localData);
     } catch (e) { }
 
-    var ultimateData = getUltimateData(data.chefs, person, data.ultimateSkills);
+    var ultimateData = getUltimateData(data.chefs, person, data.skills);
 
     for (var i in data.chefs) {
         setDataForChef(data.chefs[i], ultimateData);
@@ -2879,7 +2869,7 @@ function getUpdateData(data) {
 
             if (rankInfo.rankVal > 0) {
 
-                var skillAddition = getSkillAddition(data.recipes[i], data.chefs[j].skill, data.materials);
+                var skillAddition = getSkillAddition(data.recipes[i], data.chefs[j].specialSkillEffect, data.materials);
 
                 chefEff = (1 + rankInfo.rankAddition + skillAddition) * data.recipes[i].efficiency;
             }
@@ -2901,7 +2891,7 @@ function getUpdateData(data) {
     return data;
 }
 
-function getUltimateData(chefs, person, ultimateSkills) {
+function getUltimateData(chefs, person, skills) {
     var useUltimate = $("#chk-chef-apply-ultimate").prop("checked");
     var ultimateData = new Array();
     if (useUltimate) {
@@ -2925,21 +2915,23 @@ function getUltimateData(chefs, person, ultimateSkills) {
                 }
 
                 if (valid) {
-                    for (var k in ultimateSkills) {
-                        if (chefs[i].ultimateSkill == ultimateSkills[k].skillId) {
-                            var found = false;
-                            for (var m in ultimateData) {
-                                if (ultimateData[m].type == ultimateSkills[k].type) {
-                                    ultimateData[m].addition += ultimateSkills[k].addition;
-                                    found = true;
-                                    break;
+                    for (var k in skills) {
+                        if (chefs[i].ultimateSkill == skills[k].skillId) {
+                            for (var m in skills[k].effect) {
+                                var found = false;
+                                for (var n in ultimateData) {
+                                    if (ultimateData[n].type == skills[k].effect[m].type) {
+                                        ultimateData[n].addition += skills[k].effect[m].addition;
+                                        found = true;
+                                        break;
+                                    }
                                 }
-                            }
-                            if (!found) {
-                                var ultimateItem = new Object();
-                                ultimateItem["type"] = ultimateSkills[k].type;
-                                ultimateItem["addition"] = ultimateSkills[k].addition;
-                                ultimateData.push(ultimateItem);
+                                if (!found) {
+                                    var ultimateItem = new Object();
+                                    ultimateItem["type"] = skills[k].effect[m].type;
+                                    ultimateItem["addition"] = skills[k].effect[m].addition;
+                                    ultimateData.push(ultimateItem);
+                                }
                             }
                             break;
                         }
@@ -2962,17 +2954,21 @@ function getQuestsData(quests, type) {
     return retData;
 }
 
-function getMaterialsInfo(recipe) {
+function getMaterialsInfo(recipe, materials) {
     var materialsInfo = new Object();
     var materialsDisp = "";
     var materialsVal = "";
     var materialsCount = 0;
 
     for (var k in recipe.materials) {
-        if (recipe.materials[k].name) {
-            materialsDisp += recipe.materials[k].name + "*" + recipe.materials[k].quantity + " ";
-            materialsVal += recipe.materials[k].name;
-            materialsCount += recipe.materials[k].quantity;
+        for (var m in materials) {
+            if (recipe.materials[k].material == materials[m].materialId) {
+                materialsDisp += materials[m].name + "*" + recipe.materials[k].quantity + " ";
+                materialsVal += materials[m].name;
+                materialsCount += recipe.materials[k].quantity;
+                recipe.materials[k]["origin"] = materials[m].origin;
+                break;
+            }
         }
     }
     materialsInfo["materialsDisp"] = materialsDisp;
@@ -3036,7 +3032,7 @@ function getOriginVal(origin) {
     return originVal;
 }
 
-function getRankGuestInfo(recipe, rank) {
+function getRankGuestInfo(recipe, rank, guests) {
     var rankGuestsDisp = "";
     var rankGuestsVal = "";
 
@@ -3050,8 +3046,17 @@ function getRankGuestInfo(recipe, rank) {
                 continue;
             }
         }
-        rankGuestsDisp += recipe.guests[i].rank + "-" + recipe.guests[i].guest + "<br>";
-        rankGuestsVal += recipe.guests[i].guest;
+        var guestName = "";
+        if (recipe.guests[i].guest) {
+            for (var j in guests) {
+                if (recipe.guests[i].guest == guests[j].guestId) {
+                    guestName = guests[j].name;
+                    break;
+                }
+            }
+        }
+        rankGuestsDisp += recipe.guests[i].rank + "-" + guestName + "<br>";
+        rankGuestsVal += guestName;
     }
 
     var retData = new Object();
@@ -3186,7 +3191,7 @@ function getGotOptions() {
     return list;
 }
 
-function getEquipsOptions(equips) {
+function getEquipsOptions(equips, skills) {
     var list = new Array();
     var option = new Object();
     option["display"] = "无厨具";
@@ -3195,7 +3200,7 @@ function getEquipsOptions(equips) {
     option["value"] = "";
     list.push(option);
     for (var i in equips) {
-        var skillInfo = getSkillInfo(equips[i].skill);
+        var skillInfo = getSkillInfo(skills, equips[i].skill);
         var skillDisp = skillInfo.skillDisp.replace("<br>", " ");
         var option = new Object();
         option["display"] = equips[i].name;
@@ -3235,6 +3240,69 @@ function getRecipesOptions(recipes) {
         list.push(option);
     }
     return list;
+}
+
+function getSkillInfo(skills, skillId) {
+    var skillInfo = new Object();
+    var skillDisp = "";
+    var skillEffect = new Array();
+
+    var skillIds = [];
+    if (skillId.constructor === Array) {
+        skillIds = skillId;
+    } else {
+        if (skillId) {
+            skillIds.push(skillId);
+        }
+    }
+
+    for (var j in skillIds) {
+        var found = false;
+        for (var k in skills) {
+            if (skills[k].skillId == skillIds[j]) {
+                for (var m in skills[k].effect) {
+                    var type = skills[k].effect[m].type;
+                    var addition = skills[k].effect[m].addition;
+
+                    skillDisp += type + " ";
+
+                    if (type.indexOf("稀有客人出现概率") >= 0) {
+                        if (addition > 0) {
+                            skillDisp += "+";
+                        }
+                        skillDisp += mul(addition, 100) + "%<br>";
+                    } else {
+                        if (isNaN(addition)) {
+                            skillDisp += addition;
+                        }
+                        else {
+                            if (addition) {
+                                if (addition > 0) {
+                                    skillDisp += "+";
+                                }
+                                if (isInt(addition)) {
+                                    skillDisp += addition;
+                                } else {
+                                    skillDisp += mul(addition, 100) + "%";
+                                }
+                            }
+                        }
+                        skillDisp += "<br>";
+                    }
+
+                    skillEffect.push(skills[k].effect[m]);
+                }
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            console.log(skillIds[j]);
+        }
+    }
+    skillInfo["skillDisp"] = skillDisp;
+    skillInfo["skillEffect"] = skillEffect;
+    return skillInfo;
 }
 
 function initRecipeShow(recipeTable, data) {
@@ -3400,8 +3468,8 @@ function initCalResultsShow(mode, calResultsTable, panel) {
         panel.find('.chk-cal-results-show-recipe-real-total-price').prop("checked", false).closest(".btn").addClass("hidden");
 
         calResultsTable.column(1).visible(false, false);    // chef name
-        calResultsTable.column(22).visible(false, false);   // rank addtion
-        calResultsTable.column(23).visible(false, false);   // skill addtion
+        calResultsTable.column(22).visible(false, false);   // rank addition
+        calResultsTable.column(23).visible(false, false);   // skill addition
 
     }
 
