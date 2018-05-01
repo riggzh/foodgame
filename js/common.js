@@ -20,35 +20,40 @@ function getRankInfo(recipe, chef, equip) {
                 } else {
                     stirfry = stirfry * (1 + addition);
                 }
-            } else if (type.indexOf("煮技法") >= 0
+            }
+            if (type.indexOf("煮技法") >= 0
                 || type.indexOf("全技法") >= 0) {
                 if (isInt(addition)) {
                     boil += addition;
                 } else {
                     boil = boil * (1 + addition);
                 }
-            } else if (type.indexOf("切技法") >= 0
+            }
+            if (type.indexOf("切技法") >= 0
                 || type.indexOf("全技法") >= 0) {
                 if (isInt(addition)) {
                     knife += addition;
                 } else {
                     knife = knife * (1 + addition);
                 }
-            } else if (type.indexOf("炸技法") >= 0
+            }
+            if (type.indexOf("炸技法") >= 0
                 || type.indexOf("全技法") >= 0) {
                 if (isInt(addition)) {
                     fry += addition;
                 } else {
                     fry = fry * (1 + addition);
                 }
-            } else if (type.indexOf("烤技法") >= 0
+            }
+            if (type.indexOf("烤技法") >= 0
                 || type.indexOf("全技法") >= 0) {
                 if (isInt(addition)) {
                     bake += addition;
                 } else {
                     bake = bake * (1 + addition);
                 }
-            } else if (type.indexOf("蒸技法") >= 0
+            }
+            if (type.indexOf("蒸技法") >= 0
                 || type.indexOf("全技法") >= 0) {
                 if (isInt(addition)) {
                     steam += addition;
