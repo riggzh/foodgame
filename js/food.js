@@ -569,13 +569,16 @@ function initChefTable(data) {
 
     for (var j in data.recipes) {
         $('#chk-chef-show-recipe').append("<option value='" + j + "'>" + data.recipes[j].name + "</option>");
-        $('#chef-table thead tr').append("<th>" + data.recipes[j].name + "</th>");
+        $('#chef-table thead tr').append("<th title='" + data.recipes[j].skillDisp + "'>" + data.recipes[j].name + "</th>").append("<th>效率</th>");
 
         chefColumns.push({
             "data": {
                 "_": "recipes." + j + ".rankVal",
                 "display": "recipes." + j + ".rankDisp"
             }
+        });
+        chefColumns.push({
+            "data": "recipes." + j + ".efficiency"
         });
     }
 
@@ -2726,6 +2729,8 @@ function generateData(json, json2, person) {
         recipeData["price"] = json.recipes[i].price;
         recipeData["addition"] = "";
 
+        recipeData["skillDisp"] = getSkillDisp(json.recipes[i]);
+
         recipeData["timeDisp"] = secondsToTime(json.recipes[i].time);
         recipeData["rarityDisp"] = getRarityDisp(json.recipes[i].rarity);
 
@@ -3305,6 +3310,29 @@ function getSkillInfo(skills, skillId) {
     return skillInfo;
 }
 
+function getSkillDisp(recipe) {
+    var disp = "";
+    if (recipe.stirfry) {
+        disp += "炒" + recipe.stirfry;
+    }
+    if (recipe.boil) {
+        disp += "煮" + recipe.boil;
+    }
+    if (recipe.knife) {
+        disp += "切" + recipe.knife;
+    }
+    if (recipe.fry) {
+        disp += "炸" + recipe.fry;
+    }
+    if (recipe.bake) {
+        disp += "烤" + recipe.bake;
+    }
+    if (recipe.steam) {
+        disp += "蒸" + recipe.steam;
+    }
+    return disp;
+}
+
 function initRecipeShow(recipeTable, data) {
     recipeTable.column(0).visible($('#chk-recipe-show-id').prop("checked"), false);
     recipeTable.column(2).visible($('#chk-recipe-show-rarity').prop("checked"), false);
@@ -3381,7 +3409,8 @@ function initChefShow(chefTable, data) {
 
     var chkRecipes = $('#chk-chef-show-recipe').val();
     for (var j = 0; j < data.recipes.length; j++) {
-        chefTable.column(21 + j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
+        chefTable.column(21 + 2 * j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
+        chefTable.column(22 + 2 * j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
     }
 
     chefTable.columns.adjust().draw(false);
