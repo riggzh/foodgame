@@ -292,51 +292,6 @@
       "godAntique": 140008
     },
     {
-      "recipeId": 8,
-      "name": "梅菜扣肉",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 35,
-      "fry": 0,
-      "bake": 0,
-      "steam": 45,
-      "materials": [
-        {
-          "name": "里脊肉",
-          "quantity": 2
-        },
-        {
-          "name": "白菜",
-          "quantity": 8
-        },
-        {
-          "name": "青菜",
-          "quantity": 8
-        }
-      ],
-      "price": 227,
-      "time": 247,
-      "limit": 25,
-      "origin": "主线142",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "大胃王"
-        },
-        {
-          "rank": "特",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "神",
-          "guest": "迷弟杜甫"
-        }
-      ],
-      "godAntique": "蒸汽宝石"
-    },
-    {
       "recipeId": 9,
       "name": "红烧牛肉面",
       "rarity": 3,
@@ -664,19 +619,19 @@
       "steam": 30,
       "materials": [
         {
-          "name": "螃蟹",
+          "material": 24,
           "quantity": 3
         },
         {
-          "name": "梅花肉",
+          "material": 5,
           "quantity": 5
         },
         {
-          "name": "青菜",
+          "material": 6,
           "quantity": 15
         },
         {
-          "name": "猪油",
+          "material": 43,
           "quantity": 8
         }
       ],
@@ -687,18 +642,18 @@
       "guests": [
         {
           "rank": "优",
-          "guest": "苏轼"
+          "guest": 160013
         },
         {
           "rank": "特",
-          "guest": "苏轼"
+          "guest": 160013
         },
         {
           "rank": "神",
-          "guest": "苏轼"
+          "guest": 160013
         }
       ],
-      "godAntique": "蒸汽宝石"
+      "godAntique": 140010
     },
     {
       "recipeId": 17,
@@ -964,97 +919,7 @@
           "guest": 160010
         }
       ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 23,
-      "name": "宫保鸡丁",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 35,
-      "boil": 0,
-      "knife": 20,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鸡胸肉",
-          "quantity": 3
-        },
-        {
-          "name": "胡萝卜",
-          "quantity": 6
-        },
-        {
-          "name": "黄瓜",
-          "quantity": 6
-        }
-      ],
-      "price": 316,
-      "time": 351,
-      "limit": 25,
-      "origin": "主线129",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "富人"
-        },
-        {
-          "rank": "特",
-          "guest": "木优"
-        },
-        {
-          "rank": "神",
-          "guest": "吕布"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 24,
-      "name": "寿司",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 50,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "冻鱼",
-          "quantity": 2
-        },
-        {
-          "name": "大米",
-          "quantity": 6
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 3
-        }
-      ],
-      "price": 296,
-      "time": 179,
-      "limit": 25,
-      "origin": "每周挑战",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "木良"
-        },
-        {
-          "rank": "特",
-          "guest": "富太太"
-        },
-        {
-          "rank": "神",
-          "guest": "富人"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
+      "godAntique": 140012
     },
     {
       "recipeId": 25,
@@ -1147,51 +1012,6 @@
       "godAntique": 140004
     },
     {
-      "recipeId": 27,
-      "name": "片皮鸭",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 60,
-      "fry": 0,
-      "bake": 35,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鸭子",
-          "quantity": 4
-        },
-        {
-          "name": "葱",
-          "quantity": 12
-        },
-        {
-          "name": "面粉",
-          "quantity": 10
-        }
-      ],
-      "price": 319,
-      "time": 199,
-      "limit": 20,
-      "origin": "神级香酥鸭",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "吕布貂蝉"
-        },
-        {
-          "rank": "特",
-          "guest": "苏轼"
-        },
-        {
-          "rank": "神",
-          "guest": "唐伯虎"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
       "recipeId": 28,
       "name": "鸡蛋饼",
       "rarity": 1,
@@ -1231,51 +1051,6 @@
         }
       ],
       "godAntique": 140002
-    },
-    {
-      "recipeId": 29,
-      "name": "冰激凌华夫饼",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 50,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛乳",
-          "quantity": 6
-        },
-        {
-          "name": "面粉",
-          "quantity": 6
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 4
-        }
-      ],
-      "price": 110,
-      "time": 190,
-      "limit": 25,
-      "origin": "主线186",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "特",
-          "guest": "大明湖畔的美女"
-        },
-        {
-          "rank": "神",
-          "guest": "潇洒李白"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
     },
     {
       "recipeId": 30,
@@ -2011,96 +1786,6 @@
       "godAntique": 140011
     },
     {
-      "recipeId": 47,
-      "name": "烤肉拼盘",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 70,
-      "bake": 90,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鸡腿",
-          "quantity": 6
-        },
-        {
-          "name": "梅花肉",
-          "quantity": 6
-        },
-        {
-          "name": "牛排",
-          "quantity": 6
-        },
-        {
-          "name": "猪油",
-          "quantity": 10
-        }
-      ],
-      "price": 1032,
-      "time": 1083,
-      "limit": 20,
-      "origin": "晚秋壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "大明湖畔的美女"
-        },
-        {
-          "rank": "特",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
-    },
-    {
-      "recipeId": 48,
-      "name": "蛋黄粽",
-      "rarity": 2,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 55,
-      "materials": [
-        {
-          "name": "糯米",
-          "quantity": 5
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 2
-        }
-      ],
-      "price": 83,
-      "time": 261,
-      "limit": 30,
-      "origin": "神级白粽",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "王子"
-        },
-        {
-          "rank": "特",
-          "guest": "耶稣"
-        },
-        {
-          "rank": "神",
-          "guest": "大内侍卫"
-        }
-      ],
-      "godAntique": "蒸汽耳环"
-    },
-    {
       "recipeId": 49,
       "name": "兔子馒头",
       "rarity": 2,
@@ -2142,51 +1827,6 @@
       "godAntique": 140004
     },
     {
-      "recipeId": 50,
-      "name": "黄豆小排汤",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 20,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 65,
-      "materials": [
-        {
-          "name": "里脊肉",
-          "quantity": 3
-        },
-        {
-          "name": "黄豆",
-          "quantity": 8
-        },
-        {
-          "name": "土豆",
-          "quantity": 8
-        }
-      ],
-      "price": 505,
-      "time": 741,
-      "limit": 25,
-      "origin": "主线176",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "丐帮帮主"
-        },
-        {
-          "rank": "特",
-          "guest": "刘备"
-        },
-        {
-          "rank": "神",
-          "guest": "吕布"
-        }
-      ],
-      "godAntique": "蒸汽宝石"
-    },
-    {
       "recipeId": 51,
       "name": "凉拌黄瓜",
       "rarity": 1,
@@ -2226,55 +1866,6 @@
         }
       ],
       "godAntique": "-"
-    },
-    {
-      "recipeId": 52,
-      "name": "大骨高汤",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 70,
-      "knife": 25,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "葱",
-          "quantity": 10
-        },
-        {
-          "name": "梅花肉",
-          "quantity": 5
-        },
-        {
-          "name": "白萝卜",
-          "quantity": 5
-        },
-        {
-          "name": "猪油",
-          "quantity": 8
-        }
-      ],
-      "price": 636,
-      "time": 484,
-      "limit": 20,
-      "origin": "主线193",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "苏轼"
-        },
-        {
-          "rank": "特",
-          "guest": "如来"
-        },
-        {
-          "rank": "神",
-          "guest": "唐伯虎"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
     },
     {
       "recipeId": 53,
@@ -2402,100 +1993,6 @@
         }
       ],
       "godAntique": "-"
-    },
-    {
-      "recipeId": 56,
-      "name": "虾饺皇",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 50,
-      "fry": 0,
-      "bake": 0,
-      "steam": 80,
-      "materials": [
-        {
-          "name": "面粉",
-          "quantity": 6
-        },
-        {
-          "name": "虾",
-          "quantity": 4
-        },
-        {
-          "name": "笋",
-          "quantity": 3
-        }
-      ],
-      "price": 270,
-      "time": 578,
-      "limit": 25,
-      "origin": "神级小笼包",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "吕布"
-        },
-        {
-          "rank": "特",
-          "guest": "富太太"
-        },
-        {
-          "rank": "神",
-          "guest": "大明湖畔的美女"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 57,
-      "name": "海鲜面",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 60,
-      "boil": 60,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "面粉",
-          "quantity": 10
-        },
-        {
-          "name": "贝壳",
-          "quantity": 3
-        },
-        {
-          "name": "鲜鱼",
-          "quantity": 1
-        },
-        {
-          "name": "牛乳",
-          "quantity": 8
-        }
-      ],
-      "price": 281,
-      "time": 609,
-      "limit": 25,
-      "origin": "神级红烧牛肉面",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "特",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "神",
-          "guest": "富太太"
-        }
-      ],
-      "godAntique": "耐煮的水草"
     },
     {
       "recipeId": 58,
@@ -2631,47 +2128,6 @@
         }
       ],
       "godAntique": 140009
-    },
-    {
-      "recipeId": 61,
-      "name": "杭椒牛柳",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 40,
-      "boil": 0,
-      "knife": 30,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛腩",
-          "quantity": 2
-        },
-        {
-          "name": "青椒",
-          "quantity": 8
-        }
-      ],
-      "price": 193,
-      "time": 237,
-      "limit": 25,
-      "origin": "晚秋壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "富人"
-        },
-        {
-          "rank": "特",
-          "guest": "貂蝉"
-        },
-        {
-          "rank": "神",
-          "guest": "富人"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
     },
     {
       "recipeId": 62,
@@ -2838,51 +2294,6 @@
       "godAntique": "-"
     },
     {
-      "recipeId": 66,
-      "name": "黄焖鸡",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 55,
-      "boil": 40,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鸡腿",
-          "quantity": 4
-        },
-        {
-          "name": "土豆",
-          "quantity": 8
-        },
-        {
-          "name": "青菜",
-          "quantity": 10
-        }
-      ],
-      "price": 449,
-      "time": 319,
-      "limit": 20,
-      "origin": "神级口水鸡",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "如来"
-        },
-        {
-          "rank": "特",
-          "guest": "诸葛亮"
-        },
-        {
-          "rank": "神",
-          "guest": "唐伯虎"
-        }
-      ],
-      "godAntique": "耐煮的水草"
-    },
-    {
       "recipeId": 67,
       "name": "三杯鸡",
       "rarity": 4,
@@ -2895,15 +2306,15 @@
       "steam": 0,
       "materials": [
         {
-          "name": "童子鸡",
+          "material": 9,
           "quantity": 3
         },
         {
-          "name": "酒",
+          "material": 34,
           "quantity": 7
         },
         {
-          "name": "梅花肉",
+          "material": 5,
           "quantity": 4
         }
       ],
@@ -2914,18 +2325,18 @@
       "guests": [
         {
           "rank": "优",
-          "guest": "诸葛亮"
+          "guest": 160011
         },
         {
           "rank": "特",
-          "guest": "黄月英"
+          "guest": 160012
         },
         {
           "rank": "神",
-          "guest": "公主"
+          "guest": 160022
         }
       ],
-      "godAntique": "耐煮的水草"
+      "godAntique": 140009
     },
     {
       "recipeId": 68,
@@ -3067,47 +2478,6 @@
       "godAntique": "-"
     },
     {
-      "recipeId": 71,
-      "name": "生滚鱼片粥",
-      "rarity": 2,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 25,
-      "knife": 20,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "冻鱼",
-          "quantity": 2
-        },
-        {
-          "name": "大米",
-          "quantity": 3
-        }
-      ],
-      "price": 73,
-      "time": 143,
-      "limit": 30,
-      "origin": "神级窝蛋牛肉粥",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "大内侍卫"
-        },
-        {
-          "rank": "特",
-          "guest": "丐帮帮主"
-        },
-        {
-          "rank": "神",
-          "guest": "官爷"
-        }
-      ],
-      "godAntique": "剪刀蟹"
-    },
-    {
       "recipeId": 72,
       "name": "海鲜粥",
       "rarity": 2,
@@ -3151,51 +2521,6 @@
         }
       ],
       "godAntique": 140003
-    },
-    {
-      "recipeId": 73,
-      "name": "油焖笋",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 80,
-      "boil": 40,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "笋",
-          "quantity": 3
-        },
-        {
-          "name": "葱",
-          "quantity": 10
-        },
-        {
-          "name": "猪油",
-          "quantity": 10
-        }
-      ],
-      "price": 238,
-      "time": 326,
-      "limit": 20,
-      "origin": "神级笋干烧豆",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "公主"
-        },
-        {
-          "rank": "特",
-          "guest": "耶稣"
-        },
-        {
-          "rank": "神",
-          "guest": "如来"
-        }
-      ],
-      "godAntique": "耐煮的水草"
     },
     {
       "recipeId": 74,
@@ -3296,15 +2621,15 @@
       "steam": 0,
       "materials": [
         {
-          "name": "辣椒",
+          "material": 16,
           "quantity": 12
         },
         {
-          "name": "螃蟹",
+          "material": 24,
           "quantity": 4
         },
         {
-          "name": "青菜",
+          "material": 6,
           "quantity": 12
         }
       ],
@@ -3315,18 +2640,18 @@
       "guests": [
         {
           "rank": "优",
-          "guest": "皇帝"
+          "guest": 160024
         },
         {
           "rank": "特",
-          "guest": "皇帝"
+          "guest": 160024
         },
         {
           "rank": "神",
-          "guest": "皇后"
+          "guest": 160025
         }
       ],
-      "godAntique": "鼓风机"
+      "godAntique": 140017
     },
     {
       "recipeId": 77,
@@ -3575,51 +2900,6 @@
       "godAntique": "-"
     },
     {
-      "recipeId": 83,
-      "name": "猪耳碟头",
-      "rarity": 1,
-      "unlock": "卤水拼盘",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 12,
-      "materials": [
-        {
-          "name": "猪杂",
-          "quantity": 2
-        },
-        {
-          "name": "黄瓜",
-          "quantity": 2
-        },
-        {
-          "name": "青椒",
-          "quantity": 2
-        }
-      ],
-      "price": 65,
-      "time": 132,
-      "limit": 40,
-      "origin": "神级卤水门腔",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "屠夫老王"
-        },
-        {
-          "rank": "特",
-          "guest": "迷思吹法师"
-        },
-        {
-          "rank": "神",
-          "guest": "大胃王"
-        }
-      ],
-      "godAntique": "-"
-    },
-    {
       "recipeId": 84,
       "name": "豆豉蒸鱼",
       "rarity": 3,
@@ -3708,104 +2988,6 @@
         }
       ],
       "godAntique": 140008
-    },
-    {
-      "recipeId": 86,
-      "name": "猪肚鸡",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 65,
-      "knife": 30,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "童子鸡",
-          "quantity": 3
-        },
-        {
-          "name": "猪杂",
-          "quantity": 8
-        },
-        {
-          "name": "黄豆",
-          "quantity": 4
-        },
-        {
-          "name": "牛乳",
-          "quantity": 6
-        }
-      ],
-      "price": 558,
-      "time": 416,
-      "limit": 20,
-      "origin": "限时任务<br>春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "唐伯虎"
-        },
-        {
-          "rank": "特",
-          "guest": "王子"
-        },
-        {
-          "rank": "神",
-          "guest": "苏轼"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 87,
-      "name": "豆豉蒸排骨",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 85,
-      "fry": 0,
-      "bake": 0,
-      "steam": 80,
-      "materials": [
-        {
-          "name": "梅花肉",
-          "quantity": 4
-        },
-        {
-          "name": "黄豆",
-          "quantity": 8
-        },
-        {
-          "name": "葱",
-          "quantity": 10
-        },
-        {
-          "name": "猪油",
-          "quantity": 8
-        }
-      ],
-      "price": 721,
-      "time": 708,
-      "limit": 20,
-      "origin": "神级红烧排骨",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "黄月英"
-        },
-        {
-          "rank": "特",
-          "guest": "诸葛亮"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
     },
     {
       "recipeId": 88,
@@ -4086,141 +3268,6 @@
       "godAntique": 140006
     },
     {
-      "recipeId": 94,
-      "name": "葱香烤鱼",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 50,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "葱",
-          "quantity": 10
-        },
-        {
-          "name": "冻鱼",
-          "quantity": 2
-        },
-        {
-          "name": "黄瓜",
-          "quantity": 5
-        }
-      ],
-      "price": 370,
-      "time": 240,
-      "limit": 25,
-      "origin": "神级鱼香茄子",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "貂蝉"
-        },
-        {
-          "rank": "特",
-          "guest": "富人"
-        },
-        {
-          "rank": "神",
-          "guest": "富人"
-        }
-      ],
-      "godAntique": "焦虫"
-    },
-    {
-      "recipeId": 95,
-      "name": "菠萝班戟",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 48,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "菠萝",
-          "quantity": 4
-        },
-        {
-          "name": "面粉",
-          "quantity": 8
-        },
-        {
-          "name": "牛乳",
-          "quantity": 6
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 6
-        }
-      ],
-      "price": 194,
-      "time": 176,
-      "limit": 20,
-      "origin": "神级菠萝派",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "王子"
-        },
-        {
-          "rank": "特",
-          "guest": "王子"
-        },
-        {
-          "rank": "神",
-          "guest": "苏轼"
-        }
-      ],
-      "godAntique": "焦虫"
-    },
-    {
-      "recipeId": 96,
-      "name": "爆炒猪肝",
-      "rarity": 3,
-      "unlock": "洋葱肥肠",
-      "stirfry": 40,
-      "boil": 0,
-      "knife": 25,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "猪杂",
-          "quantity": 4
-        },
-        {
-          "name": "青椒",
-          "quantity": 5
-        }
-      ],
-      "price": 181,
-      "time": 214,
-      "limit": 25,
-      "origin": "主线135",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "大明湖畔的美女"
-        },
-        {
-          "rank": "特",
-          "guest": "木优"
-        },
-        {
-          "rank": "神",
-          "guest": "迷弟杜甫"
-        }
-      ],
-      "godAntique": "-"
-    },
-    {
       "recipeId": 97,
       "name": "香葱煎蛋",
       "rarity": 1,
@@ -4257,47 +3304,6 @@
         {
           "rank": "神",
           "guest": 160030
-        }
-      ],
-      "godAntique": "-"
-    },
-    {
-      "recipeId": 98,
-      "name": "洋葱小炒肉",
-      "rarity": 3,
-      "unlock": "煎牛排",
-      "stirfry": 55,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "洋葱",
-          "quantity": 5
-        },
-        {
-          "name": "里脊肉",
-          "quantity": 3
-        }
-      ],
-      "price": 137,
-      "time": 198,
-      "limit": 25,
-      "origin": "神级牛肉串",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "木良"
-        },
-        {
-          "rank": "特",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "神",
-          "guest": "貂蝉"
         }
       ],
       "godAntique": "-"
@@ -4342,47 +3348,6 @@
         }
       ],
       "godAntique": 140006
-    },
-    {
-      "recipeId": 101,
-      "name": "洋葱肥肠",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 50,
-      "boil": 0,
-      "knife": 20,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "洋葱",
-          "quantity": 4
-        },
-        {
-          "name": "猪杂",
-          "quantity": 4
-        }
-      ],
-      "price": 176,
-      "time": 205,
-      "limit": 25,
-      "origin": "神级爆炒猪肝",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "富人"
-        },
-        {
-          "rank": "特",
-          "guest": "木优"
-        },
-        {
-          "rank": "神",
-          "guest": "木优"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
     },
     {
       "recipeId": 102,
@@ -4430,149 +3395,6 @@
       "godAntique": "-"
     },
     {
-      "recipeId": 103,
-      "name": "鸡肉蔬菜沙拉",
-      "rarity": 2,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 35,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鸡胸肉",
-          "quantity": 2
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 4
-        },
-        {
-          "name": "番茄",
-          "quantity": 6
-        },
-        {
-          "name": "黄瓜",
-          "quantity": 6
-        }
-      ],
-      "price": 175,
-      "time": 305,
-      "limit": 30,
-      "origin": "主线216",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "耶稣"
-        },
-        {
-          "rank": "特",
-          "guest": "黄月英"
-        },
-        {
-          "rank": "神",
-          "guest": "唐伯虎"
-        }
-      ],
-      "godAntique": "焦虫"
-    },
-    {
-      "recipeId": 104,
-      "name": "卤水拼盘",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 40,
-      "knife": 60,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "猪杂",
-          "quantity": 6
-        },
-        {
-          "name": "鸡杂",
-          "quantity": 6
-        },
-        {
-          "name": "牛杂",
-          "quantity": 6
-        },
-        {
-          "name": "鸭子",
-          "quantity": 4
-        }
-      ],
-      "price": 550,
-      "time": 418,
-      "limit": 20,
-      "origin": "神级猪耳碟头",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "公主"
-        },
-        {
-          "rank": "特",
-          "guest": "诸葛亮"
-        },
-        {
-          "rank": "神",
-          "guest": "苏轼"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 105,
-      "name": "干锅香辣虾",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 65,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 80,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "虾",
-          "quantity": 6
-        },
-        {
-          "name": "葱",
-          "quantity": 6
-        },
-        {
-          "name": "辣椒",
-          "quantity": 8
-        }
-      ],
-      "price": 874,
-      "time": 342,
-      "limit": 20,
-      "origin": "神级干锅鱼头",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "王子"
-        },
-        {
-          "rank": "特",
-          "guest": "王子"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
-    },
-    {
       "recipeId": 106,
       "name": "牛肉煎包",
       "rarity": 1,
@@ -4612,47 +3434,6 @@
         }
       ],
       "godAntique": 140006
-    },
-    {
-      "recipeId": 107,
-      "name": "牛奶鸡蛋布丁",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 45,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛乳",
-          "quantity": 7
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 5
-        }
-      ],
-      "price": 84,
-      "time": 155,
-      "limit": 25,
-      "origin": "主线125",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "特",
-          "guest": "富人"
-        },
-        {
-          "rank": "神",
-          "guest": "迷弟杜甫"
-        }
-      ],
-      "godAntique": "焦虫"
     },
     {
       "recipeId": 108,
@@ -4737,153 +3518,6 @@
       "godAntique": 140003
     },
     {
-      "recipeId": 110,
-      "name": "红油抄手",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 50,
-      "boil": 60,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "虾",
-          "quantity": 3
-        },
-        {
-          "name": "梅花肉",
-          "quantity": 5
-        },
-        {
-          "name": "面粉",
-          "quantity": 4
-        },
-        {
-          "name": "辣椒",
-          "quantity": 6
-        }
-      ],
-      "price": 491,
-      "time": 376,
-      "limit": 20,
-      "origin": "神级炸春卷",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "王子"
-        },
-        {
-          "rank": "特",
-          "guest": "诸葛亮"
-        },
-        {
-          "rank": "神",
-          "guest": "苏轼"
-        }
-      ],
-      "godAntique": "耐煮的水草"
-    },
-    {
-      "recipeId": 111,
-      "name": "煎牛排",
-      "rarity": 5,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 95,
-      "fry": 0,
-      "bake": 120,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛排",
-          "quantity": 10
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 12
-        },
-        {
-          "name": "土豆",
-          "quantity": 10
-        },
-        {
-          "name": "番茄",
-          "quantity": 12
-        }
-      ],
-      "price": 1228,
-      "time": 584,
-      "limit": 15,
-      "origin": "神级洋葱小炒肉",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "皇帝"
-        },
-        {
-          "rank": "特",
-          "guest": ""
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
-    },
-    {
-      "recipeId": 112,
-      "name": "四喜饺",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 65,
-      "materials": [
-        {
-          "name": "虾",
-          "quantity": 3
-        },
-        {
-          "name": "梅花肉",
-          "quantity": 3
-        },
-        {
-          "name": "香菇",
-          "quantity": 4
-        },
-        {
-          "name": "黄豆",
-          "quantity": 3
-        }
-      ],
-      "price": 216,
-      "time": 230,
-      "limit": 20,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "耶稣"
-        },
-        {
-          "rank": "特",
-          "guest": "耶稣"
-        },
-        {
-          "rank": "神",
-          "guest": "黄月英"
-        }
-      ],
-      "godAntique": "蒸汽宝石"
-    },
-    {
       "recipeId": 115,
       "name": "萝卜小排汤",
       "rarity": 3,
@@ -4923,104 +3557,6 @@
         }
       ],
       "godAntique": 140012
-    },
-    {
-      "recipeId": 116,
-      "name": "三鲜砂锅",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 35,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 35,
-      "materials": [
-        {
-          "name": "冻鱼",
-          "quantity": 2
-        },
-        {
-          "name": "虾",
-          "quantity": 4
-        },
-        {
-          "name": "里脊肉",
-          "quantity": 4
-        },
-        {
-          "name": "香菇",
-          "quantity": 6
-        }
-      ],
-      "price": 230,
-      "time": 547,
-      "limit": 25,
-      "origin": "限时任务<br>春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "特",
-          "guest": "吕布"
-        },
-        {
-          "rank": "神",
-          "guest": "吕布"
-        }
-      ],
-      "godAntique": "蒸汽宝石"
-    },
-    {
-      "recipeId": 117,
-      "name": "香煎银鳕鱼",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 80,
-      "bake": 100,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鲜鱼",
-          "quantity": 5
-        },
-        {
-          "name": "番茄",
-          "quantity": 5
-        },
-        {
-          "name": "胡萝卜",
-          "quantity": 6
-        },
-        {
-          "name": "牛乳",
-          "quantity": 8
-        }
-      ],
-      "price": 1430,
-      "time": 731,
-      "limit": 20,
-      "origin": "情人节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "皇后"
-        },
-        {
-          "rank": "特",
-          "guest": "皇帝"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
     },
     {
       "recipeId": 118,
@@ -5244,96 +3780,6 @@
       "godAntique": 140008
     },
     {
-      "recipeId": 123,
-      "name": "虾仁豆腐",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 65,
-      "boil": 0,
-      "knife": 50,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "虾",
-          "quantity": 4
-        },
-        {
-          "name": "豆腐",
-          "quantity": 4
-        },
-        {
-          "name": "胡萝卜",
-          "quantity": 4
-        }
-      ],
-      "price": 758,
-      "time": 574,
-      "limit": 25,
-      "origin": "神级家常豆腐",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "富太太"
-        },
-        {
-          "rank": "特",
-          "guest": "大明湖畔的美女"
-        },
-        {
-          "rank": "神",
-          "guest": "迷弟杜甫"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 124,
-      "name": "蛤蜊蒸蛋",
-      "rarity": 2,
-      "unlock": "蛤蜊豆腐汤",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 55,
-      "materials": [
-        {
-          "name": "鸡蛋",
-          "quantity": 4
-        },
-        {
-          "name": "葱",
-          "quantity": 5
-        },
-        {
-          "name": "贝壳",
-          "quantity": 3
-        }
-      ],
-      "price": 276,
-      "time": 270,
-      "limit": 30,
-      "origin": "神级葱姜辣炒蛤蜊",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "刘备"
-        },
-        {
-          "rank": "特",
-          "guest": "富二代"
-        },
-        {
-          "rank": "神",
-          "guest": "大内侍卫"
-        }
-      ],
-      "godAntique": "-"
-    },
-    {
       "recipeId": 125,
       "name": "酒酿小圆子",
       "rarity": 2,
@@ -5377,51 +3823,6 @@
         }
       ],
       "godAntique": 140003
-    },
-    {
-      "recipeId": 126,
-      "name": "糯米蛋",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 70,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鸡蛋",
-          "quantity": 5
-        },
-        {
-          "name": "糯米",
-          "quantity": 5
-        },
-        {
-          "name": "里脊肉",
-          "quantity": 3
-        }
-      ],
-      "price": 177,
-      "time": 392,
-      "limit": 25,
-      "origin": "主线163",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "貂蝉"
-        },
-        {
-          "rank": "特",
-          "guest": "木良"
-        },
-        {
-          "rank": "神",
-          "guest": "富太太"
-        }
-      ],
-      "godAntique": "耐煮的水草"
     },
     {
       "recipeId": 127,
@@ -5555,55 +3956,6 @@
       "godAntique": 140012
     },
     {
-      "recipeId": 132,
-      "name": "得莫利炖鱼",
-      "rarity": 5,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 80,
-      "knife": 0,
-      "fry": 50,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鲜鱼",
-          "quantity": 4
-        },
-        {
-          "name": "豆腐",
-          "quantity": 6
-        },
-        {
-          "name": "白菜",
-          "quantity": 8
-        },
-        {
-          "name": "梅花肉",
-          "quantity": 6
-        }
-      ],
-      "price": 1477,
-      "time": 260,
-      "limit": 15,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "皇帝"
-        },
-        {
-          "rank": "特",
-          "guest": "皇后"
-        },
-        {
-          "rank": "神",
-          "guest": "皇帝"
-        }
-      ],
-      "godAntique": "鼓风机"
-    },
-    {
       "recipeId": 133,
       "name": "东坡肉",
       "rarity": 4,
@@ -5647,284 +3999,6 @@
         }
       ],
       "godAntique": 140009
-    },
-    {
-      "recipeId": 134,
-      "name": "毛血旺",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 75,
-      "knife": 20,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鸭子",
-          "quantity": 8
-        },
-        {
-          "name": "牛杂",
-          "quantity": 8
-        },
-        {
-          "name": "黄豆",
-          "quantity": 6
-        },
-        {
-          "name": "辣椒",
-          "quantity": 8
-        }
-      ],
-      "price": 614,
-      "time": 977,
-      "limit": 25,
-      "origin": "晚秋壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "富太太"
-        },
-        {
-          "rank": "特",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "神",
-          "guest": "木优"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 135,
-      "name": "杏鲍菇牛肉粒",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 40,
-      "boil": 0,
-      "knife": 50,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛排",
-          "quantity": 3
-        },
-        {
-          "name": "香菇",
-          "quantity": 8
-        },
-        {
-          "name": "牛乳",
-          "quantity": 6
-        }
-      ],
-      "price": 399,
-      "time": 569,
-      "limit": 25,
-      "origin": "春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "木优"
-        },
-        {
-          "rank": "特",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "神",
-          "guest": "吕布"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 136,
-      "name": "笋干烧豆",
-      "rarity": 3,
-      "unlock": "油焖笋",
-      "stirfry": 55,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 20,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "笋",
-          "quantity": 5
-        },
-        {
-          "name": "黄豆",
-          "quantity": 6
-        }
-      ],
-      "price": 163,
-      "time": 439,
-      "limit": 25,
-      "origin": "主线206",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "特",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "神",
-          "guest": "木优"
-        }
-      ],
-      "godAntique": "-"
-    },
-    {
-      "recipeId": 137,
-      "name": "水晶肴蹄",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 80,
-      "knife": 65,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "梅花肉",
-          "quantity": 5
-        },
-        {
-          "name": "葱",
-          "quantity": 6
-        },
-        {
-          "name": "酒",
-          "quantity": 5
-        }
-      ],
-      "price": 572,
-      "time": 500,
-      "limit": 20,
-      "origin": "每周挑战",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "如来"
-        },
-        {
-          "rank": "特",
-          "guest": "公主"
-        },
-        {
-          "rank": "神",
-          "guest": "公主"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 138,
-      "name": "鸡汤煮干丝",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 100,
-      "knife": 99,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "童子鸡",
-          "quantity": 5
-        },
-        {
-          "name": "虾",
-          "quantity": 8
-        },
-        {
-          "name": "豆腐",
-          "quantity": 8
-        },
-        {
-          "name": "鸡杂",
-          "quantity": 12
-        }
-      ],
-      "price": 1080,
-      "time": 1260,
-      "limit": 20,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "公主"
-        },
-        {
-          "rank": "特",
-          "guest": "诸葛亮"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
-    },
-    {
-      "recipeId": 139,
-      "name": "三鲜豆皮",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 55,
-      "boil": 0,
-      "knife": 0,
-      "fry": 40,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "糯米",
-          "quantity": 6
-        },
-        {
-          "name": "豆腐",
-          "quantity": 4
-        },
-        {
-          "name": "里脊肉",
-          "quantity": 3
-        },
-        {
-          "name": "香菇",
-          "quantity": 5
-        }
-      ],
-      "price": 321,
-      "time": 683,
-      "limit": 25,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "木良"
-        },
-        {
-          "rank": "特",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "神",
-          "guest": "富人"
-        }
-      ],
-      "godAntique": "一昧真火"
     },
     {
       "recipeId": 140,
@@ -6066,100 +4140,6 @@
       "godAntique": 140015
     },
     {
-      "recipeId": 144,
-      "name": "凤梨酥",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 75,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "菠萝",
-          "quantity": 6
-        },
-        {
-          "name": "面粉",
-          "quantity": 8
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 8
-        }
-      ],
-      "price": 208,
-      "time": 493,
-      "limit": 25,
-      "origin": "主线198",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "皇帝"
-        },
-        {
-          "rank": "特",
-          "guest": "皇帝"
-        },
-        {
-          "rank": "神",
-          "guest": "皇帝"
-        }
-      ],
-      "godAntique": "恐怖利刃"
-    },
-    {
-      "recipeId": 145,
-      "name": "牛肉手抓饭",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 50,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛五花",
-          "quantity": 3
-        },
-        {
-          "name": "大米",
-          "quantity": 5
-        },
-        {
-          "name": "洋葱",
-          "quantity": 4
-        },
-        {
-          "name": "胡萝卜",
-          "quantity": 5
-        }
-      ],
-      "price": 255,
-      "time": 347,
-      "limit": 25,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "富太太"
-        },
-        {
-          "rank": "特",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "神",
-          "guest": "潇洒李白"
-        }
-      ],
-      "godAntique": "暖石"
-    },
-    {
       "recipeId": 146,
       "name": "锅包肉",
       "rarity": 4,
@@ -6172,15 +4152,15 @@
       "steam": 0,
       "materials": [
         {
-          "name": "梅花肉",
+          "material": 5,
           "quantity": 6
         },
         {
-          "name": "番茄",
+          "material": 10,
           "quantity": 8
         },
         {
-          "name": "面粉",
+          "material": 11,
           "quantity": 10
         }
       ],
@@ -6191,18 +4171,18 @@
       "guests": [
         {
           "rank": "优",
-          "guest": "王子"
+          "guest": 160021
         },
         {
           "rank": "特",
-          "guest": "公主"
+          "guest": 160022
         },
         {
           "rank": "神",
-          "guest": "耶稣"
+          "guest": 160001
         }
       ],
-      "godAntique": "一昧真火"
+      "godAntique": 140011
     },
     {
       "recipeId": 147,
@@ -6248,100 +4228,6 @@
         }
       ],
       "godAntique": 140012
-    },
-    {
-      "recipeId": 148,
-      "name": "九转大肠",
-      "rarity": 5,
-      "unlock": "-",
-      "stirfry": 100,
-      "boil": 0,
-      "knife": 0,
-      "fry": 100,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "猪杂",
-          "quantity": 12
-        },
-        {
-          "name": "辣椒",
-          "quantity": 12
-        },
-        {
-          "name": "酒",
-          "quantity": 10
-        }
-      ],
-      "price": 940,
-      "time": 408,
-      "limit": 15,
-      "origin": "桃花壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "皇后"
-        },
-        {
-          "rank": "特",
-          "guest": "皇帝"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
-    },
-    {
-      "recipeId": 149,
-      "name": "肉酱千层面",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 85,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "里脊肉",
-          "quantity": 6
-        },
-        {
-          "name": "牛乳",
-          "quantity": 6
-        },
-        {
-          "name": "面粉",
-          "quantity": 6
-        },
-        {
-          "name": "番茄",
-          "quantity": 6
-        }
-      ],
-      "price": 235,
-      "time": 285,
-      "limit": 20,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "公主"
-        },
-        {
-          "rank": "特",
-          "guest": "公主"
-        },
-        {
-          "rank": "神",
-          "guest": "苏轼"
-        }
-      ],
-      "godAntique": "焦虫"
     },
     {
       "recipeId": 151,
@@ -6401,11 +4287,11 @@
       "steam": 0,
       "materials": [
         {
-          "name": "茄子",
+          "material": 19,
           "quantity": 4
         },
         {
-          "name": "面粉",
+          "material": 11,
           "quantity": 5
         }
       ],
@@ -6416,18 +4302,18 @@
       "guests": [
         {
           "rank": "优",
-          "guest": "富太太"
+          "guest": 160028
         },
         {
           "rank": "特",
-          "guest": "潇洒李白"
+          "guest": 160009
         },
         {
           "rank": "神",
-          "guest": "吕布"
+          "guest": 160018
         }
       ],
-      "godAntique": "一昧真火"
+      "godAntique": 140011
     },
     {
       "recipeId": 153,
@@ -6696,11 +4582,11 @@
       "steam": 0,
       "materials": [
         {
-          "name": "白萝卜",
+          "material": 30,
           "quantity": 3
         },
         {
-          "name": "葱",
+          "material": 18,
           "quantity": 4
         }
       ],
@@ -6711,63 +4597,18 @@
       "guests": [
         {
           "rank": "优",
-          "guest": "官爷"
+          "guest": 160026
         },
         {
           "rank": "特",
-          "guest": "刘备"
+          "guest": 160017
         },
         {
           "rank": "神",
-          "guest": "大内侍卫"
+          "guest": 160020
         }
       ],
-      "godAntique": "剪刀蟹"
-    },
-    {
-      "recipeId": 160,
-      "name": "葱姜辣炒蛤蜊",
-      "rarity": 2,
-      "unlock": "蛤蜊蒸蛋",
-      "stirfry": 35,
-      "boil": 0,
-      "knife": 0,
-      "fry": 10,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "material": 42,
-          "quantity": 3
-        },
-        {
-          "material": 18,
-          "quantity": 4
-        },
-        {
-          "material": 16,
-          "quantity": 4
-        }
-      ],
-      "price": 298,
-      "time": 205,
-      "limit": 30,
-      "origin": "主线112",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": 160029
-        },
-        {
-          "rank": "特",
-          "guest": 160015
-        },
-        {
-          "rank": "神",
-          "guest": 160015
-        }
-      ],
-      "godAntique": "-"
+      "godAntique": 140006
     },
     {
       "recipeId": 161,
@@ -6805,51 +4646,6 @@
         }
       ],
       "godAntique": 140004
-    },
-    {
-      "recipeId": 162,
-      "name": "蛤蜊豆腐汤",
-      "rarity": 2,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 60,
-      "knife": 20,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "贝壳",
-          "quantity": 3
-        },
-        {
-          "name": "葱",
-          "quantity": 3
-        },
-        {
-          "name": "豆腐",
-          "quantity": 3
-        }
-      ],
-      "price": 402,
-      "time": 340,
-      "limit": 30,
-      "origin": "神级蛤蜊蒸蛋",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "刘备"
-        },
-        {
-          "rank": "特",
-          "guest": "丐帮帮主"
-        },
-        {
-          "rank": "神",
-          "guest": "大内侍卫"
-        }
-      ],
-      "godAntique": "剪刀蟹"
     },
     {
       "recipeId": 163,
@@ -7016,51 +4812,6 @@
       "godAntique": 140006
     },
     {
-      "recipeId": 167,
-      "name": "鱼香茄子",
-      "rarity": 3,
-      "unlock": "葱香烤鱼",
-      "stirfry": 55,
-      "boil": 0,
-      "knife": 35,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "茄子",
-          "quantity": 3
-        },
-        {
-          "name": "青椒",
-          "quantity": 6
-        },
-        {
-          "name": "猪腿肉",
-          "quantity": 3
-        }
-      ],
-      "price": 175,
-      "time": 421,
-      "limit": 25,
-      "origin": "神级葱香烤茄子",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "木良"
-        },
-        {
-          "rank": "特",
-          "guest": "木优"
-        },
-        {
-          "rank": "神",
-          "guest": "迷弟杜甫"
-        }
-      ],
-      "godAntique": "-"
-    },
-    {
       "recipeId": 168,
       "name": "葱香烤茄子",
       "rarity": 2,
@@ -7100,47 +4851,6 @@
         }
       ],
       "godAntique": "-"
-    },
-    {
-      "recipeId": 169,
-      "name": "串烤盐焗虾",
-      "rarity": 2,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 60,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "虾",
-          "quantity": 3
-        },
-        {
-          "name": "洋葱",
-          "quantity": 6
-        }
-      ],
-      "price": 281,
-      "time": 346,
-      "limit": 30,
-      "origin": "主线157",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "大内侍卫"
-        },
-        {
-          "rank": "特",
-          "guest": "刘备"
-        },
-        {
-          "rank": "神",
-          "guest": "官爷"
-        }
-      ],
-      "godAntique": "烤焦的菊花"
     },
     {
       "recipeId": 170,
@@ -7190,55 +4900,6 @@
         }
       ],
       "godAntique": ""
-    },
-    {
-      "recipeId": 171,
-      "name": "客家小炒肉",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 51,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "冻鱼",
-          "quantity": 3
-        },
-        {
-          "name": "里脊肉",
-          "quantity": 4
-        },
-        {
-          "name": "辣椒",
-          "quantity": 4
-        },
-        {
-          "name": "葱",
-          "quantity": 6
-        }
-      ],
-      "price": 240,
-      "time": 326,
-      "limit": 25,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "特",
-          "guest": "大明湖畔的美女"
-        },
-        {
-          "rank": "神",
-          "guest": "木良"
-        }
-      ],
-      "godAntique": "暖石"
     },
     {
       "recipeId": 172,
@@ -7327,47 +4988,6 @@
       "godAntique": 140012
     },
     {
-      "recipeId": 174,
-      "name": "牛肉肠粉",
-      "rarity": 2,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 45,
-      "fry": 0,
-      "bake": 0,
-      "steam": 60,
-      "materials": [
-        {
-          "name": "牛腩",
-          "quantity": 2
-        },
-        {
-          "name": "糯米",
-          "quantity": 4
-        }
-      ],
-      "price": 138,
-      "time": 388,
-      "limit": 30,
-      "origin": "神级干炒牛河",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "官爷"
-        },
-        {
-          "rank": "特",
-          "guest": "大内侍卫"
-        },
-        {
-          "rank": "神",
-          "guest": "张飞"
-        }
-      ],
-      "godAntique": "剪刀蟹"
-    },
-    {
       "recipeId": 175,
       "name": "牛肉卷饼",
       "rarity": 2,
@@ -7413,133 +5033,6 @@
       "godAntique": 140006
     },
     {
-      "recipeId": 176,
-      "name": "鸭肉皮蛋卷",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 25,
-      "fry": 0,
-      "bake": 0,
-      "steam": 45,
-      "materials": [
-        {
-          "name": "鸭子",
-          "quantity": 5
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 6
-        }
-      ],
-      "price": 201,
-      "time": 252,
-      "limit": 25,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "富人"
-        },
-        {
-          "rank": "特",
-          "guest": "貂蝉"
-        },
-        {
-          "rank": "神",
-          "guest": "迷弟杜甫"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 178,
-      "name": "章鱼小丸子",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 65,
-      "bake": 95,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鲜鱼",
-          "quantity": 5
-        },
-        {
-          "name": "面粉",
-          "quantity": 8
-        }
-      ],
-      "price": 742,
-      "time": 328,
-      "limit": 20,
-      "origin": "主线184",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "特",
-          "guest": "吕布"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
-    },
-    {
-      "recipeId": 179,
-      "name": "松鼠桂鱼",
-      "rarity": 5,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 130,
-      "fry": 100,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鲜鱼",
-          "quantity": 8
-        },
-        {
-          "name": "面粉",
-          "quantity": 12
-        },
-        {
-          "name": "番茄",
-          "quantity": 12
-        }
-      ],
-      "price": 1639,
-      "time": 356,
-      "limit": 15,
-      "origin": "情人节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": ""
-        },
-        {
-          "rank": "特",
-          "guest": ""
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
-    },
-    {
       "recipeId": 180,
       "name": "粉丝蒸扇贝",
       "rarity": 4,
@@ -7552,19 +5045,19 @@
       "steam": 80,
       "materials": [
         {
-          "name": "贝壳",
+          "material": 42,
           "quantity": 3
         },
         {
-          "name": "面粉",
+          "material": 11,
           "quantity": 5
         },
         {
-          "name": "葱",
+          "material": 18,
           "quantity": 5
         },
         {
-          "name": "牛乳",
+          "material": 44,
           "quantity": 8
         }
       ],
@@ -7575,18 +5068,18 @@
       "guests": [
         {
           "rank": "优",
-          "guest": "吕布"
+          "guest": 160018
         },
         {
           "rank": "特",
-          "guest": "木良"
+          "guest": 160003
         },
         {
           "rank": "神",
-          "guest": "大明湖畔的美女"
+          "guest": 160023
         }
       ],
-      "godAntique": "蒸汽宝石"
+      "godAntique": 140010
     },
     {
       "recipeId": 183,
@@ -7632,55 +5125,6 @@
         }
       ],
       "godAntique": "-"
-    },
-    {
-      "recipeId": 184,
-      "name": "元宝肘子",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 55,
-      "materials": [
-        {
-          "name": "猪腿肉",
-          "quantity": 6
-        },
-        {
-          "name": "酒",
-          "quantity": 3
-        },
-        {
-          "name": "青菜",
-          "quantity": 6
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 4
-        }
-      ],
-      "price": 237,
-      "time": 333,
-      "limit": 25,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "貂蝉"
-        },
-        {
-          "rank": "特",
-          "guest": "吕布"
-        },
-        {
-          "rank": "神",
-          "guest": "吕布"
-        }
-      ],
-      "godAntique": "蒸汽宝石"
     },
     {
       "recipeId": 185,
@@ -7814,194 +5258,6 @@
       "godAntique": 140006
     },
     {
-      "recipeId": 188,
-      "name": "咖喱什锦蔬菜",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 48,
-      "materials": [
-        {
-          "name": "咖喱",
-          "quantity": 3
-        },
-        {
-          "name": "香菇",
-          "quantity": 6
-        },
-        {
-          "name": "胡萝卜",
-          "quantity": 5
-        },
-        {
-          "name": "土豆",
-          "quantity": 5
-        }
-      ],
-      "price": 187,
-      "time": 466,
-      "limit": 25,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "特",
-          "guest": "富太太"
-        },
-        {
-          "rank": "神",
-          "guest": "木优"
-        }
-      ],
-      "godAntique": "蒸汽宝石"
-    },
-    {
-      "recipeId": 189,
-      "name": "咖喱鱼丸",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 25,
-      "bake": 0,
-      "steam": 70,
-      "materials": [
-        {
-          "name": "咖喱",
-          "quantity": 4
-        },
-        {
-          "name": "鲜鱼",
-          "quantity": 4
-        },
-        {
-          "name": "胡萝卜",
-          "quantity": 7
-        }
-      ],
-      "price": 1153,
-      "time": 439,
-      "limit": 20,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "诸葛亮"
-        },
-        {
-          "rank": "特",
-          "guest": "诸葛亮"
-        },
-        {
-          "rank": "神",
-          "guest": "唐伯虎"
-        }
-      ],
-      "godAntique": "一昧真火"
-    },
-    {
-      "recipeId": 190,
-      "name": "咖喱蟹",
-      "rarity": 5,
-      "unlock": "-",
-      "stirfry": 65,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 95,
-      "materials": [
-        {
-          "name": "咖喱",
-          "quantity": 4
-        },
-        {
-          "name": "螃蟹",
-          "quantity": 3
-        },
-        {
-          "name": "辣椒",
-          "quantity": 8
-        },
-        {
-          "name": "青椒",
-          "quantity": 8
-        }
-      ],
-      "price": 1447,
-      "time": 274,
-      "limit": 15,
-      "origin": "圣诞壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "皇后"
-        },
-        {
-          "rank": "特",
-          "guest": "皇帝"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
-    },
-    {
-      "recipeId": 191,
-      "name": "番茄芝士",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 40,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "番茄",
-          "quantity": 4
-        },
-        {
-          "name": "牛乳",
-          "quantity": 3
-        },
-        {
-          "name": "里脊肉",
-          "quantity": 3
-        }
-      ],
-      "price": 78,
-      "time": 158,
-      "limit": 25,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "特",
-          "guest": "貂蝉"
-        },
-        {
-          "rank": "神",
-          "guest": "貂蝉"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
       "recipeId": 192,
       "name": "五谷丰登",
       "rarity": 2,
@@ -8047,100 +5303,6 @@
       "godAntique": 140006
     },
     {
-      "recipeId": 193,
-      "name": "酸汤肥牛",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 85,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛排",
-          "quantity": 5
-        },
-        {
-          "name": "香菇",
-          "quantity": 7
-        },
-        {
-          "name": "辣椒",
-          "quantity": 7
-        }
-      ],
-      "price": 356,
-      "time": 310,
-      "limit": 20,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "公主"
-        },
-        {
-          "rank": "特",
-          "guest": "唐伯虎"
-        },
-        {
-          "rank": "神",
-          "guest": "耶稣"
-        }
-      ],
-      "godAntique": "耐煮的水草"
-    },
-    {
-      "recipeId": 194,
-      "name": "麻辣小龙虾",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 75,
-      "boil": 75,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "虾",
-          "quantity": 6
-        },
-        {
-          "name": "辣椒",
-          "quantity": 5
-        },
-        {
-          "name": "青椒",
-          "quantity": 4
-        },
-        {
-          "name": "洋葱",
-          "quantity": 4
-        }
-      ],
-      "price": 1037,
-      "time": 446,
-      "limit": 20,
-      "origin": "双11壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "黄月英"
-        },
-        {
-          "rank": "特",
-          "guest": "王子"
-        },
-        {
-          "rank": "神",
-          "guest": "黄月英"
-        }
-      ],
-      "godAntique": "耐煮的水草"
-    },
-    {
       "recipeId": 195,
       "name": "狗粮",
       "rarity": 3,
@@ -8153,19 +5315,19 @@
       "steam": 0,
       "materials": [
         {
-          "name": "面粉",
+          "material": 11,
           "quantity": 4
         },
         {
-          "name": "鸡胸肉",
+          "material": 7,
           "quantity": 3
         },
         {
-          "name": "鸡蛋",
+          "material": 12,
           "quantity": 4
         },
         {
-          "name": "黄豆",
+          "material": 33,
           "quantity": 3
         }
       ],
@@ -8176,586 +5338,18 @@
       "guests": [
         {
           "rank": "优",
-          "guest": "迷弟杜甫"
+          "guest": 160010
         },
         {
           "rank": "特",
-          "guest": "迷弟杜甫"
+          "guest": 160010
         },
         {
           "rank": "神",
-          "guest": "吕布"
+          "guest": 160018
         }
       ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 196,
-      "name": "牛肉披萨",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 100,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛排",
-          "quantity": 5
-        },
-        {
-          "name": "青椒",
-          "quantity": 8
-        },
-        {
-          "name": "梅花肉",
-          "quantity": 3
-        },
-        {
-          "name": "面粉",
-          "quantity": 6
-        }
-      ],
-      "price": 482,
-      "time": 477,
-      "limit": 20,
-      "origin": "圣诞壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "诸葛亮"
-        },
-        {
-          "rank": "特",
-          "guest": "公主"
-        },
-        {
-          "rank": "神",
-          "guest": "王子"
-        }
-      ],
-      "godAntique": "焦虫"
-    },
-    {
-      "recipeId": 197,
-      "name": "圣诞烤鸡",
-      "rarity": 5,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 60,
-      "bake": 120,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "童子鸡",
-          "quantity": 6
-        },
-        {
-          "name": "洋葱",
-          "quantity": 6
-        },
-        {
-          "name": "牛乳",
-          "quantity": 5
-        }
-      ],
-      "price": 669,
-      "time": 250,
-      "limit": 15,
-      "origin": "圣诞壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "皇后"
-        },
-        {
-          "rank": "特",
-          "guest": "皇后"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
-    },
-    {
-      "recipeId": 198,
-      "name": "圣诞沙拉",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 80,
-      "knife": 50,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "土豆",
-          "quantity": 5
-        },
-        {
-          "name": "番茄",
-          "quantity": 3
-        },
-        {
-          "name": "胡萝卜",
-          "quantity": 4
-        },
-        {
-          "name": "青菜",
-          "quantity": 8
-        }
-      ],
-      "price": 222,
-      "time": 635,
-      "limit": 25,
-      "origin": "圣诞壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "吕布"
-        },
-        {
-          "rank": "特",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "神",
-          "guest": "富人"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 199,
-      "name": "圣诞蛋糕",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 90,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛乳",
-          "quantity": 5
-        },
-        {
-          "name": "面粉",
-          "quantity": 5
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 5
-        },
-        {
-          "name": "猪杂",
-          "quantity": 8
-        }
-      ],
-      "price": 225,
-      "time": 276,
-      "limit": 20,
-      "origin": "圣诞壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "特",
-          "guest": "木优"
-        },
-        {
-          "rank": "神",
-          "guest": "木良"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 200,
-      "name": "仰望星空",
-      "rarity": 5,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 150,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鲜鱼",
-          "quantity": 6
-        },
-        {
-          "name": "冻鱼",
-          "quantity": 6
-        },
-        {
-          "name": "牛乳",
-          "quantity": 5
-        },
-        {
-          "name": "面粉",
-          "quantity": 5
-        }
-      ],
-      "price": 1180,
-      "time": 282,
-      "limit": 15,
-      "origin": "圣诞壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "皇后"
-        },
-        {
-          "rank": "特",
-          "guest": "皇帝"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
-    },
-    {
-      "recipeId": 201,
-      "name": "串串锅",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 100,
-      "knife": 0,
-      "fry": 30,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛杂",
-          "quantity": 6
-        },
-        {
-          "name": "豆腐",
-          "quantity": 4
-        },
-        {
-          "name": "土豆",
-          "quantity": 6
-        },
-        {
-          "name": "辣椒",
-          "quantity": 8
-        }
-      ],
-      "price": 538,
-      "time": 446,
-      "limit": 20,
-      "origin": "圣诞壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "耶稣"
-        },
-        {
-          "rank": "特",
-          "guest": "苏轼"
-        },
-        {
-          "rank": "神",
-          "guest": "公主"
-        }
-      ],
-      "godAntique": "一昧真火"
-    },
-    {
-      "recipeId": 202,
-      "name": "鸡肉蘑菇汤",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 70,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 30,
-      "materials": [
-        {
-          "name": "香菇",
-          "quantity": 4
-        },
-        {
-          "name": "鸡腿",
-          "quantity": 5
-        },
-        {
-          "name": "牛乳",
-          "quantity": 5
-        }
-      ],
-      "price": 361,
-      "time": 512,
-      "limit": 25,
-      "origin": "主线323",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "大明湖畔的美女"
-        },
-        {
-          "rank": "特",
-          "guest": "大明湖畔的美女"
-        },
-        {
-          "rank": "神",
-          "guest": "木优"
-        }
-      ],
-      "godAntique": "蒸汽宝石"
-    },
-    {
-      "recipeId": 203,
-      "name": "青椒塞肉",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 45,
-      "boil": 0,
-      "knife": 65,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "里脊肉",
-          "quantity": 4
-        },
-        {
-          "name": "青椒",
-          "quantity": 6
-        }
-      ],
-      "price": 271,
-      "time": 414,
-      "limit": 25,
-      "origin": "圣诞壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "木良"
-        },
-        {
-          "rank": "特",
-          "guest": "富太太"
-        },
-        {
-          "rank": "神",
-          "guest": "木良"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 204,
-      "name": "湘西外婆菜",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 85,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 55,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "糯米",
-          "quantity": 6
-        },
-        {
-          "name": "白萝卜",
-          "quantity": 5
-        },
-        {
-          "name": "白菜",
-          "quantity": 10
-        },
-        {
-          "name": "辣椒",
-          "quantity": 8
-        }
-      ],
-      "price": 421,
-      "time": 523,
-      "limit": 20,
-      "origin": "圣诞壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "如来"
-        },
-        {
-          "rank": "特",
-          "guest": "耶稣"
-        },
-        {
-          "rank": "神",
-          "guest": "如来"
-        }
-      ],
-      "godAntique": "焦虫"
-    },
-    {
-      "recipeId": 205,
-      "name": "熊猫饭团",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 95,
-      "materials": [
-        {
-          "name": "大米",
-          "quantity": 8
-        },
-        {
-          "name": "笋",
-          "quantity": 2
-        },
-        {
-          "name": "土豆",
-          "quantity": 6
-        }
-      ],
-      "price": 198,
-      "time": 498,
-      "limit": 25,
-      "origin": "主线301",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "富太太"
-        },
-        {
-          "rank": "特",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "神",
-          "guest": "吕布"
-        }
-      ],
-      "godAntique": "蒸汽宝石"
-    },
-    {
-      "recipeId": 206,
-      "name": "卤肉饭",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 55,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 40,
-      "materials": [
-        {
-          "name": "里脊肉",
-          "quantity": 4
-        },
-        {
-          "name": "大米",
-          "quantity": 5
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 4
-        },
-        {
-          "name": "青菜",
-          "quantity": 8
-        }
-      ],
-      "price": 333,
-      "time": 452,
-      "limit": 25,
-      "origin": "主线391",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "大明湖畔的美女"
-        },
-        {
-          "rank": "特",
-          "guest": "木优"
-        },
-        {
-          "rank": "神",
-          "guest": "富人"
-        }
-      ],
-      "godAntique": "蒸汽宝石"
-    },
-    {
-      "recipeId": 207,
-      "name": "风味凉皮",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 40,
-      "knife": 40,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "面粉",
-          "quantity": 3
-        },
-        {
-          "name": "黄豆",
-          "quantity": 6
-        },
-        {
-          "name": "胡萝卜",
-          "quantity": 6
-        },
-        {
-          "name": "黄瓜",
-          "quantity": 6
-        }
-      ],
-      "price": 314,
-      "time": 620,
-      "limit": 25,
-      "origin": "圣诞壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "特",
-          "guest": "貂蝉"
-        },
-        {
-          "rank": "神",
-          "guest": "潇洒李白"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
+      "godAntique": 140012
     },
     {
       "recipeId": 208,
@@ -8856,190 +5450,6 @@
       "godAntique": ""
     },
     {
-      "recipeId": 210,
-      "name": "茄汁锅巴",
-      "rarity": 2,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 55,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "大米",
-          "quantity": 3
-        },
-        {
-          "name": "黄豆",
-          "quantity": 1
-        },
-        {
-          "name": "番茄",
-          "quantity": 3
-        }
-      ],
-      "price": 69,
-      "time": 149,
-      "limit": 30,
-      "origin": "主线364",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "官爷"
-        },
-        {
-          "rank": "特",
-          "guest": "丐帮帮主"
-        },
-        {
-          "rank": "神",
-          "guest": "张飞"
-        }
-      ],
-      "godAntique": "油火虫"
-    },
-    {
-      "recipeId": 221,
-      "name": "泡菜炒饭",
-      "rarity": 2,
-      "unlock": "-",
-      "stirfry": 45,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "白菜",
-          "quantity": 6
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 3
-        },
-        {
-          "name": "大米",
-          "quantity": 4
-        }
-      ],
-      "price": 104,
-      "time": 170,
-      "limit": 30,
-      "origin": "春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "关羽"
-        },
-        {
-          "rank": "特",
-          "guest": "大内侍卫"
-        },
-        {
-          "rank": "神",
-          "guest": "富二代"
-        }
-      ],
-      "godAntique": "五香果"
-    },
-    {
-      "recipeId": 222,
-      "name": "蚵仔煎",
-      "rarity": 2,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 52,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "贝壳",
-          "quantity": 3
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 2
-        },
-        {
-          "name": "土豆",
-          "quantity": 2
-        },
-        {
-          "name": "番茄",
-          "quantity": 3
-        }
-      ],
-      "price": 292,
-      "time": 289,
-      "limit": 30,
-      "origin": "春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "富二代"
-        },
-        {
-          "rank": "特",
-          "guest": "富二代"
-        },
-        {
-          "rank": "神",
-          "guest": "关羽"
-        }
-      ],
-      "godAntique": "油火虫"
-    },
-    {
-      "recipeId": 223,
-      "name": "三色煎饼",
-      "rarity": 2,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 15,
-      "fry": 40,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "里脊肉",
-          "quantity": 3
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 3
-        },
-        {
-          "name": "白菜",
-          "quantity": 3
-        }
-      ],
-      "price": 172,
-      "time": 257,
-      "limit": 30,
-      "origin": "春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "富二代"
-        },
-        {
-          "rank": "特",
-          "guest": "官爷"
-        },
-        {
-          "rank": "神",
-          "guest": "刘备"
-        }
-      ],
-      "godAntique": "剪刀蟹"
-    },
-    {
       "recipeId": 224,
       "name": "茄子猪肉卷",
       "rarity": 3,
@@ -9083,55 +5493,6 @@
         }
       ],
       "godAntique": 140011
-    },
-    {
-      "recipeId": 225,
-      "name": "三色凉糕",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 20,
-      "fry": 0,
-      "bake": 0,
-      "steam": 50,
-      "materials": [
-        {
-          "name": "菠萝",
-          "quantity": 4
-        },
-        {
-          "name": "青菜",
-          "quantity": 4
-        },
-        {
-          "name": "糯米",
-          "quantity": 4
-        },
-        {
-          "name": "牛乳",
-          "quantity": 4
-        }
-      ],
-      "price": 249,
-      "time": 442,
-      "limit": 25,
-      "origin": "情人节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "吕布"
-        },
-        {
-          "rank": "特",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "神",
-          "guest": "貂蝉"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
     },
     {
       "recipeId": 236,
@@ -9310,84 +5671,6 @@
       "godAntique": 140006
     },
     {
-      "recipeId": 244,
-      "name": "腊肠",
-      "rarity": 1,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 10,
-      "fry": 0,
-      "bake": 0,
-      "steam": 20,
-      "materials": [
-        {
-          "name": "里脊肉",
-          "quantity": 2
-        }
-      ],
-      "price": 43,
-      "time": 120,
-      "limit": 40,
-      "origin": "春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "迷思吹法师"
-        },
-        {
-          "rank": "特",
-          "guest": "屠夫老王"
-        },
-        {
-          "rank": "神",
-          "guest": "大胃王"
-        }
-      ],
-      "godAntique": "剪刀蟹"
-    },
-    {
-      "recipeId": 245,
-      "name": "雪菜蚕豆",
-      "rarity": 1,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 28,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "黄豆",
-          "quantity": 1
-        },
-        {
-          "name": "白菜",
-          "quantity": 4
-        }
-      ],
-      "price": 21,
-      "time": 103,
-      "limit": 40,
-      "origin": "春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "白富美"
-        },
-        {
-          "rank": "特",
-          "guest": "迷思吹法师"
-        },
-        {
-          "rank": "神",
-          "guest": "屠夫老王"
-        }
-      ],
-      "godAntique": "烤焦的菊花"
-    },
-    {
       "recipeId": 246,
       "name": "腌茄子",
       "rarity": 1,
@@ -9511,55 +5794,6 @@
       "godAntique": 140005
     },
     {
-      "recipeId": 249,
-      "name": "白雪金狗",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 30,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 80,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "鸡腿",
-          "quantity": 5
-        },
-        {
-          "name": "牛五花",
-          "quantity": 5
-        },
-        {
-          "name": "糯米",
-          "quantity": 6
-        },
-        {
-          "name": "咖喱",
-          "quantity": 3
-        }
-      ],
-      "price": 674,
-      "time": 555,
-      "limit": 20,
-      "origin": "春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "苏轼"
-        },
-        {
-          "rank": "特",
-          "guest": "黄月英"
-        },
-        {
-          "rank": "神",
-          "guest": "黄月英"
-        }
-      ],
-      "godAntique": "焦虫"
-    },
-    {
       "recipeId": 250,
       "name": "玫瑰花卷",
       "rarity": 3,
@@ -9603,153 +5837,6 @@
         }
       ],
       "godAntique": 140010
-    },
-    {
-      "recipeId": 251,
-      "name": "情人巧克力",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 40,
-      "knife": 0,
-      "fry": 0,
-      "bake": 70,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "牛排",
-          "quantity": 3
-        },
-        {
-          "name": "茄子",
-          "quantity": 6
-        },
-        {
-          "name": "猪油",
-          "quantity": 6
-        },
-        {
-          "name": "冻鱼",
-          "quantity": 3
-        }
-      ],
-      "price": 1193,
-      "time": 487,
-      "limit": 20,
-      "origin": "情人节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "黄月英"
-        },
-        {
-          "rank": "特",
-          "guest": "诸葛亮"
-        },
-        {
-          "rank": "神",
-          "guest": "耶稣"
-        }
-      ],
-      "godAntique": "耐煮的水草"
-    },
-    {
-      "recipeId": 252,
-      "name": "金钱发菜",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 30,
-      "fry": 0,
-      "bake": 0,
-      "steam": 55,
-      "materials": [
-        {
-          "name": "菠萝",
-          "quantity": 2
-        },
-        {
-          "name": "白菜",
-          "quantity": 5
-        },
-        {
-          "name": "鸡腿",
-          "quantity": 3
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 4
-        }
-      ],
-      "price": 210,
-      "time": 375,
-      "limit": 25,
-      "origin": "春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "迷弟杜甫"
-        },
-        {
-          "rank": "特",
-          "guest": "潇洒李白"
-        },
-        {
-          "rank": "神",
-          "guest": "吕布"
-        }
-      ],
-      "godAntique": "刀嘴鹦鹉"
-    },
-    {
-      "recipeId": 253,
-      "name": "孔雀开屏",
-      "rarity": 5,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 110,
-      "fry": 0,
-      "bake": 0,
-      "steam": 70,
-      "materials": [
-        {
-          "name": "鲜鱼",
-          "quantity": 4
-        },
-        {
-          "name": "笋",
-          "quantity": 4
-        },
-        {
-          "name": "酒",
-          "quantity": 5
-        },
-        {
-          "name": "辣椒",
-          "quantity": 8
-        }
-      ],
-      "price": 1533,
-      "time": 307,
-      "limit": 15,
-      "origin": "春节壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "皇后"
-        },
-        {
-          "rank": "特",
-          "guest": "皇后"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
     },
     {
       "recipeId": 254,
@@ -9846,104 +5933,6 @@
       "godAntique": 140002
     },
     {
-      "recipeId": 259,
-      "name": "腊味煲仔饭",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 0,
-      "fry": 0,
-      "bake": 50,
-      "steam": 75,
-      "materials": [
-        {
-          "name": "里脊肉",
-          "quantity": 5
-        },
-        {
-          "name": "大米",
-          "quantity": 5
-        },
-        {
-          "name": "鸡蛋",
-          "quantity": 3
-        },
-        {
-          "name": "青菜",
-          "quantity": 5
-        }
-      ],
-      "price": 390,
-      "time": 278,
-      "limit": 20,
-      "origin": "桃花壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "公主"
-        },
-        {
-          "rank": "特",
-          "guest": "如来"
-        },
-        {
-          "rank": "神",
-          "guest": "黄月英"
-        }
-      ],
-      "godAntique": "蒸汽宝石"
-    },
-    {
-      "recipeId": 261,
-      "name": "关东煮",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 64,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "豆腐",
-          "quantity": 4
-        },
-        {
-          "name": "白萝卜",
-          "quantity": 2
-        },
-        {
-          "name": "猪腿肉",
-          "quantity": 4
-        },
-        {
-          "name": "面粉",
-          "quantity": 3
-        }
-      ],
-      "price": 206,
-      "time": 296,
-      "limit": 25,
-      "origin": "桃花壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "大明湖畔的美女"
-        },
-        {
-          "rank": "特",
-          "guest": "木优"
-        },
-        {
-          "rank": "神",
-          "guest": "富太太"
-        }
-      ],
-      "godAntique": "耐煮的水草"
-    },
-    {
       "recipeId": 262,
       "name": "菠萝培根卷",
       "rarity": 3,
@@ -9983,104 +5972,6 @@
         }
       ],
       "godAntique": 140012
-    },
-    {
-      "recipeId": 263,
-      "name": "蟹黄鱼籽丸",
-      "rarity": 5,
-      "unlock": "-",
-      "stirfry": 80,
-      "boil": 100,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "螃蟹",
-          "quantity": 3
-        },
-        {
-          "name": "鲜鱼",
-          "quantity": 4
-        },
-        {
-          "name": "酒",
-          "quantity": 3
-        },
-        {
-          "name": "面粉",
-          "quantity": 6
-        }
-      ],
-      "price": 1365,
-      "time": 262,
-      "limit": 15,
-      "origin": "桃花壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "皇帝"
-        },
-        {
-          "rank": "特",
-          "guest": "皇后"
-        },
-        {
-          "rank": "神",
-          "guest": "皇帝"
-        }
-      ],
-      "godAntique": "千年煮鳖"
-    },
-    {
-      "recipeId": 264,
-      "name": "金鱼鸭掌",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 0,
-      "knife": 75,
-      "fry": 0,
-      "bake": 0,
-      "steam": 75,
-      "materials": [
-        {
-          "name": "鸭子",
-          "quantity": 5
-        },
-        {
-          "name": "鲜鱼",
-          "quantity": 3
-        },
-        {
-          "name": "胡萝卜",
-          "quantity": 5
-        },
-        {
-          "name": "虾",
-          "quantity": 5
-        }
-      ],
-      "price": 1329,
-      "time": 628,
-      "limit": 20,
-      "origin": "桃花壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "唐伯虎"
-        },
-        {
-          "rank": "特",
-          "guest": "王子"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
     },
     {
       "recipeId": 265,
@@ -10126,51 +6017,6 @@
         }
       ],
       "godAntique": 140004
-    },
-    {
-      "recipeId": 267,
-      "name": "桃花酒",
-      "rarity": 3,
-      "unlock": "-",
-      "stirfry": 0,
-      "boil": 50,
-      "knife": 0,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "酒",
-          "quantity": 4
-        },
-        {
-          "name": "糯米",
-          "quantity": 2
-        },
-        {
-          "name": "大米",
-          "quantity": 2
-        }
-      ],
-      "price": 124,
-      "time": 221,
-      "limit": 25,
-      "origin": "桃花壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "大明湖畔的美女"
-        },
-        {
-          "rank": "特",
-          "guest": "貂蝉"
-        },
-        {
-          "rank": "神",
-          "guest": "木优"
-        }
-      ],
-      "godAntique": "耐煮的水草"
     },
     {
       "recipeId": 269,
@@ -10260,56 +6106,7 @@
           "guest": 160007
         }
       ],
-      "godAntique": "五香果"
-    },
-    {
-      "recipeId": 272,
-      "name": "炒鳝糊",
-      "rarity": 4,
-      "unlock": "-",
-      "stirfry": 82,
-      "boil": 0,
-      "knife": 64,
-      "fry": 0,
-      "bake": 0,
-      "steam": 0,
-      "materials": [
-        {
-          "name": "冻鱼",
-          "quantity": 4
-        },
-        {
-          "name": "笋",
-          "quantity": 3
-        },
-        {
-          "name": "黄瓜",
-          "quantity": 5
-        },
-        {
-          "name": "香菇",
-          "quantity": 7
-        }
-      ],
-      "price": 1225,
-      "time": 559,
-      "limit": 20,
-      "origin": "桃花壁池",
-      "guests": [
-        {
-          "rank": "优",
-          "guest": "黄月英"
-        },
-        {
-          "rank": "特",
-          "guest": "苏轼"
-        },
-        {
-          "rank": "神",
-          "guest": ""
-        }
-      ],
-      "godAntique": ""
+      "godAntique": 140001
     }
   ],
   "materials": [
@@ -11638,23 +7435,24 @@
       "chefId": 45,
       "name": "雷角",
       "rarity": 1,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 0,
       "bake": 15,
       "boil": 0,
       "steam": 61,
       "fry": 92,
       "knife": 30,
-      "skill": [
-        {
-          "type": "稀有客人",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310067,
       "meat": 3,
       "fish": 0,
       "veg": 3,
       "creation": 0,
+      "ultimateGoal": [
+        173059,
+        173029,
+        173065
+      ],
+      "ultimateSkill": 310334,
       "origin": "每周挑战"
     },
     {
@@ -11733,23 +7531,24 @@
       "chefId": 57,
       "name": "谛天",
       "rarity": 1,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 0,
       "bake": 109,
       "boil": 0,
       "steam": 0,
       "fry": 18,
       "knife": 72,
-      "skill": [
-        {
-          "type": "肉类料理",
-          "addition": 0.05
-        }
-      ],
+      "skill": 310157,
       "meat": 3,
       "fish": 3,
       "veg": 0,
       "creation": 0,
+      "ultimateGoal": [
+        173056,
+        173027,
+        173065
+      ],
+      "ultimateSkill": 310331,
       "origin": "每周挑战"
     },
     {
@@ -12212,46 +8011,48 @@
       "chefId": 117,
       "name": "叶姬",
       "rarity": 2,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 0,
       "bake": 92,
       "boil": 138,
       "steam": 23,
       "fry": 0,
       "knife": 46,
-      "skill": [
-        {
-          "type": "煮类料理",
-          "addition": 0.1
-        }
-      ],
+      "skill": 310121,
       "meat": 0,
       "fish": 0,
       "veg": 4,
       "creation": 3,
+      "ultimateGoal": [
+        173052,
+        173022,
+        173066
+      ],
+      "ultimateSkill": 310366,
       "origin": "限时礼包<br>晚秋壁池"
     },
     {
       "chefId": 120,
       "name": "不知火喵",
       "rarity": 4,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 0,
       "bake": 276,
       "boil": 46,
       "steam": 92,
       "fry": 0,
       "knife": 184,
-      "skill": [
-        {
-          "type": "烤类料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310132,
       "meat": 5,
       "fish": 0,
       "veg": 0,
       "creation": 6,
+      "ultimateGoal": [
+        173039,
+        173009,
+        173062
+      ],
+      "ultimateSkill": 0,
       "origin": "限时礼包<br>圣诞壁池"
     },
     {
@@ -12354,69 +8155,72 @@
       "chefId": 135,
       "name": "上宫晴",
       "rarity": 5,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 124,
       "bake": 0,
       "boil": 249,
       "steam": 374,
       "fry": 0,
       "knife": 62,
-      "skill": [
-        {
-          "type": "蒸类料理",
-          "addition": 0.25
-        }
-      ],
+      "skill": 310261,
       "meat": 0,
       "fish": 0,
       "veg": 7,
       "creation": 7,
+      "ultimateGoal": [
+        173034,
+        173002,
+        173061
+      ],
+      "ultimateSkill": 0,
       "origin": "限时礼包<br>情人节壁池"
     },
     {
       "chefId": 138,
       "name": "毛利红",
       "rarity": 2,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 0,
       "bake": 92,
       "boil": 23,
       "steam": 0,
       "fry": 46,
       "knife": 138,
-      "skill": [
-        {
-          "type": "肉类料理",
-          "addition": 0.1
-        }
-      ],
+      "skill": 310127,
       "meat": 3,
       "fish": 0,
       "veg": 0,
       "creation": 4,
+      "ultimateGoal": [
+        173054,
+        173024,
+        173064
+      ],
+      "ultimateSkill": 310341,
       "origin": "晚秋壁池"
     },
     {
       "chefId": 141,
       "name": "火凤",
       "rarity": 4,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 276,
       "bake": 184,
       "boil": 0,
       "steam": 0,
       "fry": 92,
       "knife": 46,
-      "skill": [
-        {
-          "type": "炒类料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310133,
       "meat": 5,
       "fish": 0,
       "veg": 6,
       "creation": 0,
+      "ultimateGoal": [
+        173038,
+        173007,
+        173062
+      ],
+      "ultimateSkill": 0,
       "origin": "限时礼包<br>春节壁池"
     },
     {
@@ -12471,69 +8275,72 @@
       "chefId": 150,
       "name": "祖冲之",
       "rarity": 4,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 190,
       "bake": 0,
       "boil": 0,
       "steam": 38,
       "fry": 285,
       "knife": 85,
-      "skill": [
-        {
-          "type": "炸类料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310134,
       "meat": 5,
       "fish": 0,
       "veg": 0,
       "creation": 6,
+      "ultimateGoal": [
+        173042,
+        173011,
+        173062
+      ],
+      "ultimateSkill": 0,
       "origin": "圣诞壁池"
     },
     {
       "chefId": 153,
       "name": "兔爷",
       "rarity": 3,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 66,
       "bake": 0,
       "boil": 33,
       "steam": 199,
       "fry": 0,
       "knife": 133,
-      "skill": [
-        {
-          "type": "蔬菜料理",
-          "addition": 0.15
-        }
-      ],
+      "skill": 310142,
       "meat": 4,
       "fish": 5,
       "veg": 0,
       "creation": 0,
+      "ultimateGoal": [
+        173046,
+        173014,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "晚秋壁池"
     },
     {
       "chefId": 156,
       "name": "李一清",
       "rarity": 3,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 33,
       "bake": 66,
       "boil": 133,
       "steam": 0,
       "fry": 0,
       "knife": 199,
-      "skill": [
-        {
-          "type": "面类料理",
-          "addition": 0.15
-        }
-      ],
+      "skill": 310140,
       "meat": 0,
       "fish": 0,
       "veg": 4,
       "creation": 5,
+      "ultimateGoal": [
+        173043,
+        173018,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "晚秋壁池"
     },
     {
@@ -12564,138 +8371,144 @@
       "chefId": 162,
       "name": "后羿",
       "rarity": 5,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 0,
       "bake": 124,
       "boil": 249,
       "steam": 0,
       "fry": 62,
       "knife": 374,
-      "skill": [
-        {
-          "type": "切类料理",
-          "addition": 0.25
-        }
-      ],
+      "skill": 310260,
       "meat": 0,
       "fish": 7,
       "veg": 0,
       "creation": 7,
+      "ultimateGoal": [
+        173031,
+        173006,
+        173061
+      ],
+      "ultimateSkill": 0,
       "origin": "晚秋壁池"
     },
     {
       "chefId": 165,
       "name": "杨小倩",
       "rarity": 3,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 0,
       "bake": 66,
       "boil": 133,
       "steam": 33,
       "fry": 199,
       "knife": 0,
-      "skill": [
-        {
-          "type": "面类料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310136,
       "meat": 4,
       "fish": 0,
       "veg": 5,
       "creation": 0,
+      "ultimateGoal": [
+        173048,
+        173017,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "双11壁池"
     },
     {
       "chefId": 168,
       "name": "琪琪",
       "rarity": 3,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 199,
       "bake": 33,
       "boil": 0,
       "steam": 66,
       "fry": 0,
       "knife": 133,
-      "skill": [
-        {
-          "type": "炒类料理",
-          "addition": 0.15
-        }
-      ],
+      "skill": 310143,
       "meat": 0,
       "fish": 4,
       "veg": 0,
       "creation": 5,
+      "ultimateGoal": [
+        173044,
+        173013,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "双11壁池"
     },
     {
       "chefId": 171,
       "name": "秦端雨",
       "rarity": 3,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 123,
       "bake": 185,
       "boil": 0,
       "steam": 0,
       "fry": 61,
       "knife": 61,
-      "skill": [
-        {
-          "type": "金币获得",
-          "addition": 0.06
-        }
-      ],
+      "skill": 310235,
       "meat": 5,
       "fish": 0,
       "veg": 6,
       "creation": 0,
+      "ultimateGoal": [
+        173045,
+        173015,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "限时礼包<br>桃花壁池"
     },
     {
       "chefId": 177,
       "name": "大天狗",
       "rarity": 5,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 232,
       "bake": 174,
       "boil": 0,
       "steam": 0,
       "fry": 348,
       "knife": 58,
-      "skill": [
-        {
-          "type": "水产料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310135,
       "meat": 7,
       "fish": 0,
       "veg": 6,
       "creation": 0,
+      "ultimateGoal": [
+        173036,
+        173005,
+        173061
+      ],
+      "ultimateSkill": 0,
       "origin": "双11壁池"
     },
     {
       "chefId": 180,
       "name": "孙香香",
       "rarity": 3,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 61,
       "bake": 123,
       "boil": 0,
       "steam": 0,
       "fry": 30,
       "knife": 216,
-      "skill": [
-        {
-          "type": "切类料理",
-          "addition": 0.15
-        }
-      ],
+      "skill": 310145,
       "meat": 0,
       "fish": 5,
       "veg": 0,
       "creation": 4,
+      "ultimateGoal": [
+        173043,
+        173018,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "双11壁池"
     },
     {
@@ -12774,23 +8587,24 @@
       "chefId": 192,
       "name": "胡小桃",
       "rarity": 3,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 0,
       "bake": 123,
       "boil": 0,
       "steam": 92,
       "fry": 30,
       "knife": 185,
-      "skill": [
-        {
-          "type": "切类料理",
-          "addition": 0.15
-        }
-      ],
+      "skill": 310145,
       "meat": 4,
       "fish": 0,
       "veg": 0,
       "creation": 5,
+      "ultimateGoal": [
+        173043,
+        173018,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "主线433"
     },
     {
@@ -12917,23 +8731,24 @@
       "chefId": 210,
       "name": "努扎尔",
       "rarity": 3,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 133,
       "bake": 33,
       "boil": 0,
       "steam": 0,
       "fry": 66,
       "knife": 199,
-      "skill": [
-        {
-          "type": "切类料理",
-          "addition": 0.15
-        }
-      ],
+      "skill": 310145,
       "meat": 4,
       "fish": 5,
       "veg": 0,
       "creation": 0,
+      "ultimateGoal": [
+        173043,
+        173018,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "圣诞壁池"
     },
     {
@@ -12988,46 +8803,48 @@
       "chefId": 219,
       "name": "雨轩",
       "rarity": 2,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 0,
       "bake": 138,
       "boil": 92,
       "steam": 23,
       "fry": 46,
       "knife": 0,
-      "skill": [
-        {
-          "type": "烤类料理",
-          "addition": 0.1
-        }
-      ],
+      "skill": 310122,
       "meat": 4,
       "fish": 0,
       "veg": 3,
       "creation": 0,
+      "ultimateGoal": [
+        173050,
+        173021,
+        173064
+      ],
+      "ultimateSkill": 310337,
       "origin": "春节壁池"
     },
     {
       "chefId": 222,
       "name": "雷慕",
       "rarity": 4,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 46,
       "bake": 276,
       "boil": 0,
       "steam": 184,
       "fry": 92,
       "knife": 0,
-      "skill": [
-        {
-          "type": "面类料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310136,
       "meat": 5,
       "fish": 0,
       "veg": 0,
       "creation": 6,
+      "ultimateGoal": [
+        173039,
+        173009,
+        173062
+      ],
+      "ultimateSkill": 0,
       "origin": "厨师礼包"
     },
     {
@@ -13058,69 +8875,72 @@
       "chefId": 228,
       "name": "玄离",
       "rarity": 5,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 124,
       "bake": 0,
       "boil": 374,
       "steam": 62,
       "fry": 0,
       "knife": 249,
-      "skill": [
-        {
-          "type": "煮类料理",
-          "addition": 0.25
-        }
-      ],
+      "skill": 310262,
       "meat": 0,
       "fish": 7,
       "veg": 7,
       "creation": 0,
+      "ultimateGoal": [
+        173035,
+        173004,
+        173061
+      ],
+      "ultimateSkill": 0,
       "origin": "圣诞壁池"
     },
     {
       "chefId": 231,
       "name": "桃姬",
       "rarity": 2,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 0,
       "bake": 92,
       "boil": 0,
       "steam": 138,
       "fry": 23,
       "knife": 46,
-      "skill": [
-        {
-          "type": "面类料理",
-          "addition": 0.1
-        }
-      ],
+      "skill": 310126,
       "meat": 0,
       "fish": 0,
       "veg": 3,
       "creation": 4,
+      "ultimateGoal": [
+        173051,
+        173020,
+        173066
+      ],
+      "ultimateSkill": 310339,
       "origin": "桃花壁池"
     },
     {
       "chefId": 234,
       "name": "散人",
       "rarity": 4,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 276,
       "bake": 0,
       "boil": 92,
       "steam": 46,
       "fry": 184,
       "knife": 0,
-      "skill": [
-        {
-          "type": "面类料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310136,
       "meat": 5,
       "fish": 0,
       "veg": 0,
       "creation": 6,
+      "ultimateGoal": [
+        173038,
+        173007,
+        173062
+      ],
+      "ultimateSkill": 0,
       "origin": "限时礼包"
     },
     {
@@ -13199,23 +9019,24 @@
       "chefId": 246,
       "name": "唐美美",
       "rarity": 3,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 133,
       "bake": 0,
       "boil": 199,
       "steam": 33,
       "fry": 0,
       "knife": 66,
-      "skill": [
-        {
-          "type": "煮类料理",
-          "addition": 0.15
-        }
-      ],
+      "skill": 310146,
       "meat": 0,
       "fish": 5,
       "veg": 4,
       "creation": 0,
+      "ultimateGoal": [
+        173047,
+        173016,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "春节壁池"
     },
     {
@@ -13243,224 +9064,229 @@
       "origin": "情人节壁池"
     },
     {
-      "chefId": 254,
+      "chefId": 255,
       "name": "雷公子",
       "rarity": 4,
       "gender": "男",
-      "stirfry": 62,
-      "bake": 188,
-      "boil": 31,
+      "stirfry": 92,
+      "bake": 276,
+      "boil": 46,
       "steam": 0,
-      "fry": 125,
+      "fry": 184,
       "knife": 0,
       "skill": 310132,
       "meat": 5,
       "fish": 0,
       "veg": 6,
       "creation": 0,
+      "ultimateGoal": [
+        173039,
+        173009,
+        173062
+      ],
+      "ultimateSkill": 0,
       "origin": "情人节壁池"
     },
     {
       "chefId": 258,
       "name": "咸公主",
       "rarity": 4,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 46,
       "bake": 0,
       "boil": 184,
       "steam": 92,
       "fry": 276,
       "knife": 0,
-      "skill": [
-        {
-          "type": "水产料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310135,
       "meat": 0,
       "fish": 6,
       "veg": 5,
       "creation": 0,
+      "ultimateGoal": [
+        173042,
+        173011,
+        173062
+      ],
+      "ultimateSkill": 0,
       "origin": "厨师礼包"
     },
     {
       "chefId": 261,
       "name": "秋丽",
       "rarity": 3,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 199,
       "bake": 33,
       "boil": 133,
       "steam": 0,
       "fry": 66,
       "knife": 0,
-      "skill": [
-        {
-          "type": "炒类料理",
-          "addition": 0.15
-        }
-      ],
+      "skill": 310143,
       "meat": 4,
       "fish": 0,
       "veg": 5,
       "creation": 0,
+      "ultimateGoal": [
+        173044,
+        173013,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "桃花壁池"
     },
     {
       "chefId": 264,
       "name": "金凌",
       "rarity": 3,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 133,
       "bake": 0,
       "boil": 66,
       "steam": 33,
       "fry": 199,
       "knife": 0,
-      "skill": [
-        {
-          "type": "炸类料理",
-          "addition": 0.15
-        }
-      ],
+      "skill": 310147,
       "meat": 0,
       "fish": 5,
       "veg": 0,
       "creation": 4,
+      "ultimateGoal": [
+        173048,
+        173017,
+        173063
+      ],
+      "ultimateSkill": 0,
       "origin": "桃花壁池"
     },
     {
       "chefId": 267,
       "name": "玄一",
       "rarity": 5,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 374,
       "bake": 124,
       "boil": 0,
       "steam": 0,
       "fry": 249,
       "knife": 62,
-      "skill": [
-        {
-          "type": "炒类料理",
-          "addition": 0.25
-        }
-      ],
+      "skill": 310264,
       "meat": 7,
       "fish": 0,
       "veg": 0,
       "creation": 7,
+      "ultimateGoal": [
+        173032,
+        173001,
+        173061
+      ],
+      "ultimateSkill": 0,
       "origin": "情人节壁池"
     },
     {
       "chefId": 270,
       "name": "猪小福",
       "rarity": 4,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 184,
       "bake": 92,
       "boil": 0,
       "steam": 0,
       "fry": 276,
       "knife": 46,
-      "skill": [
-        {
-          "type": "肉类料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310137,
       "meat": 6,
       "fish": 5,
       "veg": 0,
       "creation": 0,
+      "ultimateGoal": [
+        173042,
+        173011,
+        173062
+      ],
+      "ultimateSkill": 0,
       "origin": "春节壁池"
     },
     {
       "chefId": 273,
       "name": "小福妮",
       "rarity": 4,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 0,
       "bake": 184,
       "boil": 92,
       "steam": 0,
       "fry": 46,
       "knife": 276,
-      "skill": [
-        {
-          "type": "切类料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310129,
       "meat": 0,
       "fish": 6,
       "veg": 5,
       "creation": 0,
+      "ultimateGoal": [
+        173037,
+        173012,
+        173062
+      ],
+      "ultimateSkill": 0,
       "origin": "春节壁池"
     },
     {
       "chefId": 276,
       "name": "火姬",
       "rarity": 5,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 0,
       "bake": 374,
       "boil": 124,
       "steam": 249,
       "fry": 62,
       "knife": 0,
-      "skill": [
-        {
-          "type": "烤类料理",
-          "addition": 0.25
-        }
-      ],
+      "skill": 310263,
       "meat": 7,
       "fish": 0,
       "veg": 7,
       "creation": 0,
+      "ultimateGoal": [
+        173033,
+        173003,
+        173061
+      ],
+      "ultimateSkill": 0,
       "origin": "春节壁池"
     },
     {
       "chefId": 282,
       "name": "小绵娘",
       "rarity": 2,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 46,
       "bake": 23,
       "boil": 92,
       "steam": 138,
       "fry": 0,
       "knife": 0,
-      "skill": [
-        {
-          "type": "蒸类料理",
-          "addition": 0.1
-        }
-      ],
+      "skill": 310120,
       "meat": 3,
       "fish": 0,
       "veg": 4,
       "creation": 0,
+      "ultimateGoal": [],
+      "ultimateSkill": 0,
       "origin": "限时礼包"
     },
     {
       "chefId": 285,
       "name": "皮蛋 八哥 雍正",
       "rarity": 5,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 135,
       "bake": 135,
       "boil": 135,
       "steam": 135,
       "fry": 135,
       "knife": 135,
-      "skill": [
-        {
-          "type": "探索时间",
-          "addition": "显著减少"
-        }
-      ],
+      "skill": 310273,
       "meat": -9,
       "fish": -9,
       "veg": -9,
@@ -13473,46 +9299,40 @@
       "chefId": 297,
       "name": "石镜",
       "rarity": 4,
-      "sex": "男",
+      "gender": "男",
       "stirfry": 92,
       "bake": 0,
       "boil": 0,
       "steam": 276,
       "fry": 46,
       "knife": 184,
-      "skill": [
-        {
-          "type": "蒸类料理",
-          "addition": 0.2
-        }
-      ],
+      "skill": 310130,
       "meat": 0,
       "fish": 6,
       "veg": 5,
       "creation": 0,
+      "ultimateGoal": [],
+      "ultimateSkill": 0,
       "origin": "桃花壁池"
     },
     {
       "chefId": 318,
       "name": "息夫人",
       "rarity": 5,
-      "sex": "女",
+      "gender": "女",
       "stirfry": 249,
       "bake": 0,
       "boil": 374,
       "steam": 0,
       "fry": 124,
       "knife": 62,
-      "skill": [
-        {
-          "type": "煮类料理",
-          "addition": 0.25
-        }
-      ],
+      "skill": 310262,
       "meat": 0,
       "fish": 0,
       "veg": 7,
       "creation": 7,
+      "ultimateGoal": [],
+      "ultimateSkill": 0,
       "origin": "桃花壁池"
     }
   ],
