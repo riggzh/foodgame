@@ -76,7 +76,17 @@ label.btn input[type="checkbox"]:checked+.fa {
     width: auto;
 }
 
-.loading {
+.loading-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 30;
+}
+
+.loading-text {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -85,8 +95,8 @@ label.btn input[type="checkbox"]:checked+.fa {
     z-index: 50;
 }
 
-.loading h1 {
-    color: #333;
+.loading-text h1 {
+    color: #fff;
     animation: pulse 2.5s linear infinite;
 }
 
@@ -267,8 +277,9 @@ table.dataTable tbody>tr>.selected {
     text-align: center;
 }
 
-#input-cal-all-results-show-top {
-    width: 40px;
+#input-cal-all-results-show-top,
+#input-cal-optimal-recipes-results-show-top {
+    width: 45px;
 }
 
 .cal-td-input-addition .form-control {
