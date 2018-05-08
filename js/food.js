@@ -1173,6 +1173,8 @@ function importData(data, input) {
     initRecipeShow($('#recipe-table').DataTable(), data);
     initChefShow($('#chef-table').DataTable(), data);
 
+    $("#btn-chef-recal").removeClass("btn-danger").addClass("btn-default");
+
     return true;
 }
 
