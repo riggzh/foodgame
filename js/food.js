@@ -58,7 +58,7 @@ function initTables(data, person) {
     initImportExport(data);
 
     if (private) {
-        initCalTables(data);
+        initCalTables(data, person);
         $(".nav-tabs li").removeClass("hidden");
     }
 
@@ -552,6 +552,12 @@ function initChefTable(data) {
             "defaultContent": ""
         },
         {
+            "data": {
+                "_": "equipName",
+                "display": "equipDisp"
+            }
+        },
+        {
             "data": "ultimateGoal"
         },
         {
@@ -694,7 +700,7 @@ function initChefTable(data) {
         }
 
         var check = $('#chk-chef-got').prop("checked");
-        var got = data[20];   // got
+        var got = data[21];   // got
 
         if (!check || check && got) {
             return true;
@@ -710,7 +716,7 @@ function initChefTable(data) {
         }
 
         var value = $("#pane-chefs .search-box input").val();
-        var searchCols = [1, 9, 15, 16, 18];    //  name, skill, origin, tags, ultimateskill
+        var searchCols = [1, 9, 15, 16, 19];    //  name, skill, origin, tags, ultimateskill
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
             if (data[searchCols[i]].indexOf(value) !== -1) {
@@ -722,21 +728,49 @@ function initChefTable(data) {
     });
 
     var gotOptions = getGotOptions();
+    var equipsOptions = getEquipsOptions(data.equips, data.skills);
+
     chefTable.MakeCellsEditable({
-        "columns": [19, 20],  // ultimate, got
+        "columns": [17, 20, 21],  // equipName, ultimate, got
         "inputTypes": [
             {
-                "column": 19,
+                "column": 17,
                 "type": "list",
-                "options": gotOptions
+                "search": true,
+                "options": equipsOptions
             },
             {
                 "column": 20,
                 "type": "list",
                 "options": gotOptions
+            },
+            {
+                "column": 21,
+                "type": "list",
+                "options": gotOptions
             }
         ],
         "onUpdate": function (table, row, cell) {
+            if (cell.index().column == 17) {     // equipName
+                var chef = row.data();
+                var equip = null;
+                var equipDisp = "";
+                if (chef.equipName) {
+                    for (var j in data.equips) {
+                        if (chef.equipName == data.equips[j].name) {
+                            equip = data.equips[j];
+                            equipDisp = data.equips[j].name + "<br>" + data.equips[j].skillDisp;
+                            break;
+                        }
+                    }
+                }
+                chef.equip = equip;
+                chef.equipDisp = equipDisp;
+                $(cell.node()).html(equipDisp);
+            }
+            if (cell.index().column == 17 || cell.index().column == 20) {   // equipName, ultimate
+                $("#btn-chef-recal").removeClass("btn-default").addClass("btn-danger");
+            }
             updateChefsLocalData();
         }
     });
@@ -800,15 +834,14 @@ function initChefTable(data) {
     });
 
     $('#chk-chef-apply-ultimate-person').change(function () {
-        if ($(this).prop("checked")) {
-            $('#btn-chef-apply-ultimate-person').show();
-        } else {
-            $('#btn-chef-apply-ultimate-person').hide();
-        }
         updateRecipeChefTable(data);
     });
 
-    $('#btn-chef-apply-ultimate-person').click(function () {
+    $('#chk-chef-apply-equips').change(function () {
+        updateRecipeChefTable(data);
+    });
+
+    $('#btn-chef-recal').click(function () {
         updateRecipeChefTable(data);
     });
 
@@ -1110,6 +1143,18 @@ function importData(data, input) {
                 if (person.chefs[j].hasOwnProperty("ult")) {
                     data.chefs[i].ultimate = person.chefs[j].ult;
                 }
+                if (person.chefs[j].hasOwnProperty("equip")) {
+                    for (var k in data.equips) {
+                        if (person.chefs[j].equip == data.equips[k].equipId) {
+                            data.chefs[i].equip = data.equips[k];
+                            data.chefs[i].equipName = data.equips[k].name;
+                            data.chefs[i].equipDisp = data.equips[k].name + "<br>" + data.equips[k].skillDisp;
+                            break;
+                        }
+                    }
+                } else {
+                    data.chefs[i].equip = null;
+                }
                 break;
             }
         }
@@ -1214,6 +1259,9 @@ function generateChefsExportData() {
         chef["id"] = chefs[i].chefId;
         chef["got"] = chefs[i].got;
         chef["ult"] = chefs[i].ultimate;
+        if (chefs[i].equip) {
+            chef["equip"] = chefs[i].equip.equipId;
+        }
         exportChefs.push(chef);
     }
     return exportChefs;
@@ -1253,6 +1301,7 @@ function generateMenuExportData() {
     chefMenu["gender"] = $("#chk-chef-show-gender").prop("checked");
     chefMenu["origin"] = $("#chk-chef-show-origin").prop("checked");
     chefMenu["tags"] = $("#chk-chef-show-tags").prop("checked");
+    chefMenu["equip"] = $("#chk-chef-show-equip").prop("checked");
     chefMenu["ultimateGoal"] = $("#chk-chef-show-ultimate-goal").prop("checked");
     chefMenu["ultimateSkill"] = $("#chk-chef-show-ultimate-skill").prop("checked");
     chefMenu["ultimate"] = $("#chk-chef-show-ultimate").prop("checked");
@@ -1297,6 +1346,7 @@ function updateMenu(data, person) {
             $("#chk-chef-show-gender").prop("checked", chefMenu.gender || false);
             $("#chk-chef-show-origin").prop("checked", chefMenu.origin || false);
             $("#chk-chef-show-tags").prop("checked", chefMenu.tags || false);
+            $("#chk-chef-show-equip").prop("checked", chefMenu.equip || false);
             $("#chk-chef-show-ultimate-goal").prop("checked", chefMenu.ultimateGoal || false);
             $("#chk-chef-show-ultimate-skill").prop("checked", chefMenu.ultimateSkill || false);
             $("#chk-chef-show-ultimate").prop("checked", chefMenu.ultimate || false);
@@ -1307,9 +1357,9 @@ function updateMenu(data, person) {
 }
 
 
-function initCalTables(data) {
+function initCalTables(data, person) {
 
-    initCalRules(data);
+    initCalRules(data, person);
     initCalRecipesTable(data);
     initCalChefsTable(data);
     initCalEquipsTable(data);
@@ -1329,7 +1379,7 @@ function initCalTables(data) {
 
 }
 
-function initCalRules(data) {
+function initCalRules(data, person) {
     var worker = new Worker("js/cal.js");
     worker.onmessage = function (event) {
         $("#select-cal-rule").append(event.data);
@@ -1442,7 +1492,8 @@ function initCalRules(data) {
         ruleWorker.postMessage({
             "mode": "get-rules-data",
             "rule": rule,
-            "odata": data
+            "odata": data,
+            "person": person
         });
 
     });
@@ -2636,7 +2687,10 @@ function generateData(json, json2, person) {
     }
     retData["quests"] = questsData;
 
-    var ultimateData = getUltimateData(json.chefs, person, json.skills);
+    var useEquip = $("#chk-chef-apply-equips").prop("checked");
+    var useUltimate = $("#chk-chef-apply-ultimate").prop("checked");
+    var usePerson = $("#chk-chef-apply-ultimate-person").prop("checked");
+    var ultimateData = getUltimateData(json.chefs, person, json.skills, useUltimate, usePerson);
 
     var chefsData = new Array();
     for (var i in json.chefs) {
@@ -2653,7 +2707,6 @@ function generateData(json, json2, person) {
         chefData["veg"] = json.chefs[i].veg || "";
         chefData["fish"] = json.chefs[i].fish || "";
         chefData["addition"] = "";
-        chefData["equipName"] = "";
 
         chefData["chefIdDisp"] = (json.chefs[i].chefId - 2) + " - " + json.chefs[i].chefId;
         chefData["rarityDisp"] = getRarityDisp(json.chefs[i].rarity);
@@ -2687,10 +2740,11 @@ function generateData(json, json2, person) {
         var ultimateSkillInfo = getSkillInfo(json.skills, json.chefs[i].ultimateSkill);
         chefData["ultimateSkillDisp"] = ultimateSkillInfo.skillDisp;
 
-        setDataForChef(chefData, ultimateData);
-
         chefData["got"] = "";
         chefData["ultimate"] = "";
+        chefData["equip"] = null;
+        chefData["equipName"] = "";
+        chefData["equipDisp"] = "";
 
         if (person) {
             for (var j in person.chefs) {
@@ -2701,10 +2755,22 @@ function generateData(json, json2, person) {
                     if (person.chefs[j].hasOwnProperty("ult")) {
                         chefData["ultimate"] = person.chefs[j].ult;
                     }
+                    if (person.chefs[j].hasOwnProperty("equip")) {
+                        for (var k in equipsData) {
+                            if (person.chefs[j].equip == equipsData[k].equipId) {
+                                chefData["equip"] = equipsData[k];
+                                chefData["equipName"] = equipsData[k].name;
+                                chefData["equipDisp"] = equipsData[k].name + "<br>" + equipsData[k].skillDisp;
+                                break;
+                            }
+                        }
+                    }
                     break;
                 }
             }
         }
+
+        setDataForChef(chefData, ultimateData, useEquip);
 
         chefsData.push(chefData);
     }
@@ -2726,7 +2792,6 @@ function generateData(json, json2, person) {
         recipeData["fry"] = json.recipes[i].fry || "";
         recipeData["bake"] = json.recipes[i].bake || "";
         recipeData["steam"] = json.recipes[i].steam || "";
-        recipeData["price"] = json.recipes[i].price;
         recipeData["addition"] = "";
 
         recipeData["skillDisp"] = getSkillDisp(json.recipes[i]);
@@ -2812,10 +2877,14 @@ function generateData(json, json2, person) {
             var chefEff = 0;
 
             if (rankInfo.rankVal > 0) {
-
+                var timeAddition = getTimeAddition(retData["chefs"][j].specialSkillEffect);
                 var skillAddition = getSkillAddition(json.recipes[i], retData["chefs"][j].specialSkillEffect, retData["materials"]);
+                if (useEquip && retData["chefs"][j].equip) {
+                    timeAddition += getTimeAddition(retData["chefs"][j].equip.effect);
+                    skillAddition += getSkillAddition(json.recipes[i], retData["chefs"][j].equip.effect, retData["materials"]);
+                }
 
-                chefEff = (1 + rankInfo.rankAddition + skillAddition) * recipeData.efficiency;
+                chefEff = (1 + rankInfo.rankAddition + skillAddition) * Math.floor(json.recipes[i].price * 3600 / (json.recipes[i].time * (1 + timeAddition)));
             }
 
             var recipeChefData = new Object();
@@ -2848,6 +2917,8 @@ function updateRecipeChefTable(data) {
         $('#chef-table').DataTable().clear().rows.add(data.chefs).draw(false);
         $('.loading').addClass("hidden");
     }, 500);
+
+    $("#btn-chef-recal").removeClass("btn-danger").addClass("btn-default");
 }
 
 function getUpdateData(data) {
@@ -2858,10 +2929,13 @@ function getUpdateData(data) {
         person = JSON.parse(localData);
     } catch (e) { }
 
-    var ultimateData = getUltimateData(data.chefs, person, data.skills);
+    var useEquip = $("#chk-chef-apply-equips").prop("checked");
+    var useUltimate = $("#chk-chef-apply-ultimate").prop("checked");
+    var usePerson = $("#chk-chef-apply-ultimate-person").prop("checked");
+    var ultimateData = getUltimateData(data.chefs, person, data.skills, useUltimate, usePerson);
 
     for (var i in data.chefs) {
-        setDataForChef(data.chefs[i], ultimateData);
+        setDataForChef(data.chefs[i], ultimateData, useEquip);
     }
 
     for (var i in data.recipes) {
@@ -2873,10 +2947,14 @@ function getUpdateData(data) {
             var chefEff = 0;
 
             if (rankInfo.rankVal > 0) {
-
+                var timeAddition = getTimeAddition(data.chefs[j].specialSkillEffect);
                 var skillAddition = getSkillAddition(data.recipes[i], data.chefs[j].specialSkillEffect, data.materials);
+                if (useEquip && data.chefs[j].equip) {
+                    timeAddition += getTimeAddition(data.chefs[j].equip.effect);
+                    skillAddition += getSkillAddition(data.recipes[i], data.chefs[j].equip.effect, data.materials);
+                }
 
-                chefEff = (1 + rankInfo.rankAddition + skillAddition) * data.recipes[i].efficiency;
+                chefEff = (1 + rankInfo.rankAddition + skillAddition) * Math.floor(data.recipes[i].price * 3600 / (data.recipes[i].time * (1 + timeAddition)));
             }
 
             var recipeChefData = new Object();
@@ -2894,59 +2972,6 @@ function getUpdateData(data) {
     }
 
     return data;
-}
-
-function getUltimateData(chefs, person, skills) {
-    var useUltimate = $("#chk-chef-apply-ultimate").prop("checked");
-    var ultimateData = new Array();
-    if (useUltimate) {
-        var usePerson = $("#chk-chef-apply-ultimate-person").prop("checked");
-        for (var i in chefs) {
-            if (chefs[i].ultimateSkill) {
-                var valid = false;
-                if (usePerson) {
-                    if (person) {
-                        for (var j in person.chefs) {
-                            if (chefs[i].chefId == person.chefs[j].id) {
-                                if (person.chefs[j].ult == "是") {
-                                    valid = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    valid = true;
-                }
-
-                if (valid) {
-                    for (var k in skills) {
-                        if (chefs[i].ultimateSkill == skills[k].skillId) {
-                            for (var m in skills[k].effect) {
-                                var found = false;
-                                for (var n in ultimateData) {
-                                    if (ultimateData[n].type == skills[k].effect[m].type) {
-                                        ultimateData[n].addition += skills[k].effect[m].addition;
-                                        found = true;
-                                        break;
-                                    }
-                                }
-                                if (!found) {
-                                    var ultimateItem = new Object();
-                                    ultimateItem["type"] = skills[k].effect[m].type;
-                                    ultimateItem["addition"] = skills[k].effect[m].addition;
-                                    ultimateData.push(ultimateItem);
-                                }
-                            }
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    return ultimateData;
 }
 
 function getQuestsData(quests, type) {
@@ -3070,7 +3095,7 @@ function getRankGuestInfo(recipe, rank, guests) {
     return retData;
 }
 
-function setDataForChef(chefData, ultimateData) {
+function setDataForChef(chefData, ultimateData, useEquip) {
 
     chefData["stirfryVal"] = chefData.stirfry;
     chefData["boilVal"] = chefData.boil;
@@ -3114,6 +3139,62 @@ function setDataForChef(chefData, ultimateData) {
                 boilAddition += ultimateData[i].addition;
                 fryAddition += ultimateData[i].addition;
                 knifeAddition += ultimateData[i].addition;
+            }
+        }
+    }
+
+    if (useEquip && chefData.equip) {
+        var effect = chefData.equip.effect;
+        for (var i in effect) {
+            var type = effect[i].type;
+            var addition = effect[i].addition;
+            if (type.indexOf("炒技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    stirfryAddition += addition;
+                } else {
+                    stirfryAddition += chefData.stirfry * (1 + addition);
+                }
+            }
+            if (type.indexOf("煮技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    boilAddition += addition;
+                } else {
+                    boilAddition += chefData.boil * (1 + addition);
+                }
+            }
+            if (type.indexOf("切技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    knifeAddition += addition;
+                } else {
+                    knifeAddition += chefData.knife * (1 + addition);
+                }
+            }
+            if (type.indexOf("炸技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    fryAddition += addition;
+                } else {
+                    fryAddition += chefData.fry * (1 + addition);
+                }
+            }
+            if (type.indexOf("烤技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    bakeAddition += addition;
+                } else {
+                    bakeAddition += chefData.bake * (1 + addition);
+                }
+            }
+            if (type.indexOf("蒸技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    steamAddition += addition;
+                } else {
+                    steamAddition += chefData.steam * (1 + addition);
+                }
             }
         }
     }
@@ -3402,15 +3483,16 @@ function initChefShow(chefTable, data) {
         chefTable.column(16).visible(false, false);
     }
 
-    chefTable.column(17).visible($('#chk-chef-show-ultimate-goal').prop("checked"), false);
-    chefTable.column(18).visible($('#chk-chef-show-ultimate-skill').prop("checked"), false);
-    chefTable.column(19).visible($('#chk-chef-show-ultimate').prop("checked"), false);
-    chefTable.column(20).visible($('#chk-chef-show-got').prop("checked"), false);
+    chefTable.column(17).visible($('#chk-chef-show-equip').prop("checked"), false);
+    chefTable.column(18).visible($('#chk-chef-show-ultimate-goal').prop("checked"), false);
+    chefTable.column(19).visible($('#chk-chef-show-ultimate-skill').prop("checked"), false);
+    chefTable.column(20).visible($('#chk-chef-show-ultimate').prop("checked"), false);
+    chefTable.column(21).visible($('#chk-chef-show-got').prop("checked"), false);
 
     var chkRecipes = $('#chk-chef-show-recipe').val();
     for (var j = 0; j < data.recipes.length; j++) {
-        chefTable.column(21 + 2 * j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
         chefTable.column(22 + 2 * j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
+        chefTable.column(23 + 2 * j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
     }
 
     chefTable.columns.adjust().draw(false);
