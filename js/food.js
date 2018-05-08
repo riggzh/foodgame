@@ -361,7 +361,7 @@ function initRecipeTable(data) {
                 "options": gotOptions
             }
         ],
-        "onUpdate": function (table, row, cell) {
+        "onUpdate": function (table, row, cell, oldValue) {
             var recipe = row.data();
             var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank, data.guests);
             recipe.rankGuestsVal = rankGuestInfo.rankGuestsVal;
@@ -750,7 +750,7 @@ function initChefTable(data) {
                 "options": gotOptions
             }
         ],
-        "onUpdate": function (table, row, cell) {
+        "onUpdate": function (table, row, cell, oldValue) {
             if (cell.index().column == 17) {     // equipName
                 var chef = row.data();
                 var equip = null;
@@ -768,7 +768,7 @@ function initChefTable(data) {
                 chef.equipDisp = equipDisp;
                 $(cell.node()).html(equipDisp);
             }
-            if (cell.index().column == 17 || cell.index().column == 20) {   // equipName, ultimate
+            if ((cell.index().column == 17 || cell.index().column == 20) && cell.data() != oldValue) {   // equipName, ultimate
                 $("#btn-chef-recal").removeClass("btn-default").addClass("btn-danger");
             }
             updateChefsLocalData();
@@ -1453,7 +1453,7 @@ function initCalRules(data, person) {
                         "options": equipsOptions
                     }
                 ],
-                "onUpdate": function (table, row, cell) {
+                "onUpdate": function (table, row, cell, oldValue) {
 
                     if (typeof (customWorker) != "undefined") {
                         customWorker.terminate();
@@ -3679,10 +3679,11 @@ $.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
             var inputField = $(callingElement);
 
             // Update
+            var oldValue = cell.data();
             var newValue = inputField.val();
             cell.data(newValue);
             if (settings.onUpdate) {
-                settings.onUpdate(table, row, cell);
+                settings.onUpdate(table, row, cell, oldValue);
             }
         }
     });
