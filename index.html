@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=3" />
     <script type="text/javascript" src="js/script.min.js?v=5"></script>
-    <script type="text/javascript" src="js/common.min.js?v=6"></script>
+    <script type="text/javascript" src="js/common.min.js?v=7"></script>
     <link rel="stylesheet" type="text/css" href="css/food.min.css?v=16" />
-    <script type="text/javascript" src="js/food.min.js?v=42"></script>
+    <script type="text/javascript" src="js/food.min.js?v=45"></script>
 </head>
 
 <body>
@@ -338,6 +338,11 @@
                             类别
                         </label>
                         <label class="btn btn-default">
+                            <input type="checkbox" id="chk-chef-show-equip" class="chk-chef-show">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            厨具
+                        </label>
+                        <label class="btn btn-default">
                             <input type="checkbox" id="chk-chef-show-ultimate-goal" class="chk-chef-show">
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             修炼任务
@@ -455,10 +460,16 @@
                         <span class="chef-apply-ultimate">
                             <input type="checkbox" id="chk-chef-apply-ultimate-person" data-toggle="toggle" data-on="已修炼" data-off="全修炼" data-onstyle="default"
                                 data-width="80px" checked>
-                            <a id="btn-chef-apply-ultimate-person" class="btn btn-default">
-                                重新计算已修炼
-                            </a>
                         </span>
+                    </div>
+                    <div class="box">
+                        <input type="checkbox" id="chk-chef-apply-equips" data-toggle="toggle" data-on="厨具技能开" data-off="厨具技能关" data-onstyle="default"
+                            data-width="105px" checked>
+                    </div>
+                    <div class="box">
+                        <a id="btn-chef-recal" class="btn btn-default">
+                            重新计算
+                        </a>
                     </div>
                 </div>
                 <div>
@@ -482,6 +493,7 @@
                                 <th>性别</th>
                                 <th>来源</th>
                                 <th>类别</th>
+                                <th>厨具</th>
                                 <th>修炼任务</th>
                                 <th>修炼技能</th>
                                 <th>已修炼</th>
@@ -1354,14 +1366,16 @@
                     <span class="label label-info">厨师图鉴</span>
                 </h4>
                 <p>选择菜谱并点击菜谱列进行排序, 可以看厨师可做的品阶.</p>
-                <p class="text-danger">列 修炼任务</p>
-                <p class="text-danger">列 修炼技能</p>
-                <p class="text-danger">列 已修炼 - 个人数据, 该列点击可编辑, 用来记录你是否已修炼该厨师.</p>
+                <p class="text-danger">列 厨具 - 个人数据, 该列点击可编辑.</p>
+                <p>列 修炼任务</p>
+                <p>列 修炼技能</p>
+                <p>列 已修炼 - 个人数据, 该列点击可编辑, 用来记录你是否已修炼该厨师.</p>
                 <p>列 已有 - 个人数据, 该列点击可编辑, 用来记录你是否用拥有该厨师.</p>
                 <p>筛选按钮 已有 - 只显示已有厨师.</p>
-                <p class="text-danger">开关 修炼技能开/关 - 修炼技能开时, 图鉴数据会使用修炼技能加成.</p>
-                <p class="text-danger">开关 已修炼/全修炼 - 图鉴数据会使用已修炼,或者全修炼技能加成.</p>
-                <p class="text-danger">按钮 重新计算已修炼 - 基于效率考虑, 编辑已修炼列后图鉴数据不会重新计算,需要手动点击该按钮.</p>
+                <p>开关 修炼技能开/关 - 修炼技能开时, 图鉴数据会使用修炼技能加成.</p>
+                <p>开关 已修炼/全修炼 - 图鉴数据会使用已修炼,或者全修炼技能加成.</p>
+                <p class="text-danger">开关 厨具技能开/关 - 厨具技能开时, 图鉴数据会使用厨具技能加成.</p>
+                <p class="text-danger">按钮 重新计算 - 基于效率考虑, 编辑已修炼列或厨具列后, 图鉴数据不会自动重新计算, 需要手动点击该按钮.</p>
                 <h4>
                     <span class="label label-info">厨具图鉴</span>
                 </h4>
@@ -1377,12 +1391,12 @@
                 <h4>
                     <span class="label label-info">个人数据</span>
                 </h4>
-                <p>品阶等个人数据保存在浏览器端, 正常情况下下次打开网站时数据不会丢失.</p>
+                <p>个人数据保存在浏览器端, 正常情况下下次打开网站时数据不会丢失.</p>
                 <p>如需要更换设备或防止浏览器缓存被清空等情况, 可使用个人数据备份功能.</p>
                 <p>导出数据 - 点击按钮会生成个人数据, 可拷贝复制到其他地方用于备份.</p>
                 <p>导入数据 - 将备份的个人数据复制到文本框内, 点击按钮可以导入个人数据.</p>
                 <br>
-                <p>难免有数据缺失或错误, 敬请谅解.如想纠错或补充数据可以联系我, 官方1群或2群 L</p>
+                <p>难免有数据缺失或错误, 敬请谅解. 如想纠错或补充数据可以联系我, 官方1群或2群 L</p>
                 <hr>
                 <h3>
                     <span class="label label-primary">更新</span>
@@ -1393,7 +1407,7 @@
                 <h3>
                     <span class="label label-primary">致谢</span>
                 </h3>
-                <p>感谢Boketto提供的菜谱数据.感谢官方2群闲时提供的升阶贵客符文数据.</p>
+                <p>感谢Boketto提供的菜谱数据. 感谢官方2群闲时提供的升阶贵客符文数据.</p>
             </div>
         </div>
     </div>
