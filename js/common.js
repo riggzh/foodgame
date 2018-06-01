@@ -18,7 +18,7 @@ function getRankInfo(recipe, chef, equip) {
                 if (isInt(addition)) {
                     stirfry += addition;
                 } else {
-                    stirfry = stirfry * (1 + addition);
+                    stirfry = chef.stirfry * (1 + addition);
                 }
             }
             if (type.indexOf("煮技法") >= 0
@@ -26,7 +26,7 @@ function getRankInfo(recipe, chef, equip) {
                 if (isInt(addition)) {
                     boil += addition;
                 } else {
-                    boil = boil * (1 + addition);
+                    boil = chef.boil * (1 + addition);
                 }
             }
             if (type.indexOf("切技法") >= 0
@@ -34,7 +34,7 @@ function getRankInfo(recipe, chef, equip) {
                 if (isInt(addition)) {
                     knife += addition;
                 } else {
-                    knife = knife * (1 + addition);
+                    knife = chef.knife * (1 + addition);
                 }
             }
             if (type.indexOf("炸技法") >= 0
@@ -42,7 +42,7 @@ function getRankInfo(recipe, chef, equip) {
                 if (isInt(addition)) {
                     fry += addition;
                 } else {
-                    fry = fry * (1 + addition);
+                    fry = chef.fry * (1 + addition);
                 }
             }
             if (type.indexOf("烤技法") >= 0
@@ -50,7 +50,7 @@ function getRankInfo(recipe, chef, equip) {
                 if (isInt(addition)) {
                     bake += addition;
                 } else {
-                    bake = bake * (1 + addition);
+                    bake = chef.bake * (1 + addition);
                 }
             }
             if (type.indexOf("蒸技法") >= 0
@@ -58,7 +58,7 @@ function getRankInfo(recipe, chef, equip) {
                 if (isInt(addition)) {
                     steam += addition;
                 } else {
-                    steam = steam * (1 + addition);
+                    steam = chef.steam * (1 + addition);
                 }
             }
         }
@@ -221,6 +221,205 @@ function getSkillAddition(recipe, skill, materials) {
     }
 
     return skillAddition;
+}
+
+function getTimeAddition(skill) {
+    var timeAddition = 0;
+    for (var k in skill) {
+        if (skill[k].type.indexOf("开业时间") >= 0) {
+            timeAddition += skill[k].addition;
+        }
+    }
+    return timeAddition;
+}
+
+function getUltimateData(chefs, person, skills, useUltimate, usePerson) {
+    var ultimateData = new Array();
+    if (useUltimate) {
+        for (var i in chefs) {
+            if (chefs[i].ultimateSkill) {
+                var valid = false;
+                if (usePerson) {
+                    if (person) {
+                        for (var j in person.chefs) {
+                            if (chefs[i].chefId == person.chefs[j].id) {
+                                if (person.chefs[j].ult == "是") {
+                                    valid = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    valid = true;
+                }
+
+                if (valid) {
+                    for (var k in skills) {
+                        if (chefs[i].ultimateSkill == skills[k].skillId) {
+                            for (var m in skills[k].effect) {
+                                var found = false;
+                                for (var n in ultimateData) {
+                                    if (ultimateData[n].type == skills[k].effect[m].type) {
+                                        ultimateData[n].addition += skills[k].effect[m].addition;
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                                if (!found) {
+                                    var ultimateItem = new Object();
+                                    ultimateItem["type"] = skills[k].effect[m].type;
+                                    ultimateItem["addition"] = skills[k].effect[m].addition;
+                                    ultimateData.push(ultimateItem);
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return ultimateData;
+}
+
+function setDataForChef(chefData, ultimateData, useEquip) {
+
+    chefData["stirfryVal"] = chefData.stirfry;
+    chefData["boilVal"] = chefData.boil;
+    chefData["knifeVal"] = chefData.knife;
+    chefData["fryVal"] = chefData.fry;
+    chefData["bakeVal"] = chefData.bake;
+    chefData["steamVal"] = chefData.steam;
+
+    chefData["stirfryDisp"] = chefData.stirfry || "";
+    chefData["boilDisp"] = chefData.boil || "";
+    chefData["knifeDisp"] = chefData.knife || "";
+    chefData["fryDisp"] = chefData.fry || "";
+    chefData["bakeDisp"] = chefData.bake || "";
+    chefData["steamDisp"] = chefData.steam || "";
+
+    var stirfryAddition = 0;
+    var bakeAddition = 0;
+    var steamAddition = 0;
+    var boilAddition = 0;
+    var fryAddition = 0;
+    var knifeAddition = 0;
+
+    for (var i in ultimateData) {
+        if (ultimateData[i].type.indexOf("全体厨师炒技法") >= 0) {
+            stirfryAddition += ultimateData[i].addition;
+        } else if (ultimateData[i].type.indexOf("全体厨师烤技法") >= 0) {
+            bakeAddition += ultimateData[i].addition;
+        } else if (ultimateData[i].type.indexOf("全体厨师蒸技法") >= 0) {
+            steamAddition += ultimateData[i].addition;
+        } else if (ultimateData[i].type.indexOf("全体厨师煮技法") >= 0) {
+            boilAddition += ultimateData[i].addition;
+        } else if (ultimateData[i].type.indexOf("全体厨师炸技法") >= 0) {
+            fryAddition += ultimateData[i].addition;
+        } else if (ultimateData[i].type.indexOf("全体厨师切技法") >= 0) {
+            knifeAddition += ultimateData[i].addition;
+        } else if (ultimateData[i].type.indexOf("全体厨师全技法") >= 0) {
+            stirfryAddition += ultimateData[i].addition;
+            bakeAddition += ultimateData[i].addition;
+            steamAddition += ultimateData[i].addition;
+            boilAddition += ultimateData[i].addition;
+            fryAddition += ultimateData[i].addition;
+            knifeAddition += ultimateData[i].addition;
+        } else if (ultimateData[i].type.indexOf("全体男厨子全技法") >= 0
+            || ultimateData[i].type.indexOf("全体男厨师全技法") >= 0) {
+            if (chefData.gender == "男") {
+                stirfryAddition += ultimateData[i].addition;
+                bakeAddition += ultimateData[i].addition;
+                steamAddition += ultimateData[i].addition;
+                boilAddition += ultimateData[i].addition;
+                fryAddition += ultimateData[i].addition;
+                knifeAddition += ultimateData[i].addition;
+            }
+        }
+    }
+
+    if (useEquip && chefData.equip) {
+        var effect = chefData.equip.effect;
+        for (var i in effect) {
+            var type = effect[i].type;
+            var addition = effect[i].addition;
+            if (type.indexOf("炒技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    stirfryAddition += addition;
+                } else {
+                    stirfryAddition += chefData.stirfry * (1 + addition);
+                }
+            }
+            if (type.indexOf("煮技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    boilAddition += addition;
+                } else {
+                    boilAddition += chefData.boil * (1 + addition);
+                }
+            }
+            if (type.indexOf("切技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    knifeAddition += addition;
+                } else {
+                    knifeAddition += chefData.knife * (1 + addition);
+                }
+            }
+            if (type.indexOf("炸技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    fryAddition += addition;
+                } else {
+                    fryAddition += chefData.fry * (1 + addition);
+                }
+            }
+            if (type.indexOf("烤技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    bakeAddition += addition;
+                } else {
+                    bakeAddition += chefData.bake * (1 + addition);
+                }
+            }
+            if (type.indexOf("蒸技法") >= 0
+                || type.indexOf("全技法") >= 0) {
+                if (isInt(addition)) {
+                    steamAddition += addition;
+                } else {
+                    steamAddition += chefData.steam * (1 + addition);
+                }
+            }
+        }
+    }
+
+    if (stirfryAddition) {
+        chefData.stirfryVal += stirfryAddition;
+        chefData.stirfryDisp += " +" + stirfryAddition;
+    }
+    if (boilAddition) {
+        chefData.boilVal += boilAddition;
+        chefData.boilDisp += " +" + boilAddition;
+    }
+    if (knifeAddition) {
+        chefData.knifeVal += knifeAddition;
+        chefData.knifeDisp += " +" + knifeAddition;
+    }
+    if (fryAddition) {
+        chefData.fryVal += fryAddition;
+        chefData.fryDisp += " +" + fryAddition;
+    }
+    if (bakeAddition) {
+        chefData.bakeVal += bakeAddition;
+        chefData.bakeDisp += " +" + bakeAddition;
+    }
+    if (steamAddition) {
+        chefData.steamVal += steamAddition;
+        chefData.steamDisp += " +" + steamAddition;
+    }
 }
 
 function mul(a, b) {

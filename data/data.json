@@ -5499,6 +5499,239 @@
       "godAntique": ""
     },
     {
+      "recipeId": 210,
+      "name": "茄汁锅巴",
+      "rarity": 2,
+      "unlock": "-",
+      "stirfry": 0,
+      "boil": 0,
+      "knife": 0,
+      "fry": 55,
+      "bake": 0,
+      "steam": 0,
+      "materials": [
+        {
+          "material": 21,
+          "quantity": 3
+        },
+        {
+          "material": 33,
+          "quantity": 1
+        },
+        {
+          "material": 10,
+          "quantity": 3
+        }
+      ],
+      "price": 69,
+      "time": 149,
+      "limit": 30,
+      "origin": "主线364",
+      "guests": [
+        {
+          "rank": "优",
+          "guest": 160026
+        },
+        {
+          "rank": "特",
+          "guest": 160008
+        },
+        {
+          "rank": "神",
+          "guest": 160015
+        }
+      ],
+      "godAntique": 140005
+    },
+    {
+      "recipeId": 215,
+      "name": "柴鱼豆腐",
+      "rarity": 4,
+      "unlock": "-",
+      "stirfry": 0,
+      "boil": 0,
+      "knife": 0,
+      "fry": 65,
+      "bake": 0,
+      "steam": 65,
+      "materials": [
+        {
+          "material": 41,
+          "quantity": 3
+        },
+        {
+          "material": 20,
+          "quantity": 8
+        },
+        {
+          "material": 12,
+          "quantity": 5
+        },
+        {
+          "material": 18,
+          "quantity": 3
+        }
+      ],
+      "price": 957,
+      "time": 386,
+      "limit": 20,
+      "origin": "主线484",
+      "guests": [
+        {
+          "rank": "优",
+          "guest": 160014
+        },
+        {
+          "rank": "特",
+          "guest": 160001
+        },
+        {
+          "rank": "神",
+          "guest": 0
+        }
+      ],
+      "godAntique": ""
+    },
+    {
+      "recipeId": 221,
+      "name": "泡菜炒饭",
+      "rarity": 2,
+      "unlock": "-",
+      "stirfry": 45,
+      "boil": 0,
+      "knife": 0,
+      "fry": 0,
+      "bake": 0,
+      "steam": 0,
+      "materials": [
+        {
+          "material": 15,
+          "quantity": 6
+        },
+        {
+          "material": 12,
+          "quantity": 3
+        },
+        {
+          "material": 21,
+          "quantity": 4
+        }
+      ],
+      "price": 104,
+      "time": 170,
+      "limit": 30,
+      "origin": "春节壁池",
+      "guests": [
+        {
+          "rank": "优",
+          "guest": 160016
+        },
+        {
+          "rank": "特",
+          "guest": 160020
+        },
+        {
+          "rank": "神",
+          "guest": 160029
+        }
+      ],
+      "godAntique": 140001
+    },
+    {
+      "recipeId": 222,
+      "name": "蚵仔煎",
+      "rarity": 2,
+      "unlock": "-",
+      "stirfry": 0,
+      "boil": 0,
+      "knife": 0,
+      "fry": 52,
+      "bake": 0,
+      "steam": 0,
+      "materials": [
+        {
+          "material": 42,
+          "quantity": 3
+        },
+        {
+          "material": 12,
+          "quantity": 2
+        },
+        {
+          "material": 22,
+          "quantity": 2
+        },
+        {
+          "material": 10,
+          "quantity": 3
+        }
+      ],
+      "price": 292,
+      "time": 289,
+      "limit": 30,
+      "origin": "春节壁池",
+      "guests": [
+        {
+          "rank": "优",
+          "guest": 160029
+        },
+        {
+          "rank": "特",
+          "guest": 160029
+        },
+        {
+          "rank": "神",
+          "guest": 160016
+        }
+      ],
+      "godAntique": 140005
+    },
+    {
+      "recipeId": 223,
+      "name": "三色煎饼",
+      "rarity": 2,
+      "unlock": "-",
+      "stirfry": 0,
+      "boil": 0,
+      "knife": 15,
+      "fry": 40,
+      "bake": 0,
+      "steam": 0,
+      "materials": [
+        {
+          "material": 4,
+          "quantity": 3
+        },
+        {
+          "material": 12,
+          "quantity": 3
+        },
+        {
+          "material": 15,
+          "quantity": 3
+        }
+      ],
+      "price": 172,
+      "time": 257,
+      "limit": 30,
+      "origin": "春节壁池",
+      "guests": [
+        {
+          "rank": "优",
+          "guest": 160029
+        },
+        {
+          "rank": "特",
+          "guest": 160026
+        },
+        {
+          "rank": "神",
+          "guest": 160017
+        }
+      ],
+      "godAntique": 140006
+    },
+    {
       "recipeId": 224,
       "name": "茄子猪肉卷",
       "rarity": 3,
@@ -7161,11 +7394,11 @@
       "veg": 0,
       "creation": 4,
       "ultimateGoal": [
-        173057,
-        173026,
-        173065
+        173044,
+        173013,
+        173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310322,
       "origin": "开局"
     },
     {
@@ -7189,7 +7422,7 @@
         173017,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310312,
       "origin": "开局"
     },
     {
@@ -7453,7 +7686,7 @@
         173014,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310344,
       "origin": "签到礼包"
     },
     {
@@ -7765,7 +7998,7 @@
         173007,
         173062
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310313,
       "origin": "壁池"
     },
     {
@@ -7813,7 +8046,7 @@
         173008,
         173062
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310350,
       "origin": "壁池"
     },
     {
@@ -7861,7 +8094,7 @@
         173016,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310345,
       "origin": "壁池"
     },
     {
@@ -8009,6 +8242,54 @@
       "origin": "壁池"
     },
     {
+      "chefId": 117,
+      "name": "叶姬",
+      "rarity": 2,
+      "gender": "女",
+      "stirfry": 0,
+      "bake": 92,
+      "boil": 138,
+      "steam": 23,
+      "fry": 0,
+      "knife": 46,
+      "skill": 310121,
+      "meat": 0,
+      "fish": 0,
+      "veg": 4,
+      "creation": 3,
+      "ultimateGoal": [
+        173052,
+        173022,
+        173066
+      ],
+      "ultimateSkill": 310366,
+      "origin": "限时礼包<br>晚秋壁池"
+    },
+    {
+      "chefId": 120,
+      "name": "不知火喵",
+      "rarity": 4,
+      "gender": "女",
+      "stirfry": 0,
+      "bake": 276,
+      "boil": 46,
+      "steam": 92,
+      "fry": 0,
+      "knife": 184,
+      "skill": 310132,
+      "meat": 5,
+      "fish": 0,
+      "veg": 0,
+      "creation": 6,
+      "ultimateGoal": [
+        173039,
+        173009,
+        173062
+      ],
+      "ultimateSkill": 0,
+      "origin": "限时礼包<br>圣诞壁池"
+    },
+    {
       "chefId": 123,
       "name": "栗莉",
       "rarity": 2,
@@ -8105,6 +8386,30 @@
       "origin": "双11壁池"
     },
     {
+      "chefId": 135,
+      "name": "上宫晴",
+      "rarity": 5,
+      "gender": "女",
+      "stirfry": 124,
+      "bake": 0,
+      "boil": 249,
+      "steam": 374,
+      "fry": 0,
+      "knife": 62,
+      "skill": 310261,
+      "meat": 0,
+      "fish": 0,
+      "veg": 7,
+      "creation": 7,
+      "ultimateGoal": [
+        173034,
+        173002,
+        173061
+      ],
+      "ultimateSkill": 0,
+      "origin": "限时礼包<br>情人节壁池"
+    },
+    {
       "chefId": 138,
       "name": "毛利红",
       "rarity": 2,
@@ -8129,6 +8434,30 @@
       "origin": "晚秋壁池"
     },
     {
+      "chefId": 141,
+      "name": "火凤",
+      "rarity": 4,
+      "gender": "女",
+      "stirfry": 276,
+      "bake": 184,
+      "boil": 0,
+      "steam": 0,
+      "fry": 92,
+      "knife": 46,
+      "skill": 310133,
+      "meat": 5,
+      "fish": 0,
+      "veg": 6,
+      "creation": 0,
+      "ultimateGoal": [
+        173038,
+        173007,
+        173062
+      ],
+      "ultimateSkill": 0,
+      "origin": "限时礼包<br>春节壁池"
+    },
+    {
       "chefId": 144,
       "name": "夏娃",
       "rarity": 4,
@@ -8149,7 +8478,7 @@
         173012,
         173062
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310353,
       "origin": "双11壁池"
     },
     {
@@ -8177,6 +8506,30 @@
       "origin": "双11壁池"
     },
     {
+      "chefId": 150,
+      "name": "祖冲之",
+      "rarity": 4,
+      "gender": "男",
+      "stirfry": 190,
+      "bake": 0,
+      "boil": 0,
+      "steam": 38,
+      "fry": 285,
+      "knife": 85,
+      "skill": 310134,
+      "meat": 5,
+      "fish": 0,
+      "veg": 0,
+      "creation": 6,
+      "ultimateGoal": [
+        173042,
+        173011,
+        173062
+      ],
+      "ultimateSkill": 0,
+      "origin": "圣诞壁池"
+    },
+    {
       "chefId": 153,
       "name": "兔爷",
       "rarity": 3,
@@ -8197,7 +8550,7 @@
         173014,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310344,
       "origin": "晚秋壁池"
     },
     {
@@ -8221,7 +8574,7 @@
         173018,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310347,
       "origin": "晚秋壁池"
     },
     {
@@ -8245,7 +8598,7 @@
         173010,
         173062
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310351,
       "origin": "晚秋壁池"
     },
     {
@@ -8269,8 +8622,80 @@
         173006,
         173061
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310365,
       "origin": "晚秋壁池"
+    },
+    {
+      "chefId": 165,
+      "name": "杨小倩",
+      "rarity": 3,
+      "gender": "女",
+      "stirfry": 0,
+      "bake": 66,
+      "boil": 133,
+      "steam": 33,
+      "fry": 199,
+      "knife": 0,
+      "skill": 310136,
+      "meat": 4,
+      "fish": 0,
+      "veg": 5,
+      "creation": 0,
+      "ultimateGoal": [
+        173048,
+        173017,
+        173063
+      ],
+      "ultimateSkill": 0,
+      "origin": "双11壁池"
+    },
+    {
+      "chefId": 168,
+      "name": "琪琪",
+      "rarity": 3,
+      "gender": "女",
+      "stirfry": 199,
+      "bake": 33,
+      "boil": 0,
+      "steam": 66,
+      "fry": 0,
+      "knife": 133,
+      "skill": 310143,
+      "meat": 0,
+      "fish": 4,
+      "veg": 0,
+      "creation": 5,
+      "ultimateGoal": [
+        173044,
+        173013,
+        173063
+      ],
+      "ultimateSkill": 0,
+      "origin": "双11壁池"
+    },
+    {
+      "chefId": 171,
+      "name": "秦端雨",
+      "rarity": 3,
+      "gender": "女",
+      "stirfry": 123,
+      "bake": 185,
+      "boil": 0,
+      "steam": 0,
+      "fry": 61,
+      "knife": 61,
+      "skill": 310235,
+      "meat": 5,
+      "fish": 0,
+      "veg": 6,
+      "creation": 0,
+      "ultimateGoal": [
+        173045,
+        173015,
+        173063
+      ],
+      "ultimateSkill": 0,
+      "origin": "限时礼包<br>桃花壁池"
     },
     {
       "chefId": 177,
@@ -8293,7 +8718,7 @@
         173005,
         173061
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310364,
       "origin": "双11壁池"
     },
     {
@@ -8317,7 +8742,7 @@
         173018,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310312,
       "origin": "双11壁池"
     },
     {
@@ -8341,7 +8766,7 @@
         173015,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310343,
       "origin": "圣诞壁池"
     },
     {
@@ -8365,7 +8790,7 @@
         173014,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310344,
       "origin": "情人节壁池"
     },
     {
@@ -8384,13 +8809,33 @@
       "fish": 0,
       "veg": 4,
       "creation": 5,
+      "ultimateGoal": [],
+      "ultimateSkill": 0,
+      "origin": "限时礼包"
+    },
+    {
+      "chefId": 192,
+      "name": "胡小桃",
+      "rarity": 3,
+      "gender": "女",
+      "stirfry": 0,
+      "bake": 123,
+      "boil": 0,
+      "steam": 92,
+      "fry": 30,
+      "knife": 185,
+      "skill": 310145,
+      "meat": 4,
+      "fish": 0,
+      "veg": 0,
+      "creation": 5,
       "ultimateGoal": [
-        173044,
-        173014,
+        173043,
+        173018,
         173063
       ],
       "ultimateSkill": 0,
-      "origin": "限时礼包"
+      "origin": "主线433"
     },
     {
       "chefId": 195,
@@ -8413,7 +8858,7 @@
         173016,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310345,
       "origin": "情人节壁池"
     },
     {
@@ -8461,7 +8906,7 @@
         173018,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310312,
       "origin": "春节壁池"
     },
     {
@@ -8509,8 +8954,32 @@
         173017,
         173063
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310346,
       "origin": "春节壁池"
+    },
+    {
+      "chefId": 210,
+      "name": "努扎尔",
+      "rarity": 3,
+      "gender": "男",
+      "stirfry": 133,
+      "bake": 33,
+      "boil": 0,
+      "steam": 0,
+      "fry": 66,
+      "knife": 199,
+      "skill": 310145,
+      "meat": 4,
+      "fish": 5,
+      "veg": 0,
+      "creation": 0,
+      "ultimateGoal": [
+        173043,
+        173018,
+        173063
+      ],
+      "ultimateSkill": 0,
+      "origin": "圣诞壁池"
     },
     {
       "chefId": 213,
@@ -8552,13 +9021,57 @@
       "fish": 0,
       "veg": 0,
       "creation": 3,
-      "ultimateGoal": [
-        173049,
-        173019,
-        173066
-      ],
+      "ultimateGoal": [],
       "ultimateSkill": 0,
       "origin": "圣诞壁池"
+    },
+    {
+      "chefId": 219,
+      "name": "雨轩",
+      "rarity": 2,
+      "gender": "女",
+      "stirfry": 0,
+      "bake": 138,
+      "boil": 92,
+      "steam": 23,
+      "fry": 46,
+      "knife": 0,
+      "skill": 310122,
+      "meat": 4,
+      "fish": 0,
+      "veg": 3,
+      "creation": 0,
+      "ultimateGoal": [
+        173050,
+        173021,
+        173064
+      ],
+      "ultimateSkill": 310337,
+      "origin": "春节壁池"
+    },
+    {
+      "chefId": 222,
+      "name": "雷慕",
+      "rarity": 4,
+      "gender": "女",
+      "stirfry": 46,
+      "bake": 276,
+      "boil": 0,
+      "steam": 184,
+      "fry": 92,
+      "knife": 0,
+      "skill": 310136,
+      "meat": 5,
+      "fish": 0,
+      "veg": 0,
+      "creation": 6,
+      "ultimateGoal": [
+        173039,
+        173009,
+        173062
+      ],
+      "ultimateSkill": 0,
+      "origin": "厨师礼包"
     },
     {
       "chefId": 225,
@@ -8580,6 +9093,30 @@
         173045,
         173015,
         173063
+      ],
+      "ultimateSkill": 310343,
+      "origin": "圣诞壁池"
+    },
+    {
+      "chefId": 228,
+      "name": "玄离",
+      "rarity": 5,
+      "gender": "男",
+      "stirfry": 124,
+      "bake": 0,
+      "boil": 374,
+      "steam": 62,
+      "fry": 0,
+      "knife": 249,
+      "skill": 310262,
+      "meat": 0,
+      "fish": 7,
+      "veg": 7,
+      "creation": 0,
+      "ultimateGoal": [
+        173035,
+        173004,
+        173061
       ],
       "ultimateSkill": 0,
       "origin": "圣诞壁池"
@@ -8607,6 +9144,30 @@
       ],
       "ultimateSkill": 310339,
       "origin": "桃花壁池"
+    },
+    {
+      "chefId": 234,
+      "name": "散人",
+      "rarity": 4,
+      "gender": "男",
+      "stirfry": 276,
+      "bake": 0,
+      "boil": 92,
+      "steam": 46,
+      "fry": 184,
+      "knife": 0,
+      "skill": 310136,
+      "meat": 5,
+      "fish": 0,
+      "veg": 0,
+      "creation": 6,
+      "ultimateGoal": [
+        173038,
+        173007,
+        173062
+      ],
+      "ultimateSkill": 0,
+      "origin": "限时礼包"
     },
     {
       "chefId": 237,
@@ -8681,6 +9242,30 @@
       "origin": "桃花壁池"
     },
     {
+      "chefId": 246,
+      "name": "唐美美",
+      "rarity": 3,
+      "gender": "女",
+      "stirfry": 133,
+      "bake": 0,
+      "boil": 199,
+      "steam": 33,
+      "fry": 0,
+      "knife": 66,
+      "skill": 310146,
+      "meat": 0,
+      "fish": 5,
+      "veg": 4,
+      "creation": 0,
+      "ultimateGoal": [
+        173047,
+        173016,
+        173063
+      ],
+      "ultimateSkill": 0,
+      "origin": "春节壁池"
+    },
+    {
       "chefId": 249,
       "name": "盐如玉",
       "rarity": 4,
@@ -8701,7 +9286,7 @@
         173007,
         173062
       ],
-      "ultimateSkill": 0,
+      "ultimateSkill": 310348,
       "origin": "情人节壁池"
     },
     {
@@ -8725,8 +9310,196 @@
         173009,
         173062
       ],
+      "ultimateSkill": 310349,
+      "origin": "情人节壁池"
+    },
+    {
+      "chefId": 258,
+      "name": "咸公主",
+      "rarity": 4,
+      "gender": "女",
+      "stirfry": 46,
+      "bake": 0,
+      "boil": 184,
+      "steam": 92,
+      "fry": 276,
+      "knife": 0,
+      "skill": 310135,
+      "meat": 0,
+      "fish": 6,
+      "veg": 5,
+      "creation": 0,
+      "ultimateGoal": [
+        173042,
+        173011,
+        173062
+      ],
+      "ultimateSkill": 0,
+      "origin": "厨师礼包"
+    },
+    {
+      "chefId": 261,
+      "name": "秋丽",
+      "rarity": 3,
+      "gender": "女",
+      "stirfry": 199,
+      "bake": 33,
+      "boil": 133,
+      "steam": 0,
+      "fry": 66,
+      "knife": 0,
+      "skill": 310143,
+      "meat": 4,
+      "fish": 0,
+      "veg": 5,
+      "creation": 0,
+      "ultimateGoal": [
+        173044,
+        173013,
+        173063
+      ],
+      "ultimateSkill": 0,
+      "origin": "桃花壁池"
+    },
+    {
+      "chefId": 264,
+      "name": "金凌",
+      "rarity": 3,
+      "gender": "女",
+      "stirfry": 133,
+      "bake": 0,
+      "boil": 66,
+      "steam": 33,
+      "fry": 199,
+      "knife": 0,
+      "skill": 310147,
+      "meat": 0,
+      "fish": 5,
+      "veg": 0,
+      "creation": 4,
+      "ultimateGoal": [
+        173048,
+        173017,
+        173063
+      ],
+      "ultimateSkill": 0,
+      "origin": "桃花壁池"
+    },
+    {
+      "chefId": 267,
+      "name": "玄一",
+      "rarity": 5,
+      "gender": "女",
+      "stirfry": 374,
+      "bake": 124,
+      "boil": 0,
+      "steam": 0,
+      "fry": 249,
+      "knife": 62,
+      "skill": 310264,
+      "meat": 7,
+      "fish": 0,
+      "veg": 0,
+      "creation": 7,
+      "ultimateGoal": [
+        173032,
+        173001,
+        173061
+      ],
       "ultimateSkill": 0,
       "origin": "情人节壁池"
+    },
+    {
+      "chefId": 270,
+      "name": "猪小福",
+      "rarity": 4,
+      "gender": "男",
+      "stirfry": 184,
+      "bake": 92,
+      "boil": 0,
+      "steam": 0,
+      "fry": 276,
+      "knife": 46,
+      "skill": 310137,
+      "meat": 6,
+      "fish": 5,
+      "veg": 0,
+      "creation": 0,
+      "ultimateGoal": [
+        173042,
+        173011,
+        173062
+      ],
+      "ultimateSkill": 0,
+      "origin": "春节壁池"
+    },
+    {
+      "chefId": 273,
+      "name": "小福妮",
+      "rarity": 4,
+      "gender": "女",
+      "stirfry": 0,
+      "bake": 184,
+      "boil": 92,
+      "steam": 0,
+      "fry": 46,
+      "knife": 276,
+      "skill": 310129,
+      "meat": 0,
+      "fish": 6,
+      "veg": 5,
+      "creation": 0,
+      "ultimateGoal": [
+        173037,
+        173012,
+        173062
+      ],
+      "ultimateSkill": 0,
+      "origin": "春节壁池"
+    },
+    {
+      "chefId": 276,
+      "name": "火姬",
+      "rarity": 5,
+      "gender": "女",
+      "stirfry": 0,
+      "bake": 374,
+      "boil": 124,
+      "steam": 249,
+      "fry": 62,
+      "knife": 0,
+      "skill": 310263,
+      "meat": 7,
+      "fish": 0,
+      "veg": 7,
+      "creation": 0,
+      "ultimateGoal": [
+        173033,
+        173003,
+        173061
+      ],
+      "ultimateSkill": 0,
+      "origin": "春节壁池"
+    },
+    {
+      "chefId": 282,
+      "name": "小绵娘",
+      "rarity": 2,
+      "gender": "女",
+      "stirfry": 46,
+      "bake": 23,
+      "boil": 92,
+      "steam": 138,
+      "fry": 0,
+      "knife": 0,
+      "skill": 310120,
+      "meat": 3,
+      "fish": 0,
+      "veg": 4,
+      "creation": 0,
+      "ultimateGoal": [],
+      "ultimateSkill": 0,
+      "origin": "限时礼包"
     },
     {
       "chefId": 285,
@@ -8747,6 +9520,46 @@
       "ultimateGoal": [],
       "ultimateSkill": 0,
       "origin": "宕机补偿"
+    },
+    {
+      "chefId": 297,
+      "name": "石镜",
+      "rarity": 4,
+      "gender": "男",
+      "stirfry": 92,
+      "bake": 0,
+      "boil": 0,
+      "steam": 276,
+      "fry": 46,
+      "knife": 184,
+      "skill": 310130,
+      "meat": 0,
+      "fish": 6,
+      "veg": 5,
+      "creation": 0,
+      "ultimateGoal": [],
+      "ultimateSkill": 0,
+      "origin": "桃花壁池"
+    },
+    {
+      "chefId": 318,
+      "name": "息夫人",
+      "rarity": 5,
+      "gender": "女",
+      "stirfry": 249,
+      "bake": 0,
+      "boil": 374,
+      "steam": 0,
+      "fry": 124,
+      "knife": 62,
+      "skill": 310262,
+      "meat": 0,
+      "fish": 0,
+      "veg": 7,
+      "creation": 7,
+      "ultimateGoal": [],
+      "ultimateSkill": 0,
+      "origin": "桃花壁池"
     }
   ],
   "equips": [
@@ -13664,7 +14477,7 @@
     {
       "questId": 285,
       "type": "主线任务",
-      "goal": "累计使用梅花肉200个、里脊肉280个、猪腿肉350个和猪杂300份",
+      "goal": "累计使用梅花肉200个、里脊肉280个、猪腿肉350个和猪杂300个",
       "rewards": [
         {
           "name": "金币",
@@ -15150,6 +15963,226 @@
       "questId": 420,
       "type": "主线任务",
       "goal": "遇见貂蝉6次",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 421,
+      "type": "主线任务",
+      "goal": "遇见富太太6次",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 422,
+      "type": "主线任务",
+      "goal": "拥有牛排、童子鸡、梅花肉各800个",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 423,
+      "type": "主线任务",
+      "goal": "制作单价不低于666的料理240份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 424,
+      "type": "主线任务",
+      "goal": "从装饰中获得280个玉璧",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 425,
+      "type": "主线任务",
+      "goal": "制作三丝抱豆80份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 426,
+      "type": "主线任务",
+      "goal": "制作蛤蜊蒸蛋80份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 427,
+      "type": "主线任务",
+      "goal": "升级菜棚至5级",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 428,
+      "type": "主线任务",
+      "goal": "制作卤肉饭80份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 429,
+      "type": "主线任务",
+      "goal": "拥有菜谱160个",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 430,
+      "type": "主线任务",
+      "goal": "使用豆腐300个、糯米280个、酒350个、咖喱250个",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 431,
+      "type": "主线任务",
+      "goal": "遇见大胃王6次",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 432,
+      "type": "主线任务",
+      "goal": "累计开业获得850000金币",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 433,
+      "type": "主线任务",
+      "goal": "开业制作任意神级料理6300份",
+      "rewards": [
+        {
+          "name": "厨师-胡小桃",
+          "quantity": ""
+        }
+      ]
+    },
+    {
+      "questId": 434,
+      "type": "主线任务",
+      "goal": "探索拥有白萝卜640个",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 435,
+      "type": "主线任务",
+      "goal": "制作使用青菜的料理300份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 436,
+      "type": "主线任务",
+      "goal": "一次经营超过38小时",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 437,
+      "type": "主线任务",
+      "goal": "制作3星烤技肉类料理200份、3星烤技蔬菜料理200份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 438,
+      "type": "主线任务",
+      "goal": "升级牧场至5级",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 439,
+      "type": "主线任务",
+      "goal": "遇见张飞关羽刘备6次",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 440,
+      "type": "主线任务",
+      "goal": "探索拥有番茄720个",
       "rewards": [
         {
           "name": "金币",
@@ -16957,7 +17990,8 @@
     }
   ],
   "history": [
-    "2018/04/06 加入修炼相关功能,详情见上方标亮处",
+    "2018/05/08 厨师图鉴加入厨具列,详情见上方标亮处",
+    "2018/04/06 加入修炼相关功能",
     "2018/04/03 加入桃花池菜谱,厨师,厨具,感谢小熊提供的升阶贵客数据",
     "2018/03/25 加入个人数据本地存储,导出,导入功能",
     "2018/03/16 加入特殊奖励的支线任务",
