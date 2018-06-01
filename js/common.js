@@ -320,7 +320,15 @@ function setDataForChef(chefData, ultimateData, useEquip) {
             fryAddition += ultimateData[i].addition;
         } else if (ultimateData[i].type.indexOf("全体厨师切技法") >= 0) {
             knifeAddition += ultimateData[i].addition;
-        } else if (ultimateData[i].type.indexOf("全体男厨子全技法") >= 0) {
+        } else if (ultimateData[i].type.indexOf("全体厨师全技法") >= 0) {
+            stirfryAddition += ultimateData[i].addition;
+            bakeAddition += ultimateData[i].addition;
+            steamAddition += ultimateData[i].addition;
+            boilAddition += ultimateData[i].addition;
+            fryAddition += ultimateData[i].addition;
+            knifeAddition += ultimateData[i].addition;
+        } else if (ultimateData[i].type.indexOf("全体男厨子全技法") >= 0
+            || ultimateData[i].type.indexOf("全体男厨师全技法") >= 0) {
             if (chefData.gender == "男") {
                 stirfryAddition += ultimateData[i].addition;
                 bakeAddition += ultimateData[i].addition;
