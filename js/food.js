@@ -8,14 +8,7 @@ $(function () {
     });
 });
 
-var private = false;
 function init(json) {
-
-    if (window.location.search) {
-        if (lcode(window.location.search) == "0d9753e2fe5a15db2668f70016e565ca7d717c67278ea6c689881ac4") {
-            private = true;
-        }
-    }
 
     var person;
     try {
@@ -23,23 +16,25 @@ function init(json) {
         person = JSON.parse(localData);
     } catch (e) { }
 
-    if (private) {
-        $.ajax({
-            cache: false,
-            success: function (json2) {
-                var data = generateData(json, json2, person);
-                initTables(data, person);
-            },
-            error: function () {
-                var data = generateData(json, null, person);
-                initTables(data, person);
-            },
-            url: 'data/data2.json'
-        });
-    } else {
-        var data = generateData(json, null, person);
-        initTables(data, person);
-    }
+    $.ajax({
+        cache: false,
+        success: function (json2) {
+            for (var i in json.chefs) {
+                for (var j in json2.chefs) {
+                    if(json.chefs[i].chefId === json2.chefs[j].chefId){
+                        json.chefs[i] = json2.chefs[j];
+                    }
+                }
+            }
+            var data = generateData(json, null, person);
+            initTables(data, person);
+        },
+        error: function () {
+            var data = generateData(json, null, person);
+            initTables(data, person);
+        },
+        url: 'data/data2.json'
+    });
 
 }
 
@@ -56,11 +51,6 @@ function initTables(data, person) {
     initQuestTable(data);
 
     initImportExport(data);
-
-    if (private) {
-        initCalTables(data, person);
-        $(".nav-tabs li").removeClass("hidden");
-    }
 
     initInfo(data);
 
@@ -207,8 +197,8 @@ function initRecipeTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         deferRender: true,
         order: [],
         autoWidth: false
@@ -474,13 +464,6 @@ function initRecipeTable(data) {
         recipeTable.draw();
     });
 
-    if (private) {
-        $('#chk-recipe-show-origin').prop("checked", false);
-        $('#chk-recipe-show-unlock').prop("checked", false);
-        $('#chk-recipe-show-tags').parent(".btn").removeClass('hidden');
-        $('#chk-recipe-no-origin').closest(".box").removeClass('hidden');
-    }
-
     initRecipeShow(recipeTable, data);
 }
 
@@ -614,8 +597,8 @@ function initChefTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         deferRender: true,
         order: [],
         autoWidth: false
@@ -856,11 +839,6 @@ function initChefTable(data) {
         updateRecipeChefTable(data);
     });
 
-    if (private) {
-        $('#chk-chef-show-tags').parent(".btn").removeClass('hidden');
-        $('#chk-chef-no-origin').closest(".box").removeClass('hidden');
-    }
-
     initChefShow(chefTable, data);
 }
 
@@ -901,8 +879,8 @@ function initEquipTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         deferRender: true
     });
 
@@ -1030,10 +1008,6 @@ function initEquipTable(data) {
         equipTable.draw();
     });
 
-    if (private) {
-        $('#chk-equip-no-origin').closest(".box").removeClass('hidden');
-    }
-
     initEquipShow(equipTable);
 }
 
@@ -1070,8 +1044,8 @@ function initQuestTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         deferRender: true
     });
 
@@ -1602,8 +1576,8 @@ function initCalRecipesTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -1774,8 +1748,8 @@ function initCalChefsTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -1905,8 +1879,8 @@ function initCalEquipsTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -2025,8 +1999,8 @@ function initCalMaterialsTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -2450,9 +2424,9 @@ function initCalResultTableCommon(mode, data, panel) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-12'<'selected-sum'>>>" +
-            "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12'p>>",
+        "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -2629,15 +2603,6 @@ function initCalSelfSelect(data) {
 
 function generateData(json, json2, person) {
 
-    if (json2) {
-        json.equips = json.equips.concat(json2.equips);
-        json.quests = json.quests.concat(json2.quests);
-        json.recipes = json.recipes.concat(json2.recipes);
-        json.chefs = json.chefs.concat(json2.chefs);
-        json.skills = json.skills.concat(json2.skills);
-        json.ultimateGoals = json.ultimateGoals.concat(json2.ultimateGoals);
-    }
-
     var retData = new Object();
 
     retData["guests"] = json.guests;
@@ -2728,15 +2693,6 @@ function generateData(json, json2, person) {
         chefData["specialSkillDisp"] = skillInfo.skillDisp;
         chefData["specialSkillEffect"] = skillInfo.skillEffect;
 
-        if (json2) {
-            for (var j in json2.chefsTags) {
-                if (json.chefs[i].chefId == json2.chefsTags[j].chefId) {
-                    chefData["tags"] = json2.chefsTags[j].tags;
-                    chefData["tagsDisp"] = getTagsDisp(json2.chefsTags[j].tags, json2.tags);
-                }
-            }
-        }
-
         var ultimateGoal = "";
         if (json.chefs[i].ultimateSkill) {
             for (var j in json.chefs[i].ultimateGoal) {
@@ -2811,15 +2767,6 @@ function generateData(json, json2, person) {
 
         recipeData["timeDisp"] = secondsToTime(json.recipes[i].time);
         recipeData["rarityDisp"] = getRarityDisp(json.recipes[i].rarity);
-
-        if (json2) {
-            for (var j in json2.recipesTags) {
-                if (json.recipes[i].recipeId == json2.recipesTags[j].recipeId) {
-                    recipeData["tags"] = json2.recipesTags[j].tags;
-                    recipeData["tagsDisp"] = getTagsDisp(json2.recipesTags[j].tags, json2.tags);
-                }
-            }
-        }
 
         setDataForRecipe(recipeData, ultimateData);
 
@@ -2904,11 +2851,13 @@ function generateData(json, json2, person) {
                 chefEff = (1 + rankInfo.rankAddition + skillAddition) * Math.floor(json.recipes[i].price * 3600 / (json.recipes[i].time * (1 + timeAddition)));
             }
 
-            if (maxEff < chefEff) {
-                maxEff = chefEff;
-                maxQlty = retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
-            }else if(maxEff === chefEff) {
-                maxQlty += "," + retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
+            if(retData["chefs"][j]["got"]==='是') {
+                if (maxEff < chefEff) {
+                    maxEff = chefEff;
+                    maxQlty = retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
+                } else if (maxEff === chefEff) {
+                    maxQlty += "," + retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
+                }
             }
 
             var recipeChefData = new Object();
@@ -3464,13 +3413,7 @@ function initRecipeShow(recipeTable, data) {
     recipeTable.column(16).visible($('#chk-recipe-show-materials-efficiency').prop("checked"), false);
     recipeTable.column(17).visible($('#chk-recipe-show-origin').prop("checked"), false);
     recipeTable.column(18).visible($('#chk-recipe-show-unlock').prop("checked"), false);
-
-    if (private) {
-        recipeTable.column(19).visible($('#chk-recipe-show-tags').prop("checked"), false);
-    } else {
-        recipeTable.column(19).visible(false, false);
-    }
-
+    recipeTable.column(19).visible(false, false);
     recipeTable.column(20).visible($('#chk-recipe-show-guest').prop("checked"), false);
     recipeTable.column(21).visible($('#chk-recipe-show-rank-guest').prop("checked"), false);
     recipeTable.column(22).visible($('#chk-recipe-show-rank-antique').prop("checked"), false);
@@ -3505,13 +3448,7 @@ function initChefShow(chefTable, data) {
     chefTable.column(13).visible(chkExplore, false);
     chefTable.column(14).visible($('#chk-chef-show-gender').prop("checked"), false);
     chefTable.column(15).visible($('#chk-chef-show-origin').prop("checked"), false);
-
-    if (private) {
-        chefTable.column(16).visible($('#chk-chef-show-tags').prop("checked"), false);
-    } else {
-        chefTable.column(16).visible(false, false);
-    }
-
+    chefTable.column(16).visible(false, false);
     chefTable.column(17).visible($('#chk-chef-show-equip').prop("checked"), false);
     chefTable.column(18).visible($('#chk-chef-show-ultimate-goal').prop("checked"), false);
     chefTable.column(19).visible($('#chk-chef-show-ultimate-skill').prop("checked"), false);
