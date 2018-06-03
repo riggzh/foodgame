@@ -58,7 +58,7 @@ function initTables(data, person) {
     initImportExport(data);
 
     if (private) {
-        initCalTables(data, person);
+        initCalTables(data);
         $(".nav-tabs li").removeClass("hidden");
     }
 
@@ -1359,9 +1359,9 @@ function updateMenu(data, person) {
 }
 
 
-function initCalTables(data, person) {
+function initCalTables(data) {
 
-    initCalRules(data, person);
+    initCalRules(data);
     initCalRecipesTable(data);
     initCalChefsTable(data);
     initCalEquipsTable(data);
@@ -1381,7 +1381,7 @@ function initCalTables(data, person) {
 
 }
 
-function initCalRules(data, person) {
+function initCalRules(data) {
     var worker = new Worker("js/cal.js");
     worker.onmessage = function (event) {
         $("#select-cal-rule").append(event.data);
@@ -1463,6 +1463,7 @@ function initCalRules(data, person) {
                     customWorker = new Worker("js/cal.js");
                     customWorker.onmessage = function (cevent) {
                         table.clear().rows.add(cevent.data).draw();
+                        table.rows().select();
                         $(table.body()).removeClass("processing");
                     }
 
@@ -1491,11 +1492,21 @@ function initCalRules(data, person) {
             $("#btn-cal-rule-load").prop("disabled", false);
         };
 
+        var useUltimate = $("#chk-chef-apply-ultimate").prop("checked");
+        var usePerson = $("#chk-chef-apply-ultimate-person").prop("checked");
+        var personData;
+        try {
+            var localData = localStorage.getItem('data');
+            personData = JSON.parse(localData);
+        } catch (e) { }
+
         ruleWorker.postMessage({
             "mode": "get-rules-data",
             "rule": rule,
             "odata": data,
-            "person": person
+            "useUltimate": useUltimate,
+            "usePerson": usePerson,
+            "person": personData
         });
 
     });
@@ -2382,8 +2393,15 @@ function initCalResultTableCommon(mode, data, panel) {
         },
         {
             "data": {
-                "_": "recipe.otherAddition",
-                "display": "recipe.otherAdditionDisp"
+                "_": "recipe.data.otherAddition",
+                "display": "recipe.data.otherAdditionDisp"
+            },
+            "defaultContent": ""
+        },
+        {
+            "data": {
+                "_": "recipe.data.ultimateAddition",
+                "display": "recipe.data.ultimateAdditionDisp"
             },
             "defaultContent": ""
         },
@@ -2410,7 +2428,7 @@ function initCalResultTableCommon(mode, data, panel) {
         paging = false;
     }
 
-    var order = [[30, "desc"]]  //score
+    var order = [[31, "desc"]]  //score
     if (mode == "self-select") {
         order = [];
     }
@@ -2478,18 +2496,18 @@ function initCalResultTableCommon(mode, data, panel) {
         if (type === 'row') {
             var selectedRows = dt.rows({ selected: true }).indexes();
 
-            var totalPrice = dt.cells(selectedRows, 27).data().reduce(function (a, b) { return a + b; }, 0);    //totalPrice
+            var totalPrice = dt.cells(selectedRows, 28).data().reduce(function (a, b) { return a + b; }, 0);    //totalPrice
             var sumText = "原售价：" + totalPrice;
 
             if (mode == "all" || mode == "optimal" || mode == "self-select") {
-                var totalRealPrice = dt.cells(selectedRows, 28).data().reduce(function (a, b) { return a + b; }, 0);    //totalRealPrice
+                var totalRealPrice = dt.cells(selectedRows, 29).data().reduce(function (a, b) { return a + b; }, 0);    //totalRealPrice
                 sumText += " 实售价：" + totalRealPrice;
             }
 
-            var totalBonusScore = dt.cells(selectedRows, 29).data().reduce(function (a, b) { return a + b; }, 0);    //totalBonusScore
+            var totalBonusScore = dt.cells(selectedRows, 30).data().reduce(function (a, b) { return a + b; }, 0);    //totalBonusScore
             sumText += " 规则分：" + totalBonusScore;
 
-            var totalScore = dt.cells(selectedRows, 30).data().reduce(function (a, b) { return a + b; }, 0);    //totalScore
+            var totalScore = dt.cells(selectedRows, 31).data().reduce(function (a, b) { return a + b; }, 0);    //totalScore
             sumText += " 总得分：" + totalScore;
 
             panel.find(".selected-sum").html(sumText);
@@ -2727,7 +2745,9 @@ function generateData(json, json2, person) {
         }
 
         var ultimateGoal = "";
-        if (json.chefs[i].ultimateSkill) {
+        var ultimateSkillDisp = "";
+
+        if (json.chefs[i].rarity < 3 || private) {
             for (var j in json.chefs[i].ultimateGoal) {
                 for (var k in json.ultimateGoals) {
                     if (json.chefs[i].ultimateGoal[j] == json.ultimateGoals[k].goalId) {
@@ -2736,11 +2756,12 @@ function generateData(json, json2, person) {
                     }
                 }
             }
+            var ultimateSkillInfo = getSkillInfo(json.skills, json.chefs[i].ultimateSkill);
+            ultimateSkillDisp = ultimateSkillInfo.skillDisp;
         }
-        chefData["ultimateGoal"] = ultimateGoal;
 
-        var ultimateSkillInfo = getSkillInfo(json.skills, json.chefs[i].ultimateSkill);
-        chefData["ultimateSkillDisp"] = ultimateSkillInfo.skillDisp;
+        chefData["ultimateGoal"] = ultimateGoal;
+        chefData["ultimateSkillDisp"] = ultimateSkillDisp;
 
         chefData["got"] = "";
         chefData["ultimate"] = "";
@@ -2886,7 +2907,7 @@ function generateData(json, json2, person) {
                     skillAddition += getSkillAddition(json.recipes[i], retData["chefs"][j].equip.effect, retData["materials"]);
                 }
 
-                chefEff = (1 + rankInfo.rankAddition + skillAddition) * Math.floor(json.recipes[i].price * 3600 / (json.recipes[i].time * (1 + timeAddition)));
+                chefEff = (1 + rankInfo.rankAddition + skillAddition + recipeData.ultimateAddition) * Math.floor(json.recipes[i].price * 3600 / (json.recipes[i].time * (1 + timeAddition)));
             }
 
             var recipeChefData = new Object();
@@ -2956,7 +2977,7 @@ function getUpdateData(data) {
                     skillAddition += getSkillAddition(data.recipes[i], data.chefs[j].equip.effect, data.materials);
                 }
 
-                chefEff = (1 + rankInfo.rankAddition + skillAddition) * Math.floor(data.recipes[i].price * 3600 / (data.recipes[i].time * (1 + timeAddition)));
+                chefEff = (1 + rankInfo.rankAddition + skillAddition + data.recipes[i].ultimateAddition) * Math.floor(data.recipes[i].price * 3600 / (data.recipes[i].time * (1 + timeAddition)));
             }
 
             var recipeChefData = new Object();
@@ -3229,15 +3250,26 @@ function setDataForChef(chefData, ultimateData, useEquip) {
 
 function setDataForRecipe(recipeData, ultimateData) {
     recipeData["limitVal"] = recipeData.limit;
+    recipeData["ultimateAddition"] = 0;
 
     for (var i in ultimateData) {
-        if (ultimateData[i].type.indexOf("2星菜谱上限") >= 0) {
-            if (recipeData.rarity == 2) {
-                recipeData.limitVal += ultimateData[i].addition;
-            }
+        if (ultimateData[i].type.indexOf("1星菜谱上限") >= 0 && recipeData.rarity == 1
+            || ultimateData[i].type.indexOf("2星菜谱上限") >= 0 && recipeData.rarity == 2
+            || ultimateData[i].type.indexOf("3星菜谱上限") >= 0 && recipeData.rarity == 3
+            || ultimateData[i].type.indexOf("4星菜谱上限") >= 0 && recipeData.rarity == 4
+            || ultimateData[i].type.indexOf("5星菜谱上限") >= 0 && recipeData.rarity == 5) {
+            recipeData.limitVal += ultimateData[i].addition;
+        }
+        if (ultimateData[i].type.indexOf("1星菜谱售价") >= 0 && recipeData.rarity == 1
+            || ultimateData[i].type.indexOf("2星菜谱售价") >= 0 && recipeData.rarity == 2
+            || ultimateData[i].type.indexOf("3星菜谱售价") >= 0 && recipeData.rarity == 3
+            || ultimateData[i].type.indexOf("4星菜谱售价") >= 0 && recipeData.rarity == 4
+            || ultimateData[i].type.indexOf("5星菜谱售价") >= 0 && recipeData.rarity == 5) {
+            recipeData.ultimateAddition += ultimateData[i].addition;
         }
     }
 
+    recipeData["ultimateAdditionDisp"] = recipeData.ultimateAddition || "";;
     recipeData["totalPrice"] = recipeData.price * recipeData.limitVal;
     recipeData["totalTime"] = recipeData.time * recipeData.limitVal;
     recipeData["totalTimeDisp"] = secondsToTime(recipeData.totalTime);
@@ -3612,9 +3644,10 @@ function initCalResultsShow(mode, calResultsTable, panel) {
     calResultsTable.column(24).visible(panel.find('.chk-cal-results-show-chef-equip').prop("checked"), false);
     calResultsTable.column(25).visible(panel.find('.chk-cal-results-show-chef-equip-addition').prop("checked"), false);
     calResultsTable.column(26).visible(panel.find('.chk-cal-results-show-bonus-addition').prop("checked"), false);
-    calResultsTable.column(27).visible(panel.find('.chk-cal-results-show-recipe-total-price').prop("checked"), false);
-    calResultsTable.column(28).visible(panel.find('.chk-cal-results-show-recipe-real-total-price').prop("checked"), false);
-    calResultsTable.column(29).visible(panel.find('.chk-cal-results-show-bonus-score').prop("checked"), false);
+    calResultsTable.column(27).visible(panel.find('.chk-cal-results-show-ultimate-addition').prop("checked"), false);
+    calResultsTable.column(28).visible(panel.find('.chk-cal-results-show-recipe-total-price').prop("checked"), false);
+    calResultsTable.column(29).visible(panel.find('.chk-cal-results-show-recipe-real-total-price').prop("checked"), false);
+    calResultsTable.column(30).visible(panel.find('.chk-cal-results-show-bonus-score').prop("checked"), false);
 
     calResultsTable.columns.adjust().draw(false);
 }
