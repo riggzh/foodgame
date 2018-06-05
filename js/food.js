@@ -34,7 +34,7 @@ function init(json) {
                 var data = generateData(json, null, person);
                 initTables(data, person);
             },
-            url: 'data/data2.json'
+            url: 'data/mydata.json'
         });
     } else {
 		$.ajax({
