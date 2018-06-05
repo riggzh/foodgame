@@ -37,8 +37,25 @@ function init(json) {
             url: 'data/data2.json'
         });
     } else {
-        var data = generateData(json, null, person);
-        initTables(data, person);
+		$.ajax({
+			cache: false,
+			success: function (mydata) {
+				for (var i in json.chefs) {
+					for (var j in mydata.chefs) {
+						if(json.chefs[i].chefId === mydata.chefs[j].chefId){
+							json.chefs[i] = mydata.chefs[j];
+						}
+					}
+				}
+				var data = generateData(json, null, person);
+				initTables(data, person);
+			},
+			error: function () {
+				var data = generateData(json, null, person);
+				initTables(data, person);
+			},
+			url: 'data/mydata.json'
+		});
     }
 
 }
@@ -2925,12 +2942,14 @@ function generateData(json, json2, person) {
                 chefEff = (1 + rankInfo.rankAddition + skillAddition + recipeData.ultimateAddition) * Math.floor(json.recipes[i].price * 3600 / (json.recipes[i].time * (1 + timeAddition)));
             }
 
-            if (maxEff < chefEff) {
-                maxEff = chefEff;
-                maxQlty = retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
-            }else if(maxEff === chefEff) {
-                maxQlty += "," + retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
-            }
+			if(retData["chefs"][j]["got"]==='是') {
+				if (maxEff < chefEff) {
+					maxEff = chefEff;
+					maxQlty = retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
+				} else if (maxEff === chefEff) {
+					maxQlty += "," + retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
+				}
+			}
 
             var recipeChefData = new Object();
             recipeChefData["rankVal"] = rankInfo.rankVal;
