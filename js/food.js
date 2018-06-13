@@ -203,7 +203,7 @@ function initRecipeTable(data) {
         autoWidth: false
     });
 
-    $("#pane-recipes div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="菜名 材料 贵客 符文"></label>');
+    $("#pane-recipes div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="菜名 材料 贵客 符文 来源"></label>');
 
     $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
         if (settings.nTable != document.getElementById('recipe-table')) {
@@ -334,10 +334,15 @@ function initRecipeTable(data) {
         }
 
         var value = $("#pane-recipes .search-box input").val();
-        var searchCols = [0, 1, 9, 19, 20]; // id, name, materials, tags, guest
+        var searchCols = [0, 1, 9, 17, 19, 20]; // id, name, materials, origin, tags, guest
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
             if (data[searchCols[i]].indexOf(value) !== -1) {
+                if (searchCols[i] == 17) {  // origin
+                    if (data[searchCols[i]].indexOf("神级") !== -1) {
+                        continue;
+                    }
+                }
                 return true;
             }
         }
