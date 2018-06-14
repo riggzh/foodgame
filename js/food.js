@@ -231,7 +231,7 @@ function initRecipeTable(data) {
         autoWidth: false
     });
 
-    $("#pane-recipes div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="菜名 材料 贵客 符文"></label>');
+    $("#pane-recipes div.search-box").html('<label>查找:<input type="search" class="form-control input-sm" placeholder="菜名 材料 贵客 符文 来源"></label>');
 
     $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
         if (settings.nTable != document.getElementById('recipe-table')) {
@@ -362,10 +362,15 @@ function initRecipeTable(data) {
         }
 
         var value = $("#pane-recipes .search-box input").val();
-        var searchCols = [0, 1, 9, 19, 20]; // id, name, materials, tags, guest
+        var searchCols = [0, 1, 9, 17, 19, 20]; // id, name, materials, origin, tags, guest
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
             if (data[searchCols[i]].indexOf(value) !== -1) {
+                if (searchCols[i] == 17) {  // origin
+                    if (data[searchCols[i]].indexOf("神级") !== -1) {
+                        continue;
+                    }
+                }
                 return true;
             }
         }
@@ -2699,6 +2704,10 @@ function generateData(json, json2, person) {
             continue;
         }
 
+        if (!private && json.equips[i].origin == "端午壁池") {
+            continue;
+        }
+
         var equip = json.equips[i];
         equip["rarityDisp"] = getRarityDisp(json.equips[i].rarity);
         var skillInfo = getSkillInfo(json.skills, json.equips[i].skill);
@@ -2747,6 +2756,10 @@ function generateData(json, json2, person) {
             continue;
         }
 
+        if (!private && json.chefs[i].origin == "端午壁池") {
+            continue;
+        }
+
         var chefData = json.chefs[i];
         chefData["recipes"] = new Array();
 
@@ -2775,7 +2788,7 @@ function generateData(json, json2, person) {
         var ultimateGoal = "";
         var ultimateSkillDisp = "";
 
-        if (json.chefs[i].rarity < 3 || private) {
+        if (json.chefs[i].rarity < 5 || private) {
             for (var j in json.chefs[i].ultimateGoal) {
                 for (var k in json.ultimateGoals) {
                     if (json.chefs[i].ultimateGoal[j] == json.ultimateGoals[k].goalId) {
@@ -2831,6 +2844,10 @@ function generateData(json, json2, person) {
     for (var i in json.recipes) {
 
         if (!json.recipes[i].name) {
+            continue;
+        }
+
+        if (!private && json.recipes[i].origin == "端午壁池") {
             continue;
         }
 
