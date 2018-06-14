@@ -2676,6 +2676,10 @@ function generateData(json, json2, person) {
             continue;
         }
 
+        if (!private && json.equips[i].origin == "端午壁池") {
+            continue;
+        }
+
         var equip = json.equips[i];
         equip["rarityDisp"] = getRarityDisp(json.equips[i].rarity);
         var skillInfo = getSkillInfo(json.skills, json.equips[i].skill);
@@ -2724,6 +2728,10 @@ function generateData(json, json2, person) {
             continue;
         }
 
+        if (!private && json.chefs[i].origin == "端午壁池") {
+            continue;
+        }
+
         var chefData = json.chefs[i];
         chefData["recipes"] = new Array();
 
@@ -2752,7 +2760,7 @@ function generateData(json, json2, person) {
         var ultimateGoal = "";
         var ultimateSkillDisp = "";
 
-        if (json.chefs[i].rarity < 3 || private) {
+        if (json.chefs[i].rarity < 5 || private) {
             for (var j in json.chefs[i].ultimateGoal) {
                 for (var k in json.ultimateGoals) {
                     if (json.chefs[i].ultimateGoal[j] == json.ultimateGoals[k].goalId) {
@@ -2808,6 +2816,10 @@ function generateData(json, json2, person) {
     for (var i in json.recipes) {
 
         if (!json.recipes[i].name) {
+            continue;
+        }
+
+        if (!private && json.recipes[i].origin == "端午壁池") {
             continue;
         }
 
