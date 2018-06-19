@@ -2676,10 +2676,6 @@ function generateData(json, json2, person) {
             continue;
         }
 
-        if (!private && json.equips[i].origin == "端午壁池") {
-            continue;
-        }
-
         var equip = json.equips[i];
         equip["rarityDisp"] = getRarityDisp(json.equips[i].rarity);
         var skillInfo = getSkillInfo(json.skills, json.equips[i].skill);
@@ -2725,10 +2721,6 @@ function generateData(json, json2, person) {
     for (var i in json.chefs) {
 
         if (!json.chefs[i].name) {
-            continue;
-        }
-
-        if (!private && json.chefs[i].origin == "端午壁池") {
             continue;
         }
 
@@ -2816,10 +2808,6 @@ function generateData(json, json2, person) {
     for (var i in json.recipes) {
 
         if (!json.recipes[i].name) {
-            continue;
-        }
-
-        if (!private && json.recipes[i].origin == "端午壁池") {
             continue;
         }
 
