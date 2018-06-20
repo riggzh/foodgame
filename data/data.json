@@ -15195,6 +15195,30 @@
       ],
       "ultimateSkill": 310324,
       "origin": "桃花壁池"
+    },
+    {
+      "chefId": 339,
+      "name": "毛太郎",
+      "rarity": 4,
+      "gender": "男",
+      "stirfry": 184,
+      "bake": 0,
+      "boil": 92,
+      "steam": 276,
+      "fry": 46,
+      "knife": 0,
+      "skill": 310069,
+      "meat": 0,
+      "fish": 5,
+      "veg": 6,
+      "creation": 0,
+      "ultimateGoal": [
+        173040,
+        173008,
+        173062
+      ],
+      "ultimateSkill": 310318,
+      "origin": "宕机补偿"
     }
   ],
   "equips": [
@@ -17164,6 +17188,24 @@
         310091
       ],
       "origin": "端午壁池"
+    },
+    {
+      "equipId": 238,
+      "name": "霞姬霸捣药罐",
+      "rarity": 3,
+      "skill": [
+        310429
+      ],
+      "origin": "限时任务"
+    },
+    {
+      "equipId": 239,
+      "name": "玉石捣药罐",
+      "rarity": 2,
+      "skill": [
+        310430
+      ],
+      "origin": "限时任务"
     }
   ],
   "quests": [
@@ -22400,6 +22442,446 @@
       ]
     },
     {
+      "questId": 461,
+      "type": "主线任务",
+      "goal": "制作牛肉煎包100份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 462,
+      "type": "主线任务",
+      "goal": "累计开业超过99小时",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 463,
+      "type": "主线任务",
+      "goal": "制作大骨高汤120份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 464,
+      "type": "主线任务",
+      "goal": "一次经营获得280000金币",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 465,
+      "type": "主线任务",
+      "goal": "制作洋葱肥肠120份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 466,
+      "type": "主线任务",
+      "goal": "制作使用菠萝的料理400份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 467,
+      "type": "主线任务",
+      "goal": "遇见诸葛亮黄月英8次",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 468,
+      "type": "主线任务",
+      "goal": "一次经营遇见任意特殊客人6次",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 469,
+      "type": "主线任务",
+      "goal": "一次经营超过40小时",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 470,
+      "type": "主线任务",
+      "goal": "制作3星切技法的料理510份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 471,
+      "type": "主线任务",
+      "goal": "制作3星煮技法的料理510份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 472,
+      "type": "主线任务",
+      "goal": "一次经营制作4星面类料理100份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 473,
+      "type": "主线任务",
+      "goal": "制作使用猪油的料理400份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 474,
+      "type": "主线任务",
+      "goal": "探索拥有咖喱840个",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 475,
+      "type": "主线任务",
+      "goal": "开业制作任意2星神级料理6666份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 476,
+      "type": "主线任务",
+      "goal": "制作4星水产料理180份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 477,
+      "type": "主线任务",
+      "goal": "一次经营获得400000金币",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 478,
+      "type": "主线任务",
+      "goal": "制作使用笋的料理400份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 479,
+      "type": "主线任务",
+      "goal": "一次经营制作4星鱼类料理100份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 480,
+      "type": "主线任务",
+      "goal": "制作使用牛排的料理440份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 481,
+      "type": "主线任务",
+      "goal": "制作使用胡萝卜的料理440份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 482,
+      "type": "主线任务",
+      "goal": "制作3星烤技法的料理600份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 483,
+      "type": "主线任务",
+      "goal": "遇见木优8次",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 484,
+      "type": "主线任务",
+      "goal": "制作使用豆腐的料理500份",
+      "rewards": [
+        {
+          "name": "菜谱-柴鱼豆腐",
+          "quantity": ""
+        }
+      ]
+    },
+    {
+      "questId": 485,
+      "type": "主线任务",
+      "goal": "遇见任意特殊客人28次",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 486,
+      "type": "主线任务",
+      "goal": "一次经营遇见任意特殊客人9次",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 487,
+      "type": "主线任务",
+      "goal": "制作豆豉蒸排骨120份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 488,
+      "type": "主线任务",
+      "goal": "制作冰激凌华夫饼140份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 489,
+      "type": "主线任务",
+      "goal": "使用白菜300个、蘑菇280个、胡萝卜350个、笋250个",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 490,
+      "type": "主线任务",
+      "goal": "制作使用猪腿肉的料理500份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 491,
+      "type": "主线任务",
+      "goal": "一次经营制作5星料理88份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 492,
+      "type": "主线任务",
+      "goal": "制作使用辣椒的料理500份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 493,
+      "type": "主线任务",
+      "goal": "遇见木良木优8次",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 494,
+      "type": "主线任务",
+      "goal": "制作牛奶鸡蛋布丁140份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 495,
+      "type": "主线任务",
+      "goal": "累计开业获得950000金币",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 496,
+      "type": "主线任务",
+      "goal": "制作3星蔬菜料理600份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 497,
+      "type": "主线任务",
+      "goal": "制作柴鱼豆腐80份",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 498,
+      "type": "主线任务",
+      "goal": "累计开业获得1000000金币",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 499,
+      "type": "主线任务",
+      "goal": "一次经营超过42小时",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
+      "questId": 500,
+      "type": "主线任务",
+      "goal": "拥有3阶厨师40个",
+      "rewards": [
+        {
+          "name": "金币",
+          "quantity": "3000"
+        }
+      ]
+    },
+    {
       "questId": 120.1,
       "type": "支线任务",
       "goal": "提交暖石1个",
@@ -24554,6 +25036,24 @@
       ]
     },
     {
+      "skillId": 310429,
+      "effect": [
+        {
+          "type": "全技法",
+          "addition": 0.2
+        }
+      ]
+    },
+    {
+      "skillId": 310430,
+      "effect": [
+        {
+          "type": "全技法",
+          "addition": 0.1
+        }
+      ]
+    },
+    {
       "skillId": 310431,
       "effect": [
         {
@@ -24573,8 +25073,9 @@
     }
   ],
   "history": [
+    "2018/06/15 加入端午池菜谱,厨师,厨具",
     "2018/06/14 加入3星4星厨师修炼数据, 加入实验室菜谱厨具",
-    "2018/05/08 厨师图鉴加入厨具列,详情见上方标亮处",
+    "2018/05/08 厨师图鉴加入厨具列",
     "2018/04/06 加入修炼相关功能",
     "2018/04/03 加入桃花池菜谱,厨师,厨具,感谢小熊提供的升阶贵客数据",
     "2018/03/25 加入个人数据本地存储,导出,导入功能",
