@@ -1,130 +1,56 @@
 {
   "chefs": [
     {
-      "chefId": 84,
-      "name": "兰染",
-      "rarity": 4,
-      "gender": "男",
-      "stirfry": 188,
-      "bake": 31,
-      "boil": 0,
-      "steam": 62,
-      "fry": 0,
-      "knife": 165,
-      "skill": 310133,
-      "meat": 4,
-      "fish": 0,
-      "veg": 0,
-      "creation": 5,
-      "ultimateGoal": [
-        173038,
-        173007,
-        173062
+      "chefId": 285,
+      "name": "皮蛋 八哥 雍正",
+      "rarity": 5,
+      "stirfry": 135,
+      "bake": 135,
+      "boil": 135,
+      "steam": 135,
+      "fry": 135,
+      "knife": 135,
+      "skill": 310273,
+      "meat": -9,
+      "fish": -9,
+      "veg": -9,
+      "creation": -9,
+      "ultimateGoal": [],
+      "ultimateSkill": 0,
+      "tags": [
+        340001
       ],
-      "ultimateSkill": 310313,
-      "origin": "壁池"
-    },
-    {
-      "chefId": 90,
-      "name": "蛋皇",
-      "rarity": 4,
-      "gender": "女",
-      "stirfry": 0,
-      "bake": 62,
-      "boil": 125,
-      "steam": 188,
-      "fry": 31,
-      "knife": 0,
-      "skill": 310144,
-      "meat": 5,
+      "origin": "宕机补偿"
+    },{
+      "chefId": 228,
+      "name": "玄离",
+      "rarity": 5,
+      "stirfry": 124,
+      "bake": 0,
+      "boil": 41,
+      "steam": 20,
+      "fry": 0,
+      "knife": 83,
+      "skill": -1,
+      "meat": 0,
       "fish": 4,
-      "veg": 0,
+      "veg": 4,
       "creation": 0,
       "ultimateGoal": [
-        173040,
-        173008,
-        173062
+        173035,
+        173004,
+        173061
       ],
-      "ultimateSkill": 310350,
-      "origin": "壁池"
-    },
-    {
-      "chefId": 96,
-      "name": "堂雪",
-      "rarity": 3,
-      "gender": "女",
-      "stirfry": 22,
-      "bake": 45,
-      "boil": 137,
-      "steam": 91,
-      "fry": 0,
-      "knife": 0,
-      "skill": 310068,
-      "meat": 0,
-      "fish": 0,
-      "veg": 3,
-      "creation": 4,
-      "ultimateGoal": [
-        173047,
-        173016,
-        173063
+      "ultimateSkill": 310363,
+      "tags": [
+        340001,
+        340020
       ],
-      "ultimateSkill": 310345,
-      "origin": "壁池"
-    },
-    {
-      "chefId": 144,
-      "name": "夏娃",
-      "rarity": 4,
-      "gender": "女",
-      "stirfry": 62,
-      "bake": 0,
-      "boil": 31,
-      "steam": 125,
-      "fry": 0,
-      "knife": 188,
-      "skill": 310129,
-      "meat": 0,
-      "fish": 0,
-      "veg": 5,
-      "creation": 5,
-      "ultimateGoal": [
-        173037,
-        173012,
-        173062
-      ],
-      "ultimateSkill": 310353,
-      "origin": "双11壁池"
-    },
-    {
-      "chefId": 159,
-      "name": "嫦娥",
-      "rarity": 4,
-      "gender": "女",
-      "stirfry": 31,
-      "bake": 0,
-      "boil": 188,
-      "steam": 62,
-      "fry": 125,
-      "knife": 0,
-      "skill": 310269,
-      "meat": 5,
-      "fish": 0,
-      "veg": 0,
-      "creation": 5,
-      "ultimateGoal": [
-        173041,
-        173010,
-        173062
-      ],
-      "ultimateSkill": 310351,
-      "origin": "晚秋壁池"
-    },
-    {
+      "origin": "圣诞壁池"
+    },{
       "chefId": 162,
       "name": "后羿",
       "rarity": 5,
-      "gender": "男",
       "stirfry": 0,
       "bake": 83,
       "boil": 166,
@@ -135,92 +61,48 @@
       "meat": 0,
       "fish": 7,
       "veg": 0,
-      "creation": 5,
+      "creation": 6,
       "ultimateGoal": [
         173031,
         173006,
         173061
       ],
       "ultimateSkill": 310365,
+      "tags": [
+        340001,
+        340010,
+        340020
+      ],
       "origin": "晚秋壁池"
-    },
-    {
-      "chefId": 183,
-      "name": "灯鬼",
-      "rarity": 3,
-      "gender": "女",
-      "stirfry": 74,
-      "bake": 149,
-      "boil": 0,
-      "steam": 24,
-      "fry": 49,
-      "knife": 0,
-      "skill": 310148,
-      "meat": 3,
-      "fish": 0,
-      "veg": 0,
-      "creation": 4,
-      "ultimateGoal": [
-        173045,
-        173015,
-        173063
-      ],
-      "ultimateSkill": 310343,
-      "origin": "圣诞壁池"
-    },
-    {
-      "chefId": 195,
-      "name": "齐雪",
-      "rarity": 3,
-      "gender": "女",
-      "stirfry": 0,
-      "bake": 22,
-      "boil": 137,
-      "steam": 45,
-      "fry": 0,
-      "knife": 91,
-      "skill": 310146,
-      "meat": 0,
-      "fish": 3,
-      "veg": 0,
-      "creation": 4,
-      "ultimateGoal": [
-        173047,
-        173016,
-        173063
-      ],
-      "ultimateSkill": 310345,
-      "origin": "情人节壁池"
-    },
-    {
-      "chefId": 249,
-      "name": "盐如玉",
+    },{
+      "chefId": 339,
+      "name": "毛太郎",
       "rarity": 4,
-      "gender": "女",
-      "stirfry": 188,
-      "bake": 125,
-      "boil": 0,
-      "steam": 0,
-      "fry": 61,
-      "knife": 31,
+      "stirfry": 125,
+      "bake": 0,
+      "boil": 62,
+      "steam": 188,
+      "fry": 31,
+      "knife": 0,
       "skill": 310069,
-      "meat": 5,
+      "meat": 0,
       "fish": 5,
-      "veg": 0,
+      "veg": 5,
       "creation": 0,
       "ultimateGoal": [
-        173038,
-        173007,
+        173040,
+        173008,
         173062
       ],
-      "ultimateSkill": 310348,
-      "origin": "情人节壁池"
-    },
-    {
+      "ultimateSkill": 310318,
+      "tags": [
+        340001
+      ],
+      "origin": "宕机补偿"
+    },{
       "chefId": 255,
       "name": "雷公子",
       "rarity": 4,
-      "gender": "男",
       "stirfry": 62,
       "bake": 188,
       "boil": 31,
@@ -238,27 +120,220 @@
         173062
       ],
       "ultimateSkill": 310349,
+      "tags": [
+        340001
+      ],
       "origin": "情人节壁池"
-    },
-    {
-      "chefId": 285,
-      "name": "八哥",
-      "rarity": 5,
-      "gender": "男",
-      "stirfry": 90,
-      "bake": 90,
-      "boil": 90,
-      "steam": 90,
-      "fry": 90,
-      "knife": 90,
-      "skill": 310273,
-      "meat": -9,
-      "fish": -9,
-      "veg": -9,
-      "creation": -9,
-      "ultimateGoal": [],
-      "ultimateSkill": 0,
-      "origin": "宕机补偿"
+    },{
+      "chefId": 249,
+      "name": "盐如玉",
+      "rarity": 4,
+      "stirfry": 188,
+      "bake": 125,
+      "boil": 0,
+      "steam": 0,
+      "fry": 62,
+      "knife": 31,
+      "skill": 310069,
+      "meat": 5,
+      "fish": 5,
+      "veg": 0,
+      "creation": 0,
+      "ultimateGoal": [
+        173038,
+        173007,
+        173062
+      ],
+      "ultimateSkill": 310348,
+      "tags": [
+        340002
+      ],
+      "origin": "情人节壁池"
+    },{
+      "chefId": 159,
+      "name": "嫦娥",
+      "rarity": 4,
+      "stirfry": 31,
+      "bake": 0,
+      "boil": 188,
+      "steam": 62,
+      "fry": 125,
+      "knife": 0,
+      "skill": 310269,
+      "meat": 5,
+      "fish": 0,
+      "veg": 0,
+      "creation": 5,
+      "ultimateGoal": [
+        173041,
+        173010,
+        173062
+      ],
+      "ultimateSkill": 310351,
+      "tags": [
+        340002,
+        340007
+      ],
+      "origin": "晚秋壁池"
+    },{
+      "chefId": 150,
+      "name": "祖冲之",
+      "rarity": 4,
+      "stirfry": 129,
+      "bake": 0,
+      "boil": 0,
+      "steam": 25,
+      "fry": 194,
+      "knife": 58,
+      "skill": 310134,
+      "meat": 5,
+      "fish": 0,
+      "veg": 0,
+      "creation": 5,
+      "ultimateGoal": [
+        173042,
+        173011,
+        173062
+      ],
+      "ultimateSkill": 310352,
+      "tags": [
+        340001,
+        340015
+      ],
+      "origin": "圣诞壁池"
+    },{
+      "chefId": 144,
+      "name": "夏娃",
+      "rarity": 4,
+      "stirfry": 62,
+      "bake": 0,
+      "boil": 31,
+      "steam": 125,
+      "fry": 0,
+      "knife": 188,
+      "skill": 310129,
+      "meat": 0,
+      "fish": 0,
+      "veg": 5,
+      "creation": 5,
+      "ultimateGoal": [
+        173037,
+        173012,
+        173062
+      ],
+      "ultimateSkill": 310353,
+      "tags": [
+        340002,
+        340009
+      ],
+      "origin": "双11壁池"
+    },{
+      "chefId": 84,
+      "name": "兰染",
+      "rarity": 4,
+      "stirfry": 188,
+      "bake": 31,
+      "boil": 0,
+      "steam": 62,
+      "fry": 0,
+      "knife": 125,
+      "skill": 310133,
+      "meat": 4,
+      "fish": 0,
+      "veg": 0,
+      "creation": 5,
+      "ultimateGoal": [
+        173038,
+        173007,
+        173062
+      ],
+      "ultimateSkill": 310313,
+      "tags": [
+        340001,
+        340017,
+        340020
+      ],
+      "origin": "壁池"
+    },{
+      "chefId": 195,
+      "name": "齐雪",
+      "rarity": 3,
+      "stirfry": 0,
+      "bake": 22,
+      "boil": 137,
+      "steam": 45,
+      "fry": 0,
+      "knife": 91,
+      "skill": 310146,
+      "meat": 0,
+      "fish": 3,
+      "veg": 0,
+      "creation": 4,
+      "ultimateGoal": [
+        173047,
+        173016,
+        173063
+      ],
+      "ultimateSkill": 310345,
+      "tags": [
+        340002,
+        340009
+      ],
+      "origin": "情人节壁池"
+    },{
+      "chefId": 183,
+      "name": "灯鬼",
+      "rarity": 3,
+      "stirfry": 74,
+      "bake": 149,
+      "boil": 0,
+      "steam": 24,
+      "fry": 49,
+      "knife": 0,
+      "skill": 310148,
+      "meat": 3,
+      "fish": 0,
+      "veg": 0,
+      "creation": 4,
+      "ultimateGoal": [
+        173045,
+        173015,
+        173063
+      ],
+      "ultimateSkill": 310343,
+      "tags": [
+        340002,
+        340014,
+        340020
+      ],
+      "origin": "圣诞壁池"
+    },{
+      "chefId": 96,
+      "name": "堂雪",
+      "rarity": 3,
+      "stirfry": 22,
+      "bake": 45,
+      "boil": 137,
+      "steam": 91,
+      "fry": 0,
+      "knife": 0,
+      "skill": 310068,
+      "meat": 0,
+      "fish": 0,
+      "veg": 3,
+      "creation": 4,
+      "ultimateGoal": [
+        173047,
+        173016,
+        173063
+      ],
+      "ultimateSkill": 310345,
+      "tags": [
+        340002,
+        340012,
+        340020
+      ],
+      "origin": "壁池"
     }
   ]
 }
