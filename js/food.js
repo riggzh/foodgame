@@ -3300,10 +3300,10 @@ function generateData(json, json2, person) {
             var resultInfo = getRecipeResult(retData["chefs"][j], retData["chefs"][j].equip, json.recipes[i], 1, 1, retData["materials"], null, 0);
 
 			if(retData["chefs"][j]["got"]==='是') {
-				if (maxEff < chefEff) {
-					maxEff = chefEff;
+				if (maxEff < resultInfo.chefEff) {
+					maxEff = resultInfo.chefEff;
 					maxQlty = retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
-				} else if (maxEff === chefEff) {
+				} else if (maxEff === resultInfo.chefEff) {
 					maxQlty += "," + retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
 				}
 			}
