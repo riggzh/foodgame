@@ -39,25 +39,25 @@ function init(json) {
             url: 'data/data2.json'
         });
     } else {
-        $.ajax({
-            cache: false,
-            success: function (mydata) {
-                for (var i in json.chefs) {
-                    for (var j in mydata.chefs) {
-                        if(json.chefs[i].chefId === mydata.chefs[j].chefId){
-                            json.chefs[i] = mydata.chefs[j];
-                        }
-                    }
-                }
-                var data = generateData(json, null, person);
-                initTables(data, person);
-            },
-            error: function () {
-                var data = generateData(json, null, person);
-                initTables(data, person);
-            },
-            url: 'data/mydata.json'
-        });
+		$.ajax({
+			cache: false,
+			success: function (mydata) {
+				for (var i in json.chefs) {
+					for (var j in mydata.chefs) {
+						if(json.chefs[i].chefId === mydata.chefs[j].chefId){
+							json.chefs[i] = mydata.chefs[j];
+						}
+					}
+				}
+				var data = generateData(json, null, person);
+				initTables(data, person);
+			},
+			error: function () {
+				var data = generateData(json, null, person);
+				initTables(data, person);
+			},
+			url: 'data/mydata.json'
+		});
     }
 
 }
@@ -226,8 +226,8 @@ function initRecipeTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         deferRender: true,
         order: [],
         autoWidth: false
@@ -638,8 +638,8 @@ function initChefTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         deferRender: true,
         order: [],
         autoWidth: false
@@ -925,8 +925,8 @@ function initEquipTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         deferRender: true
     });
 
@@ -1094,8 +1094,8 @@ function initQuestTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         deferRender: true
     });
 
@@ -2160,8 +2160,8 @@ function initCalRecipesTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -2332,8 +2332,8 @@ function initCalChefsTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -2463,8 +2463,8 @@ function initCalEquipsTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -2583,8 +2583,8 @@ function initCalMaterialsTable(data) {
         lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         select: {
             style: 'multi',
             selector: 'td.select-checkbox'
@@ -2960,9 +2960,9 @@ function initCalResultTableCommon(mode, panel) {
         lengthMenu: [[5, 10, 20, 50, 100, -1], [5, 10, 20, 50, 100, "所有"]],
         pageLength: 20,
         dom: "<'row'<'col-sm-12'<'selected-sum'>>>" +
-        "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-12'p>>",
+            "<'row'<'col-sm-4'l><'col-sm-4 text-center'i><'col-sm-4'<'search-box'>>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12'p>>",
         autoWidth: false,
         info: info,
         ordering: ordering,
@@ -3299,14 +3299,14 @@ function generateData(json, json2, person) {
 
             var resultInfo = getRecipeResult(retData["chefs"][j], retData["chefs"][j].equip, json.recipes[i], 1, 1, retData["materials"], null, 0);
 
-            if(retData["chefs"][j]["got"]==='是') {
-                if (maxEff < chefEff) {
-                    maxEff = chefEff;
-                    maxQlty = retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
-                } else if (maxEff === chefEff) {
-                    maxQlty += "," + retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
-                }
-            }
+			if(retData["chefs"][j]["got"]==='是') {
+				if (maxEff < resultInfo.chefEff) {
+					maxEff = resultInfo.chefEff;
+					maxQlty = retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
+				} else if (maxEff === resultInfo.chefEff) {
+					maxQlty += "," + retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
+				}
+			}
 
             var recipeChefData = new Object();
             recipeChefData["rankVal"] = resultInfo.rankVal;
