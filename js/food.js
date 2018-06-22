@@ -1974,10 +1974,6 @@ function calCustomResults(rule, data) {
 
 function getRecipesOptions(rule) {
     var options = new Array();
-    var option = new Object();
-    option["display"] = "无菜谱";
-    option["value"] = "";
-    options.push(option);
     for (var j in rule.menus) {
         var option = new Object();
         var available = getRecipeQuantity(rule.menus[j].recipe.data, rule.rest, rule);
@@ -1987,8 +1983,16 @@ function getRecipesOptions(rule) {
         option["display"] = rule.menus[j].recipe.data.name;
         option["value"] = rule.menus[j].recipe.data.name;
         option["subtext"] = resultData.totalScore + " / " + rule.menus[j].recipe.totalScore;
+        option["score"] = resultData.totalScore;
         options.push(option);
     }
+    options.sort(function (a, b) {
+        return b.score - a.score
+    });
+    var option = new Object();
+    option["display"] = "无菜谱";
+    option["value"] = "";
+    options.unshift(option);
     return options;
 }
 
