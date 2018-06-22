@@ -1688,9 +1688,6 @@ function loadRule(data, rule) {
 
     var recipes = new Array();
     for (var i in allRecipes) {
-        if (!allRecipes[i].origin) {
-            continue;
-        }
 
         if (allRecipes[i].rarity > rule.CookbookRarityLimit) {
             continue;
@@ -3176,6 +3173,12 @@ function generateData(json, json2, person) {
 
         if (!json.recipes[i].name) {
             continue;
+        }
+
+        if (!json.recipes[i].origin) {
+            if (!private && !cal) {
+                continue;
+            }
         }
 
         var recipeData = new Object();
