@@ -3302,9 +3302,9 @@ function generateData(json, json2, person) {
 			if(retData["chefs"][j]["got"]==='是') {
 				if (maxEff < resultInfo.chefEff) {
 					maxEff = resultInfo.chefEff;
-					maxQlty = retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
+					maxQlty = retData["chefs"][j].name + "[" + resultInfo.rankDisp + "]";
 				} else if (maxEff === resultInfo.chefEff) {
-					maxQlty += "," + retData["chefs"][j].name + "[" + rankInfo.rankDisp + "]";
+					maxQlty += "," + retData["chefs"][j].name + "[" + resultInfo.rankDisp + "]";
 				}
 			}
 
