@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=3" />
     <script type="text/javascript" src="js/script.min.js?v=6"></script>
-    <script type="text/javascript" src="js/common.min.js?v=9"></script>
-    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=17" />
-    <script type="text/javascript" src="js/food.min.js?v=50"></script>
+    <script type="text/javascript" src="js/common.min.js?v=10"></script>
+    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=18" />
+    <script type="text/javascript" src="js/food.min.js?v=51"></script>
 </head>
 
 <body>
@@ -32,11 +32,11 @@
             <li>
                 <a href="#pane-quest" data-toggle="tab">任务</a>
             </li>
+            <li class="hidden">
+                <a href="#pane-cal" data-toggle="tab">计算器</a>
+            </li>
             <li>
                 <a href="#pane-export-import" data-toggle="tab">个人</a>
-            </li>
-            <li class="hidden">
-                <a href="#pane-cal" data-toggle="tab">算分</a>
             </li>
             <li>
                 <a href="#pane-info" data-toggle="tab">说明</a>
@@ -748,21 +748,94 @@
                     </ul>
                     <div class="tab-content">
                         <div id="pane-cal-rules" class="tab-pane active">
-                            <div class="box form-inline">
-                                <select id="select-cal-rule" class="form-control"></select>
-                                <button id="btn-cal-rule-load" class="btn btn-default" type="button">
-                                    加载
-                                </button>
-                            </div>
-                            <div class="box form-inline">
-                                <div class="input-group">
-                                    <div class="input-group-addon">装饰加成</div>
-                                    <input type="text" class="form-control" id="input-cal-decoration">
-                                    <div class="input-group-addon">%</div>
+                            <div>
+                                <div class="box form-inline">
+                                    <select id="select-cal-rule" class="form-control"></select>
+                                    <button id="btn-cal-rule-load" class="btn btn-default" type="button">
+                                        加载
+                                    </button>
                                 </div>
-                                <button id="btn-cal-decoration" class="btn btn-default" type="button">
-                                    更新
-                                </button>
+                                <div class="box">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">装饰加成</div>
+                                        <input type="text" class="form-control" id="input-cal-decoration">
+                                        <div class="input-group-addon">%</div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <button id="btn-cal-set-ultimate" class="btn btn-default collapsed" type="button" data-toggle="collapse" data-target="#cal-ultimate">
+                                        配置修炼数据
+                                    </button>
+                                </div>
+                                <div class="box">
+                                    <button id="btn-cal-update" class="btn btn-default" type="button">
+                                        重新计算
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="cal-ultimate" class="collapse">
+                                <div class="box">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">全体厨师炒技法</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-stirfry">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">全体厨师煮技法</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-boil">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">全体厨师切技法</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-knife">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">全体厨师炸技法</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-fry">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">全体厨师烤技法</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-bake">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">全体厨师蒸技法</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-steam">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">全体厨师全技法</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-all-skill">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">全体男厨师全技法</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-male-skill">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">全体女厨师全技法</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-female-skill">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">2星菜谱上限</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-2-limit">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">3星菜谱上限</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-3-limit">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">3星菜谱售价</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-3-price">
+                                        <div class="input-group-addon">%</div>
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">4星菜谱售价</div>
+                                        <input type="text" class="form-control" id="input-cal-ultimate-4-price">
+                                        <div class="input-group-addon">%</div>
+                                    </div>
+                                    <button id="btn-cal-load-ultimate" class="btn btn-default" type="button">
+                                        读取已修炼
+                                    </button>
+                                    <button id="btn-cal-clear-ultimate" class="btn btn-default" type="button">
+                                        清空修炼
+                                    </button>
+                                </div>
                             </div>
                             <div class="cal-results-progress hidden">
                                 <div class="progress">
@@ -1207,6 +1280,11 @@
                                             材料
                                         </label>
                                         <label class="btn btn-default">
+                                            <input type="checkbox" class="chk-cal-results-show-recipe-origin chk-cal-results-show">
+                                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                                            来源
+                                        </label>
+                                        <label class="btn btn-default">
                                             <input type="checkbox" class="chk-cal-results-show-recipe-price chk-cal-results-show" checked>
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             单价
@@ -1261,6 +1339,11 @@
                                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                             规则分
                                         </label>
+                                        <label class="btn btn-default">
+                                            <input type="checkbox" class="chk-cal-results-show-total-time chk-cal-results-show">
+                                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                                            总时间
+                                        </label>
                                     </div>
                                 </div>
                                 <div>
@@ -1278,6 +1361,7 @@
                                                 <th>烤</th>
                                                 <th>蒸</th>
                                                 <th>材料</th>
+                                                <th>来源</th>
                                                 <th>份数</th>
                                                 <th>剩余份数</th>
                                                 <th>最大份数</th>
@@ -1293,6 +1377,7 @@
                                                 <th>实售价</th>
                                                 <th>规则分</th>
                                                 <th>总得分</th>
+                                                <th>总时间</th>
                                             </tr>
                                         </thead>
                                     </table>

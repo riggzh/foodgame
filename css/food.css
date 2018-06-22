@@ -346,3 +346,7 @@ table.dataTable tbody>tr>.selected {
 #input-cal-decoration {
     width: 65px;
 }
+
+#cal-ultimate .input-group .form-control {
+    width: 50px;
+}

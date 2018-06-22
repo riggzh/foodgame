@@ -3,57 +3,54 @@ function getRankInfo(recipe, chef, useEquip, equip) {
 
     setDataForChef2(chef, useEquip, equip);
 
-    if (recipe.stirfry > 0) {
-        if (chef.stirfryVal > 0) {
+    var stirfry = chef.stirfryVal - recipe.stirfry;
+    var boil = chef.boilVal - recipe.boil;
+    var knife = chef.knifeVal - recipe.knife;
+    var fry = chef.fryVal - recipe.fry;
+    var bake = chef.bakeVal - recipe.bake;
+    var steam = chef.steamVal - recipe.steam;
+
+    var failDisp = "";
+    if (stirfry < 0) {
+        failDisp += "炒" + stirfry + " ";
+    }
+    if (boil < 0) {
+        failDisp += "煮" + boil + " ";
+    }
+    if (knife < 0) {
+        failDisp += "切" + knife + " ";
+    }
+    if (fry < 0) {
+        failDisp += "炸" + fry + " ";
+    }
+    if (bake < 0) {
+        failDisp += "烤" + bake + " ";
+    }
+    if (steam < 0) {
+        failDisp += "蒸" + steam + " ";
+    }
+
+    if (failDisp == "") {
+        if (recipe.stirfry > 0) {
             times = Math.min(times, chef.stirfryVal / recipe.stirfry);
-        } else {
-            times = 0;
         }
-    }
-    if (times >= 1) {
         if (recipe.boil > 0) {
-            if (chef.boilVal > 0) {
-                times = Math.min(times, chef.boilVal / recipe.boil);
-            } else {
-                times = 0;
-            }
+            times = Math.min(times, chef.boilVal / recipe.boil);
         }
-    }
-    if (times >= 1) {
         if (recipe.knife > 0) {
-            if (chef.knifeVal > 0) {
-                times = Math.min(times, chef.knifeVal / recipe.knife);
-            } else {
-                times = 0;
-            }
+            times = Math.min(times, chef.knifeVal / recipe.knife);
         }
-    }
-    if (times >= 1) {
         if (recipe.fry > 0) {
-            if (chef.fryVal > 0) {
-                times = Math.min(times, chef.fryVal / recipe.fry);
-            } else {
-                times = 0;
-            }
+            times = Math.min(times, chef.fryVal / recipe.fry);
         }
-    }
-    if (times >= 1) {
         if (recipe.bake > 0) {
-            if (chef.bakeVal > 0) {
-                times = Math.min(times, chef.bakeVal / recipe.bake);
-            } else {
-                times = 0;
-            }
+            times = Math.min(times, chef.bakeVal / recipe.bake);
         }
-    }
-    if (times >= 1) {
         if (recipe.steam > 0) {
-            if (chef.steamVal > 0) {
-                times = Math.min(times, chef.steamVal / recipe.steam);
-            } else {
-                times = 0;
-            }
+            times = Math.min(times, chef.steamVal / recipe.steam);
         }
+    } else {
+        times = 0;
     }
 
     var rankInfo = new Object();
@@ -62,7 +59,7 @@ function getRankInfo(recipe, chef, useEquip, equip) {
     var rankDisp = "-";
     var rankVal = 0;
 
-    if (times != Number.MAX_VALUE && times >= 1) {
+    if (times != Number.MAX_VALUE) {
         if (times >= 4) {
             rankAddition = 0.5;
             rankDisp = "神";
@@ -85,10 +82,12 @@ function getRankInfo(recipe, chef, useEquip, equip) {
     rankInfo["rankAddition"] = rankAddition;
     rankInfo["rankDisp"] = rankDisp;
     rankInfo["rankVal"] = rankVal;
+    rankInfo["failDisp"] = failDisp;
+
     return rankInfo;
 }
 
-function getSkillAddition(recipe, skill, materials) {
+function getSkillAddition(recipe, skill) {
     var skillAddition = 0;
     for (var k in skill) {
         var hasSkill = false;
@@ -230,46 +229,51 @@ function getRecipeResult(chef, equip, recipe, quantity, maxQuantity, materials, 
     var decorationAddition = 0;
     var otherAddition = 0;
 
+    var timeAddition = 0;
+
+    resultData["disp"] = recipe.name;
+
     if (chef) {
         var rankData = getRankInfo(recipe, chef, true, equip);
+        resultData["rankVal"] = rankData.rankVal;
+        resultData["rankDisp"] = rankData.rankDisp;
+        resultData["failDisp"] = rankData.failDisp;
+
         if (rankData.rankVal == 0) {
-            return null;
+            return resultData;
         }
 
-        if (rule.DisableCookbookRank == false) {
+        if (!rule || rule.DisableCookbookRank == false) {
             rankAddition = rankData.rankAddition;
         }
 
-        resultData["rankVal"] = rankData.rankVal;
-        resultData["rankDisp"] = rankData.rankDisp;
         resultData["rankAddition"] = rankAddition;
         resultData["rankAdditionDisp"] = getAdditionDisp(rankAddition);
 
-        if (rule.DisableChefSkillEffect == false) {
-            chefSkillAddition = getSkillAddition(recipe, chef.specialSkillEffect, materials);
+        if (!rule || rule.DisableChefSkillEffect == false) {
+            chefSkillAddition = getSkillAddition(recipe, chef.specialSkillEffect);
+            timeAddition = timeAddition.add(getTimeAddition(chef.specialSkillEffect));
         }
 
         resultData["chefSkillAddition"] = chefSkillAddition;
         resultData["chefSkillAdditionDisp"] = getAdditionDisp(chefSkillAddition);
 
-        if (rule.DisableEquipSkillEffect == false) {
-            var equipEffect = new Array();
+        if (!rule || rule.DisableEquipSkillEffect == false) {
             if (equip) {
-                equipEffect = equip.effect;
+                equipSkillAddition = getSkillAddition(recipe, equip.effect);
+                timeAddition = timeAddition.add(getTimeAddition(equip.effect));
             }
-            equipSkillAddition = getSkillAddition(recipe, equipEffect, materials);
         }
 
         resultData["equipSkillAddition"] = equipSkillAddition;
         resultData["equipSkillAdditionDisp"] = getAdditionDisp(equipSkillAddition);
 
-
         otherAddition = otherAddition.add(Number(chef.addition));
     }
 
-    if (rule.DisableDecorationEffect == false) {
+    if (!rule || rule.DisableDecorationEffect == false) {
         if (decoration) {
-            decorationAddition = Number(decoration).div(100);
+            decorationAddition = decoration;
         }
     }
     resultData["decorationAddition"] = decorationAddition;
@@ -292,8 +296,51 @@ function getRecipeResult(chef, equip, recipe, quantity, maxQuantity, materials, 
     resultData["bonusScore"] = Math.ceil(recipe.price * otherAddition);
     resultData["totalBonusScore"] = resultData.bonusScore * quantity;
     resultData["totalScore"] = resultData.totalRealPrice + resultData.totalBonusScore;
+    resultData["totalTime"] = recipe.time * (1 + timeAddition) * quantity;
+    resultData["totalTimeDisp"] = secondsToTime(resultData.totalTime);
+
+    var chefEff = 0;
+    if (chef && resultData.rankVal > 0) {
+        chefEff = Math.floor(resultData.realPrice * 3600 / (recipe.time * (1 + timeAddition)));
+    }
+    resultData["chefEff"] = chefEff;
 
     return resultData;
+}
+
+function getTimeAddition(skill) {
+    var timeAddition = 0;
+    for (var k in skill) {
+        if (skill[k].type.indexOf("开业时间") >= 0) {
+            timeAddition += skill[k].addition;
+        }
+    }
+    return timeAddition;
+}
+
+function secondsToTime(sec) {
+    sec = Number(sec);
+
+    var d = Math.floor(sec / 3600 / 24);
+    var h = Math.floor(sec / 3600 % 24);
+    var m = Math.floor(sec / 60 % 60);
+    var s = Math.floor(sec % 60);
+
+    var ret = "";
+    if (d > 0) {
+        ret += d + "天";
+    }
+    if (h > 0) {
+        ret += h + "小时";
+    }
+    if (m > 0) {
+        ret += m + "分";
+    }
+    if (s > 0) {
+        ret += s + "秒";
+    }
+
+    return ret;
 }
 
 function getEquipInfo(equipName, equips) {
