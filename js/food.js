@@ -1938,7 +1938,7 @@ function calCustomResults(rule, data) {
 
     for (var i in custom) {
         if (custom[i].recipe.data.recipeId && custom[i].chef.chefId) {
-            var resultData = getRecipeResult(custom[i].chef, equipInfo, custom[i].recipe.data, custom[i].recipe.quantity, custom[i].recipe.max, rule.materials, rule, rule.decorationEffect);
+            var resultData = getRecipeResult(custom[i].chef, custom[i].equip, custom[i].recipe.data, custom[i].recipe.quantity, custom[i].recipe.max, rule.materials, rule, rule.decorationEffect);
             if (resultData.rankVal > 0) {
                 custom[i].recipe = resultData;
             } else {
