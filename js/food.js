@@ -2107,6 +2107,12 @@ function initCalRecipesTable(data) {
             "data": "addition",
             "className": "cal-td-input-addition",
             "width": "38px"
+        },
+        {
+            "data": "customLimit",
+            "className": "cal-td-input-quantity",
+            "defaultContent": "",
+            "width": "38px"
         }
     ];
 
@@ -2164,7 +2170,7 @@ function initCalRecipesTable(data) {
     });
 
     calRecipesTable.MakeCellsEditable({
-        "columns": [16]  // addition
+        "columns": [16, 17]  // addition, quantity
     });
 
     $('.chk-cal-recipes-show').click(function () {
