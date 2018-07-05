@@ -281,8 +281,10 @@ function getRecipeResult(chef, equip, recipe, quantity, maxQuantity, materials, 
 
     otherAddition = otherAddition.add(Number(recipe.addition));
 
-    var materialsAddition = getMaterialsAddition(recipe, materials);
-    otherAddition = otherAddition.add(materialsAddition);
+    if (rule && rule.hasOwnProperty("MaterialsEffect")) {
+        var materialsAddition = getMaterialsAddition(recipe, materials);
+        otherAddition = otherAddition.add(materialsAddition);
+    }
 
     resultData["data"] = recipe;
     resultData["quantity"] = quantity;

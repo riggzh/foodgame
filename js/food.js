@@ -67,6 +67,7 @@ function initTables(data, person) {
     initInfo(data);
 
     $('.loading').addClass("hidden");
+    $('.loading h1').text("加载中...");
     $('.main-function').removeClass("hidden");
 }
 
@@ -1496,6 +1497,27 @@ function initCalRules(data) {
         $("#btn-cal-update").removeClass("btn-default").addClass("btn-danger");
         $("#cal-ultimate input").val("");
     });
+
+    if (private) {
+        $("#btn-cal-set-num").closest(".box").removeClass('hidden');
+
+        $("#btn-cal-set-num").click(function () {
+            var custom = $('#cal-self-select-table').DataTable().data().toArray();
+            $('#cal-recipes-table').DataTable().rows().deselect();
+            $('#cal-recipes-table').DataTable().rows().every(function (rowIdx, tableLoop, rowLoop) {
+                var rowData = this.data();
+                var quantity = "";
+                for (var i in custom) {
+                    if (custom[i].recipe.data.name == rowData.name) {
+                        quantity = custom[i].recipe.quantity;
+                        this.select();
+                        break;
+                    }
+                }
+                this.cell(rowIdx, '.cal-td-input-quantity').data(quantity);
+            });
+        });
+    }
 }
 
 function loadPersonUltimate(data) {
