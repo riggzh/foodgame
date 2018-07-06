@@ -295,9 +295,10 @@ function getRecipeResult(chef, equip, recipe, quantity, maxQuantity, materials, 
     resultData["totalPrice"] = recipe.price * quantity;
     resultData["realPrice"] = Math.ceil(recipe.price * (1 + rankAddition + chefSkillAddition + equipSkillAddition + decorationAddition + recipe.ultimateAddition));
     resultData["totalRealPrice"] = resultData.realPrice * quantity;
-    resultData["bonusScore"] = Math.ceil(recipe.price * otherAddition);
+    var score = Math.ceil(recipe.price * (1 + rankAddition + chefSkillAddition + equipSkillAddition + decorationAddition + recipe.ultimateAddition + otherAddition));
+    resultData["bonusScore"] = score - resultData.realPrice;
     resultData["totalBonusScore"] = resultData.bonusScore * quantity;
-    resultData["totalScore"] = resultData.totalRealPrice + resultData.totalBonusScore;
+    resultData["totalScore"] = score * quantity;
     resultData["totalTime"] = recipe.time * (1 + timeAddition) * quantity;
     resultData["totalTimeDisp"] = secondsToTime(resultData.totalTime);
 
