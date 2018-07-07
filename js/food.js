@@ -1490,6 +1490,7 @@ function initCalRules(data) {
 
     $("#btn-cal-load-ultimate").click(function () {
         $("#btn-cal-update").removeClass("btn-default").addClass("btn-danger");
+        $("#cal-ultimate input").val("");
         loadPersonUltimate(data);
     });
 
