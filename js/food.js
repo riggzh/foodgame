@@ -336,7 +336,7 @@ function initRecipeTable(data) {
             return true;
         }
 
-        var value = $("#pane-recipes .search-box input").val();
+        var value = $.trim($("#pane-recipes .search-box input").val());
         var searchCols = [0, 1, 9, 17, 19, 20]; // id, name, materials, origin, tags, guest
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
@@ -723,7 +723,7 @@ function initChefTable(data) {
             return true;
         }
 
-        var value = $("#pane-chefs .search-box input").val();
+        var value = $.trim($("#pane-chefs .search-box input").val());
         var searchCols = [1, 9, 15, 16, 19];    //  name, skill, origin, tags, ultimateskill
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
@@ -967,7 +967,7 @@ function initEquipTable(data) {
             return true;
         }
 
-        var value = $("#pane-equips .search-box input").val();
+        var value = $.trim($("#pane-equips .search-box input").val());
         var searchCols = [1, 3, 4];    // name, skill, origin
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
@@ -1079,7 +1079,7 @@ function initQuestTable(data) {
             return true;
         }
 
-        var value = $("#pane-quest .search-box input").val();
+        var value = $.trim($("#pane-quest .search-box input").val());
         var searchCols = [0, 1, 2];    // questId, goal, rewards
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
@@ -2198,7 +2198,7 @@ function initCalRecipesTable(data) {
             return true;
         }
 
-        var value = $("#pane-cal-recipes .search-box input").val();
+        var value = $.trim($("#pane-cal-recipes .search-box input").val());
         var searchCols = [2, 10, 15];    //name, materials, tags
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
@@ -2370,7 +2370,7 @@ function initCalChefsTable(data) {
             return true;
         }
 
-        var value = $("#pane-cal-chefs .search-box input").val();
+        var value = $.trim($("#pane-cal-chefs .search-box input").val());
         var searchCols = [2, 11, 13];   //name, gender, tags
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
@@ -2502,7 +2502,7 @@ function initCalEquipsTable(data) {
             return true;
         }
 
-        var value = $("#pane-cal-equips .search-box input").val();
+        var value = $.trim($("#pane-cal-equips .search-box input").val());
         var searchCols = [2, 4, 5];   // name, skill, origin
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
@@ -2622,7 +2622,7 @@ function initCalMaterialsTable(data) {
             return true;
         }
 
-        var value = $("#pane-cal-materials .search-box input").val();
+        var value = $.trim($("#pane-cal-materials .search-box input").val());
         var searchCols = [2, 4];   //name, origin
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
@@ -3002,7 +3002,7 @@ function initCalResultTableCommon(mode, panel) {
                 return true;
             }
 
-            var value = $("#pane-cal-recipes-results .search-box input").val();
+            var value = $.trim($("#pane-cal-recipes-results .search-box input").val());
             var searchCols = [3, 10];   //recipename, materials
 
             for (var i = 0, len = searchCols.length; i < len; i++) {
