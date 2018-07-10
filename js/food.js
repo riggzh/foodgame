@@ -1736,12 +1736,12 @@ function loadRule(data, rule) {
 
         if (rule.hasOwnProperty("RecipesSkillsEffect") && rule.RecipesSkillsEffect.length > 0) {
             for (var k in rule.RecipesSkillsEffect) {
-                if (rule.RecipesSkillsEffect[k].skill == "stirfry" && allRecipes[i].stirfry > 0
-                    || rule.RecipesSkillsEffect[k].skill == "boil" && allRecipes[i].boil > 0
-                    || rule.RecipesSkillsEffect[k].skill == "knife" && allRecipes[i].knife > 0
-                    || rule.RecipesSkillsEffect[k].skill == "fry" && allRecipes[i].fry > 0
-                    || rule.RecipesSkillsEffect[k].skill == "bake" && allRecipes[i].bake > 0
-                    || rule.RecipesSkillsEffect[k].skill == "steam" && allRecipes[i].steam > 0) {
+                if (rule.RecipesSkillsEffect[k].Skill == "stirfry" && allRecipes[i].stirfry > 0
+                    || rule.RecipesSkillsEffect[k].Skill == "boil" && allRecipes[i].boil > 0
+                    || rule.RecipesSkillsEffect[k].Skill == "knife" && allRecipes[i].knife > 0
+                    || rule.RecipesSkillsEffect[k].Skill == "fry" && allRecipes[i].fry > 0
+                    || rule.RecipesSkillsEffect[k].Skill == "bake" && allRecipes[i].bake > 0
+                    || rule.RecipesSkillsEffect[k].Skill == "steam" && allRecipes[i].steam > 0) {
                     allRecipes[i].addition = Number(allRecipes[i].addition).add(rule.RecipesSkillsEffect[k].Effect);
                 }
             }
