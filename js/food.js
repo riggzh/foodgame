@@ -302,7 +302,7 @@ function initRecipeTable(data) {
             return true;
         }
 
-        var value = $("#input-recipe-guest-antique").val();
+        var value = $.trim($("#input-recipe-guest-antique").val());
         var searchCols = [21, 22];  // rank guest, rank antique
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
