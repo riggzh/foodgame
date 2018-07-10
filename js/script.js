@@ -32802,13 +32802,13 @@ if (typeof jQuery === 'undefined') {
                         var $searchBase = that.$lis.not('.is-hidden, .divider, .dropdown-header'),
                             $hideItems;
                         if (that.options.liveSearchNormalize) {
-                            $hideItems = $searchBase.not(':a' + that._searchStyle() + '("' + normalizeToBase(that.$searchbox.val()) + '")');
+                            $hideItems = $searchBase.not(':a' + that._searchStyle() + '("' + normalizeToBase($.trim(that.$searchbox.val())) + '")');
                         } else {
-                            $hideItems = $searchBase.not(':' + that._searchStyle() + '("' + that.$searchbox.val() + '")');
+                            $hideItems = $searchBase.not(':' + that._searchStyle() + '("' + $.trim(that.$searchbox.val()) + '")');
                         }
 
                         if ($hideItems.length === $searchBase.length) {
-                            $no_results.html(that.options.noneResultsText.replace('{0}', '"' + htmlEscape(that.$searchbox.val()) + '"'));
+                            $no_results.html(that.options.noneResultsText.replace('{0}', '"' + htmlEscape($.trim(that.$searchbox.val())) + '"'));
                             that.$menuInner.append($no_results);
                             that.$lis.addClass('hidden');
                         } else {
