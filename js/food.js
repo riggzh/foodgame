@@ -1721,8 +1721,28 @@ function loadRule(data, rule) {
                 for (var k in rule.RecipesTagsEffect) {
                     if (allRecipes[i].tags[j] == rule.RecipesTagsEffect[k].TagID) {
                         allRecipes[i].addition = Number(allRecipes[i].addition).add(rule.RecipesTagsEffect[k].Effect);
-                        break;
                     }
+                }
+            }
+        }
+
+        if (rule.hasOwnProperty("RecipesEffect") && rule.RecipesEffect.length > 0) {
+            for (var k in rule.RecipesEffect) {
+                if (allRecipes[i].recipeId == rule.RecipesEffect[k].RecipeID) {
+                    allRecipes[i].addition = Number(allRecipes[i].addition).add(rule.RecipesEffect[k].Effect);
+                }
+            }
+        }
+
+        if (rule.hasOwnProperty("RecipesSkillsEffect") && rule.RecipesSkillsEffect.length > 0) {
+            for (var k in rule.RecipesSkillsEffect) {
+                if (rule.RecipesSkillsEffect[k].skill == "stirfry" && allRecipes[i].stirfry > 0
+                    || rule.RecipesSkillsEffect[k].skill == "boil" && allRecipes[i].boil > 0
+                    || rule.RecipesSkillsEffect[k].skill == "knife" && allRecipes[i].knife > 0
+                    || rule.RecipesSkillsEffect[k].skill == "fry" && allRecipes[i].fry > 0
+                    || rule.RecipesSkillsEffect[k].skill == "bake" && allRecipes[i].bake > 0
+                    || rule.RecipesSkillsEffect[k].skill == "steam" && allRecipes[i].steam > 0) {
+                    allRecipes[i].addition = Number(allRecipes[i].addition).add(rule.RecipesSkillsEffect[k].Effect);
                 }
             }
         }
@@ -1762,7 +1782,6 @@ function loadRule(data, rule) {
                 for (var k in rule.ChefsTagsEffect) {
                     if (allChefs[i].tags[j] == rule.ChefsTagsEffect[k].TagID) {
                         allChefs[i].addition = Number(allChefs[i].addition).add(rule.ChefsTagsEffect[k].Effect);
-                        break;
                     }
                 }
             }
@@ -1784,8 +1803,7 @@ function loadRule(data, rule) {
         if (rule.hasOwnProperty("MaterialsEffect")) {
             for (var j in rule.MaterialsEffect) {
                 if (allMaterials[i].materialId == rule.MaterialsEffect[j].MaterialID) {
-                    allMaterials[i].addition = rule.MaterialsEffect[j].Effect;
-                    break;
+                    allMaterials[i].addition = Number(allMaterials[i].addition).add(rule.MaterialsEffect[j].Effect);
                 }
             }
         }
