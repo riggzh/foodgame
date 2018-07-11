@@ -7,18 +7,22 @@
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=3" />
     <script type="text/javascript" src="js/script.min.js?v=7"></script>
     <script type="text/javascript" src="js/common.min.js?v=13"></script>
-    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=18" />
-    <script type="text/javascript" src="js/food.min.js?v=59"></script>
+    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=19" />
+    <script type="text/javascript" src="js/food.min.js?v=60"></script>
 </head>
 
 <body>
     <div class="loading loading-text">
-        <h1>加载中,请稍等,可能需要3-30秒...</h1>
+        <h1></h1>
     </div>
 
     <div class="loading loading-bg"></div>
 
     <div class="main-function hidden">
+        <div class="function-version">
+            <input type="checkbox" id="chk-function-version" data-toggle="toggle" data-on="简化版" data-off="全功能" 
+            data-onstyle="info" data-offstyle="info" data-width="80px" checked>
+        </div>
         <ul class="nav nav-tabs">
             <li class="active">
                 <a href="#pane-recipes" data-toggle="tab">菜谱</a>
@@ -102,7 +106,7 @@
                         <label class="btn btn-default">
                             <input type="checkbox" id="chk-recipe-show-materials-efficiency" class="chk-recipe-show">
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                            耗材效率
+                            总耗材效率
                         </label>
                         <label class="btn btn-default">
                             <input type="checkbox" id="chk-recipe-show-origin" class="chk-recipe-show" checked>
@@ -144,6 +148,11 @@
                             <i class="fa fa-check glyphicon glyphicon-ok"></i>
                             已有
                         </label>
+                        <div class="chk-recipe-show-material-wrapper">
+                            <select id="chk-recipe-show-material" multiple data-live-search="true" data-live-search-placeholder="查找" data-width="auto"
+                                data-dropdown-align-right='auto' data-none-selected-text="耗材效率" data-selected-text-format="count"
+                                data-count-selected-text="{0} 食材" data-none-results-text="没有找到" data-actions-box="true" data-deselect-all-text="清空"></select>
+                        </div>
                         <div class="chk-recipe-show-chef-wrapper">
                             <select id="chk-recipe-show-chef" multiple data-live-search="true" data-live-search-placeholder="查找" data-width="auto" data-dropdown-align-right='auto'
                                 data-none-selected-text="选择厨师" data-selected-text-format="count" data-count-selected-text="{0} 厨师"
@@ -215,6 +224,28 @@
                         <a id="chk-recipe-skill-all" class="btn btn-default">
                             全选
                         </a>
+                    </div>
+                    <div class="box chk-recipe-category">
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-recipe-category-veg" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            菜
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-recipe-category-meat" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            肉
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-recipe-category-creation" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            面
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-recipe-category-fish" checked>
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            鱼
+                        </label>
                     </div>
                     <div class="box">
                         <label class="btn btn-default">
@@ -1398,22 +1429,28 @@
                     <span class="label label-primary">说明</span>
                 </h3>
                 <p>点击左上角切换功能.</p>
+                <p class="text-danger">点击右上角切换版本:</p>
+                <p class="text-danger">简化版 - 默认版本, 缺少某些功能, 但加载速度快.</p>
+                <p class="text-danger">全功能 - 全功能版本, 也可通过<a href='https://foodgame.github.io/?v=all'>https://foodgame.github.io/?v=all</a>直接访问.</p>
                 <p>图鉴第一组按钮选择显示项, 默认没有全部显示, 后面的负责筛选, 点击列名可以排序.</p>
                 <h4>
                     <span class="label label-info">菜谱图鉴</span>
                 </h4>
+                <p class="text-danger">选择厨师(全功能版本) - 可以看厨师可做的品阶以及效率.</p>
+                <p class="text-danger">耗材效率(全功能版本) - 可以看消耗食材的效率.</p>
                 <p>升阶贵客 - 第一次菜品升阶(升优-升特-升神)必来的贵客, 该列默认不显示.</p>
                 <p>神级符文 - 第一次做神级菜品时贵客送的符文（升优, 升特时贵客一般只给食材, 升神会送符文或菜谱）, 该列默认不显示.</p>
                 <p>升阶贵客、神级符文搜索框 - 仅搜索升阶贵客和神级符文这两列, 该搜索主要用于做贵客的碰瓷任务.</p>
                 <p>右侧搜索框 - 可搜索菜名, 材料, 贵客, 符文.贵客和符文搜索的是贵客列, 不同于升阶贵客和神级符文.</p>
                 <p>列 品阶 - 个人数据, 该列点击可编辑, 用来记录你当前做到的品阶.</p>
                 <p>列 已有 - 个人数据, 该列点击可编辑, 用来记录你是否用拥有该菜谱.</p>
+                <p class="text-danger">筛选按钮 菜肉面鱼 - 可筛选蔬菜料理, 肉类料理, 面类料理, 水产料理.</p>
                 <p>筛选按钮 过滤升阶贵客 - 根据你的菜谱品阶已完成的升阶贵客不显示.</p>
                 <p>筛选按钮 已有 - 只显示已有菜谱.</p>
                 <h4>
                     <span class="label label-info">厨师图鉴</span>
                 </h4>
-                <p>选择菜谱并点击菜谱列进行排序, 可以看厨师可做的品阶.</p>
+                <p class="text-danger">选择菜谱(全功能版本) - 可以看厨师可做的品阶以及效率.</p>
                 <p>列 厨具 - 个人数据, 该列点击可编辑.</p>
                 <p>列 修炼任务</p>
                 <p>列 修炼技能</p>

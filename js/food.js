@@ -8,41 +8,75 @@ $(function () {
     });
 });
 
-var private = false, cal = false, currentRule;
 function init(json) {
 
-    if (window.location.search) {
-        if (lcode(window.location.search) == "0d9753e2fe5a15db2668f70016e565ca7d717c67278ea6c689881ac4") {
-            private = true;
-        } else if (lcode(window.location.search) == "e066e350eb9769c0829edcca66c3fcac996e6779763c8a1a7e5b45ab") {
-            cal = true;
+    initFunction();
+
+    setTimeout(function () {
+        var person;
+        try {
+            var localData = localStorage.getItem('data');
+            person = JSON.parse(localData);
+        } catch (e) { }
+
+        if (private) {
+            $.ajax({
+                cache: false,
+                success: function (json2) {
+                    var data = generateData(json, json2, person);
+                    initTables(data, person);
+                },
+                error: function () {
+                    var data = generateData(json, null, person);
+                    initTables(data, person);
+                },
+                url: 'data/data2.json'
+            });
+        } else {
+            var data = generateData(json, null, person);
+            initTables(data, person);
         }
+    }, 300);
+}
+
+var private = false, cal = false, lite = true, currentRule;
+function initFunction() {
+    var a = getParameterByName('a');
+    if (a && lcode(a) == "cb8f8a72f7e4924a75cb75a4a59c0b8d61e70c0cb84f84edf7ede4c8") {
+        private = true;
+        cal = true;
     }
 
-    var person;
-    try {
-        var localData = localStorage.getItem('data');
-        person = JSON.parse(localData);
-    } catch (e) { }
+    var c = getParameterByName('c');
+    if (c && lcode(c) == "519526da9fa86daa1536b8e280527306eda91dec4a0c56e2c9f64444") {
+        cal = true;
+    }
 
-    if (private) {
-        $.ajax({
-            cache: false,
-            success: function (json2) {
-                var data = generateData(json, json2, person);
-                initTables(data, person);
-            },
-            error: function () {
-                var data = generateData(json, null, person);
-                initTables(data, person);
-            },
-            url: 'data/data2.json'
-        });
+    if (getParameterByName('v') == "all") {
+        lite = false;
+    }
+
+    if (lite) {
+        $('.loading h1').text("加载中...");
+        $('#chk-function-version').bootstrapToggle('on');
+
+        $(".chk-recipe-show-material-wrapper").addClass("hidden");
+        $(".chk-recipe-show-chef-wrapper").addClass("hidden");
+        $(".chk-chef-show-recipe-wrapper").addClass("hidden");
     } else {
-        var data = generateData(json, null, person);
-        initTables(data, person);
+        $('.loading h1').text("加载中,请稍等,可能需要3-30秒...");
+        $('#chk-function-version').bootstrapToggle('off');
     }
 
+    $('#chk-function-version').change(function () {
+        setTimeout(function () {
+            if ($('#chk-function-version').prop("checked")) {
+                window.location.href = UpdateQueryString("v", "lite");
+            } else {
+                window.location.href = UpdateQueryString("v", "all");
+            }
+        }, 300);
+    });
 }
 
 function initTables(data, person) {
@@ -59,7 +93,7 @@ function initTables(data, person) {
 
     initImportExport(data);
 
-    if (cal || private) {
+    if (cal) {
         initCalTables(data);
         $(".nav-tabs li").removeClass("hidden");
     }
@@ -169,19 +203,29 @@ function initRecipeTable(data) {
         }
     ];
 
-    for (var j in data.chefs) {
-        $('#chk-recipe-show-chef').append("<option value='" + j + "'>" + data.chefs[j].name + "</option>");
-        $('#recipe-table thead tr').append("<th>" + data.chefs[j].name + "</th>").append("<th>效率</th>");
+    if (!lite) {
+        for (var j in data.materials) {
+            $('#chk-recipe-show-material').append("<option value='" + j + "'>" + data.materials[j].name + "</option>");
+            $('#recipe-table thead tr').append("<th>" + data.materials[j].name + "/小时</th>");
+            recipeColumns.push({
+                "data": "allMaterials." + j
+            });
+        }
 
-        recipeColumns.push({
-            "data": {
-                "_": "chefs." + j + ".rankVal",
-                "display": "chefs." + j + ".rankDisp"
-            }
-        });
-        recipeColumns.push({
-            "data": "chefs." + j + ".efficiency"
-        });
+        for (var j in data.chefs) {
+            $('#chk-recipe-show-chef').append("<option value='" + j + "'>" + data.chefs[j].name + "</option>");
+            $('#recipe-table thead tr').append("<th>" + data.chefs[j].name + "</th>").append("<th>效率</th>");
+
+            recipeColumns.push({
+                "data": {
+                    "_": "chefs." + j + ".rankVal",
+                    "display": "chefs." + j + ".rankDisp"
+                }
+            });
+            recipeColumns.push({
+                "data": "chefs." + j + ".efficiency"
+            });
+        }
     }
 
     var recipeTable = $('#recipe-table').DataTable({
@@ -244,6 +288,23 @@ function initRecipeTable(data) {
             || $('#chk-recipe-skill-bake').prop("checked") && (Math.floor(data[7]) || 0) > 0
             || $('#chk-recipe-skill-steam').prop("checked") && (Math.floor(data[8]) || 0) > 0
         ) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+    $.fn.dataTableExt.afnFiltering.push(function (settings, data, dataIndex) {
+        if (settings.nTable != document.getElementById('recipe-table')) {
+            return true;
+        }
+
+        var rowData = recipeTable.row(dataIndex).data();
+
+        if ($('#chk-recipe-category-veg').prop("checked") && rowData.veg
+            || $('#chk-recipe-category-meat').prop("checked") && rowData.meat
+            || $('#chk-recipe-category-creation').prop("checked") && rowData.creation
+            || $('#chk-recipe-category-fish').prop("checked") && rowData.fish) {
             return true;
         } else {
             return false;
@@ -340,13 +401,18 @@ function initRecipeTable(data) {
         var searchCols = [0, 1, 9, 17, 19, 20]; // id, name, materials, origin, tags, guest
 
         for (var i = 0, len = searchCols.length; i < len; i++) {
-            if (data[searchCols[i]].indexOf(value) !== -1) {
-                if (searchCols[i] == 17) {  // origin
-                    if (data[searchCols[i]].indexOf("神级") !== -1) {
-                        continue;
-                    }
+            if (searchCols[i] == 0) {  // id
+                if (data[searchCols[i]] == value) {
+                    return true;
                 }
-                return true;
+            } else if (searchCols[i] == 17) {  // origin
+                if (data[searchCols[i]].indexOf(value) !== -1 && data[searchCols[i]].indexOf("神级") == -1) {
+                    return true;
+                }
+            } else {
+                if (data[searchCols[i]].indexOf(value) !== -1) {
+                    return true;
+                }
             }
         }
 
@@ -378,6 +444,10 @@ function initRecipeTable(data) {
 
             updateRecipesLocalData();
         }
+    });
+
+    $('#chk-recipe-show-material').selectpicker().on('changed.bs.select', function () {
+        initRecipeShow(recipeTable, data);
     });
 
     $('#chk-recipe-show-chef').selectpicker().on('changed.bs.select', function () {
@@ -428,6 +498,10 @@ function initRecipeTable(data) {
             $('#chk-recipe-single-skill').bootstrapToggle('off')
         }
         $(".chk-recipe-skill").prop("checked", true);
+        recipeTable.draw();
+    });
+
+    $('.chk-recipe-category input[type="checkbox"]').click(function () {
         recipeTable.draw();
     });
 
@@ -581,19 +655,21 @@ function initChefTable(data) {
         }
     ];
 
-    for (var j in data.recipes) {
-        $('#chk-chef-show-recipe').append("<option value='" + j + "'>" + data.recipes[j].name + "</option>");
-        $('#chef-table thead tr').append("<th title='" + data.recipes[j].skillDisp + "'>" + data.recipes[j].name + "</th>").append("<th>效率</th>");
+    if (!lite) {
+        for (var j in data.recipes) {
+            $('#chk-chef-show-recipe').append("<option value='" + j + "'>" + data.recipes[j].name + "</option>");
+            $('#chef-table thead tr').append("<th title='" + data.recipes[j].skillDisp + "'>" + data.recipes[j].name + "</th>").append("<th>效率</th>");
 
-        chefColumns.push({
-            "data": {
-                "_": "recipes." + j + ".rankVal",
-                "display": "recipes." + j + ".rankDisp"
-            }
-        });
-        chefColumns.push({
-            "data": "recipes." + j + ".efficiency"
-        });
+            chefColumns.push({
+                "data": {
+                    "_": "recipes." + j + ".rankVal",
+                    "display": "recipes." + j + ".rankDisp"
+                }
+            });
+            chefColumns.push({
+                "data": "recipes." + j + ".efficiency"
+            });
+        }
     }
 
     var chefTable = $('#chef-table').DataTable({
@@ -3223,7 +3299,7 @@ function generateData(json, json2, person) {
         }
 
         if (!json.recipes[i].origin) {
-            if (!private && !cal) {
+            if (!cal) {
                 continue;
             }
         }
@@ -3272,12 +3348,36 @@ function generateData(json, json2, person) {
         var materialsInfo = getMaterialsInfo(json.recipes[i], json.materials);
         recipeData["materialsVal"] = materialsInfo.materialsVal;
         recipeData["materialsDisp"] = materialsInfo.materialsDisp;
+        recipeData["veg"] = materialsInfo.veg;
+        recipeData["meat"] = materialsInfo.meat;
+        recipeData["creation"] = materialsInfo.creation;
+        recipeData["fish"] = materialsInfo.fish;
 
         var materialsEff = 0;
         if (json.recipes[i].time > 0) {
             materialsEff = materialsInfo.materialsCount * 3600 / json.recipes[i].time;
         }
         recipeData["materialsEff"] = materialsEff ? Math.floor(materialsEff) : "";
+
+        if (!lite) {
+            recipeData["allMaterials"] = new Array();
+            for (var j in retData["materials"]) {
+                var mNum = 0;
+                for (var k in json.recipes[i].materials) {
+                    if (json.recipes[i].materials[k].material == retData["materials"][j].materialId) {
+                        mNum = json.recipes[i].materials[k].quantity;
+                        break;
+                    }
+                }
+
+                var mEfficiency = 0;
+                if (json.recipes[i].time > 0) {
+                    mEfficiency = mNum * 3600 / json.recipes[i].time;
+                }
+                var mEffDisp = mEfficiency ? Math.floor(mEfficiency) : "";
+                recipeData["allMaterials"].push(mEffDisp);
+            }
+        }
 
         var rankGuestInfo = getRankGuestInfo(json.recipes[i], recipeData.rank, json.guests);
         recipeData["rankGuestsVal"] = rankGuestInfo.rankGuestsVal;
@@ -3309,22 +3409,24 @@ function generateData(json, json2, person) {
         }
         recipeData["guestsDisp"] = guests;
 
-        recipeData["chefs"] = new Array();
-        for (var j in retData["chefs"]) {
+        if (!lite) {
+            recipeData["chefs"] = new Array();
+            for (var j in retData["chefs"]) {
 
-            var resultInfo = getRecipeResult(retData["chefs"][j], retData["chefs"][j].equip, json.recipes[i], 1, 1, retData["materials"], null, 0);
+                var resultInfo = getRecipeResult(retData["chefs"][j], retData["chefs"][j].equip, json.recipes[i], 1, 1, retData["materials"], null, 0);
 
-            var recipeChefData = new Object();
-            recipeChefData["rankVal"] = resultInfo.rankVal;
-            recipeChefData["rankDisp"] = resultInfo.rankDisp;
-            recipeChefData["efficiency"] = resultInfo.chefEff || "";
-            recipeData["chefs"].push(recipeChefData);
+                var recipeChefData = new Object();
+                recipeChefData["rankVal"] = resultInfo.rankVal;
+                recipeChefData["rankDisp"] = resultInfo.rankDisp;
+                recipeChefData["efficiency"] = resultInfo.chefEff || "";
+                recipeData["chefs"].push(recipeChefData);
 
-            var chefRecipeData = new Object();
-            chefRecipeData["rankVal"] = resultInfo.rankVal;
-            chefRecipeData["rankDisp"] = resultInfo.rankDisp;
-            chefRecipeData["efficiency"] = resultInfo.chefEff || "";
-            retData["chefs"][j]["recipes"].push(chefRecipeData);
+                var chefRecipeData = new Object();
+                chefRecipeData["rankVal"] = resultInfo.rankVal;
+                chefRecipeData["rankDisp"] = resultInfo.rankDisp;
+                chefRecipeData["efficiency"] = resultInfo.chefEff || "";
+                retData["chefs"][j]["recipes"].push(chefRecipeData);
+            }
         }
 
         recipesData.push(recipeData);
@@ -3368,20 +3470,22 @@ function getUpdateData(data) {
     for (var i in data.recipes) {
         setDataForRecipe(data.recipes[i], ultimateData);
 
-        for (var j in data.chefs) {
-            var resultInfo = getRecipeResult(data.chefs[j], data.chefs[j].equip, data.recipes[i], 1, 1, data.materials, null, 0);
+        if (!lite) {
+            for (var j in data.chefs) {
+                var resultInfo = getRecipeResult(data.chefs[j], data.chefs[j].equip, data.recipes[i], 1, 1, data.materials, null, 0);
 
-            var recipeChefData = new Object();
-            recipeChefData["rankVal"] = resultInfo.rankVal;
-            recipeChefData["rankDisp"] = resultInfo.rankDisp;
-            recipeChefData["efficiency"] = resultInfo.chefEff || "";
-            data.recipes[i]["chefs"][j] = recipeChefData;
+                var recipeChefData = new Object();
+                recipeChefData["rankVal"] = resultInfo.rankVal;
+                recipeChefData["rankDisp"] = resultInfo.rankDisp;
+                recipeChefData["efficiency"] = resultInfo.chefEff || "";
+                data.recipes[i]["chefs"][j] = recipeChefData;
 
-            var chefRecipeData = new Object();
-            chefRecipeData["rankVal"] = resultInfo.rankVal;
-            chefRecipeData["rankDisp"] = resultInfo.rankDisp;
-            chefRecipeData["efficiency"] = resultInfo.chefEff || "";
-            data.chefs[j]["recipes"][i] = chefRecipeData;
+                var chefRecipeData = new Object();
+                chefRecipeData["rankVal"] = resultInfo.rankVal;
+                chefRecipeData["rankDisp"] = resultInfo.rankDisp;
+                chefRecipeData["efficiency"] = resultInfo.chefEff || "";
+                data.chefs[j]["recipes"][i] = chefRecipeData;
+            }
         }
     }
 
@@ -3403,6 +3507,10 @@ function getMaterialsInfo(recipe, materials) {
     var materialsDisp = "";
     var materialsVal = "";
     var materialsCount = 0;
+    var veg = false;
+    var meat = false;
+    var creation = false;
+    var fish = false;
 
     for (var k in recipe.materials) {
         for (var m in materials) {
@@ -3411,6 +3519,15 @@ function getMaterialsInfo(recipe, materials) {
                 materialsVal += materials[m].name;
                 materialsCount += recipe.materials[k].quantity;
                 recipe.materials[k]["origin"] = materials[m].origin;
+                if (materials[m].origin == "菜棚" || materials[m].origin == "菜地" || materials[m].origin == "森林") {
+                    veg = true;
+                } else if (materials[m].origin == "鸡舍" || materials[m].origin == "猪圈" || materials[m].origin == "牧场") {
+                    meat = true;
+                } else if (materials[m].origin == "作坊") {
+                    creation = true;
+                } else if (materials[m].origin == "鱼塘") {
+                    fish = true;
+                }
                 break;
             }
         }
@@ -3418,6 +3535,10 @@ function getMaterialsInfo(recipe, materials) {
     materialsInfo["materialsDisp"] = materialsDisp;
     materialsInfo["materialsVal"] = materialsVal;
     materialsInfo["materialsCount"] = materialsCount;
+    materialsInfo["veg"] = veg;
+    materialsInfo["meat"] = meat;
+    materialsInfo["creation"] = creation;
+    materialsInfo["fish"] = fish;
     return materialsInfo;
 }
 
@@ -3850,10 +3971,20 @@ function initRecipeShow(recipeTable, data) {
     recipeTable.column(23).visible($('#chk-recipe-show-rank').prop("checked"), false);
     recipeTable.column(24).visible($('#chk-recipe-show-got').prop("checked"), false);
 
-    var chkChefs = $('#chk-recipe-show-chef').val();
-    for (var j = 0; j < data.chefs.length; j++) {
-        recipeTable.column(25 + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
-        recipeTable.column(26 + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
+    if (!lite) {
+        var materialsCount = data.materials.length;
+        var chkMaterials = $('#chk-recipe-show-material').val();
+        for (var j = 0; j < materialsCount; j++) {
+            recipeTable.column(25 + j).visible(chkMaterials.indexOf(j.toString()) > -1, false);
+        }
+
+        var index = 25 + materialsCount;
+
+        var chkChefs = $('#chk-recipe-show-chef').val();
+        for (var j = 0; j < data.chefs.length; j++) {
+            recipeTable.column(index + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
+            recipeTable.column(index + 1 + 2 * j).visible(chkChefs.indexOf(j.toString()) > -1, false);
+        }
     }
 
     recipeTable.columns.adjust().draw(false);
@@ -3891,10 +4022,12 @@ function initChefShow(chefTable, data) {
     chefTable.column(20).visible($('#chk-chef-show-ultimate').prop("checked"), false);
     chefTable.column(21).visible($('#chk-chef-show-got').prop("checked"), false);
 
-    var chkRecipes = $('#chk-chef-show-recipe').val();
-    for (var j = 0; j < data.recipes.length; j++) {
-        chefTable.column(22 + 2 * j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
-        chefTable.column(23 + 2 * j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
+    if (!lite) {
+        var chkRecipes = $('#chk-chef-show-recipe').val();
+        for (var j = 0; j < data.recipes.length; j++) {
+            chefTable.column(22 + 2 * j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
+            chefTable.column(23 + 2 * j).visible(chkRecipes.indexOf(j.toString()) > -1, false);
+        }
     }
 
     chefTable.columns.adjust().draw(false);
@@ -4162,4 +4295,44 @@ function sanitizeCellValue(cellValue) {
         cellValue = cellValue.replace(/'/g, "&#39;");
     }
     return cellValue;
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function UpdateQueryString(key, value, url) {
+    if (!url) url = window.location.href;
+    var re = new RegExp("([?&])" + key + "=.*?(&|#|$)(.*)", "gi"),
+        hash;
+
+    if (re.test(url)) {
+        if (typeof value !== 'undefined' && value !== null)
+            return url.replace(re, '$1' + key + "=" + value + '$2$3');
+        else {
+            hash = url.split('#');
+            url = hash[0].replace(re, '$1$3').replace(/(&|\?)$/, '');
+            if (typeof hash[1] !== 'undefined' && hash[1] !== null)
+                url += '#' + hash[1];
+            return url;
+        }
+    }
+    else {
+        if (typeof value !== 'undefined' && value !== null) {
+            var separator = url.indexOf('?') !== -1 ? '&' : '?';
+            hash = url.split('#');
+            url = hash[0] + separator + key + '=' + value;
+            if (typeof hash[1] !== 'undefined' && hash[1] !== null)
+                url += '#' + hash[1];
+            return url;
+        }
+        else
+            return url;
+    }
 }
