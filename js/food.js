@@ -1788,6 +1788,12 @@ function loadRule(data, rule) {
     var recipes = new Array();
     for (var i in allRecipes) {
 
+        if (private) {
+            if (!allRecipes[i].origin) {
+                continue;
+            }
+        }
+
         if (allRecipes[i].rarity > rule.CookbookRarityLimit) {
             continue;
         }
