@@ -1576,6 +1576,8 @@ function initCalRules(data) {
     });
 
     if (private) {
+        $("#chk-cal-no-origin-recipes").closest(".btn").removeClass('hidden');
+
         $("#btn-cal-set-num").closest(".box").removeClass('hidden');
 
         $("#btn-cal-set-num").click(function () {
@@ -1789,7 +1791,7 @@ function loadRule(data, rule) {
     for (var i in allRecipes) {
 
         if (private) {
-            if (!allRecipes[i].origin) {
+            if (!$('#chk-cal-no-origin-recipes').prop("checked") && !allRecipes[i].origin) {
                 continue;
             }
         }
