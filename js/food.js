@@ -4232,6 +4232,7 @@ $.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
 
     // Destroy
     if (settings === "destroy") {
+        $(table.body()).removeClass("processing");
         $(table.body()).off("click", "td");
         table = null;
     }
