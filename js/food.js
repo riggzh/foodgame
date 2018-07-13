@@ -821,6 +821,7 @@ function initChefTable(data) {
                 "column": 17,
                 "type": "list",
                 "search": true,
+                "clear": true,
                 "options": equipsOptions
             },
             {
@@ -1494,6 +1495,10 @@ function initCalRules(data) {
     }
     $("#select-cal-rule").append(options);
 
+    $("#select-cal-rule").change(function () {
+        $("#btn-cal-rule-load").removeClass("btn-default").addClass("btn-danger");
+    });
+
     $("#input-cal-decoration").val(Number(data.decorationEffect).mul(100) || "");
 
     loadPersonUltimate(data);
@@ -1524,7 +1529,7 @@ function initCalRules(data) {
             $('.loading').addClass("hidden");
             $("#pane-cal-self-select").find(".cal-results-wrapper").removeClass("hidden");
             $("#pane-cal-recipes-results").find(".cal-results-wrapper").removeClass("hidden");
-            $("#btn-cal-rule-load").prop("disabled", false);
+            $("#btn-cal-rule-load").prop("disabled", false).removeClass("btn-danger").addClass("btn-default");
 
         }, 500);
 
@@ -1575,8 +1580,27 @@ function initCalRules(data) {
         $("#cal-ultimate input").val("");
     });
 
+    $("#btn-cal-clear-custom").click(function () {
+        if (!currentRule) {
+            return;
+        }
+
+        var table = $('#cal-self-select-table').DataTable();
+        var custom = table.data().toArray();
+        for (var i in custom) {
+            custom[i].chef.name = "";
+            custom[i].equip.name = "";
+            custom[i].recipe.data.name = "";
+        }
+        calCustomResults(currentRule, data);
+    });
+
     if (private) {
         $("#chk-cal-no-origin-recipes").closest(".btn").removeClass('hidden');
+
+        $("#chk-cal-no-origin-recipes").click(function () {
+            $("#btn-cal-rule-load").removeClass("btn-default").addClass("btn-danger");
+        });
 
         $("#btn-cal-set-num").closest(".box").removeClass('hidden');
 
@@ -1950,18 +1974,21 @@ function initCalCustomOptions(rule, data) {
                 "column": 1,
                 "type": "list",
                 "search": true,
+                "clear": true,
                 "options": chefsOptions
             },
             {
                 "column": 2,
                 "type": "list",
                 "search": true,
+                "clear": true,
                 "options": equipsOptions
             },
             {
                 "column": 3,
                 "type": "list",
                 "search": true,
+                "clear": true,
                 "options": recipesOptions
             }
         ],
@@ -2114,6 +2141,7 @@ function getRecipesOptions(rule) {
     var option = new Object();
     option["display"] = "无菜谱";
     option["value"] = "";
+    option["class"] = "hidden"
     options.unshift(option);
     return options;
 }
@@ -2474,6 +2502,7 @@ function initCalChefsTable(data) {
                 "column": 15,   // equip
                 "type": "list",
                 "search": true,
+                "clear": true,
                 "options": options
             }
         ]
@@ -3820,6 +3849,7 @@ function getEquipsOptions(equips, skills) {
     option["subtext"] = "";
     option["tokens"] = "";
     option["value"] = "";
+    option["class"] = "hidden"
     list.push(option);
     for (var i in equips) {
         var skillInfo = getSkillInfo(skills, equips[i].skill);
@@ -3839,6 +3869,7 @@ function getChefsOptions(chefs) {
     var option = new Object();
     option["display"] = "无厨师";
     option["value"] = "";
+    option["class"] = "hidden"
     list.push(option);
     for (var i in chefs) {
         var option = new Object();
@@ -4240,6 +4271,17 @@ $.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
                         $(cell).find("select").selectpicker('toggle').on('hidden.bs.select', function (e) {
                             $(this).updateEditableCell(this, settings);
                         });;
+
+                        if (input.settings.clear) {
+                            $("<div class='bs-actionsbox'><div class='btn-group btn-group-sm btn-block'><button type='button' class='btn btn-default btn-bs-clear'>清空</button></div></div>")
+                                .insertBefore($(cell).find("ul.dropdown-menu"));
+
+                            $(cell).find(".btn-bs-clear").click(function () {
+                                $(cell).find("select").selectpicker('val', '');
+                                $(cell).find("select").selectpicker('hide');
+                                $(this).updateEditableCell(this, settings);
+                            });
+                        }
                     }
                 }
             }
@@ -4251,7 +4293,7 @@ $.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
 function getInputHtml(currentColumnIndex, settings, oldValue) {
     var inputSetting, inputType, input;
 
-    input = { "type": "input", "html": null }
+    input = { "type": "input", "html": null, "settings": null }
 
     if (settings.inputTypes) {
         $.each(settings.inputTypes, function (index, setting) {
@@ -4262,12 +4304,15 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
         });
     }
 
+    input.settings = inputSetting;
+
     switch (inputType) {
         case "list":
             var searchable = "data-live-search='false'";
             if (inputSetting.search) {
                 searchable = "data-live-search='true'";
             }
+
             input.html = "<select " + searchable + " data-width='fit' data-dropdown-align-right='auto' data-live-search-placeholder='查找' data-none-results-text='没有找到' data-none-selected-text=''>";
             $.each(inputSetting.options, function (index, option) {
                 input.html = input.html + "<option value='" + option.value + "'";
@@ -4276,6 +4321,9 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
                 }
                 if (option.subtext) {
                     input.html += " data-subtext='" + option.subtext + "'";
+                }
+                if (option.class) {
+                    input.html += " class='" + option.class + "'";
                 }
                 if (oldValue == option.value) {
                     input.html += " selected";

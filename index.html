@@ -8,7 +8,7 @@
     <script type="text/javascript" src="js/script.min.js?v=7"></script>
     <script type="text/javascript" src="js/common.min.js?v=13"></script>
     <link rel="stylesheet" type="text/css" href="css/food.min.css?v=19" />
-    <script type="text/javascript" src="js/food.min.js?v=61"></script>
+    <script type="text/javascript" src="js/food.min.js?v=62"></script>
 </head>
 
 <body>
@@ -20,8 +20,8 @@
 
     <div class="main-function hidden">
         <div class="function-version">
-            <input type="checkbox" id="chk-function-version" data-toggle="toggle" data-on="简化版" data-off="全功能" 
-            data-onstyle="info" data-offstyle="info" data-width="80px" checked>
+            <input type="checkbox" id="chk-function-version" data-toggle="toggle" data-on="简化版" data-off="全功能" data-onstyle="info" data-offstyle="info"
+                data-width="80px" checked>
         </div>
         <ul class="nav nav-tabs">
             <li class="active">
@@ -787,7 +787,7 @@
                                         <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                         未出
                                     </label>
-                                    <button id="btn-cal-rule-load" class="btn btn-default" type="button">
+                                    <button id="btn-cal-rule-load" class="btn btn-danger" type="button">
                                         加载
                                     </button>
                                 </div>
@@ -802,10 +802,13 @@
                                     <button id="btn-cal-set-ultimate" class="btn btn-default collapsed" type="button" data-toggle="collapse" data-target="#cal-ultimate">
                                         配置修炼数据
                                     </button>
-                                </div>
-                                <div class="box">
                                     <button id="btn-cal-update" class="btn btn-default" type="button">
                                         重新计算
+                                    </button>
+                                </div>
+                                <div class="box">
+                                    <button id="btn-cal-clear-custom" class="btn btn-default" type="button">
+                                        清空自选
                                     </button>
                                 </div>
                                 <div class="box hidden">
@@ -1436,7 +1439,9 @@
                 <p>点击左上角切换功能.</p>
                 <p class="text-danger">点击右上角切换版本:</p>
                 <p class="text-danger">简化版 - 默认版本, 缺少某些功能, 但加载速度快.</p>
-                <p class="text-danger">全功能 - 全功能版本, 也可通过<a href='https://foodgame.github.io/?v=all'>https://foodgame.github.io/?v=all</a>直接访问.</p>
+                <p class="text-danger">全功能 - 全功能版本, 也可通过
+                    <a href='https://foodgame.github.io/?v=all'>https://foodgame.github.io/?v=all</a>直接访问.
+                </p>
                 <p>图鉴第一组按钮选择显示项, 默认没有全部显示, 后面的负责筛选, 点击列名可以排序.</p>
                 <h4>
                     <span class="label label-info">菜谱图鉴</span>
