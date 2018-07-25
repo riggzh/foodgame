@@ -291,10 +291,6 @@ table.dataTable tbody>tr>.selected {
     text-align: center;
 }
 
-#input-cal-optimal-recipes-results-show-top {
-    width: 45px;
-}
-
 .cal-td-input-addition .form-control {
     width: 60px;
 }

@@ -2792,15 +2792,11 @@ function initCalResultsTable(data) {
     initCalResultTableCommon("recipes", $("#pane-cal-recipes-results"));
 
     if (private) {
-        $("#cal-optimal-recipes-results-place").html($("#pane-cal-results-common").html());
-        $("#cal-optimal-recipes-results-place .cal-results-table").prop("id", "cal-optimal-recipes-results-table");
-        initCalResultTableCommon("optimal-recipes", $("#pane-cal-optimal-recipes-results"));
-
         $("#cal-optimal-results-place").html($("#pane-cal-results-common").html());
         $("#cal-optimal-results-place .cal-results-table").prop("id", "cal-optimal-results-table");
         initCalResultTableCommon("optimal", $("#pane-cal-optimal-results"));
 
-        var calOptimalRecipesWorker, calOptimalWorker;
+        var calOptimalWorker;
 
         $('.btn-cal-results-cal').click(function () {
 
@@ -2809,23 +2805,11 @@ function initCalResultsTable(data) {
                 return;
             }
 
-            var panel = $(this).closest(".pane-cal-results");
-            var worker;
-            var mode;
+            var panel = $("#pane-cal-optimal-results");
 
-            if (panel.prop("id") == "pane-cal-optimal-results") {
-                mode = "optimal";
-                worker = calOptimalWorker;
-            } else if (panel.prop("id") == "pane-cal-optimal-recipes-results") {
-                mode = "optimal-recipes";
-                worker = calOptimalRecipesWorker;
-            } else {
-                return;
-            }
-
-            if (typeof (worker) != "undefined") {
-                worker.terminate();
-                worker = undefined;
+            if (typeof (calOptimalWorker) != "undefined") {
+                calOptimalWorker.terminate();
+                calOptimalWorker = undefined;
             }
 
             if ($(this).hasClass("stop")) {
@@ -2842,44 +2826,25 @@ function initCalResultsTable(data) {
             panel.find(".cal-results-progress .progress-bar span").text("预处理中");
             panel.find(".cal-results-progress").removeClass("hidden");
 
-            worker = new Worker("js/cal.js");
-            if (mode == "optimal") {
-                calOptimalWorker = worker;
-            } else if (mode == "optimal-recipes") {
-                calOptimalRecipesWorker = worker;
-            }
+            calOptimalWorker = new Worker("js/cal.js");
 
-            worker.onmessage = function (event) {
+            calOptimalWorker.onmessage = function (event) {
                 if (event.data.progress) {
                     panel.find(".cal-results-progress .progress-bar").css("width", event.data.progress.value + "%");
                     panel.find(".cal-results-progress .progress-bar span").text(event.data.progress.display);
                 } else if (event.data.menu) {
-
                     if (event.data.message) {
                         panel.find(".selected-sum").html(event.data.message);
                     } else {
                         panel.find(".selected-sum").html("");
                     }
-
-                    if (mode == "optimal") {
-                        $("#cal-optimal-results-table").DataTable().clear().rows.add(event.data.menu).draw();
-                        updateSum($("#cal-optimal-results-table").DataTable(), panel);
-                    } else if (mode == "optimal-recipes") {
-                        var menu = new Array();
-                        if (event.data.menu.length) {
-                            menu = event.data.menu[0];
-                        }
-                        $("#cal-optimal-recipes-results-table").DataTable().clear().rows.add(menu).draw();
-                        updateSum($("#cal-optimal-recipes-results-table").DataTable(), panel);
-                    }
-
+                    $("#cal-optimal-results-table").DataTable().clear().rows.add(event.data.menu).draw();
+                    updateSum($("#cal-optimal-results-table").DataTable(), panel);
                     panel.find(".cal-results-wrapper").removeClass("hidden");
-
                 } else if (event.data.done) {
                     panel.find(".btn-cal-results-cal.stop").prop("disabled", true);
                     panel.find(".btn-cal-results-cal.start").prop("disabled", false);
                     panel.find(".cal-results-progress").addClass("hidden");
-
                 }
             };
 
@@ -2887,18 +2852,16 @@ function initCalResultsTable(data) {
             var calChefsData = $('#cal-chefs-table').DataTable().rows({ selected: true }).data().toArray();
             var calEquipsData = $('#cal-equips-table').DataTable().rows({ selected: true }).data().toArray();
             var calMaterialsData = $('#cal-materials-table').DataTable().rows({ selected: true }).data().toArray();
-            var optimalRecipesLimit = Math.floor($("#input-cal-optimal-recipes-results-show-top").val());
             var autoEquips = $('#chk-cal-results-equips').prop("checked");
 
-            worker.postMessage({
-                "mode": mode,
+            calOptimalWorker.postMessage({
+                "mode": "optimal",
                 "rule": currentRule,
                 "recipes": calRecipesData,
                 "chefs": calChefsData,
                 "equips": calEquipsData,
                 "materials": calMaterialsData,
                 "odata": data,
-                "optimalRecipesLimit": optimalRecipesLimit,
                 "autoEquips": autoEquips
             });
         });
@@ -3069,7 +3032,7 @@ function initCalResultTableCommon(mode, panel) {
     var info = true;
     var ordering = true;
     var order = [[26, "desc"]]  //score
-    if (mode == "optimal-recipes" || mode == "optimal" || mode == "self-select") {
+    if (mode == "optimal" || mode == "self-select") {
         paging = false;
         info = false;
         ordering = false;
@@ -3208,7 +3171,6 @@ function generateData(json, json2, person) {
         var skillInfo = getSkillInfo(json.skills, json.equips[i].skill);
         equip["skillDisp"] = skillInfo.skillDisp;
         equip["effect"] = skillInfo.skillEffect;
-        equip["cal"] = isCalEquip(skillInfo.skillEffect);
 
         equipsData.push(equip);
     }
@@ -3603,19 +3565,6 @@ function getTagsDisp(tagIds, tags) {
         }
     }
     return disp;
-}
-
-function isCalEquip(skill) {
-    var result = false;
-    for (var j in skill) {
-        if (skill[j].type.indexOf("料理") >= 0
-            || skill[j].type.indexOf("金币获得") >= 0
-            || skill[j].type.indexOf("营业收入") >= 0
-            || skill[j].type.indexOf("技法") >= 0) {
-            return true;
-        }
-    }
-    return result;
 }
 
 function getOriginVal(origin) {
