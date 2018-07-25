@@ -3278,11 +3278,16 @@ function generateData(json, json2, person) {
 
         if (json.chefs[i].rarity < 5 || private) {
             for (var j in json.chefs[i].ultimateGoal) {
+                var found = false;
                 for (var k in json.ultimateGoals) {
                     if (json.chefs[i].ultimateGoal[j] == json.ultimateGoals[k].goalId) {
                         ultimateGoal += json.ultimateGoals[k].goal + "<br>";
+                        found = true;
                         break;
                     }
+                }
+                if (!found) {
+                    console.log(json.chefs[i].ultimateGoal[j]);
                 }
             }
             var ultimateSkillInfo = getSkillInfo(json.skills, json.chefs[i].ultimateSkill);
