@@ -2785,16 +2785,16 @@ function initCalResultsTable(data) {
 
     $("#pane-cal-self-select").html($("#pane-cal-results-common").html());
     $("#pane-cal-self-select .cal-results-table").prop("id", "cal-self-select-table");
-    initCalResultTableCommon("self-select", $("#pane-cal-self-select"));
+    initCalResultTableCommon("self-select", $("#pane-cal-self-select"), data);
 
     $("#pane-cal-recipes-results").html($("#pane-cal-results-common").html());
     $("#pane-cal-recipes-results .cal-results-table").prop("id", "cal-recipes-results-table");
-    initCalResultTableCommon("recipes", $("#pane-cal-recipes-results"));
+    initCalResultTableCommon("recipes", $("#pane-cal-recipes-results"), data);
 
     if (private) {
         $("#cal-optimal-results-place").html($("#pane-cal-results-common").html());
         $("#cal-optimal-results-place .cal-results-table").prop("id", "cal-optimal-results-table");
-        initCalResultTableCommon("optimal", $("#pane-cal-optimal-results"));
+        initCalResultTableCommon("optimal", $("#pane-cal-optimal-results"), data);
 
         var calOptimalWorker;
 
@@ -2870,7 +2870,7 @@ function initCalResultsTable(data) {
     $("#pane-cal-results-common").remove();
 }
 
-function initCalResultTableCommon(mode, panel) {
+function initCalResultTableCommon(mode, panel, data) {
 
     var calResultsColumns = [
         {
@@ -3094,7 +3094,7 @@ function initCalResultTableCommon(mode, panel) {
     panel.find('.chk-cal-results-show').off("click").click(function () {
         initCalResultsShow(mode, table, panel);
         if (mode == "self-select") {
-            updateSum($('#cal-self-select-table').DataTable(), $("#pane-cal-self-select"));
+            calCustomResults(currentRule, data);
         }
     });
 
