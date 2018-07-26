@@ -445,32 +445,62 @@ function setDataForChef2(chef, useEquip, equip) {
     if (stirfryAddition) {
         stirfryAddition = Math.ceil(stirfryAddition)
         chef.stirfryVal += stirfryAddition;
-        chef.stirfryDisp += "+" + stirfryAddition;
+        if (stirfryAddition > 0) {
+            chef.stirfryDisp += "+";
+        } else {
+            chef.stirfryDisp += "";
+        }
+        chef.stirfryDisp += stirfryAddition;
     }
     if (boilAddition) {
         boilAddition = Math.ceil(boilAddition)
         chef.boilVal += boilAddition;
-        chef.boilDisp += "+" + boilAddition;
+        if (boilAddition > 0) {
+            chef.boilDisp += "+";
+        } else {
+            chef.boilDisp += "";
+        }
+        chef.boilDisp += boilAddition;
     }
     if (knifeAddition) {
         knifeAddition = Math.ceil(knifeAddition)
         chef.knifeVal += knifeAddition;
-        chef.knifeDisp += "+" + knifeAddition;
+        if (knifeAddition > 0) {
+            chef.knifeDisp += "+";
+        } else {
+            chef.knifeDisp += "";
+        }
+        chef.knifeDisp += knifeAddition;
     }
     if (fryAddition) {
         fryAddition = Math.ceil(fryAddition)
         chef.fryVal += fryAddition;
-        chef.fryDisp += "+" + fryAddition;
+        if (fryAddition > 0) {
+            chef.fryDisp += "+";
+        } else {
+            chef.fryDisp += "";
+        }
+        chef.fryDisp += fryAddition;
     }
     if (bakeAddition) {
         bakeAddition = Math.ceil(bakeAddition)
         chef.bakeVal += bakeAddition;
-        chef.bakeDisp += "+" + bakeAddition;
+        if (bakeAddition > 0) {
+            chef.bakeDisp += "+";
+        } else {
+            chef.bakeDisp += "";
+        }
+        chef.bakeDisp += bakeAddition;
     }
     if (steamAddition) {
         steamAddition = Math.ceil(steamAddition)
         chef.steamVal += steamAddition;
-        chef.steamDisp += "+" + steamAddition;
+        if (steamAddition > 0) {
+            chef.steamDisp += "+";
+        } else {
+            chef.steamDisp += "";
+        }
+        chef.steamDisp += steamAddition;
     }
 
     chef["disp"] = chef.name + "<br><small>";
@@ -515,6 +545,10 @@ function setDataForChef2(chef, useEquip, equip) {
 
 function isInt(n) {
     return n % 1 === 0;
+}
+
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
 function accAdd(arg1, arg2) {

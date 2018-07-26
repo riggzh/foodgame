@@ -725,17 +725,17 @@ function initChefTable(data) {
             return true;
         }
 
-        var stirfryMin = Math.floor($('#input-chef-stirfry').val());
+        var stirfryMin = isNumeric($('#input-chef-stirfry').val()) ? $('#input-chef-stirfry').val() : Number.NEGATIVE_INFINITY;
         var stirfry = Math.floor(data[3]) || 0;
-        var boilMin = Math.floor($('#input-chef-boil').val());
+        var boilMin = isNumeric($('#input-chef-boil').val()) ? $('#input-chef-boil').val() : Number.NEGATIVE_INFINITY;
         var boil = Math.floor(data[4]) || 0;
-        var knifeMin = Math.floor($('#input-chef-knife').val());
+        var knifeMin = isNumeric($('#input-chef-knife').val()) ? $('#input-chef-knife').val() : Number.NEGATIVE_INFINITY;
         var knife = Math.floor(data[5]) || 0;
-        var fryMin = Math.floor($('#input-chef-fry').val());
+        var fryMin = isNumeric($('#input-chef-fry').val()) ? $('#input-chef-fry').val() : Number.NEGATIVE_INFINITY;
         var fry = Math.floor(data[6]) || 0;
-        var bakeMin = Math.floor($('#input-chef-bake').val());
+        var bakeMin = isNumeric($('#input-chef-bake').val()) ? $('#input-chef-bake').val() : Number.NEGATIVE_INFINITY;
         var bake = Math.floor(data[7]) || 0;
-        var steamMin = Math.floor($('#input-chef-steam').val());
+        var steamMin = isNumeric($('#input-chef-steam').val()) ? $('#input-chef-steam').val() : Number.NEGATIVE_INFINITY;
         var steam = Math.floor(data[8]) || 0;
 
         if (stirfryMin <= stirfry && boilMin <= boil && knifeMin <= knife && fryMin <= fry && bakeMin <= bake && steamMin <= steam) {
