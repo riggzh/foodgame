@@ -1360,6 +1360,13 @@ function importData(data, input) {
                 break;
             }
         }
+
+        for (var j in person.recipesTags) {
+            if (data.recipes[i].recipeId == person.recipesTags[j].recipeId) {
+                data.recipes[i].tags = person.recipesTags[j].tags;
+                break;
+            }
+        }
     }
 
     for (var i in data.chefs) {
@@ -3482,8 +3489,15 @@ function generateData(json, json2, person) {
         recipeData["timeDisp"] = secondsToTime(json.recipes[i].time);
         recipeData["rarityDisp"] = getRarityDisp(json.recipes[i].rarity);
 
+        recipeData["tags"] = [];
         if (json2) {
-            recipeData["tagsDisp"] = getTagsDisp(json.recipes[i].tags, json2.tags);
+            for (var j in json2.recipesTags) {
+                if (json2.recipesTags[j].recipeId == json.recipes[i].recipeId) {
+                    recipeData.tags = json2.recipesTags[j].tags;
+                    break;
+                }
+            }
+            recipeData["tagsDisp"] = getTagsDisp(recipeData.tags, json2.tags);
         }
 
         setDataForRecipe(recipeData, ultimateData);
