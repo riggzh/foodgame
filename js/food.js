@@ -1379,6 +1379,22 @@ function importData(data, input) {
         }
     }
 
+    var options = "";
+    for (var i in person.rules) {
+        var exist = false;
+        for (var j in data.rules) {
+            if (person.rules[i].Id == data.rules[j].Id) {
+                exist = true;
+                break;
+            }
+        }
+        if (!exist) {
+            data.rules.push(person.rules[i]);
+            options += "<option value='" + person.rules[i].Id + "'>" + person.rules[i].Title + "</option>";
+        }
+    }
+    $("#select-cal-rule").append(options);
+
     updateMenu(data, person);
 
     if (person.decorationEffect) {
