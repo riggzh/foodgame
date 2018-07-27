@@ -79,6 +79,7 @@ function initTables(data, person) {
     if (cal) {
         initCalTables(data);
         $(".nav-tabs li").removeClass("hidden");
+        $('#chk-recipe-show-tags').parent(".btn").removeClass('hidden');
     }
 
     initInfo(data);
@@ -369,7 +370,6 @@ function initRecipeTable(data) {
     if (private) {
         $('#chk-recipe-show-origin').prop("checked", false);
         $('#chk-recipe-show-unlock').prop("checked", false);
-        $('#chk-recipe-show-tags').parent(".btn").removeClass('hidden');
         $('#chk-recipe-no-origin').closest(".box").removeClass('hidden');
     }
 
@@ -1364,6 +1364,7 @@ function importData(data, input) {
         for (var j in person.recipesTags) {
             if (data.recipes[i].recipeId == person.recipesTags[j].recipeId) {
                 data.recipes[i].tags = person.recipesTags[j].tags;
+                data.recipes[i].tagsDisp = getTagsDisp(person.recipesTags[j].tags, person.tags);
                 break;
             }
         }
@@ -3490,14 +3491,15 @@ function generateData(json, json2, person) {
         recipeData["rarityDisp"] = getRarityDisp(json.recipes[i].rarity);
 
         recipeData["tags"] = [];
+        recipeData["tagsDisp"] = "";
         if (json2) {
             for (var j in json2.recipesTags) {
                 if (json2.recipesTags[j].recipeId == json.recipes[i].recipeId) {
                     recipeData.tags = json2.recipesTags[j].tags;
+                    recipeData.tagsDisp = getTagsDisp(json2.recipesTags[j].tags, json2.tags);
                     break;
                 }
             }
-            recipeData["tagsDisp"] = getTagsDisp(recipeData.tags, json2.tags);
         }
 
         setDataForRecipe(recipeData, ultimateData);
@@ -4075,7 +4077,7 @@ function initRecipeShow() {
     recipeTable.column(17).visible($('#chk-recipe-show-origin').prop("checked"), false);
     recipeTable.column(18).visible($('#chk-recipe-show-unlock').prop("checked"), false);
 
-    if (private) {
+    if (cal) {
         recipeTable.column(19).visible($('#chk-recipe-show-tags').prop("checked"), false);
     } else {
         recipeTable.column(19).visible(false, false);
