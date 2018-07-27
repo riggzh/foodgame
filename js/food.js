@@ -12,31 +12,40 @@ function init(json) {
 
     initFunction();
 
-    setTimeout(function () {
-        var person;
-        try {
-            var localData = localStorage.getItem('data');
-            person = JSON.parse(localData);
-        } catch (e) { }
+    var person;
+    try {
+        var localData = localStorage.getItem('data');
+        person = JSON.parse(localData);
+    } catch (e) { }
 
-        if (private) {
-            $.ajax({
-                cache: false,
-                success: function (json2) {
-                    var data = generateData(json, json2, person);
-                    initTables(data, person);
-                },
-                error: function () {
-                    var data = generateData(json, null, person);
-                    initTables(data, person);
-                },
-                url: 'data/data2.json'
-            });
-        } else {
-            var data = generateData(json, null, person);
-            initTables(data, person);
-        }
-    }, 300);
+    if (private) {
+        $.ajax({
+            cache: false,
+            success: function (json2) {
+                $.ajax({
+                    cache: false,
+                    success: function (json3) {
+                        json2 = $.extend(json2, json3);
+                        var data = generateData(json, json2, person);
+                        initTables(data, person);
+                    },
+                    error: function () {
+                        var data = generateData(json, json2, person);
+                        initTables(data, person);
+                    },
+                    url: 'data/data3.json'
+                });
+            },
+            error: function () {
+                var data = generateData(json, null, person);
+                initTables(data, person);
+            },
+            url: 'data/data2.json'
+        });
+    } else {
+        var data = generateData(json, null, person);
+        initTables(data, person);
+    }
 }
 
 var private = false, cal = false, currentRule;
