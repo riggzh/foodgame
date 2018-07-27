@@ -1,7 +1,7 @@
-function getRankInfo(recipe, chef, useEquip, equip) {
+function getRankInfo(recipe, chef, equip) {
     var times = Number.MAX_VALUE;
 
-    setDataForChef2(chef, useEquip, equip);
+    setDataForChef2(chef, equip);
 
     var stirfry = chef.stirfryVal - recipe.stirfry;
     var boil = chef.boilVal - recipe.boil;
@@ -234,7 +234,7 @@ function getRecipeResult(chef, equip, recipe, quantity, maxQuantity, materials, 
     resultData["disp"] = recipe.name;
 
     if (chef) {
-        var rankData = getRankInfo(recipe, chef, true, equip);
+        var rankData = getRankInfo(recipe, chef, equip);
         resultData["rankVal"] = rankData.rankVal;
         resultData["rankDisp"] = rankData.rankDisp;
         resultData["failDisp"] = rankData.failDisp;
@@ -364,7 +364,7 @@ function getEquipInfo(equipName, equips) {
     return info;
 }
 
-function setDataForChef2(chef, useEquip, equip) {
+function setDataForChef2(chef, equip) {
     chef["stirfryVal"] = chef.stirfry;
     chef["boilVal"] = chef.boil;
     chef["knifeVal"] = chef.knife;
@@ -386,7 +386,7 @@ function setDataForChef2(chef, useEquip, equip) {
     var bakeAddition = chef.bakeUltimateAddition;
     var steamAddition = chef.steamUltimateAddition;
 
-    if (useEquip && equip) {
+    if (equip) {
         var effect = equip.effect;
         for (var i in effect) {
             var type = effect[i].type;

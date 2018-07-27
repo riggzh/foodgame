@@ -352,9 +352,3 @@ table.dataTable tbody>tr>.selected {
 .main-function {
     position: relative;
 }
-
-.function-version {
-    position: absolute;
-    top: 2px;
-    right: 5px;
-}
