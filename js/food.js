@@ -439,7 +439,7 @@ function reInitRecipeTable(data) {
             "data": "efficiency"
         },
         {
-            "data": "materialsEff"
+            "data": "allMaterialsEff"
         },
         {
             "data": "origin"
@@ -3535,7 +3535,7 @@ function generateData(json, json2, person) {
         if (json.recipes[i].time > 0) {
             materialsEff = materialsInfo.materialsCount * 3600 / json.recipes[i].time;
         }
-        recipeData["materialsEff"] = materialsEff ? Math.floor(materialsEff) : "";
+        recipeData["allMaterialsEff"] = materialsEff ? Math.floor(materialsEff) : "";
 
         var rankGuestInfo = getRankGuestInfo(json.recipes[i], recipeData.rank, json.guests);
         recipeData["rankGuestsVal"] = rankGuestInfo.rankGuestsVal;
