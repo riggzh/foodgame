@@ -515,7 +515,7 @@ function reInitRecipeTable(data) {
             if (chkChefs[i] == data.chefs[j].chefId) {
                 $('#recipe-table thead tr').append("<th>" + data.chefs[j].name + "</th>");
                 if (chkSkillDiff) {
-                    $('#recipe-table thead tr').append("<th>差值</th>");
+                    $('#recipe-table thead tr').append("<th>神差值</th>");
                 }
                 $('#recipe-table thead tr').append("<th>效率</th>");
                 recipeColumns.push({
