@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=3" />
     <script type="text/javascript" src="js/script.min.js?v=7"></script>
-    <script type="text/javascript" src="js/common.min.js?v=15"></script>
+    <script type="text/javascript" src="js/common.min.js?v=16"></script>
     <link rel="stylesheet" type="text/css" href="css/food.min.css?v=20" />
-    <script type="text/javascript" src="js/food.min.js?v=72"></script>
+    <script type="text/javascript" src="js/food.min.js?v=73"></script>
 </head>
 
 <body>
@@ -154,6 +154,11 @@
                                 data-none-selected-text="选择厨师" data-selected-text-format="count" data-count-selected-text="{0} 厨师"
                                 data-none-results-text="没有找到" data-actions-box="true" data-deselect-all-text="清空"></select>
                         </div>
+                        <label class="btn btn-default">
+                            <input type="checkbox" id="chk-recipe-show-skill-diff">
+                            <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                            神级能力差
+                        </label>
                     </div>
                 </div>
                 <div>
@@ -1420,8 +1425,9 @@
                 <h4>
                     <span class="label label-info">菜谱图鉴</span>
                 </h4>
-                <p>选择厨师 - 可以看厨师可做的品阶以及效率.</p>
                 <p>耗材效率 - 可以看食材的消耗效率.</p>
+                <p>选择厨师 - 可以看厨师可做的品阶以及效率.</p>
+                <p class="text-danger">神级能力差 - 显示所选厨师做神级菜的技能差, 方便选择修炼菜谱. (如果厨师图签中的修炼技能和厨具技能开关为开, 则会使用相应的数据加成)</p>
                 <p>升阶贵客 - 第一次菜品升阶(升优-升特-升神)必来的贵客, 该列默认不显示.</p>
                 <p>神级符文 - 第一次做神级菜品时贵客送的符文（升优, 升特时贵客一般只给食材, 升神会送符文或菜谱）, 该列默认不显示.</p>
                 <p>升阶贵客、神级符文搜索框 - 仅搜索升阶贵客和神级符文这两列, 该搜索主要用于做贵客的碰瓷任务.</p>

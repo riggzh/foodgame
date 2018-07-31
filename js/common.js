@@ -1,56 +1,26 @@
 function getRankInfo(recipe, chef, equip) {
-    var times = Number.MAX_VALUE;
 
     setDataForChef2(chef, equip);
 
-    var stirfry = chef.stirfryVal - recipe.stirfry;
-    var boil = chef.boilVal - recipe.boil;
-    var knife = chef.knifeVal - recipe.knife;
-    var fry = chef.fryVal - recipe.fry;
-    var bake = chef.bakeVal - recipe.bake;
-    var steam = chef.steamVal - recipe.steam;
+    var times = Number.MAX_VALUE;
 
-    var failDisp = "";
-    if (stirfry < 0) {
-        failDisp += "炒" + stirfry + " ";
+    if (recipe.stirfry > 0) {
+        times = Math.min(times, chef.stirfryVal / recipe.stirfry);
     }
-    if (boil < 0) {
-        failDisp += "煮" + boil + " ";
+    if (recipe.boil > 0) {
+        times = Math.min(times, chef.boilVal / recipe.boil);
     }
-    if (knife < 0) {
-        failDisp += "切" + knife + " ";
+    if (recipe.knife > 0) {
+        times = Math.min(times, chef.knifeVal / recipe.knife);
     }
-    if (fry < 0) {
-        failDisp += "炸" + fry + " ";
+    if (recipe.fry > 0) {
+        times = Math.min(times, chef.fryVal / recipe.fry);
     }
-    if (bake < 0) {
-        failDisp += "烤" + bake + " ";
+    if (recipe.bake > 0) {
+        times = Math.min(times, chef.bakeVal / recipe.bake);
     }
-    if (steam < 0) {
-        failDisp += "蒸" + steam + " ";
-    }
-
-    if (failDisp == "") {
-        if (recipe.stirfry > 0) {
-            times = Math.min(times, chef.stirfryVal / recipe.stirfry);
-        }
-        if (recipe.boil > 0) {
-            times = Math.min(times, chef.boilVal / recipe.boil);
-        }
-        if (recipe.knife > 0) {
-            times = Math.min(times, chef.knifeVal / recipe.knife);
-        }
-        if (recipe.fry > 0) {
-            times = Math.min(times, chef.fryVal / recipe.fry);
-        }
-        if (recipe.bake > 0) {
-            times = Math.min(times, chef.bakeVal / recipe.bake);
-        }
-        if (recipe.steam > 0) {
-            times = Math.min(times, chef.steamVal / recipe.steam);
-        }
-    } else {
-        times = 0;
+    if (recipe.steam > 0) {
+        times = Math.min(times, chef.steamVal / recipe.steam);
     }
 
     var rankInfo = new Object();
@@ -82,7 +52,6 @@ function getRankInfo(recipe, chef, equip) {
     rankInfo["rankAddition"] = rankAddition;
     rankInfo["rankDisp"] = rankDisp;
     rankInfo["rankVal"] = rankVal;
-    rankInfo["failDisp"] = failDisp;
 
     return rankInfo;
 }
@@ -237,7 +206,6 @@ function getRecipeResult(chef, equip, recipe, quantity, maxQuantity, materials, 
         var rankData = getRankInfo(recipe, chef, equip);
         resultData["rankVal"] = rankData.rankVal;
         resultData["rankDisp"] = rankData.rankDisp;
-        resultData["failDisp"] = rankData.failDisp;
 
         if (rankData.rankVal == 0) {
             return resultData;

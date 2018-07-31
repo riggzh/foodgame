@@ -280,6 +280,14 @@ function initRecipeTable(data) {
         initRecipeShow();
     });
 
+    $('#chk-recipe-show-skill-diff').click(function () {
+        if ($('#chk-recipe-show-chef').val().length) {
+            updateRecipesChefsData(data);
+            reInitRecipeTable(data);
+            initRecipeShow();
+        }
+    });
+
     $('.chk-recipe-show').click(function () {
         initRecipeShow();
         updateMenuLocalData();
@@ -500,17 +508,30 @@ function reInitRecipeTable(data) {
         }
     }
 
+    var chkSkillDiff = $('#chk-recipe-show-skill-diff').prop("checked");
     var chkChefs = $('#chk-recipe-show-chef').val();
     for (var i in chkChefs) {
         for (j in data.chefs) {
             if (chkChefs[i] == data.chefs[j].chefId) {
-                $('#recipe-table thead tr').append("<th>" + data.chefs[j].name + "</th>").append("<th>效率</th>");
+                $('#recipe-table thead tr').append("<th>" + data.chefs[j].name + "</th>");
+                if (chkSkillDiff) {
+                    $('#recipe-table thead tr').append("<th>差值</th>");
+                }
+                $('#recipe-table thead tr').append("<th>效率</th>");
                 recipeColumns.push({
                     "data": {
                         "_": "chefs." + i + ".rankVal",
                         "display": "chefs." + i + ".rankDisp"
                     }
                 });
+                if (chkSkillDiff) {
+                    recipeColumns.push({
+                        "data": {
+                            "_": "chefs." + i + ".skillDiffVal",
+                            "display": "chefs." + i + ".skillDiffDisp"
+                        }
+                    });
+                }
                 recipeColumns.push({
                     "data": "chefs." + i + ".efficiency"
                 });
@@ -607,6 +628,7 @@ function updateRecipesMaterialsData(data) {
 
 function updateRecipesChefsData(data) {
     var useEquip = $("#chk-chef-apply-equips").prop("checked");
+    var chkSkillDiff = $('#chk-recipe-show-skill-diff').prop("checked");
     var chkChefs = $('#chk-recipe-show-chef').val();
     if (chkChefs.length > 0) {
         for (var i in data.recipes) {
@@ -619,10 +641,18 @@ function updateRecipesChefsData(data) {
                             equip = data.chefs[j].equip;
                         }
                         var resultInfo = getRecipeResult(data.chefs[j], equip, data.recipes[i], 1, 1, data.materials, null, 0);
+
                         var resultData = new Object();
                         resultData["rankVal"] = resultInfo.rankVal;
                         resultData["rankDisp"] = resultInfo.rankDisp;
                         resultData["efficiency"] = resultInfo.chefEff || "";
+
+                        if (chkSkillDiff) {
+                            var skillDiff = getSkillDiff(data.chefs[j], data.recipes[i], 4);
+                            resultData["skillDiffDisp"] = skillDiff.disp;
+                            resultData["skillDiffVal"] = skillDiff.value;
+                        }
+
                         data.recipes[i]["chefs"].push(resultData);
                         break;
                     }
@@ -630,6 +660,47 @@ function updateRecipesChefsData(data) {
             }
         }
     }
+}
+
+function getSkillDiff(chef, recipe, rank) {
+    var stirfry = chef.stirfryVal - recipe.stirfry * rank;
+    var boil = chef.boilVal - recipe.boil * rank;
+    var knife = chef.knifeVal - recipe.knife * rank;
+    var fry = chef.fryVal - recipe.fry * rank;
+    var bake = chef.bakeVal - recipe.bake * rank;
+    var steam = chef.steamVal - recipe.steam * rank;
+
+    var disp = "";
+    var value = 0;
+    if (stirfry < 0) {
+        disp += "炒" + stirfry + " ";
+        value += stirfry;
+    }
+    if (boil < 0) {
+        disp += "煮" + boil + " ";
+        value += boil;
+    }
+    if (knife < 0) {
+        disp += "切" + knife + " ";
+        value += knife;
+    }
+    if (fry < 0) {
+        disp += "炸" + fry + " ";
+        value += fry;
+    }
+    if (bake < 0) {
+        disp += "烤" + bake + " ";
+        value += bake;
+    }
+    if (steam < 0) {
+        disp += "蒸" + steam + " ";
+        value += steam;
+    }
+
+    var result = new Object();
+    result["disp"] = disp;
+    result["value"] = -value;
+    return result;
 }
 
 function updateChefsRecipesData(data) {
@@ -2261,7 +2332,8 @@ function calCustomResults(rule, data) {
             if (resultData.rankVal > 0) {
                 custom[i].recipe = resultData;
             } else {
-                custom[i].recipe["disp"] += "<br><small>" + resultData.failDisp + "</small>";
+                var skillDiff = getSkillDiff(custom[i].chef, custom[i].recipe.data, 1);
+                custom[i].recipe["disp"] += "<br><small>" + skillDiff.disp + "</small>";
             }
         }
     }
