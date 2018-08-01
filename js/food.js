@@ -4002,7 +4002,7 @@ function getEquipsOptions(equips, skills) {
     list.push(option);
     for (var i in equips) {
         var skillInfo = getSkillInfo(skills, equips[i].skill);
-        var skillDisp = skillInfo.skillDisp.replace("<br>", " ");
+        var skillDisp = skillInfo.skillDisp.replace(/<br>/g, " ");
         var option = new Object();
         option["display"] = equips[i].name;
         option["subtext"] = skillDisp;
