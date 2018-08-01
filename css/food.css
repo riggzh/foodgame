@@ -34,6 +34,7 @@ label.btn input[type="checkbox"]:checked+.fa {
 
 .box>.btn,
 .box>.chk-recipe-show-chef-wrapper,
+.box>.chk-recipe-show-material-wrapper,
 .box>.chk-chef-show-recipe-wrapper,
 .box>.input-group {
     margin: 3px 0;
@@ -44,6 +45,7 @@ label.btn input[type="checkbox"]:checked+.fa {
 }
 
 .chk-recipe-show-chef-wrapper,
+.chk-recipe-show-material-wrapper,
 .chk-chef-show-recipe-wrapper {
     display: inline-block;
 }
@@ -289,10 +291,6 @@ table.dataTable tbody>tr>.selected {
     text-align: center;
 }
 
-#input-cal-optimal-recipes-results-show-top {
-    width: 45px;
-}
-
 .cal-td-input-addition .form-control {
     width: 60px;
 }
@@ -349,4 +347,8 @@ table.dataTable tbody>tr>.selected {
 
 #cal-ultimate .input-group .form-control {
     width: 50px;
+}
+
+.main-function {
+    position: relative;
 }
