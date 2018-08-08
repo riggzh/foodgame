@@ -4398,9 +4398,13 @@ $.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
                             $(this).updateEditableCell(this, settings);
                         });
                     } else if (input.type == "list") {
-                        $(cell).find("select").selectpicker('toggle').on('hidden.bs.select', function (e) {
+                        $(cell).find("select").selectpicker('hide').on('hidden.bs.select', function (e) {
                             $(this).updateEditableCell(this, settings);
-                        });;
+                        });
+
+                        setTimeout(function () {
+                            $(cell).find("select").selectpicker('toggle').selectpicker('show');
+                        }, 0);
 
                         if (input.settings.clear) {
                             $("<div class='bs-actionsbox'><div class='btn-group btn-group-sm btn-block'><button type='button' class='btn btn-default btn-bs-clear'>清空</button></div></div>")
