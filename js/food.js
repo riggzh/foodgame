@@ -80,6 +80,7 @@ function initTables(data, person) {
         initCalTables(data);
         $(".nav-tabs li").removeClass("hidden");
         $('#chk-recipe-show-tags').parent(".btn").removeClass('hidden');
+        $('#chk-chef-show-tags').parent(".btn").removeClass('hidden');
     }
 
     initInfo(data);
@@ -933,7 +934,6 @@ function initChefTable(data) {
     });
 
     if (private) {
-        $('#chk-chef-show-tags').parent(".btn").removeClass('hidden');
         $('#chk-chef-no-origin').closest(".box").removeClass('hidden');
     }
 
@@ -1464,6 +1464,10 @@ function importData(data, input) {
                 }
                 break;
             }
+        }
+
+        if (person.tags) {
+            data.chefs[i].tagsDisp = getTagsDisp(data.chefs[i].tags, person.tags);
         }
     }
 
@@ -4186,7 +4190,7 @@ function initChefShow() {
     chefTable.column(14).visible($('#chk-chef-show-gender').prop("checked"), false);
     chefTable.column(15).visible($('#chk-chef-show-origin').prop("checked"), false);
 
-    if (private) {
+    if (cal) {
         chefTable.column(16).visible($('#chk-chef-show-tags').prop("checked"), false);
     } else {
         chefTable.column(16).visible(false, false);
