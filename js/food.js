@@ -359,7 +359,7 @@ function initRecipeTable(data) {
     $('#chk-recipe-filter-guest').click(function () {
         $('#recipe-table').DataTable().rows().every(function (rowIdx, tableLoop, rowLoop) {
             var recipe = this.data();
-            var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank, data.guests);
+            var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank);
             recipe.rankGuestsVal = rankGuestInfo.rankGuestsVal;
             recipe.rankGuestsDisp = rankGuestInfo.rankGuestsDisp;
             this.data(recipe);
@@ -470,7 +470,7 @@ function reInitRecipeTable(data) {
             }
         },
         {
-            "data": "godAntiqueDisp"
+            "data": "gift"
         },
         {
             "data": "rank",
@@ -583,7 +583,7 @@ function reInitRecipeTable(data) {
         ],
         "onUpdate": function (table, row, cell, oldValue) {
             var recipe = row.data();
-            var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank, data.guests);
+            var rankGuestInfo = getRankGuestInfo(recipe, recipe.rank);
             recipe.rankGuestsVal = rankGuestInfo.rankGuestsVal;
             recipe.rankGuestsDisp = rankGuestInfo.rankGuestsDisp;
             $(table.cell(row.index(), 21).node()).html(recipe.rankGuestsDisp);  // rank guest
@@ -1421,7 +1421,7 @@ function importData(data, input) {
             if (data.recipes[i].recipeId == person.recipes[j].id) {
                 if (person.recipes[j].hasOwnProperty("rank")) {
                     data.recipes[i].rank = person.recipes[j].rank;
-                    var rankGuestInfo = getRankGuestInfo(data.recipes[i], data.recipes[i].rank, data.guests);
+                    var rankGuestInfo = getRankGuestInfo(data.recipes[i], data.recipes[i].rank);
                     data.recipes[i].rankGuestsVal = rankGuestInfo.rankGuestsVal;
                     data.recipes[i].rankGuestsDisp = rankGuestInfo.rankGuestsDisp;
                 }
@@ -1743,7 +1743,7 @@ function initCalRules(data) {
 
     $("#input-cal-decoration").val(Number(data.decorationEffect).mul(100) || "");
 
-    loadPersonUltimate(data);
+    loadUltimate(data, true);
 
     $("#btn-cal-rule-load").click(function () {
         var ruleId = Math.floor($("#select-cal-rule").val());
@@ -1814,7 +1814,13 @@ function initCalRules(data) {
     $("#btn-cal-load-ultimate").click(function () {
         $("#btn-cal-update").removeClass("btn-default").addClass("btn-danger");
         $("#cal-ultimate input").val("");
-        loadPersonUltimate(data);
+        loadUltimate(data, true);
+    });
+
+    $("#btn-cal-load-all-ultimate").click(function () {
+        $("#btn-cal-update").removeClass("btn-default").addClass("btn-danger");
+        $("#cal-ultimate input").val("");
+        loadUltimate(data, false);
     });
 
     $("#btn-cal-clear-ultimate").click(function () {
@@ -1865,14 +1871,14 @@ function initCalRules(data) {
     }
 }
 
-function loadPersonUltimate(data) {
+function loadUltimate(data, usePerson) {
     var person;
     try {
         var localData = localStorage.getItem('data');
         person = JSON.parse(localData);
     } catch (e) { }
 
-    var ultimateData = getUltimateData(data.chefs, person, data.skills, true, true);
+    var ultimateData = getUltimateData(data.chefs, person, data.skills, true, usePerson, false);
     for (var i in ultimateData) {
         if (ultimateData[i].type == "全体厨师炒技法") {
             $("#input-cal-ultimate-stirfry").val(ultimateData[i].addition);
@@ -1913,6 +1919,8 @@ function loadPersonUltimate(data) {
         } else if (ultimateData[i].type == "4星菜谱售价") {
             $("#input-cal-ultimate-4-price").val(ultimateData[i].addition.mul(100));
             continue;
+        } else if (ultimateData[i].type.indexOf("探索") > -1) {
+            continue
         } else {
             console.log(ultimateData[i].type);
         }
@@ -3096,6 +3104,7 @@ function initCalResultsTable(data) {
             var calEquipsData = $('#cal-equips-table').DataTable().rows({ selected: true }).data().toArray();
             var calMaterialsData = $('#cal-materials-table').DataTable().rows({ selected: true }).data().toArray();
             var autoEquips = $('#chk-cal-results-equips').prop("checked");
+            var changeEquips = $('#chk-cal-results-equips-change').prop("checked");
 
             calOptimalWorker.postMessage({
                 "mode": "optimal",
@@ -3105,7 +3114,8 @@ function initCalResultsTable(data) {
                 "equips": calEquipsData,
                 "materials": calMaterialsData,
                 "odata": data,
-                "autoEquips": autoEquips
+                "autoEquips": autoEquips,
+                "changeEquips": changeEquips
             });
         });
     }
@@ -3447,7 +3457,7 @@ function generateData(json, json2, person) {
     var useEquip = $("#chk-chef-apply-equips").prop("checked");
     var useUltimate = $("#chk-chef-apply-ultimate").prop("checked");
     var usePerson = $("#chk-chef-apply-ultimate-person").prop("checked");
-    var ultimateData = getUltimateData(json.chefs, person, json.skills, useUltimate, usePerson);
+    var ultimateData = getUltimateData(json.chefs, person, json.skills, useUltimate, usePerson, true);
 
     var chefsData = new Array();
     for (var i in json.chefs) {
@@ -3613,24 +3623,9 @@ function generateData(json, json2, person) {
         }
         recipeData["allMaterialsEff"] = materialsEff ? Math.floor(materialsEff) : "";
 
-        var rankGuestInfo = getRankGuestInfo(json.recipes[i], recipeData.rank, json.guests);
+        var rankGuestInfo = getRankGuestInfo(json.recipes[i], recipeData.rank);
         recipeData["rankGuestsVal"] = rankGuestInfo.rankGuestsVal;
         recipeData["rankGuestsDisp"] = rankGuestInfo.rankGuestsDisp;
-
-        var godAntiqueDisp = "";
-        if (json.recipes[i].godAntique) {
-            if (isNaN(json.recipes[i].godAntique)) {
-                godAntiqueDisp = json.recipes[i].godAntique;
-            } else {
-                for (var j in json.antiques) {
-                    if (json.recipes[i].godAntique == json.antiques[j].antiqueId) {
-                        godAntiqueDisp = json.antiques[j].name;
-                        break;
-                    }
-                }
-            }
-        }
-        recipeData["godAntiqueDisp"] = godAntiqueDisp;
 
         var guests = "";
         for (var m in json.guests) {
@@ -3675,7 +3670,7 @@ function getUpdateData(data) {
     var useEquip = $("#chk-chef-apply-equips").prop("checked");
     var useUltimate = $("#chk-chef-apply-ultimate").prop("checked");
     var usePerson = $("#chk-chef-apply-ultimate-person").prop("checked");
-    var ultimateData = getUltimateData(data.chefs, person, data.skills, useUltimate, usePerson);
+    var ultimateData = getUltimateData(data.chefs, person, data.skills, useUltimate, usePerson, true);
 
     for (var i in data.chefs) {
         setDataForChef(data.chefs[i], ultimateData, useEquip);
@@ -3784,7 +3779,7 @@ function getOriginVal(origin) {
     return originVal;
 }
 
-function getRankGuestInfo(recipe, rank, guests) {
+function getRankGuestInfo(recipe, rank) {
     var rankGuestsDisp = "";
     var rankGuestsVal = "";
 
@@ -3792,23 +3787,24 @@ function getRankGuestInfo(recipe, rank, guests) {
 
     for (var i in recipe.guests) {
         if (filter) {
-            if (rank == "优" && recipe.guests[i].rank == "优"
-                || rank == "特" && recipe.guests[i].rank != "神"
+            if (rank == "优" && i == 0
+                || rank == "特" && i != 2
                 || rank == "神") {
                 continue;
             }
         }
-        var guestName = "";
-        if (recipe.guests[i].guest) {
-            for (var j in guests) {
-                if (recipe.guests[i].guest == guests[j].guestId) {
-                    guestName = guests[j].name;
-                    break;
-                }
-            }
+
+        var rankDisp = "";
+        if (i == 0) {
+            rankDisp = "优"
+        } else if (i == 1) {
+            rankDisp = "特"
+        } else if (i == 2) {
+            rankDisp = "神"
         }
-        rankGuestsDisp += recipe.guests[i].rank + "-" + guestName + "<br>";
-        rankGuestsVal += guestName;
+
+        rankGuestsDisp += rankDisp + "-" + recipe.guests[i].guest + "<br>";
+        rankGuestsVal += recipe.guests[i].guest;
     }
 
     var retData = new Object();
@@ -3817,7 +3813,7 @@ function getRankGuestInfo(recipe, rank, guests) {
     return retData;
 }
 
-function getUltimateData(chefs, person, skills, useUltimate, usePerson) {
+function getUltimateData(chefs, person, skills, useUltimate, usePerson, useUnknow) {
     var ultimateData = new Array();
     if (useUltimate) {
         for (var i in chefs) {
@@ -3835,7 +3831,9 @@ function getUltimateData(chefs, person, skills, useUltimate, usePerson) {
                         }
                     }
                 } else {
-                    valid = true;
+                    if (useUnknow || chefs[i].origin && chefs[i].rarity < 5) {
+                        valid = true;
+                    }
                 }
 
                 if (valid) {
