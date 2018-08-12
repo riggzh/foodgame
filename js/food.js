@@ -1485,7 +1485,7 @@ function importData(data, input) {
             options += "<option value='" + person.rules[i].Id + "'>" + person.rules[i].Title + "</option>";
         }
     }
-    $("#select-cal-rule").append(options);
+    $("#select-cal-rule").append(options).selectpicker('refresh');
 
     updateMenu(data, person);
 
@@ -1735,9 +1735,7 @@ function initCalRules(data) {
     for (var i in data.rules) {
         options += "<option value='" + data.rules[i].Id + "'>" + data.rules[i].Title + "</option>";
     }
-    $("#select-cal-rule").append(options);
-
-    $("#select-cal-rule").change(function () {
+    $("#select-cal-rule").append(options).selectpicker('refresh').change(function () {
         $("#btn-cal-rule-load").removeClass("btn-default").addClass("btn-danger");
     });
 
@@ -2074,7 +2072,7 @@ function loadRule(data, rule) {
             continue;
         }
 
-        if (rule.hasOwnProperty("RecipesTagsEffect") && rule.RecipesTagsEffect.length > 0) {
+        if (rule.RecipesTagsEffect.length > 0) {
             for (var j in allRecipes[i].tags) {
                 for (var k in rule.RecipesTagsEffect) {
                     if (allRecipes[i].tags[j] == rule.RecipesTagsEffect[k].TagID) {
@@ -2084,7 +2082,7 @@ function loadRule(data, rule) {
             }
         }
 
-        if (rule.hasOwnProperty("RecipesEffect") && rule.RecipesEffect.length > 0) {
+        if (rule.RecipesEffect.length > 0) {
             for (var k in rule.RecipesEffect) {
                 if (allRecipes[i].recipeId == rule.RecipesEffect[k].RecipeID) {
                     allRecipes[i].addition = Number(allRecipes[i].addition).add(rule.RecipesEffect[k].Effect);
@@ -2120,7 +2118,7 @@ function loadRule(data, rule) {
 
         var valid = false;
 
-        if (rule.hasOwnProperty("EnableChefTags")) {
+        if (rule.EnableChefTags.length > 0) {
             for (var j in rule.EnableChefTags) {
                 if (allChefs[i].tags.indexOf(rule.EnableChefTags[j]) >= 0) {
                     valid = true;
@@ -2135,7 +2133,7 @@ function loadRule(data, rule) {
             continue;
         }
 
-        if (rule.hasOwnProperty("ChefsTagsEffect") && rule.ChefsTagsEffect.length > 0) {
+        if (rule.ChefsTagsEffect.length > 0) {
             for (var j in allChefs[i].tags) {
                 for (var k in rule.ChefsTagsEffect) {
                     if (allChefs[i].tags[j] == rule.ChefsTagsEffect[k].TagID) {
@@ -2158,19 +2156,15 @@ function loadRule(data, rule) {
 
     var materials = new Array();
     for (var i in allMaterials) {
-        if (rule.hasOwnProperty("MaterialsEffect")) {
-            for (var j in rule.MaterialsEffect) {
-                if (allMaterials[i].materialId == rule.MaterialsEffect[j].MaterialID) {
-                    allMaterials[i].addition = Number(allMaterials[i].addition).add(rule.MaterialsEffect[j].Effect);
-                }
+        for (var j in rule.MaterialsEffect) {
+            if (allMaterials[i].materialId == rule.MaterialsEffect[j].MaterialID) {
+                allMaterials[i].addition = Number(allMaterials[i].addition).add(rule.MaterialsEffect[j].Effect);
             }
         }
-        if (rule.hasOwnProperty("MaterialsNum")) {
-            for (var j in rule.MaterialsNum) {
-                if (allMaterials[i].materialId == rule.MaterialsNum[j].MaterialID) {
-                    allMaterials[i].quantity = rule.MaterialsNum[j].Num;
-                    break;
-                }
+        for (var j in rule.MaterialsNum) {
+            if (allMaterials[i].materialId == rule.MaterialsNum[j].MaterialID) {
+                allMaterials[i].quantity = rule.MaterialsNum[j].Num;
+                break;
             }
         }
         materials.push(allMaterials[i]);
