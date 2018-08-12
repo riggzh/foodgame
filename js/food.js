@@ -33,14 +33,14 @@ function init(json) {
                         var data = generateData(json, json2, person);
                         initTables(data, person);
                     },
-                    url: 'data/data3.json'
+                    url: 'private/data/data3.json'
                 });
             },
             error: function () {
                 var data = generateData(json, null, person);
                 initTables(data, person);
             },
-            url: 'data/data2.json'
+            url: 'private/data/data2.json'
         });
     } else {
         var data = generateData(json, null, person);
@@ -3077,7 +3077,7 @@ function initCalResultsTable(data) {
             panel.find(".cal-results-progress .progress-bar span").text("预处理中");
             panel.find(".cal-results-progress").removeClass("hidden");
 
-            calOptimalWorker = new Worker("js/cal.js");
+            calOptimalWorker = new Worker("private/js/cal.js");
 
             calOptimalWorker.onmessage = function (event) {
                 if (event.data.progress) {
