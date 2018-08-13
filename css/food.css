@@ -72,10 +72,10 @@ label.btn input[type="checkbox"]:checked+.fa {
     text-align: left;
 }
 
-.search-box input {
+.search-box input.form-control {
     margin-left: .5em;
     display: inline-block;
-    width: auto;
+    width: 160px;
 }
 
 .loading-bg {

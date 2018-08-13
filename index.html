@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.min.css?v=3" />
     <script type="text/javascript" src="js/script.min.js?v=7"></script>
-    <script type="text/javascript" src="js/common.min.js?v=16"></script>
-    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=20" />
-    <script type="text/javascript" src="js/food.min.js?v=75"></script>
+    <script type="text/javascript" src="js/common.min.js?v=17"></script>
+    <link rel="stylesheet" type="text/css" href="css/food.min.css?v=21" />
+    <script type="text/javascript" src="js/food.min.js?v=79"></script>
 </head>
 
 <body>
@@ -783,7 +783,8 @@
                         <div id="pane-cal-rules" class="tab-pane active">
                             <div>
                                 <div class="box form-inline">
-                                    <select id="select-cal-rule" class="form-control"></select>
+                                    <select id="select-cal-rule" class="selectpicker" data-live-search='true' data-width='auto' data-dropdown-align-right='auto'
+                                        data-live-search-placeholder='查找' data-none-results-text='没有找到' data-none-selected-text=''></select>
                                     <label class="btn btn-default hidden">
                                         <input type="checkbox" id="chk-cal-no-origin-recipes">
                                         <i class="fa fa-check glyphicon glyphicon-ok"></i>
@@ -877,6 +878,9 @@
                                     </div>
                                     <button id="btn-cal-load-ultimate" class="btn btn-default" type="button">
                                         读取已修炼
+                                    </button>
+                                    <button id="btn-cal-load-all-ultimate" class="btn btn-default" type="button">
+                                        读取全修炼
                                     </button>
                                     <button id="btn-cal-clear-ultimate" class="btn btn-default" type="button">
                                         清空修炼
@@ -1275,7 +1279,12 @@
                                     <label class="btn btn-default">
                                         <input type="checkbox" id="chk-cal-results-equips">
                                         <i class="fa fa-check glyphicon glyphicon-ok"></i>
-                                        无厨具自动佩戴厨具
+                                        无厨具可带厨具
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="checkbox" id="chk-cal-results-equips-change">
+                                        <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                                        有厨具可换厨具
                                     </label>
                                     <button class="btn btn-default btn-cal-results-cal start" type="button">
                                         <span class="glyphicon glyphicon-pencil"></span>&nbsp;计算最优解
@@ -1420,14 +1429,20 @@
                 <h3>
                     <span class="label label-primary">说明</span>
                 </h3>
-                <p>点击左上角切换功能.</p>
+                <p class="text-primary">国内镜像 -
+                    <a href='https://foodgame.gitee.io'>https://foodgame.gitee.io</a>
+                </p>
+                <p class="text-primary">国外镜像 -
+                    <a href='https://foodgame.github.io'>https://foodgame.github.io</a>
+                </p>
+                <p class="text-primary">注意, 个人数据在两个网站不同步, 换网站时可在原网站导出个人数据, 再在新网站导入数据.</p>
                 <p>图鉴第一组按钮选择显示项, 默认没有全部显示, 后面的负责筛选, 点击列名可以排序.</p>
                 <h4>
                     <span class="label label-info">菜谱图鉴</span>
                 </h4>
                 <p>耗材效率 - 可以看食材的消耗效率.</p>
                 <p>选择厨师 - 可以看厨师可做的品阶以及效率. (如果厨师图签中的修炼技能和厨具技能开关为开, 则会使用相应的数据加成)</p>
-                <p class="text-danger">神级能力差 - 显示所选厨师做神级菜的技能差, 方便选择修炼菜谱. (如果厨师图签中的修炼技能和厨具技能开关为开, 则会使用相应的数据加成)</p>
+                <p>神级能力差 - 显示所选厨师做神级菜的技能差, 方便选择修炼菜谱. (如果厨师图签中的修炼技能和厨具技能开关为开, 则会使用相应的数据加成)</p>
                 <p>升阶贵客 - 第一次菜品升阶(升优-升特-升神)必来的贵客, 该列默认不显示.</p>
                 <p>神级符文 - 第一次做神级菜品时贵客送的符文（升优, 升特时贵客一般只给食材, 升神会送符文或菜谱）, 该列默认不显示.</p>
                 <p>升阶贵客、神级符文搜索框 - 仅搜索升阶贵客和神级符文这两列, 该搜索主要用于做贵客的碰瓷任务.</p>

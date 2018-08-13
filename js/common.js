@@ -249,7 +249,7 @@ function getRecipeResult(chef, equip, recipe, quantity, maxQuantity, materials, 
 
     otherAddition = otherAddition.add(Number(recipe.addition));
 
-    if (rule && rule.hasOwnProperty("MaterialsEffect")) {
+    if (rule) {
         var materialsAddition = getMaterialsAddition(recipe, materials);
         otherAddition = otherAddition.add(materialsAddition);
     }
